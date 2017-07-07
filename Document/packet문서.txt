@@ -1,0 +1,70 @@
+
+ 
+ ============================ Lobby =================================================== 
+ RequestLogin 로그인요청
+ 
+ ResponseLogin  ( 유저정보 ) 나중에 그냥 응답만
+
+ RequestRoomList  룸 리스트 요청   (생략가능 기본 룸0번으로 입장하면됨)                         
+
+ ResponseRoomList ( int roomindex, int usercount )
+
+ RequestEnterField   ( int tanktype, string nickname, int roomindex, )
+
+ ResponseEnterField   ( int result    0 이오면 gamescene으로 이동시킴 )
+
+ ======================= Game ========================================================
+ 
+
+
+ C--->S
+
+ SendLoadingComplete 
+
+ SendUserPos()  0.1 초에 한번씩 서버로 보냄   float posx, posz
+
+ SendUserClickInfo()  좌표클릭시 서버로보냄 atttack true 공격 아니면 이동 ( 제한은 클라이언트에서 함 )    float posx, posz, bool attack
+
+
+ S--->C
+
+ SendLoadingComplete 패킷을 받으면
+ 
+ EnterUser()  userinfo( int tanktype, string nickname, int index ) 나를 포함한 유저가 1명들어올때마다 받는다
+ 
+ ReceiveUserPos ()  0.1초에 한번씩 서버에서 유저 위치를 받음
+
+ ReceiveUserDamage () 피격시마다 int playindex, int damage, int hp 
+
+ Dead()  int index, int killindex  죽었을시 죽은대상과 죽인대상
+
+ Revive() int index , float posx, posz  죽었을시 죽은대상과 부활 위치
+
+
+==========
+
+ 탱크정보 기본으로 hp 100으로 통일 임시로
+  
+
+
+
+ 
+
+ 
+
+ 
+  
+  
+
+
+ 
+ 
+
+
+ 
+
+
+
+ 
+
+ 
