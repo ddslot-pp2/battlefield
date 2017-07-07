@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyObject : MonoBehaviour {
     public int hit;
-    public GameObject objectMng;
+    //public GameObject objectMng;
 
     // Use this for initialization
 }

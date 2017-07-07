@@ -30,9 +30,11 @@
 
  SendLoadingComplete 패킷을 받으면
  
- EnterUser()  userinfo( int tanktype, string nickname, int index ) 나를 포함한 유저가 1명들어올때마다 받는다
+ EnterUser()  userinfo( int tanktype, string nickname, int index, bool my ) 나를 포함한 유저가 1명들어올때마다 받는다
  
  ReceiveUserPos ()  0.1초에 한번씩 서버에서 유저 위치를 받음
+
+ ReceiveUserClickInfo () 좌표클릭 정보가 있을시 보내줌
 
  ReceiveUserDamage () 피격시마다 int playindex, int damage, int hp 
 

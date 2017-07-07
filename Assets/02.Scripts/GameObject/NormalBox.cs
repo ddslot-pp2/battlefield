@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public class NormalBox : DestroyObject {
-    private GameObject objectMng;
+    //private GameObject objectMng;
     public GameObject goldScrew;
     GameObject makeScrew;
     // Use this for initialization
