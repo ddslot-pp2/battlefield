@@ -116,7 +116,7 @@ public class BattleLib : MonoBehaviour {
 		BattleLib.Instance.m_gameStart = true;
 	}
 
-
+	/*
 	public void InitBattleEntity()
 	{
 		Debug.Log("InitBattleEntity");
@@ -129,15 +129,15 @@ public class BattleLib : MonoBehaviour {
 			}
 		}
 	}
+	*/
 
-	public void CreateEntity(int type, int index, string name )
+	public void CreateEntity(int type, int index, string name , bool my, Vector3 spawnPos)
 	{
-		Debug.Log ("CreateEntityIndex: " + index);
-		Vector3 spawnPos = new Vector3();
+		Debug.Log ("CreateEntityIndex: " + type);
+	
+		float RotateValue = Random.Range(0, 350);
 
-		float RotateValue = 0;
-
-		GameObject entity_instance = (GameObject)Instantiate(Resources.Load("Prefab/Tank/Entity"), spawnPos, Quaternion.Euler(0, RotateValue, 0)) as GameObject;
+		GameObject entity_instance = (GameObject)Instantiate(Resources.Load("Prefab/PlayerTank/PlayerTank" + type.ToString()), spawnPos, Quaternion.Euler(0, RotateValue, 0)) as GameObject;
 
 		if (entity_instance == null)
 		{

@@ -23,7 +23,7 @@ public class Tank : Entity {
 
 		base.Init();
 
-		controller = GameObject.Find("BackgroundJoyStick").GetComponent<Controller>();
+		//controller = GameObject.Find("BackgroundJoyStick").GetComponent<Controller>();
 		//스트립트 처음에 Transform 컴포넌트 할당
 		playertank1 = GetComponent<Transform>();
 
@@ -34,6 +34,7 @@ public class Tank : Entity {
 
 		CheckFire();
 
+		/*
 		if (controller.dir.x != 0 && controller.dir.y != 0)
 		{
 			lookDirection = controller.dir.x * Vector3.right + controller.dir.y * Vector3.forward;
@@ -43,6 +44,7 @@ public class Tank : Entity {
 				playertank1.Translate (Vector3.forward * state.moveSpeed * Time.deltaTime);
 			}
 		}
+		*/
 	}
 		
 	virtual public void Fire()

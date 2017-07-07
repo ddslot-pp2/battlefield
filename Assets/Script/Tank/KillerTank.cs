@@ -41,7 +41,7 @@ public class KillerTank : Tank {
 		if (Time.time >= nextfire)
 		{
 			nextfire = Time.time + state.fireRate;
-			GameObject.Find("GameManager").GetComponent<GameManager>().CoolTimeCounter(state.fireRate);
+			//GameObject.Find("GameManager").GetComponent<GameManager>().CoolTimeCounter(state.fireRate);
 			StartCoroutine("CreateBullet");
 			StartCoroutine("CreateBullet2");
 

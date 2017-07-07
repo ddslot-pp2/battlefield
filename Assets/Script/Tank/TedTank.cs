@@ -33,7 +33,7 @@ public class TedTank : Tank {
 		if (Time.time >= nextfire)
 		{
 			nextfire = Time.time + state.fireRate;
-			GameObject.Find("GameManager").GetComponent<GameManager>().CoolTimeCounter(state.fireRate);
+			//GameObject.Find("GameManager").GetComponent<GameManager>().CoolTimeCounter(state.fireRate);
 			CreateBullet();
 
 			//잠시 기다리는 루틴을 위해 코루틴 함수로 호출

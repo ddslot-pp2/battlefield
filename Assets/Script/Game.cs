@@ -8,6 +8,7 @@ public class Game : MonoBehaviour {
 	void Start () 
 	{
 		SendLoadingCompelete();
+		EnterUser ();
 	}
 	
 	// Update is called once per frame
@@ -36,9 +37,14 @@ public class Game : MonoBehaviour {
 
 	}
 
-	public void EnterUser()
+	public void EnterUser( )
 	{
-		
+		int type = 1;
+		int index = 0;
+		string name = "player1";
+		bool my = true;
+		Vector3 spawnPos = new Vector3 (0.0f, 0.0f, 0.0f);
+		BattleLib.Instance.CreateEntity (type, index, name, my, spawnPos);
 	}
 
 	public void ReceiveUserPos()
