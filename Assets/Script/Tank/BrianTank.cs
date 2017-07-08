@@ -14,6 +14,7 @@ public class BrianTank : Tank {
 
 		base.Init();
 
+		muzzleFlash_1.enabled = false;
 		Debug.Log ("init");
 	}
 
@@ -30,7 +31,7 @@ public class BrianTank : Tank {
 
 	void Update()
 	{
-		EntityUpdate ();
+		//EntityUpdate ();
 	}
 
 	public override void Fire()

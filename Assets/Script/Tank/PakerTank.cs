@@ -33,7 +33,7 @@ public class PakerTank : Tank {
 
 	void Update()
 	{
-		EntityUpdate ();
+		//EntityUpdate ();
 	}
 
 

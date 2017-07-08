@@ -44,7 +44,7 @@ public class TedTank : Tank {
 
 	void Update()
 	{
-		EntityUpdate ();
+		//EntityUpdate ();
 	}
 
 	void CreateBullet()

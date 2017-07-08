@@ -35,7 +35,7 @@ public class ChrisTank : Tank {
 
 	void Update()
 	{
-		EntityUpdate ();
+		//EntityUpdate ();
 	}
 
 

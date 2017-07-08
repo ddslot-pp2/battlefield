@@ -33,7 +33,7 @@ public class VulcanTank : Tank {
 
 	void Update()
 	{
-		EntityUpdate ();
+		//EntityUpdate ();
 	}
 
 

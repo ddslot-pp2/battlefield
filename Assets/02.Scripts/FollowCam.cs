@@ -4,7 +4,7 @@ using System;
 
 public class FollowCam : MonoBehaviour {
 
-    private GameObject Player;
+	private  GameObject Player;
 
     public float offsetX;
     public float offsetY;

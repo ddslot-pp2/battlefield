@@ -30,7 +30,7 @@ public class CathyTank : Tank {
 
 	void Update()
 	{
-		EntityUpdate ();
+		//EntityUpdate ();
 	}
 
 

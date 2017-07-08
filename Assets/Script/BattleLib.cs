@@ -78,10 +78,20 @@ public class BattleLib : MonoBehaviour {
 		DontDestroyOnLoad(this);
 	}
 		
-	// Update is called once per frame
-	void Update () {
 
+	public void ProgressBattle()
+	{
+		if (!m_gameStart)
+			return;
 
+		for (int i = 0; i < m_entityList.Length; i++) 
+		{
+			if (m_entityList[i] == null)
+				continue;
+
+			m_entityList [i].EntityUpdate();
+
+		}
 	}
 
 	public void EnterRoom(int index, int type, string name)
@@ -133,9 +143,19 @@ public class BattleLib : MonoBehaviour {
 
 	public void CreateEntity(int type, int index, string name , bool my, Vector3 spawnPos)
 	{
+		if (my) 
+		{
+			m_myIndex = index;
+		}
+
 		Debug.Log ("CreateEntityIndex: " + type);
 	
 		float RotateValue = Random.Range(0, 350);
+
+		if (m_entityList [index] != null) 
+		{
+			Debug.Log ("already create index");
+		}
 
 		GameObject entity_instance = (GameObject)Instantiate(Resources.Load("Prefab/PlayerTank/PlayerTank" + type.ToString()), spawnPos, Quaternion.Euler(0, RotateValue, 0)) as GameObject;
 
@@ -143,6 +163,8 @@ public class BattleLib : MonoBehaviour {
 		{
 			Debug.Log("entity_instance create fail");
 		}
+
+	
 
 		entity_instance.name = index.ToString();
 
@@ -158,11 +180,38 @@ public class BattleLib : MonoBehaviour {
 	
 	}
 
-	public void ReceiveKeyBuffer(int dirKey, int attackKey, int index, int serverTick, float posX, float posY, float posZ, int hp, int eventNumber)
+	public void ReceiveInput( int index, float posX , float posZ , bool attack)
 	{
 		
 		if( m_entityList[index] != null )
-			m_entityList[index].ProgressInput();
+		{
+			m_entityList[index].ProgressInput(posX, posZ, attack  );
+		}
 		
+	}
+
+	public Vector3 GetMyEntityPos()
+	{
+		if (m_myIndex == -1)
+			return Vector3.zero;
+		
+		if (m_entityList [m_myIndex] == null)
+			return Vector3.zero;
+	
+		return m_entityList[m_myIndex].GetEntityPos();
+
+	}
+
+	public void ReceivePos( int index, float posX , float posZ )
+	{
+
+		if( m_entityList[index] != null )
+		{
+			if (index == m_myIndex)
+				return;
+			
+			m_entityList[index].ProgressPos(posX, posZ );
+		}
+
 	}
 }

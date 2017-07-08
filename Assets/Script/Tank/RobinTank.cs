@@ -30,7 +30,7 @@ public class RobinTank : Tank {
 
 	void Update()
 	{
-		EntityUpdate ();
+		//EntityUpdate ();
 	}
 
 

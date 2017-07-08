@@ -38,7 +38,7 @@ public class RoketTank : Tank {
 
 	void Update()
 	{
-		EntityUpdate ();
+		//EntityUpdate ();
 	}
 
 	public override void Fire()

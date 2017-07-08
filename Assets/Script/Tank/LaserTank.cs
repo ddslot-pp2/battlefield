@@ -30,7 +30,7 @@ public class LaserTank : Tank {
 
 	void Update()
 	{
-		EntityUpdate ();
+		//EntityUpdate ();
 	}
 
 	public override void Fire()
