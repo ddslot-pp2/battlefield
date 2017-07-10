@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameLobby : MonoBehaviour {
 
-
 	public void OnConnect(bool result)
 	{
 		if (result)
@@ -47,7 +46,7 @@ public class GameLobby : MonoBehaviour {
 	public void onClickChangeSceneButton()
 	{
 		Debug.Log("로드 sample2 씬");
-		UnityEngine.SceneManagement.SceneManager.LoadScene("sample2");
+		UnityEngine.SceneManagement.SceneManager.LoadScene("GAME");
 	}
 
 	void RegisterProcessorHandler()
@@ -74,14 +73,6 @@ public class GameLobby : MonoBehaviour {
 
 	public void onClickGameStart()
 	{
-		/*
-		Debug.Log("로그인 패킷 보냄");
-		LOBBY.CS_LOG_IN cs_log_in = new LOBBY.CS_LOG_IN();
-		cs_log_in.Id = "으으앙";
-		cs_log_in.Password = "12345";
-
-		session_.send_protobuf(opcode.CS_LOG_IN, cs_log_in);
-		*/
 
 	}
 

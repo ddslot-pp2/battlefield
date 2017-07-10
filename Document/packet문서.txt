@@ -1,17 +1,17 @@
 
  
  ============================ Lobby =================================================== 
- RequestLogin 로그인요청
+ RequestLogin 로그인요청 => CS_LOG_IN
  
- ResponseLogin  ( 유저정보 ) 나중에 그냥 응답만
+ ResponseLogin  ( 유저정보 ) 나중에 그냥 응답만 => SC_LOG_IN
 
- RequestRoomList  룸 리스트 요청   (생략가능 기본 룸0번으로 입장하면됨)                         
+ RequestRoomList  룸 리스트 요청   (생략가능 기본 룸0번으로 입장하면됨) => CS_FIELD_LIST
 
- ResponseRoomList ( int roomindex, int usercount )
+ ResponseRoomList ( int roomindex, int usercount ) => SC_FIELD_LIST
 
- RequestEnterField   ( int tanktype, string nickname, int roomindex, )
+ RequestEnterField   ( int tanktype, string nickname, int roomindex, ) => CS_ENTER_FIELD
 
- ResponseEnterField   ( int result    0 이오면 gamescene으로 이동시킴 )
+ ResponseEnterField   ( int result    0 이오면 gamescene으로 이동시킴 ) => SC_ENTER_FIELD
 
  ======================= Game ========================================================
  

@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using BattleInfo;
-
-
-
+using System;
 
 namespace BattleInfo
 {
@@ -141,16 +139,16 @@ public class BattleLib : MonoBehaviour {
 	}
 	*/
 
-	public void CreateEntity(int type, int index, string name , bool my, Vector3 spawnPos)
+	public void CreateEntity(Int64 obj_id, int type, int index, string name , bool myself, Vector3 spawnPos)
 	{
-		if (my) 
+		if (myself) 
 		{
 			m_myIndex = index;
 		}
 
 		Debug.Log ("CreateEntityIndex: " + type);
 	
-		float RotateValue = Random.Range(0, 350);
+		float RotateValue = UnityEngine.Random.Range(0, 350);
 
 		if (m_entityList [index] != null) 
 		{
@@ -164,9 +162,7 @@ public class BattleLib : MonoBehaviour {
 			Debug.Log("entity_instance create fail");
 		}
 
-	
-
-		entity_instance.name = index.ToString();
+		entity_instance.name = obj_id.ToString();
 
 		m_entityList[index] = entity_instance.GetComponent<Entity>();
 		m_entityList[index].m_index = index;
