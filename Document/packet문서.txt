@@ -19,20 +19,20 @@
 
  C--->S
 
- SendLoadingComplete 
+ SendLoadingComplete  => SC_SYNC_FIELD
 
- SendUserPos()  0.1 초에 한번씩 서버로 보냄   float posx, posz
+ SendUserPos()  0.1 초에 한번씩 서버로 보냄   float posx, posz => SC_NOTI_MOVE
 
  SendUserClickInfo()  좌표클릭시 서버로보냄 atttack true 공격 아니면 이동 ( 제한은 클라이언트에서 함 )    float posx, posz, bool attack
 
 
  S--->C
 
- SendLoadingComplete 패킷을 받으면
+ SendLoadingComplete 패킷을 받으면 => SC_SYNC_FIELD
  
- EnterUser()  userinfo( int tanktype, string nickname, int index, bool my ) 나를 포함한 유저가 1명들어올때마다 받는다
+ EnterUser()  userinfo( int tanktype, string nickname, int index, bool my ) 나를 포함한 유저가 1명들어올때마다 받는다 => SC_NOTI_OTHER_ENTER_FIELD
  
- ReceiveUserPos ()  0.1초에 한번씩 서버에서 유저 위치를 받음
+ ReceiveUserPos ()  0.1초에 한번씩 서버에서 유저 위치를 받음 => SC_NOTI_OTHER_MOVE
 
  ReceiveUserClickInfo () 좌표클릭 정보가 있을시 보내줌
 

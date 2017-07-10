@@ -191,7 +191,13 @@ public class Game : MonoBehaviour {
 		BattleLib.Instance.CreateEntity (obj_id, type, index, name, myself, pos);
 	}
 
-	public void ReceiveUserPos(int index, float posX, float posZ)
+    // 유저 나갔을 경우 삭제
+    public void LeaveUser(Int64 obj_id, int index)
+    {
+        
+    }
+
+    public void ReceiveUserPos(int index, float posX, float posZ)
 	{
 		BattleLib.Instance.ReceivePos(index, posX, posZ);
 	}
