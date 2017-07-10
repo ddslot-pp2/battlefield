@@ -123,6 +123,10 @@ public class Game : MonoBehaviour {
 
 	}
 
+	void Awake ()
+	{
+		BattleLib.Instance.Init();
+	}
     // Use this for initialization
     void Start () 
 	{
@@ -253,7 +257,12 @@ public class Game : MonoBehaviour {
     // 유저 나갔을 경우 삭제
     public void LeaveUser(Int64 obj_id, int index)
     {
-        
+		BattleLib.Instance.DeleteEntity (index);
+
+		if (index == MyIndex) 
+		{
+			UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby");
+		}
     }
 
     public void ReceiveUserPos(int index, float posX, float posZ)

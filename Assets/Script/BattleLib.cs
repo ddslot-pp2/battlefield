@@ -76,6 +76,15 @@ public class BattleLib : MonoBehaviour {
 		DontDestroyOnLoad(this);
 	}
 		
+	public void Init()
+	{
+		m_gameStart = false;
+
+		for (int i = 0; i < m_entityList.Length; i++) 
+		{
+			m_entityList[i] = null;
+		}
+	}
 
 	public void ProgressBattle()
 	{
@@ -174,6 +183,19 @@ public class BattleLib : MonoBehaviour {
 		}
 
 	
+	}
+
+	public void DeleteEntity(int index)
+	{
+		if (m_entityList[index] == null) 
+		{
+			Debug.Log ("already create index");
+			return;
+		}
+
+		DestroyObject (m_entityList [index].gameObject);
+		m_entityList [index] = null;
+
 	}
 
 	public GameObject GetEntity( int index )
