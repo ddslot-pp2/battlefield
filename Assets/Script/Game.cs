@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Net.Sockets;
 using System;
+using GameCore;
 
 public class Game : MonoBehaviour {
 
 	public GameCamera gameCamera;
+	TouchDispatcher _TouchDispatcher = new TouchDispatcher();
 
 	protected RaycastHit TFire;
 	Vector3 Click;
+	Vector3 BeginPos;
 
 	float lastSendTime;
 
@@ -84,6 +87,42 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_OTHER_MOVE>(opcode.SC_NOTI_OTHER_MOVE, handler_SC_NOTI_OTHER_MOVE);
     }
 
+	void OnTouchBegan(Vector3 pos)
+	{
+		//Debug.Log ("OnTouchBegan:");
+		BeginPos = pos;
+	}
+
+	void OnTouchMoved(Vector3 pos)
+	{
+		//Debug.Log ("OnTouchMoved:");
+	}
+
+	void OnTouchPressed(Vector3 pos)
+	{
+		//Debug.Log ("OnTouchPressed:");
+	}
+
+	void OnTouchEnded(Vector3 pos)
+	{
+		Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out TFire);
+		Click = TFire.point;
+	
+
+		//Debug.Log ("OnTouchEnded:");
+		if (Vector3.Distance (BeginPos, pos) > 30.0f) 
+		{
+			//Debug.Log ("Swipe:");
+
+			SendUserClickInfo(Click.x, Click.z, true);
+		} 
+		else 
+		{
+			SendUserClickInfo(Click.x, Click.z, false);
+		}
+
+	}
+
     // Use this for initialization
     void Start () 
 	{
@@ -95,22 +134,33 @@ public class Game : MonoBehaviour {
 
         SendSyncField();
 
+		_TouchDispatcher.BeganDelegate = new TouchDispatcher.TouchDelegate(OnTouchBegan);
+		_TouchDispatcher.MovedDelegate = new TouchDispatcher.TouchDelegate(OnTouchMoved);
+		_TouchDispatcher.PressedDelegate = new TouchDispatcher.TouchDelegate(OnTouchPressed);
+		_TouchDispatcher.EndedDelegate = new TouchDispatcher.TouchDelegate(OnTouchEnded);
+
 		// 테스트용 생성
 		//EnterUser (1,0,"aaa", false, new Vector3(0.0f,0.0f,0.0f));
 		//EnterUser (2,1,"bbb", false, new Vector3(10.0f,0.0f,0.0f));
 		//EnterUser (3,2,"bbb", false, new Vector3(20.0f,0.0f,0.0f));
 	}
 	// Update is called once per frame
+
+	void LateUpdate()
+	{
+		_TouchDispatcher.Update();
+	}
 	void Update () 
 	{
         // 업데이트 할때마다 패킷을 처리해 핸들러를 호출
         ProtobufManager.Instance().ProcessPacket();
 
+		/*
         if (Input.GetMouseButtonDown(0))
 		{
 			Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out TFire);
 
-			//Debug.Log ("TFire:" + TFire.transform.gameObject.tag);
+			Debug.Log ("Input.mousePosition:" + Input.mousePosition);
 
 			Click = TFire.point;
 			Click.y = transform.position.y;
@@ -123,6 +173,8 @@ public class Game : MonoBehaviour {
 
 			SendUserClickInfo(Click.x, Click.z, attack);
 		}
+		*/
+
 
 		BattleLib.Instance.ProgressBattle();
 
@@ -184,7 +236,7 @@ public class Game : MonoBehaviour {
 
 	public void ReceiveUserClickInfo(int index, float posX, float posZ, bool attack )
 	{
-        //Debug.Log("PosX: " + posX + ", PosZ: " + posZ);
+        Debug.Log("PosX: " + posX + ", PosZ: " + posZ);
 		BattleLib.Instance.ReceiveInput(index, posX, posZ, attack);
 	}
 
