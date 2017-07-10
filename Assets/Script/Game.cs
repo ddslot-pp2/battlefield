@@ -6,6 +6,8 @@ using System;
 
 public class Game : MonoBehaviour {
 
+	public GameCamera gameCamera;
+
 	protected RaycastHit TFire;
 	Vector3 Click;
 
@@ -189,6 +191,11 @@ public class Game : MonoBehaviour {
 	public void EnterUser(Int64 obj_id, int type, int index, string name, bool myself, Vector3 pos)
 	{
 		BattleLib.Instance.CreateEntity (obj_id, type, index, name, myself, pos);
+
+		if (myself) 
+		{
+			gameCamera.SetTarget(BattleLib.Instance.GetEntity (index).transform);		
+		}
 	}
 
     // 유저 나갔을 경우 삭제

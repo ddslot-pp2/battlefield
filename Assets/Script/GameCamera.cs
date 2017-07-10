@@ -28,4 +28,9 @@ public class GameCamera : MonoBehaviour {
 		cameraPosition = new Vector3 (targetObject.position.x + offsetX, targetObject.position.y + offsetY, targetObject.position.z + offsetZ);
 		transform.position = Vector3.Lerp(transform.position, cameraPosition, followSpeed * Time.deltaTime);
 	}
+
+	public void SetTarget(Transform target)
+	{
+		targetObject = target;
+	}
 }

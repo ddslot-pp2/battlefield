@@ -176,6 +176,11 @@ public class BattleLib : MonoBehaviour {
 	
 	}
 
+	public GameObject GetEntity( int index )
+	{
+		return m_entityList [index].gameObject;
+	}
+
 	public void ReceiveInput( int index, float posX , float posZ , bool attack)
 	{
 		
