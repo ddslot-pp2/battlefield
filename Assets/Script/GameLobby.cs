@@ -1,12 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using network;
 
 public class GameLobby : MonoBehaviour {
 
-
-	public protobuf_session session_;
 
 	public void OnConnect(bool result)
 	{
@@ -27,12 +24,12 @@ public class GameLobby : MonoBehaviour {
 
 	void Connect()
 	{
-		session_.connect();
+		
 	}
 
 	void Disconnect()
 	{
-		session_.disconnect();
+		
 	}
 
 	public void onClickConnectButton()
@@ -55,23 +52,18 @@ public class GameLobby : MonoBehaviour {
 
 	void RegisterProcessorHandler()
 	{
-		session_.processor_LOBBY_SC_LOG_IN = processor_LOBBY_SC_LOG_IN;
+		
 	}
 
 	void Start()
 	{
-		session_ = protobuf_session.getInstance();
-		session_.init();
-
-		session_.scene_connected_callback = OnConnect;
-		session_.scene_disconnected_callback = OnDisconnect;
-
-		RegisterProcessorHandler();
+	
+		
 	}
 
 	void Update()
 	{
-		session_.process_packet();
+	
 
 	}
 
@@ -93,9 +85,5 @@ public class GameLobby : MonoBehaviour {
 
 	}
 
-	void processor_LOBBY_SC_LOG_IN(LOBBY.SC_LOG_IN read)
-	{
-		Debug.Log("패킷 로그인 받음");
-		Debug.Log("Result: " + read.Result);
-	}
+	
 }
