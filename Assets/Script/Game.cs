@@ -21,6 +21,7 @@ public class Game : MonoBehaviour {
     int MyIndex;
 
     Dictionary<Int64, int> IndexInfos_;
+    Queue<int> IndexQueue_;
 
     // 1초에 5번만
     private const float UPDATE_MOVE_INTERVAL = 1.0f / 5.0f;
@@ -60,6 +61,16 @@ public class Game : MonoBehaviour {
 
     public void handler_SC_NOTI_OTHER_ENTER_FIELD(GAME.SC_NOTI_OTHER_ENTER_FIELD read)
     {
+        // 인덱스 재활용
+        if (IndexQueue_.Count > 0)
+        {
+            var index = IndexQueue_.Dequeue();
+
+            IndexInfos_[read.ObjId] = index;
+            EnterUser(read.ObjId, read.TankType, index, read.Nickname, false, new Vector3(read.PosX, read.PosY, read.PosZ));
+            return;
+        }
+
         IndexInfos_[read.ObjId] = Index;
         EnterUser(read.ObjId, read.TankType, Index++, read.Nickname, false, new Vector3(read.PosX, read.PosY, read.PosZ));
     }
@@ -131,6 +142,7 @@ public class Game : MonoBehaviour {
     void Start () 
 	{
         IndexInfos_ = new Dictionary<Int64, int>();
+        IndexQueue_ = new Queue<int>();
         Index = 0;
         MyObjId = 0;
 
@@ -259,7 +271,9 @@ public class Game : MonoBehaviour {
     {
 		BattleLib.Instance.DeleteEntity (index);
 
-		if (index == MyIndex) 
+        IndexQueue_.Enqueue(index);
+
+        if (index == MyIndex) 
 		{
 			UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby");
 		}
