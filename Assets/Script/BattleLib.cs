@@ -148,6 +148,12 @@ public class BattleLib : MonoBehaviour {
 	}
 	*/
 
+	public void CreateBullet(int index, float distance, float posx, float posz, float speed)
+	{
+		Tank tankobject = m_entityList[index] as Tank;
+		tankobject.CreateBullet (posx, posz, speed, distance);
+	}
+
 	public void CreateEntity(Int64 obj_id, int type, int index, string name , bool myself, Vector3 spawnPos)
 	{
 		if (myself) 

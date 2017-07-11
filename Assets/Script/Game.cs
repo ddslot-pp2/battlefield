@@ -116,20 +116,16 @@ public class Game : MonoBehaviour {
 
 	void OnTouchEnded(Vector3 pos)
 	{
+		
 		Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out TFire);
-		Click = TFire.point;
-	
 
-		//Debug.Log ("OnTouchEnded:");
 		if (Vector3.Distance (BeginPos, pos) > 30.0f) 
 		{
-			//Debug.Log ("Swipe:");
-
-			SendUserClickInfo(Click.x, Click.z, true);
+			SendUserClickInfo(TFire.point.x, TFire.point.z, true);
 		} 
 		else 
 		{
-			SendUserClickInfo(Click.x, Click.z, false);
+			SendUserClickInfo(TFire.point.x, TFire.point.z, false);
 		}
 
 	}
@@ -138,6 +134,7 @@ public class Game : MonoBehaviour {
 	{
 		BattleLib.Instance.Init();
 	}
+
     // Use this for initialization
     void Start () 
 	{
@@ -171,36 +168,7 @@ public class Game : MonoBehaviour {
         // 업데이트 할때마다 패킷을 처리해 핸들러를 호출
         ProtobufManager.Instance().ProcessPacket();
 
-		/*
-        if (Input.GetMouseButtonDown(0))
-		{
-			Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out TFire);
-
-			Debug.Log ("Input.mousePosition:" + Input.mousePosition);
-
-			Click = TFire.point;
-			Click.y = transform.position.y;
-
-			bool attack = false;
-			if (TFire.transform.gameObject.tag == "Tank") 
-			{
-				attack = true;
-			}
-
-			SendUserClickInfo(Click.x, Click.z, attack);
-		}
-		*/
-
-
 		BattleLib.Instance.ProgressBattle();
-
-        /*
-		if (lastSendTime + 0.1f < Time.time)
-		{
-			SendUserPos();
-			lastSendTime = Time.time;
-		}
-        */
 
         LastUpdateMoveTime_ = LastUpdateMoveTime_ + Time.deltaTime;
         if (LastUpdateMoveTime_ >= UPDATE_MOVE_INTERVAL)
@@ -252,7 +220,7 @@ public class Game : MonoBehaviour {
 
 	public void ReceiveUserClickInfo(int index, float posX, float posZ, bool attack )
 	{
-        Debug.Log("PosX: " + posX + ", PosZ: " + posZ);
+        //Debug.Log("PosX: " + posX + ", PosZ: " + posZ);
 		BattleLib.Instance.ReceiveInput(index, posX, posZ, attack);
 	}
 
@@ -265,7 +233,7 @@ public class Game : MonoBehaviour {
 			gameCamera.SetTarget(BattleLib.Instance.GetEntity (index).transform);		
 		}
 	}
-
+		
     // 유저 나갔을 경우 삭제
     public void LeaveUser(Int64 obj_id, int index)
     {
