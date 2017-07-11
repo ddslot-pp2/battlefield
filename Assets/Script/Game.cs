@@ -94,15 +94,26 @@ public class Game : MonoBehaviour {
     public void handler_SC_NOTI_FIRE(GAME.SC_NOTI_FIRE read)
     {
         var obj_id = read.ObjId;
+        var bullet_id = read.BulletId;
         var bullet_type = read.BulletType;
+
+        var pos = new Vector3(read.PosX, read.PosY, read.PosZ);
 
         for (var i = 0; i < read.BulletInfos.Count; ++i)
         {
             var bullet_info = read.BulletInfos[i];
             var dir = new Vector3(bullet_info.DirX, bullet_info.DirY, bullet_info.DirZ);
+            var size = new Vector3(bullet_info.SizeX, bullet_info.SizeY, bullet_info.SizeZ);
             var speed = bullet_info.Speed;
-            Debug.Log("Dir x: " + dir.x + ", Dir z: " + dir.z);
-            SendUserClickInfo(dir.x, dir.z, true);
+            var distance = bullet_info.Distance;
+
+            //Debug.Log("Dir x: " + dir.x + ", Dir z: " + dir.z);
+            //SendUserClickInfo(dir.x, dir.z, true);
+
+            var index = IndexInfos_[obj_id];
+
+            var obj = BattleLib.Instance.GetEntity(index);
+            var bullet_obj = BattleLib.Instance.CreateBullet(bullet_type, bullet_id, pos, dir, size, speed, distance);
         }
 
     }

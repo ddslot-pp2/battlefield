@@ -38,14 +38,15 @@ namespace GAME {
             "IAEoAyI7CgxDU19OT1RJX01PVkUSDQoFcG9zX3gYASABKAISDQoFcG9zX3kY",
             "AiABKAISDQoFcG9zX3oYAyABKAIiUQoSU0NfTk9USV9PVEhFUl9NT1ZFEg4K",
             "Bm9ial9pZBgBIAEoAxINCgVwb3NfeBgCIAEoAhINCgVwb3NfeRgDIAEoAhIN",
-            "CgVwb3NfehgEIAEoAiJbCgtCVUxMRVRfSU5GTxINCgVkaXJfeBgBIAEoAhIN",
-            "CgVkaXJfeRgCIAEoAhINCgVkaXJfehgDIAEoAhINCgVzcGVlZBgEIAEoAhIQ",
-            "CghkaXN0YW5jZRgFIAEoAiJHCgdDU19GSVJFEhMKC2J1bGxldF90eXBlGAEg",
-            "ASgFEicKDGJ1bGxldF9pbmZvcxgCIAMoCzIRLkdBTUUuQlVMTEVUX0lORk8i",
-            "nAEKDFNDX05PVElfRklSRRIOCgZvYmpfaWQYASABKAMSEQoJYnVsbGV0X2lk",
-            "GAIgASgDEhMKC2J1bGxldF90eXBlGAMgASgFEg0KBXBvc194GAQgASgCEg0K",
-            "BXBvc195GAUgASgCEg0KBXBvc196GAYgASgCEicKDGJ1bGxldF9pbmZvcxgH",
-            "IAMoCzIRLkdBTUUuQlVMTEVUX0lORk9iBnByb3RvMw=="));
+            "CgVwb3NfehgEIAEoAiKLAQoLQlVMTEVUX0lORk8SDQoFZGlyX3gYASABKAIS",
+            "DQoFZGlyX3kYAiABKAISDQoFZGlyX3oYAyABKAISDgoGc2l6ZV94GAQgASgC",
+            "Eg4KBnNpemVfeRgFIAEoAhIOCgZzaXplX3oYBiABKAISDQoFc3BlZWQYByAB",
+            "KAISEAoIZGlzdGFuY2UYCCABKAIiRwoHQ1NfRklSRRITCgtidWxsZXRfdHlw",
+            "ZRgBIAEoBRInCgxidWxsZXRfaW5mb3MYAiADKAsyES5HQU1FLkJVTExFVF9J",
+            "TkZPIpwBCgxTQ19OT1RJX0ZJUkUSDgoGb2JqX2lkGAEgASgDEhEKCWJ1bGxl",
+            "dF9pZBgCIAEoAxITCgtidWxsZXRfdHlwZRgDIAEoBRINCgVwb3NfeBgEIAEo",
+            "AhINCgVwb3NfeRgFIAEoAhINCgVwb3NfehgGIAEoAhInCgxidWxsZXRfaW5m",
+            "b3MYByADKAsyES5HQU1FLkJVTExFVF9JTkZPYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -58,7 +59,7 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_LEAVE_FIELD), global::GAME.SC_NOTI_OTHER_LEAVE_FIELD.Parser, new[]{ "ObjId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_NOTI_MOVE), global::GAME.CS_NOTI_MOVE.Parser, new[]{ "PosX", "PosY", "PosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_MOVE), global::GAME.SC_NOTI_OTHER_MOVE.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.BULLET_INFO), global::GAME.BULLET_INFO.Parser, new[]{ "DirX", "DirY", "DirZ", "Speed", "Distance" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.BULLET_INFO), global::GAME.BULLET_INFO.Parser, new[]{ "DirX", "DirY", "DirZ", "SizeX", "SizeY", "SizeZ", "Speed", "Distance" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_FIRE), global::GAME.CS_FIRE.Parser, new[]{ "BulletType", "BulletInfos" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_FIRE), global::GAME.SC_NOTI_FIRE.Parser, new[]{ "ObjId", "BulletId", "BulletType", "PosX", "PosY", "PosZ", "BulletInfos" }, null, null, null)
           }));
@@ -1811,6 +1812,9 @@ namespace GAME {
       dirX_ = other.dirX_;
       dirY_ = other.dirY_;
       dirZ_ = other.dirZ_;
+      sizeX_ = other.sizeX_;
+      sizeY_ = other.sizeY_;
+      sizeZ_ = other.sizeZ_;
       speed_ = other.speed_;
       distance_ = other.distance_;
     }
@@ -1853,8 +1857,41 @@ namespace GAME {
       }
     }
 
+    /// <summary>Field number for the "size_x" field.</summary>
+    public const int SizeXFieldNumber = 4;
+    private float sizeX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float SizeX {
+      get { return sizeX_; }
+      set {
+        sizeX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "size_y" field.</summary>
+    public const int SizeYFieldNumber = 5;
+    private float sizeY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float SizeY {
+      get { return sizeY_; }
+      set {
+        sizeY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "size_z" field.</summary>
+    public const int SizeZFieldNumber = 6;
+    private float sizeZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float SizeZ {
+      get { return sizeZ_; }
+      set {
+        sizeZ_ = value;
+      }
+    }
+
     /// <summary>Field number for the "speed" field.</summary>
-    public const int SpeedFieldNumber = 4;
+    public const int SpeedFieldNumber = 7;
     private float speed_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Speed {
@@ -1865,7 +1902,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "distance" field.</summary>
-    public const int DistanceFieldNumber = 5;
+    public const int DistanceFieldNumber = 8;
     private float distance_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Distance {
@@ -1891,6 +1928,9 @@ namespace GAME {
       if (DirX != other.DirX) return false;
       if (DirY != other.DirY) return false;
       if (DirZ != other.DirZ) return false;
+      if (SizeX != other.SizeX) return false;
+      if (SizeY != other.SizeY) return false;
+      if (SizeZ != other.SizeZ) return false;
       if (Speed != other.Speed) return false;
       if (Distance != other.Distance) return false;
       return true;
@@ -1902,6 +1942,9 @@ namespace GAME {
       if (DirX != 0F) hash ^= DirX.GetHashCode();
       if (DirY != 0F) hash ^= DirY.GetHashCode();
       if (DirZ != 0F) hash ^= DirZ.GetHashCode();
+      if (SizeX != 0F) hash ^= SizeX.GetHashCode();
+      if (SizeY != 0F) hash ^= SizeY.GetHashCode();
+      if (SizeZ != 0F) hash ^= SizeZ.GetHashCode();
       if (Speed != 0F) hash ^= Speed.GetHashCode();
       if (Distance != 0F) hash ^= Distance.GetHashCode();
       return hash;
@@ -1926,12 +1969,24 @@ namespace GAME {
         output.WriteRawTag(29);
         output.WriteFloat(DirZ);
       }
-      if (Speed != 0F) {
+      if (SizeX != 0F) {
         output.WriteRawTag(37);
+        output.WriteFloat(SizeX);
+      }
+      if (SizeY != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(SizeY);
+      }
+      if (SizeZ != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(SizeZ);
+      }
+      if (Speed != 0F) {
+        output.WriteRawTag(61);
         output.WriteFloat(Speed);
       }
       if (Distance != 0F) {
-        output.WriteRawTag(45);
+        output.WriteRawTag(69);
         output.WriteFloat(Distance);
       }
     }
@@ -1946,6 +2001,15 @@ namespace GAME {
         size += 1 + 4;
       }
       if (DirZ != 0F) {
+        size += 1 + 4;
+      }
+      if (SizeX != 0F) {
+        size += 1 + 4;
+      }
+      if (SizeY != 0F) {
+        size += 1 + 4;
+      }
+      if (SizeZ != 0F) {
         size += 1 + 4;
       }
       if (Speed != 0F) {
@@ -1970,6 +2034,15 @@ namespace GAME {
       }
       if (other.DirZ != 0F) {
         DirZ = other.DirZ;
+      }
+      if (other.SizeX != 0F) {
+        SizeX = other.SizeX;
+      }
+      if (other.SizeY != 0F) {
+        SizeY = other.SizeY;
+      }
+      if (other.SizeZ != 0F) {
+        SizeZ = other.SizeZ;
       }
       if (other.Speed != 0F) {
         Speed = other.Speed;
@@ -2000,10 +2073,22 @@ namespace GAME {
             break;
           }
           case 37: {
-            Speed = input.ReadFloat();
+            SizeX = input.ReadFloat();
             break;
           }
           case 45: {
+            SizeY = input.ReadFloat();
+            break;
+          }
+          case 53: {
+            SizeZ = input.ReadFloat();
+            break;
+          }
+          case 61: {
+            Speed = input.ReadFloat();
+            break;
+          }
+          case 69: {
             Distance = input.ReadFloat();
             break;
           }

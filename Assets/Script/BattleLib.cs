@@ -225,9 +225,8 @@ public class BattleLib : MonoBehaviour {
 
 	}
 
-	public void ReceivePos( int index, float posX , float posZ )
+	public void ReceivePos(int index, float posX , float posZ )
 	{
-
 		if( m_entityList[index] != null )
 		{
 			if (index == m_myIndex)
@@ -235,6 +234,14 @@ public class BattleLib : MonoBehaviour {
 			
 			m_entityList[index].ProgressPos(posX, posZ );
 		}
-
 	}
+
+    public GameObject CreateBullet(int bullet_type, Int64 bullet_id, Vector3 pos, Vector3 dir, Vector3 size, float speed, float distance)
+    {                                          
+        GameObject entity_instance = (GameObject)Instantiate(Resources.Load("Prefab/Bullet/DirectBullet")) as GameObject;
+        entity_instance.GetComponent<Bullet>().SetProperty(bullet_id, pos, dir, speed, distance);
+
+        return entity_instance;
+    }
+
 }
