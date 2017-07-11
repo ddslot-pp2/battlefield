@@ -86,9 +86,10 @@ public class Tank : Entity {
 		if (fireTransform == null)
 		return;
 
-		AttackDir = ( new Vector3(posX, 0.0f, posZ ) - transform.position ).normalized;
-		AttackDir.y = 0;
-		fireTransform.rotation = Quaternion.LookRotation(AttackDir); 
+        //AttackDir = ( new Vector3(posX, 0.0f, posZ ) - transform.position ).normalized;
+        //AttackDir.y = 0;
+        AttackDir = new Vector3(posX, 0.0f, posZ);
+        fireTransform.rotation = Quaternion.LookRotation(AttackDir); 
 		Fire ();
 	}
 
