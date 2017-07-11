@@ -90,6 +90,16 @@ public class Tank : Entity {
         //AttackDir.y = 0;
         AttackDir = new Vector3(posX, 0.0f, posZ);
         fireTransform.rotation = Quaternion.LookRotation(AttackDir); 
+
+		Fire ();
+	}
+
+	public void CreateBullet(float posX, float posZ, float speed, float distance)
+	{
+		AttackDir = ( new Vector3(posX, 0.0f, posZ ) - transform.position ).normalized;
+		AttackDir.y = 0;
+		fireTransform.rotation = Quaternion.LookRotation(AttackDir); 
+
 		Fire ();
 	}
 }

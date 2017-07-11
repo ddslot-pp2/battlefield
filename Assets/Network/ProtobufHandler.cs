@@ -94,10 +94,5 @@ public class ProtobufHandler //: MonoBehaviour
         {
             return GAME.SC_NOTI_OTHER_MOVE.Parser.ParseFrom(Buf);
         };
-
-        Deserializer_[OpcodeToInt16(opcode.SC_NOTI_FIRE)] = (byte[] Buf) =>
-        {
-            return GAME.SC_NOTI_FIRE.Parser.ParseFrom(Buf);
-        };
     }
 }
