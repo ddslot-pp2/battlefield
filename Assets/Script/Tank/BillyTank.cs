@@ -16,28 +16,13 @@ public class BillyTank : Tank {
 
 		muzzleFlash_1.enabled = false;
 
-		//Debug.Log ("init");
 	}
 
 	public override void EntityUpdate () 
 	{
-
 		base.EntityUpdate ();
-		//Debug.Log ("EntityUpdate");
 	}
-
-	// Use this for initialization
-	void Start () 
-	{
-
-	}
-
-	void Update()
-	{
-		//EntityUpdate ();
-	}
-
-
+		
 	public override void Fire()
 	{
 		if (Time.time >= nextfire)

@@ -69,7 +69,14 @@ public class Tank : Entity {
 		} 
 		else
 		{
-			ArrivePos = new Vector3 (posX, 0.0f,  posZ);
+			Vector3 newPos = new Vector3 (posX, 0.0f,  posZ);
+
+			if (Vector3.Distance (transform.position, newPos) < 2.0f)
+			{
+				return;
+			}
+
+			ArrivePos = newPos;
 			move = true;
 		}
 	}
