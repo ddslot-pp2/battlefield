@@ -20,11 +20,13 @@ public class Game : MonoBehaviour {
     Int64 MyObjId;
     int MyIndex;
 
+
     Dictionary<Int64, int> IndexInfos_;
     Queue<int> IndexQueue_;
 
     // 1초에 5번만
     private const float UPDATE_MOVE_INTERVAL = 1.0f / 5.0f;
+    private const float DRAG_AS_FIRE_DISTANCE = 30.0f;
     private float LastUpdateMoveTime_ = 0.0f;
 
     public void onConnect()
@@ -89,6 +91,21 @@ public class Game : MonoBehaviour {
         Debug.Log("다른 유저가 움직임\n");
 
     }
+    public void handler_SC_NOTI_FIRE(GAME.SC_NOTI_FIRE read)
+    {
+        var obj_id = read.ObjId;
+        var bullet_type = read.BulletType;
+
+        for (var i = 0; i < read.BulletInfos.Count; ++i)
+        {
+            var bullet_info = read.BulletInfos[i];
+            var dir = new Vector3(bullet_info.DirX, bullet_info.DirY, bullet_info.DirZ);
+            var speed = bullet_info.Speed;
+            Debug.Log("Dir x: " + dir.x + ", Dir z: " + dir.z);
+            SendUserClickInfo(dir.x, dir.z, true);
+        }
+
+    }
     public void RegisterPacketHandler()
     {
         // 이번 패킷에 사용할 패킷관련 핸들러를 지정
@@ -96,6 +113,7 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_OTHER_ENTER_FIELD>(opcode.SC_NOTI_OTHER_ENTER_FIELD, handler_SC_NOTI_OTHER_ENTER_FIELD);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_OTHER_LEAVE_FIELD>(opcode.SC_NOTI_OTHER_LEAVE_FIELD, handler_SC_NOTI_OTHER_LEAVE_FIELD);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_OTHER_MOVE>(opcode.SC_NOTI_OTHER_MOVE, handler_SC_NOTI_OTHER_MOVE);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_FIRE>(opcode.SC_NOTI_FIRE, handler_SC_NOTI_FIRE);
     }
 
 	void OnTouchBegan(Vector3 pos)
@@ -118,6 +136,7 @@ public class Game : MonoBehaviour {
 	{
 		
 		Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out TFire);
+
 
 		if (Vector3.Distance (BeginPos, pos) > 30.0f) 
 		{
@@ -218,7 +237,7 @@ public class Game : MonoBehaviour {
 		ReceiveUserClickInfo(MyIndex, posX, posZ, attack);
 	}
 
-	public void ReceiveUserClickInfo(int index, float posX, float posZ, bool attack )
+	public void ReceiveUserClickInfo(int index, float posX, float posZ, bool attack)
 	{
         //Debug.Log("PosX: " + posX + ", PosZ: " + posZ);
 		BattleLib.Instance.ReceiveInput(index, posX, posZ, attack);
@@ -252,7 +271,6 @@ public class Game : MonoBehaviour {
 		BattleLib.Instance.ReceivePos(index, posX, posZ);
 	}
 
-
 	public void ReceiveUserDamage(int index, int hp)
 	{
 		Debug.Log ("damage index:" + index);
@@ -269,5 +287,28 @@ public class Game : MonoBehaviour {
 
 	}
 
+    void TryFire(float x, float z)
+    {
+        var obj = BattleLib.Instance.GetEntity(MyIndex);
+        var dir = (new Vector3(x, 0.0f, z) - obj.transform.position).normalized;
 
+        var Send = new GAME.CS_FIRE();
+
+        Send.BulletType = 0;
+
+        GAME.BULLET_INFO bullet_0 = new GAME.BULLET_INFO();
+        bullet_0.DirX = dir.x;
+        bullet_0.DirY = dir.y;
+        bullet_0.DirZ = dir.z;
+
+        Send.BulletInfos.Add(bullet_0);
+
+        var size = Send.BulletInfos.Count;
+
+        ProtobufManager.Instance().Send(opcode.CS_FIRE, Send);
+        // 속드 줄여버림 state.movSpeed
+        //FireMoveHold_ = true;
+        // 발사 direction
+        //Debug.Log("Dir X: " + dir.x  + ", Dir Z: " + dir.z);
+    }
 }
