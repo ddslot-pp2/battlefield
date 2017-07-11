@@ -118,11 +118,11 @@ public class Game : MonoBehaviour {
             if (!IndexInfos_.ContainsKey(obj_id)) return;
             var index = IndexInfos_[obj_id];
 
-            var bullet_owner = BattleLib.Instance.GetEntity(index);
-            if (bullet_owner == null) return;
+            //var bullet_owner = BattleLib.Instance.GetEntity(index);
+            //if (bullet_owner == null) return;
 
             // bullet 생성 
-            BattleLib.Instance.CreateBullet(bullet_owner, (Bullet.Type)bullet_type, bullet_id, pos, dir, size, speed, distance);
+			BattleLib.Instance.CreateBullet(index, (Bullet.Type)bullet_type, bullet_id, pos, dir, size, speed, distance);
         }
     
     }

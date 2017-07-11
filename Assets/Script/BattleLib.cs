@@ -240,10 +240,16 @@ public class BattleLib : MonoBehaviour {
 		}
 	}
 
-    public void CreateBullet(GameObject bullet_owner, Bullet.Type bullet_type, Int64 bullet_id, Vector3 pos, Vector3 dir, Vector3 size, float speed, float distance)
+    public void CreateBullet(int index , Bullet.Type bullet_type, Int64 bullet_id, Vector3 pos, Vector3 dir, Vector3 size, float speed, float distance)
     {
+		Tank tankObject = BattleLib.Instance.m_entityList[index] as Tank;
+		if (tankObject == null)
+			return;
+
+		tankObject.Fire();
+
         // bullet 발사의 시작 위치를 나이스하게 가져오고 싶음;
-        var fire_transform = bullet_owner.GetComponent<Tank>().fireTransform;
+		Transform fire_transform = tankObject.fireTransform;
         fire_transform.rotation = Quaternion.LookRotation(dir);
 
         if (bullet_type == Bullet.Type.DirectBullet)

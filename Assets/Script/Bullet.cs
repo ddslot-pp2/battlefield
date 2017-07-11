@@ -22,7 +22,7 @@ public class Bullet : Entity
 	
 	void Update ()
     {
-        Debug.Log("bullet update called\n");
+        //Debug.Log("bullet update called\n");
         this.transform.position = this.transform.position + (Dir_ * Speed_ * Time.deltaTime);
         //this.transform.position = Pos_;
     }

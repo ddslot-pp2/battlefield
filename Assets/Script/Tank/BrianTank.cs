@@ -36,6 +36,11 @@ public class BrianTank : Tank {
 
 	public override void Fire()
 	{
+
+		Debug.Log ("Fire");
+		StartCoroutine(this.ShowMuzzleFlash());
+
+		/*
 		if (Time.time >= nextfire)
 		{
 			nextfire = Time.time + state.fireRate;
@@ -45,6 +50,7 @@ public class BrianTank : Tank {
 			//잠시 기다리는 루틴을 위해 코루틴 함수로 호출
 			StartCoroutine(this.ShowMuzzleFlash());
 		}
+		*/
 	}
 
 
