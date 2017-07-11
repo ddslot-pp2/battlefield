@@ -92,14 +92,21 @@ public class Game : MonoBehaviour {
 
     }
 
+    // 나를 포함한 모든 탱크가 미사일 발사시 브로드캐스팅해서 전달됨
     public void handler_SC_NOTI_FIRE(GAME.SC_NOTI_FIRE read)
     {
+        // 발사한 탱크의 고유 아이디
         var obj_id = read.ObjId;
+        // 서버상 bullet 고유 아이디; 삭제시 날라온다
         var bullet_id = read.BulletId;
+
+        // 어떤 bullet인지; bullet의 메시정보 구별을 위해 필요. 값들은 동적으로 변함(파워, 스피드, etc)
         var bullet_type = read.BulletType;
 
+        // 탱크가 미사일을 발사 했었던 위치
         var pos = new Vector3(read.PosX, read.PosY, read.PosZ);
 
+        // 불렛이 여러개 날라 올순없지만; 현재는 추후를 대비해서 미사일 리스트;
         for (var i = 0; i < read.BulletInfos.Count; ++i)
         {
             var bullet_info = read.BulletInfos[i];
@@ -108,15 +115,18 @@ public class Game : MonoBehaviour {
             var speed = bullet_info.Speed;
             var distance = bullet_info.Distance;
 
+            if (!IndexInfos_.ContainsKey(obj_id)) return;
             var index = IndexInfos_[obj_id];
 
             var bullet_owner = BattleLib.Instance.GetEntity(index);
+            if (bullet_owner == null) return;
+
+            // bullet 생성 
             BattleLib.Instance.CreateBullet(bullet_owner, (Bullet.Type)bullet_type, bullet_id, pos, dir, size, speed, distance);
         }
-
-        //ReceiveUserClickInfo(IndexInfos_[obj_id], read.PosX, read.PosZ, true);
-
+    
     }
+
     public void RegisterPacketHandler()
     {
         // 이번 패킷에 사용할 패킷관련 핸들러를 지정
