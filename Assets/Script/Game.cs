@@ -91,6 +91,7 @@ public class Game : MonoBehaviour {
         Debug.Log("다른 유저가 움직임\n");
 
     }
+
     public void handler_SC_NOTI_FIRE(GAME.SC_NOTI_FIRE read)
     {
         var obj_id = read.ObjId;
@@ -107,14 +108,13 @@ public class Game : MonoBehaviour {
             var speed = bullet_info.Speed;
             var distance = bullet_info.Distance;
 
-            //Debug.Log("Dir x: " + dir.x + ", Dir z: " + dir.z);
-            //SendUserClickInfo(dir.x, dir.z, true);
-
             var index = IndexInfos_[obj_id];
 
-            var obj = BattleLib.Instance.GetEntity(index);
-            var bullet_obj = BattleLib.Instance.CreateBullet(bullet_type, bullet_id, pos, dir, size, speed, distance);
+            var bullet_owner = BattleLib.Instance.GetEntity(index);
+            BattleLib.Instance.CreateBullet(bullet_owner, (Bullet.Type)bullet_type, bullet_id, pos, dir, size, speed, distance);
         }
+
+        //ReceiveUserClickInfo(IndexInfos_[obj_id], read.PosX, read.PosZ, true);
 
     }
     public void RegisterPacketHandler()
@@ -149,10 +149,11 @@ public class Game : MonoBehaviour {
 		Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out TFire);
 
 
-		if (Vector3.Distance (BeginPos, pos) > 30.0f) 
+		if (Vector3.Distance (BeginPos, pos) > DRAG_AS_FIRE_DISTANCE) 
 		{
-			SendUserClickInfo(TFire.point.x, TFire.point.z, true);
-		} 
+            TryFire(TFire.point.x, TFire.point.z);
+            //SendUserClickInfo(TFire.point.x, TFire.point.z, true);
+        } 
 		else 
 		{
 			SendUserClickInfo(TFire.point.x, TFire.point.z, false);

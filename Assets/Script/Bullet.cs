@@ -5,6 +5,8 @@ using System;
 
 public class Bullet : Entity
 {
+    public enum Type { DirectBullet = 0 };
+
     private Int64 Id_;
     private Vector3 Pos_;
     private Vector3 Dir_;
@@ -14,6 +16,7 @@ public class Bullet : Entity
 
     void Start ()
     {
+        //this.transform.rotation = Quaternion.LookRotation(Dir_);
         this.transform.position = Pos_;
 	}
 	

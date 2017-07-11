@@ -187,8 +187,6 @@ public class BattleLib : MonoBehaviour {
 			Debug.Log ("myIndex:" + index);
 			m_entityList[index].SetMyEntity();
 		}
-
-	
 	}
 
 	public void DeleteEntity(int index)
@@ -242,12 +240,23 @@ public class BattleLib : MonoBehaviour {
 		}
 	}
 
-    public GameObject CreateBullet(int bullet_type, Int64 bullet_id, Vector3 pos, Vector3 dir, Vector3 size, float speed, float distance)
-    {                                          
-        GameObject entity_instance = (GameObject)Instantiate(Resources.Load("Prefab/Bullet/DirectBullet")) as GameObject;
-        entity_instance.GetComponent<Bullet>().SetProperty(bullet_id, pos, dir, speed, distance);
+    public void CreateBullet(GameObject bullet_owner, Bullet.Type bullet_type, Int64 bullet_id, Vector3 pos, Vector3 dir, Vector3 size, float speed, float distance)
+    {
+        // bullet 발사의 시작 위치를 나이스하게 가져오고 싶음;
+        var fire_transform = bullet_owner.GetComponent<Tank>().fireTransform;
+        fire_transform.rotation = Quaternion.LookRotation(dir);
 
-        return entity_instance;
+        if (bullet_type == Bullet.Type.DirectBullet)
+        {
+            var bullet_object = Instantiate(Resources.Load("Prefab/Bullet/DirectBullet"), pos, fire_transform.rotation) as GameObject;
+            bullet_object.transform.localScale = new Vector3(bullet_object.transform.localScale.x * size.x, bullet_object.transform.localScale.y * size.y, bullet_object.transform.localScale.z * size.z);
+            bullet_object.GetComponent<Bullet>().SetProperty(bullet_id, pos, dir, speed, distance);
+        }
+    }
+
+    public void DestroyBullet(Int64 bullet_id)
+    {
+
     }
 
 }
