@@ -16,4 +16,6 @@ public enum opcode : short
 	SC_NOTI_OTHER_LEAVE_FIELD = 2005,
 	CS_NOTI_MOVE = 2006,
 	SC_NOTI_OTHER_MOVE = 2007,
+	CS_FIRE = 2008,
+	SC_NOTI_FIRE = 2009,
 };

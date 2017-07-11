@@ -38,7 +38,14 @@ namespace GAME {
             "IAEoAyI7CgxDU19OT1RJX01PVkUSDQoFcG9zX3gYASABKAISDQoFcG9zX3kY",
             "AiABKAISDQoFcG9zX3oYAyABKAIiUQoSU0NfTk9USV9PVEhFUl9NT1ZFEg4K",
             "Bm9ial9pZBgBIAEoAxINCgVwb3NfeBgCIAEoAhINCgVwb3NfeRgDIAEoAhIN",
-            "CgVwb3NfehgEIAEoAmIGcHJvdG8z"));
+            "CgVwb3NfehgEIAEoAiJbCgtCVUxMRVRfSU5GTxINCgVkaXJfeBgBIAEoAhIN",
+            "CgVkaXJfeRgCIAEoAhINCgVkaXJfehgDIAEoAhINCgVzcGVlZBgEIAEoAhIQ",
+            "CghkaXN0YW5jZRgFIAEoAiJHCgdDU19GSVJFEhMKC2J1bGxldF90eXBlGAEg",
+            "ASgFEicKDGJ1bGxldF9pbmZvcxgCIAMoCzIRLkdBTUUuQlVMTEVUX0lORk8i",
+            "nAEKDFNDX05PVElfRklSRRIOCgZvYmpfaWQYASABKAMSEQoJYnVsbGV0X2lk",
+            "GAIgASgDEhMKC2J1bGxldF90eXBlGAMgASgFEg0KBXBvc194GAQgASgCEg0K",
+            "BXBvc195GAUgASgCEg0KBXBvc196GAYgASgCEicKDGJ1bGxldF9pbmZvcxgH",
+            "IAMoCzIRLkdBTUUuQlVMTEVUX0lORk9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -50,7 +57,10 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_ENTER_FIELD), global::GAME.SC_NOTI_OTHER_ENTER_FIELD.Parser, new[]{ "ObjId", "TankType", "Nickname", "Hp", "PosX", "PosY", "PosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_LEAVE_FIELD), global::GAME.SC_NOTI_OTHER_LEAVE_FIELD.Parser, new[]{ "ObjId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_NOTI_MOVE), global::GAME.CS_NOTI_MOVE.Parser, new[]{ "PosX", "PosY", "PosZ" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_MOVE), global::GAME.SC_NOTI_OTHER_MOVE.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_MOVE), global::GAME.SC_NOTI_OTHER_MOVE.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.BULLET_INFO), global::GAME.BULLET_INFO.Parser, new[]{ "DirX", "DirY", "DirZ", "Speed", "Distance" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_FIRE), global::GAME.CS_FIRE.Parser, new[]{ "BulletType", "BulletInfos" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_FIRE), global::GAME.SC_NOTI_FIRE.Parser, new[]{ "ObjId", "BulletId", "BulletType", "PosX", "PosY", "PosZ", "BulletInfos" }, null, null, null)
           }));
     }
     #endregion
@@ -1766,6 +1776,649 @@ namespace GAME {
           }
           case 37: {
             PosZ = input.ReadFloat();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class BULLET_INFO : pb::IMessage<BULLET_INFO> {
+    private static readonly pb::MessageParser<BULLET_INFO> _parser = new pb::MessageParser<BULLET_INFO>(() => new BULLET_INFO());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BULLET_INFO> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BULLET_INFO() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BULLET_INFO(BULLET_INFO other) : this() {
+      dirX_ = other.dirX_;
+      dirY_ = other.dirY_;
+      dirZ_ = other.dirZ_;
+      speed_ = other.speed_;
+      distance_ = other.distance_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BULLET_INFO Clone() {
+      return new BULLET_INFO(this);
+    }
+
+    /// <summary>Field number for the "dir_x" field.</summary>
+    public const int DirXFieldNumber = 1;
+    private float dirX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float DirX {
+      get { return dirX_; }
+      set {
+        dirX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dir_y" field.</summary>
+    public const int DirYFieldNumber = 2;
+    private float dirY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float DirY {
+      get { return dirY_; }
+      set {
+        dirY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dir_z" field.</summary>
+    public const int DirZFieldNumber = 3;
+    private float dirZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float DirZ {
+      get { return dirZ_; }
+      set {
+        dirZ_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "speed" field.</summary>
+    public const int SpeedFieldNumber = 4;
+    private float speed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Speed {
+      get { return speed_; }
+      set {
+        speed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "distance" field.</summary>
+    public const int DistanceFieldNumber = 5;
+    private float distance_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Distance {
+      get { return distance_; }
+      set {
+        distance_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BULLET_INFO);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BULLET_INFO other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (DirX != other.DirX) return false;
+      if (DirY != other.DirY) return false;
+      if (DirZ != other.DirZ) return false;
+      if (Speed != other.Speed) return false;
+      if (Distance != other.Distance) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (DirX != 0F) hash ^= DirX.GetHashCode();
+      if (DirY != 0F) hash ^= DirY.GetHashCode();
+      if (DirZ != 0F) hash ^= DirZ.GetHashCode();
+      if (Speed != 0F) hash ^= Speed.GetHashCode();
+      if (Distance != 0F) hash ^= Distance.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (DirX != 0F) {
+        output.WriteRawTag(13);
+        output.WriteFloat(DirX);
+      }
+      if (DirY != 0F) {
+        output.WriteRawTag(21);
+        output.WriteFloat(DirY);
+      }
+      if (DirZ != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(DirZ);
+      }
+      if (Speed != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(Speed);
+      }
+      if (Distance != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(Distance);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (DirX != 0F) {
+        size += 1 + 4;
+      }
+      if (DirY != 0F) {
+        size += 1 + 4;
+      }
+      if (DirZ != 0F) {
+        size += 1 + 4;
+      }
+      if (Speed != 0F) {
+        size += 1 + 4;
+      }
+      if (Distance != 0F) {
+        size += 1 + 4;
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BULLET_INFO other) {
+      if (other == null) {
+        return;
+      }
+      if (other.DirX != 0F) {
+        DirX = other.DirX;
+      }
+      if (other.DirY != 0F) {
+        DirY = other.DirY;
+      }
+      if (other.DirZ != 0F) {
+        DirZ = other.DirZ;
+      }
+      if (other.Speed != 0F) {
+        Speed = other.Speed;
+      }
+      if (other.Distance != 0F) {
+        Distance = other.Distance;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 13: {
+            DirX = input.ReadFloat();
+            break;
+          }
+          case 21: {
+            DirY = input.ReadFloat();
+            break;
+          }
+          case 29: {
+            DirZ = input.ReadFloat();
+            break;
+          }
+          case 37: {
+            Speed = input.ReadFloat();
+            break;
+          }
+          case 45: {
+            Distance = input.ReadFloat();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CS_FIRE : pb::IMessage<CS_FIRE> {
+    private static readonly pb::MessageParser<CS_FIRE> _parser = new pb::MessageParser<CS_FIRE>(() => new CS_FIRE());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_FIRE> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_FIRE() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_FIRE(CS_FIRE other) : this() {
+      bulletType_ = other.bulletType_;
+      bulletInfos_ = other.bulletInfos_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_FIRE Clone() {
+      return new CS_FIRE(this);
+    }
+
+    /// <summary>Field number for the "bullet_type" field.</summary>
+    public const int BulletTypeFieldNumber = 1;
+    private int bulletType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletType {
+      get { return bulletType_; }
+      set {
+        bulletType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_infos" field.</summary>
+    public const int BulletInfosFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::GAME.BULLET_INFO> _repeated_bulletInfos_codec
+        = pb::FieldCodec.ForMessage(18, global::GAME.BULLET_INFO.Parser);
+    private readonly pbc::RepeatedField<global::GAME.BULLET_INFO> bulletInfos_ = new pbc::RepeatedField<global::GAME.BULLET_INFO>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::GAME.BULLET_INFO> BulletInfos {
+      get { return bulletInfos_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_FIRE);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_FIRE other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (BulletType != other.BulletType) return false;
+      if(!bulletInfos_.Equals(other.bulletInfos_)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (BulletType != 0) hash ^= BulletType.GetHashCode();
+      hash ^= bulletInfos_.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (BulletType != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(BulletType);
+      }
+      bulletInfos_.WriteTo(output, _repeated_bulletInfos_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (BulletType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletType);
+      }
+      size += bulletInfos_.CalculateSize(_repeated_bulletInfos_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_FIRE other) {
+      if (other == null) {
+        return;
+      }
+      if (other.BulletType != 0) {
+        BulletType = other.BulletType;
+      }
+      bulletInfos_.Add(other.bulletInfos_);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            BulletType = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            bulletInfos_.AddEntriesFrom(input, _repeated_bulletInfos_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_NOTI_FIRE : pb::IMessage<SC_NOTI_FIRE> {
+    private static readonly pb::MessageParser<SC_NOTI_FIRE> _parser = new pb::MessageParser<SC_NOTI_FIRE>(() => new SC_NOTI_FIRE());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_NOTI_FIRE> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_FIRE() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_FIRE(SC_NOTI_FIRE other) : this() {
+      objId_ = other.objId_;
+      bulletId_ = other.bulletId_;
+      bulletType_ = other.bulletType_;
+      posX_ = other.posX_;
+      posY_ = other.posY_;
+      posZ_ = other.posZ_;
+      bulletInfos_ = other.bulletInfos_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_FIRE Clone() {
+      return new SC_NOTI_FIRE(this);
+    }
+
+    /// <summary>Field number for the "obj_id" field.</summary>
+    public const int ObjIdFieldNumber = 1;
+    private long objId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ObjId {
+      get { return objId_; }
+      set {
+        objId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_id" field.</summary>
+    public const int BulletIdFieldNumber = 2;
+    private long bulletId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long BulletId {
+      get { return bulletId_; }
+      set {
+        bulletId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_type" field.</summary>
+    public const int BulletTypeFieldNumber = 3;
+    private int bulletType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletType {
+      get { return bulletType_; }
+      set {
+        bulletType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_x" field.</summary>
+    public const int PosXFieldNumber = 4;
+    private float posX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float PosX {
+      get { return posX_; }
+      set {
+        posX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_y" field.</summary>
+    public const int PosYFieldNumber = 5;
+    private float posY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float PosY {
+      get { return posY_; }
+      set {
+        posY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_z" field.</summary>
+    public const int PosZFieldNumber = 6;
+    private float posZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float PosZ {
+      get { return posZ_; }
+      set {
+        posZ_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_infos" field.</summary>
+    public const int BulletInfosFieldNumber = 7;
+    private static readonly pb::FieldCodec<global::GAME.BULLET_INFO> _repeated_bulletInfos_codec
+        = pb::FieldCodec.ForMessage(58, global::GAME.BULLET_INFO.Parser);
+    private readonly pbc::RepeatedField<global::GAME.BULLET_INFO> bulletInfos_ = new pbc::RepeatedField<global::GAME.BULLET_INFO>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::GAME.BULLET_INFO> BulletInfos {
+      get { return bulletInfos_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_NOTI_FIRE);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_NOTI_FIRE other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ObjId != other.ObjId) return false;
+      if (BulletId != other.BulletId) return false;
+      if (BulletType != other.BulletType) return false;
+      if (PosX != other.PosX) return false;
+      if (PosY != other.PosY) return false;
+      if (PosZ != other.PosZ) return false;
+      if(!bulletInfos_.Equals(other.bulletInfos_)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ObjId != 0L) hash ^= ObjId.GetHashCode();
+      if (BulletId != 0L) hash ^= BulletId.GetHashCode();
+      if (BulletType != 0) hash ^= BulletType.GetHashCode();
+      if (PosX != 0F) hash ^= PosX.GetHashCode();
+      if (PosY != 0F) hash ^= PosY.GetHashCode();
+      if (PosZ != 0F) hash ^= PosZ.GetHashCode();
+      hash ^= bulletInfos_.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ObjId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ObjId);
+      }
+      if (BulletId != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(BulletId);
+      }
+      if (BulletType != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(BulletType);
+      }
+      if (PosX != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(PosX);
+      }
+      if (PosY != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(PosY);
+      }
+      if (PosZ != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(PosZ);
+      }
+      bulletInfos_.WriteTo(output, _repeated_bulletInfos_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ObjId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObjId);
+      }
+      if (BulletId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(BulletId);
+      }
+      if (BulletType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletType);
+      }
+      if (PosX != 0F) {
+        size += 1 + 4;
+      }
+      if (PosY != 0F) {
+        size += 1 + 4;
+      }
+      if (PosZ != 0F) {
+        size += 1 + 4;
+      }
+      size += bulletInfos_.CalculateSize(_repeated_bulletInfos_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_NOTI_FIRE other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ObjId != 0L) {
+        ObjId = other.ObjId;
+      }
+      if (other.BulletId != 0L) {
+        BulletId = other.BulletId;
+      }
+      if (other.BulletType != 0) {
+        BulletType = other.BulletType;
+      }
+      if (other.PosX != 0F) {
+        PosX = other.PosX;
+      }
+      if (other.PosY != 0F) {
+        PosY = other.PosY;
+      }
+      if (other.PosZ != 0F) {
+        PosZ = other.PosZ;
+      }
+      bulletInfos_.Add(other.bulletInfos_);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            ObjId = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            BulletId = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            BulletType = input.ReadInt32();
+            break;
+          }
+          case 37: {
+            PosX = input.ReadFloat();
+            break;
+          }
+          case 45: {
+            PosY = input.ReadFloat();
+            break;
+          }
+          case 53: {
+            PosZ = input.ReadFloat();
+            break;
+          }
+          case 58: {
+            bulletInfos_.AddEntriesFrom(input, _repeated_bulletInfos_codec);
             break;
           }
         }
