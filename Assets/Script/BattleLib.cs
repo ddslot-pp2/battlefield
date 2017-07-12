@@ -232,12 +232,12 @@ public class BattleLib : MonoBehaviour {
 
 	public void DeleteEntity(Int64 obj_id)
 	{
-		Entity RemoveEntity	= EntityDic[obj_id];
-		if (RemoveEntity == null)
+		Entity remove_entity = EntityDic[obj_id];
+		if (remove_entity == null)
 			return;
-
-		RemoveEnitiy(RemoveEntity);
-	}
+        
+        RemoveEnitiy(remove_entity);
+    }
 
 	public GameObject GetEntity( Int64 obj_id )
 	{

@@ -70,7 +70,7 @@ public class Game : MonoBehaviour {
 
     public void handler_SC_NOTI_OTHER_LEAVE_FIELD(GAME.SC_NOTI_OTHER_LEAVE_FIELD read)
     {
-
+        BattleLib.Instance.DeleteEntity(read.ObjId);
     }
 
     public void handler_SC_NOTI_OTHER_MOVE(GAME.SC_NOTI_OTHER_MOVE read)
