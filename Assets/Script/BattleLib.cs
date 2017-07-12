@@ -35,7 +35,13 @@ namespace BattleInfo
 public class BattleLib : MonoBehaviour {
 
 
-	public RoomEntityInfo[]	m_roomEntityList = new RoomEntityInfo[MAX_ENTITY];
+	//public RoomEntityInfo[]	m_roomEntityList = new RoomEntityInfo[MAX_ENTITY];
+
+	public BetterList <Entity > EntityList = new BetterList<Entity>();
+
+	public Dictionary <Int64, Entity > EntityDic = new Dictionary< Int64, Entity>();
+
+	//public BetterList <Entity > EntityList = new BetterList<Entity>();
 
 	public Entity[] m_entityList = new Entity[MAX_ENTITY];
 
@@ -84,6 +90,33 @@ public class BattleLib : MonoBehaviour {
 		{
 			m_entityList[i] = null;
 		}
+
+		for (int i = 0; i < EntityList.size ; i++) 
+		{
+			EntityList[i].Release();
+		}
+
+		EntityList.Clear();
+		EntityDic.Clear();
+	}
+
+
+	public void AddEntity( Entity entity )
+	{
+		EntityList.Add(entity);
+		EntityDic.Add (entity.ObjId, entity);
+	}
+
+	public void RemoveEnitiy( Entity entity )
+	{
+		EntityList.Remove(entity);
+
+		if (entity.ObjId > 0 && EntityDic.ContainsKey (entity.ObjId) == true) 
+		{
+			EntityDic.Remove (entity.ObjId);
+		}
+
+		entity.Release();
 	}
 
 	public void ProgressBattle()
@@ -101,6 +134,7 @@ public class BattleLib : MonoBehaviour {
 		}
 	}
 
+	/*
 	public void EnterRoom(int index, int type, string name)
 	{
 		
@@ -125,6 +159,7 @@ public class BattleLib : MonoBehaviour {
 	{
 		m_roomEntityList[index].EnterRoom = 0;
 	}
+	*/
 
 
 	public void GameStart()
