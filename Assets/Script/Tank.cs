@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Tank : Entity {
 
@@ -22,12 +23,16 @@ public class Tank : Entity {
 
 	public float nextfire = 0.0f;
 
+    protected Dictionary <Int64, GameObject> Bullets_;
+
 
 	protected override void Init () {
 
 		base.Init();
 
-		playertank1 = GetComponent<Transform>();
+        Bullets_ = new Dictionary<long, GameObject>();
+
+        playertank1 = GetComponent<Transform>();
 
 		state = gameObject.GetComponent<Tank_State>();
 	}
@@ -127,4 +132,15 @@ public class Tank : Entity {
 		state.GetDamage(damage);
 	}
 
+    public void AddBullet(Int64 bullet_id, GameObject bullet_obj)
+    {
+        Bullets_[bullet_id] = bullet_obj;
+    }
+
+    public void RemoveBullet(Int64 bullet_id)
+    {
+        // bullet 사리질때 파티클이라도 생기기
+
+        Bullets_.Remove(bullet_id);
+    }
 }
