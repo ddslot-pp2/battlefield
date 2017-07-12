@@ -43,7 +43,7 @@ public class BattleLib : MonoBehaviour {
 
 	//public BetterList <Entity > EntityList = new BetterList<Entity>();
 
-	public Entity[] m_entityList = new Entity[MAX_ENTITY];
+	//public Entity[] m_entityList = new Entity[MAX_ENTITY];
 
 	static int MAX_ENTITY = 10;
 
@@ -88,10 +88,12 @@ public class BattleLib : MonoBehaviour {
 	{
 		m_gameStart = false;
 
+		/*
 		for (int i = 0; i < m_entityList.Length; i++) 
 		{
 			m_entityList[i] = null;
 		}
+		*/
 
 		for (int i = 0; i < EntityList.size ; i++) 
 		{
@@ -197,8 +199,8 @@ public class BattleLib : MonoBehaviour {
 
 	public void CreateBullet(int index, float distance, float posx, float posz, float speed)
 	{
-		Tank tankobject = m_entityList[index] as Tank;
-		tankobject.CreateBullet (posx, posz, speed, distance);
+		//Tank tankobject = m_entityList[index] as Tank;
+		//tankobject.CreateBullet (posx, posz, speed, distance);
 	}
 
 	public void CreateEntity(Int64 obj_id, int type, string name , bool myself, Vector3 spawnPos)
