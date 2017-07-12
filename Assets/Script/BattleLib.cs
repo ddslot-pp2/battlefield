@@ -201,7 +201,7 @@ public class BattleLib : MonoBehaviour {
 		tankobject.CreateBullet (posx, posz, speed, distance);
 	}
 
-	public void CreateEntity(Int64 obj_id, int type, int index, string name , bool myself, Vector3 spawnPos)
+	public void CreateEntity(Int64 obj_id, int type, string name , bool myself, Vector3 spawnPos)
 	{
 		
 		float RotateValue = UnityEngine.Random.Range(0, 350);

@@ -16,9 +16,9 @@ public class Game : MonoBehaviour {
 
 	float lastSendTime;
 
-    int Index;
+    //int Index;
     Int64 MyObjId;
-    int MyIndex;
+    //int MyIndex;
 
 
     Dictionary<Int64, int> IndexInfos_;
@@ -47,14 +47,14 @@ public class Game : MonoBehaviour {
             var other_pos = new Vector3(other_info.PosX, other_info.PosY, other_info.PosZ);
             var other_nickname = other_info.Nickname;
             var other_tanktype = other_info.TankType;
-            IndexInfos_[other_obj_id] = Index;
-            EnterUser(other_obj_id, other_tanktype, Index++, other_nickname, false, other_pos);
+            //IndexInfos_[other_obj_id] = Index;
+            EnterUser(other_obj_id, other_tanktype, other_nickname, false, other_pos);
         }
 
         // index 현재는 줄어들지 않게 함; 
-        IndexInfos_[read.ObjId] = Index;
-        MyIndex = Index;
-        EnterUser(read.ObjId, read.TankType, Index++, read.Nickname, true, new Vector3(read.PosX, read.PosY, read.PosZ));
+        //IndexInfos_[read.ObjId] = Index;
+        //MyIndex = Index;
+        EnterUser(read.ObjId, read.TankType, read.Nickname, true, new Vector3(read.PosX, read.PosY, read.PosZ));
         MyObjId = read.ObjId;
         
         // 씬 관련 서버에서 정보를 가져옴
@@ -68,13 +68,13 @@ public class Game : MonoBehaviour {
         {
             var index = IndexQueue_.Dequeue();
 
-            IndexInfos_[read.ObjId] = index;
-            EnterUser(read.ObjId, read.TankType, index, read.Nickname, false, new Vector3(read.PosX, read.PosY, read.PosZ));
+            //IndexInfos_[read.ObjId] = index;
+            EnterUser(read.ObjId, read.TankType, read.Nickname, false, new Vector3(read.PosX, read.PosY, read.PosZ));
             return;
         }
 
-        IndexInfos_[read.ObjId] = Index;
-        EnterUser(read.ObjId, read.TankType, Index++, read.Nickname, false, new Vector3(read.PosX, read.PosY, read.PosZ));
+        //IndexInfos_[read.ObjId] = Index;
+        EnterUser(read.ObjId, read.TankType, read.Nickname, false, new Vector3(read.PosX, read.PosY, read.PosZ));
     }
 
     public void handler_SC_NOTI_OTHER_LEAVE_FIELD(GAME.SC_NOTI_OTHER_LEAVE_FIELD read)
@@ -85,7 +85,7 @@ public class Game : MonoBehaviour {
     public void handler_SC_NOTI_OTHER_MOVE(GAME.SC_NOTI_OTHER_MOVE read)
     {
         var obj_id = read.ObjId;
-        var index = IndexInfos_[obj_id];
+        //var index = IndexInfos_[obj_id];
 
 		ReceiveUserClickInfo(obj_id, read.PosX, read.PosZ, false);
         Debug.Log("다른 유저가 움직임\n");
@@ -115,8 +115,8 @@ public class Game : MonoBehaviour {
             var speed = bullet_info.Speed;
             var distance = bullet_info.Distance;
 
-            if (!IndexInfos_.ContainsKey(obj_id)) return;
-            var index = IndexInfos_[obj_id];
+            //if (!IndexInfos_.ContainsKey(obj_id)) return;
+            //var index = IndexInfos_[obj_id];
 
             //var bullet_owner = BattleLib.Instance.GetEntity(index);
             //if (bullet_owner == null) return;
@@ -181,7 +181,7 @@ public class Game : MonoBehaviour {
 	{
         IndexInfos_ = new Dictionary<Int64, int>();
         IndexQueue_ = new Queue<int>();
-        Index = 0;
+     
         MyObjId = 0;
 
         RegisterPacketHandler();
@@ -193,10 +193,6 @@ public class Game : MonoBehaviour {
 		_TouchDispatcher.PressedDelegate = new TouchDispatcher.TouchDelegate(OnTouchPressed);
 		_TouchDispatcher.EndedDelegate = new TouchDispatcher.TouchDelegate(OnTouchEnded);
 
-		// 테스트용 생성
-		//EnterUser (1,0,"aaa", false, new Vector3(0.0f,0.0f,0.0f));
-		//EnterUser (2,1,"bbb", false, new Vector3(10.0f,0.0f,0.0f));
-		//EnterUser (3,2,"bbb", false, new Vector3(20.0f,0.0f,0.0f));
 	}
 	// Update is called once per frame
 
@@ -265,9 +261,9 @@ public class Game : MonoBehaviour {
 		BattleLib.Instance.ReceiveInput(obId, posX, posZ, attack);
 	}
 
-	public void EnterUser(Int64 obj_id, int type, int index, string name, bool myself, Vector3 pos)
+	public void EnterUser(Int64 obj_id, int type, string name, bool myself, Vector3 pos)
 	{
-		BattleLib.Instance.CreateEntity (obj_id, type, index, name, myself, pos);
+		BattleLib.Instance.CreateEntity (obj_id, type, name, myself, pos);
 
 		if (myself) 
 		{
@@ -276,13 +272,13 @@ public class Game : MonoBehaviour {
 	}
 		
     // 유저 나갔을 경우 삭제
-    public void LeaveUser(Int64 obj_id, int index)
+    public void LeaveUser(Int64 obj_id)
     {
-		BattleLib.Instance.DeleteEntity (index);
+		BattleLib.Instance.DeleteEntity (obj_id);
 
-        IndexQueue_.Enqueue(index);
+        //IndexQueue_.Enqueue(index);
 
-        if (index == MyIndex) 
+		if (obj_id == MyObjId) 
 		{
 			UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby");
 		}
@@ -311,7 +307,7 @@ public class Game : MonoBehaviour {
 
     void TryFire(float x, float z)
     {
-        var obj = BattleLib.Instance.GetEntity(MyIndex);
+		var obj = BattleLib.Instance.GetEntity(MyObjId);
         var dir = (new Vector3(x, 0.0f, z) - obj.transform.position).normalized;
 
         var Send = new GAME.CS_FIRE();
