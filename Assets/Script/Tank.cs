@@ -46,7 +46,7 @@ public class Tank : Entity {
 			if (Vector3.Distance (transform.position, ArrivePos) > 0.1f) {
 				ArrivePos.y = 0.0f;
 				Vector3 dir = (ArrivePos - transform.position).normalized;
-				transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (dir), Time.deltaTime * 10);
+				transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (dir), Time.deltaTime * 20);
 				playertank1.Translate (Vector3.forward * state.moveSpeed * Time.deltaTime);
 
 			} else 
