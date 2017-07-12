@@ -54,6 +54,7 @@ public class Bullet : Entity
 
     public void SetProperty(Int64 Id, Vector3 Pos, Vector3 dir, float Speed, float Distance)
     {
+        ObjId = Id;
         Id_ = Id;
         Pos_ = Pos;
         Dir_ = dir;

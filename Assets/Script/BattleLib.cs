@@ -296,6 +296,7 @@ public class BattleLib : MonoBehaviour {
 		bullet_object.transform.localScale = new Vector3(bullet_object.transform.localScale.x * size.x, bullet_object.transform.localScale.y * size.y, bullet_object.transform.localScale.z * size.z);
 		Bullet bulletEntity = bullet_object.GetComponent<Bullet> ();
 		bulletEntity.SetProperty(bullet_id, pos, bullet_dir, speed, distance);
+        
 		AddEntity (bulletEntity);
 
 		/*
@@ -311,7 +312,7 @@ public class BattleLib : MonoBehaviour {
         }
         */
     }
-    public void DestroyBullet(Int64 owner_id, Int64 bullet_id)
+    public void DestroyBullet(Int64 bullet_id)
     {
         //Tank tankObject = EntityDic[owner_id] as Tank;
         //tankObject.RemoveBullet(bullet_id);

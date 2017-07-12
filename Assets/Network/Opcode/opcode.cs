@@ -18,4 +18,5 @@ public enum opcode : short
 	SC_NOTI_OTHER_MOVE = 2007,
 	CS_FIRE = 2008,
 	SC_NOTI_FIRE = 2009,
+	SC_NOTI_DESTROY_BULLET = 2010,
 };

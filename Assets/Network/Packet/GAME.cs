@@ -38,18 +38,22 @@ namespace GAME {
             "IAEoAyI7CgxDU19OT1RJX01PVkUSDQoFcG9zX3gYASABKAISDQoFcG9zX3kY",
             "AiABKAISDQoFcG9zX3oYAyABKAIiUQoSU0NfTk9USV9PVEhFUl9NT1ZFEg4K",
             "Bm9ial9pZBgBIAEoAxINCgVwb3NfeBgCIAEoAhINCgVwb3NfeRgDIAEoAhIN",
-            "CgVwb3NfehgEIAEoAiKLAQoLQlVMTEVUX0lORk8SDQoFZGlyX3gYASABKAIS",
-            "DQoFZGlyX3kYAiABKAISDQoFZGlyX3oYAyABKAISDgoGc2l6ZV94GAQgASgC",
-            "Eg4KBnNpemVfeRgFIAEoAhIOCgZzaXplX3oYBiABKAISDQoFc3BlZWQYByAB",
-            "KAISEAoIZGlzdGFuY2UYCCABKAIioQEKB0NTX0ZJUkUSEwoLYnVsbGV0X3R5",
-            "cGUYASABKAUSDQoFcG9zX3gYAiABKAISDQoFcG9zX3kYAyABKAISDQoFcG9z",
-            "X3oYBCABKAISDQoFZGlyX3gYBSABKAISDQoFZGlyX3kYBiABKAISDQoFZGly",
-            "X3oYByABKAISJwoMYnVsbGV0X2luZm9zGAggAygLMhEuR0FNRS5CVUxMRVRf",
-            "SU5GTyLJAQoMU0NfTk9USV9GSVJFEg4KBm9ial9pZBgBIAEoAxIRCglidWxs",
-            "ZXRfaWQYAiABKAMSEwoLYnVsbGV0X3R5cGUYAyABKAUSDQoFcG9zX3gYBCAB",
-            "KAISDQoFcG9zX3kYBSABKAISDQoFcG9zX3oYBiABKAISDQoFZGlyX3gYByAB",
-            "KAISDQoFZGlyX3kYCCABKAISDQoFZGlyX3oYCSABKAISJwoMYnVsbGV0X2lu",
-            "Zm9zGAogAygLMhEuR0FNRS5CVUxMRVRfSU5GT2IGcHJvdG8z"));
+            "CgVwb3NfehgEIAEoAiKeAQoLQlVMTEVUX0lORk8SEQoJYnVsbGV0X2lkGAEg",
+            "ASgDEg0KBWRpcl94GAIgASgCEg0KBWRpcl95GAMgASgCEg0KBWRpcl96GAQg",
+            "ASgCEg4KBnNpemVfeBgFIAEoAhIOCgZzaXplX3kYBiABKAISDgoGc2l6ZV96",
+            "GAcgASgCEg0KBXNwZWVkGAggASgCEhAKCGRpc3RhbmNlGAkgASgCIqEBCgdD",
+            "U19GSVJFEhMKC2J1bGxldF90eXBlGAEgASgFEg0KBXBvc194GAIgASgCEg0K",
+            "BXBvc195GAMgASgCEg0KBXBvc196GAQgASgCEg0KBWRpcl94GAUgASgCEg0K",
+            "BWRpcl95GAYgASgCEg0KBWRpcl96GAcgASgCEicKDGJ1bGxldF9pbmZvcxgI",
+            "IAMoCzIRLkdBTUUuQlVMTEVUX0lORk8itgEKDFNDX05PVElfRklSRRIOCgZv",
+            "YmpfaWQYASABKAMSEwoLYnVsbGV0X3R5cGUYAiABKAUSDQoFcG9zX3gYAyAB",
+            "KAISDQoFcG9zX3kYBCABKAISDQoFcG9zX3oYBSABKAISDQoFZGlyX3gYBiAB",
+            "KAISDQoFZGlyX3kYByABKAISDQoFZGlyX3oYCCABKAISJwoMYnVsbGV0X2lu",
+            "Zm9zGAkgAygLMhEuR0FNRS5CVUxMRVRfSU5GTyI8CgtEQU1BR0VfSU5GTxIR",
+            "Cgl0YXJnZXRfaWQYASABKAMSCgoCaHAYAiABKAUSDgoGZGFtYWdlGAMgASgD",
+            "ImQKFlNDX05PVElfREVTVFJPWV9CVUxMRVQSDgoGb2JqX2lkGAEgASgDEhEK",
+            "CWJ1bGxldF9pZBgCIAEoAxInCgxkYW1hZ2VfaW5mb3MYAyADKAsyES5HQU1F",
+            "LkRBTUFHRV9JTkZPYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -62,9 +66,11 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_LEAVE_FIELD), global::GAME.SC_NOTI_OTHER_LEAVE_FIELD.Parser, new[]{ "ObjId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_NOTI_MOVE), global::GAME.CS_NOTI_MOVE.Parser, new[]{ "PosX", "PosY", "PosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_MOVE), global::GAME.SC_NOTI_OTHER_MOVE.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.BULLET_INFO), global::GAME.BULLET_INFO.Parser, new[]{ "DirX", "DirY", "DirZ", "SizeX", "SizeY", "SizeZ", "Speed", "Distance" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.BULLET_INFO), global::GAME.BULLET_INFO.Parser, new[]{ "BulletId", "DirX", "DirY", "DirZ", "SizeX", "SizeY", "SizeZ", "Speed", "Distance" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_FIRE), global::GAME.CS_FIRE.Parser, new[]{ "BulletType", "PosX", "PosY", "PosZ", "DirX", "DirY", "DirZ", "BulletInfos" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_FIRE), global::GAME.SC_NOTI_FIRE.Parser, new[]{ "ObjId", "BulletId", "BulletType", "PosX", "PosY", "PosZ", "DirX", "DirY", "DirZ", "BulletInfos" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_FIRE), global::GAME.SC_NOTI_FIRE.Parser, new[]{ "ObjId", "BulletType", "PosX", "PosY", "PosZ", "DirX", "DirY", "DirZ", "BulletInfos" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.DAMAGE_INFO), global::GAME.DAMAGE_INFO.Parser, new[]{ "TargetId", "Hp", "Damage" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_DESTROY_BULLET), global::GAME.SC_NOTI_DESTROY_BULLET.Parser, new[]{ "ObjId", "BulletId", "DamageInfos" }, null, null, null)
           }));
     }
     #endregion
@@ -1812,6 +1818,7 @@ namespace GAME {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public BULLET_INFO(BULLET_INFO other) : this() {
+      bulletId_ = other.bulletId_;
       dirX_ = other.dirX_;
       dirY_ = other.dirY_;
       dirZ_ = other.dirZ_;
@@ -1827,8 +1834,19 @@ namespace GAME {
       return new BULLET_INFO(this);
     }
 
+    /// <summary>Field number for the "bullet_id" field.</summary>
+    public const int BulletIdFieldNumber = 1;
+    private long bulletId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long BulletId {
+      get { return bulletId_; }
+      set {
+        bulletId_ = value;
+      }
+    }
+
     /// <summary>Field number for the "dir_x" field.</summary>
-    public const int DirXFieldNumber = 1;
+    public const int DirXFieldNumber = 2;
     private float dirX_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float DirX {
@@ -1839,7 +1857,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "dir_y" field.</summary>
-    public const int DirYFieldNumber = 2;
+    public const int DirYFieldNumber = 3;
     private float dirY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float DirY {
@@ -1850,7 +1868,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "dir_z" field.</summary>
-    public const int DirZFieldNumber = 3;
+    public const int DirZFieldNumber = 4;
     private float dirZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float DirZ {
@@ -1861,7 +1879,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "size_x" field.</summary>
-    public const int SizeXFieldNumber = 4;
+    public const int SizeXFieldNumber = 5;
     private float sizeX_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float SizeX {
@@ -1872,7 +1890,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "size_y" field.</summary>
-    public const int SizeYFieldNumber = 5;
+    public const int SizeYFieldNumber = 6;
     private float sizeY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float SizeY {
@@ -1883,7 +1901,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "size_z" field.</summary>
-    public const int SizeZFieldNumber = 6;
+    public const int SizeZFieldNumber = 7;
     private float sizeZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float SizeZ {
@@ -1894,7 +1912,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "speed" field.</summary>
-    public const int SpeedFieldNumber = 7;
+    public const int SpeedFieldNumber = 8;
     private float speed_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Speed {
@@ -1905,7 +1923,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "distance" field.</summary>
-    public const int DistanceFieldNumber = 8;
+    public const int DistanceFieldNumber = 9;
     private float distance_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Distance {
@@ -1928,6 +1946,7 @@ namespace GAME {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (BulletId != other.BulletId) return false;
       if (DirX != other.DirX) return false;
       if (DirY != other.DirY) return false;
       if (DirZ != other.DirZ) return false;
@@ -1942,6 +1961,7 @@ namespace GAME {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (BulletId != 0L) hash ^= BulletId.GetHashCode();
       if (DirX != 0F) hash ^= DirX.GetHashCode();
       if (DirY != 0F) hash ^= DirY.GetHashCode();
       if (DirZ != 0F) hash ^= DirZ.GetHashCode();
@@ -1960,36 +1980,40 @@ namespace GAME {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (BulletId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(BulletId);
+      }
       if (DirX != 0F) {
-        output.WriteRawTag(13);
+        output.WriteRawTag(21);
         output.WriteFloat(DirX);
       }
       if (DirY != 0F) {
-        output.WriteRawTag(21);
+        output.WriteRawTag(29);
         output.WriteFloat(DirY);
       }
       if (DirZ != 0F) {
-        output.WriteRawTag(29);
+        output.WriteRawTag(37);
         output.WriteFloat(DirZ);
       }
       if (SizeX != 0F) {
-        output.WriteRawTag(37);
+        output.WriteRawTag(45);
         output.WriteFloat(SizeX);
       }
       if (SizeY != 0F) {
-        output.WriteRawTag(45);
+        output.WriteRawTag(53);
         output.WriteFloat(SizeY);
       }
       if (SizeZ != 0F) {
-        output.WriteRawTag(53);
+        output.WriteRawTag(61);
         output.WriteFloat(SizeZ);
       }
       if (Speed != 0F) {
-        output.WriteRawTag(61);
+        output.WriteRawTag(69);
         output.WriteFloat(Speed);
       }
       if (Distance != 0F) {
-        output.WriteRawTag(69);
+        output.WriteRawTag(77);
         output.WriteFloat(Distance);
       }
     }
@@ -1997,6 +2021,9 @@ namespace GAME {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (BulletId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(BulletId);
+      }
       if (DirX != 0F) {
         size += 1 + 4;
       }
@@ -2028,6 +2055,9 @@ namespace GAME {
     public void MergeFrom(BULLET_INFO other) {
       if (other == null) {
         return;
+      }
+      if (other.BulletId != 0L) {
+        BulletId = other.BulletId;
       }
       if (other.DirX != 0F) {
         DirX = other.DirX;
@@ -2063,35 +2093,39 @@ namespace GAME {
           default:
             input.SkipLastField();
             break;
-          case 13: {
-            DirX = input.ReadFloat();
+          case 8: {
+            BulletId = input.ReadInt64();
             break;
           }
           case 21: {
-            DirY = input.ReadFloat();
+            DirX = input.ReadFloat();
             break;
           }
           case 29: {
-            DirZ = input.ReadFloat();
+            DirY = input.ReadFloat();
             break;
           }
           case 37: {
-            SizeX = input.ReadFloat();
+            DirZ = input.ReadFloat();
             break;
           }
           case 45: {
-            SizeY = input.ReadFloat();
+            SizeX = input.ReadFloat();
             break;
           }
           case 53: {
-            SizeZ = input.ReadFloat();
+            SizeY = input.ReadFloat();
             break;
           }
           case 61: {
-            Speed = input.ReadFloat();
+            SizeZ = input.ReadFloat();
             break;
           }
           case 69: {
+            Speed = input.ReadFloat();
+            break;
+          }
+          case 77: {
             Distance = input.ReadFloat();
             break;
           }
@@ -2431,7 +2465,6 @@ namespace GAME {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SC_NOTI_FIRE(SC_NOTI_FIRE other) : this() {
       objId_ = other.objId_;
-      bulletId_ = other.bulletId_;
       bulletType_ = other.bulletType_;
       posX_ = other.posX_;
       posY_ = other.posY_;
@@ -2458,19 +2491,8 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "bullet_id" field.</summary>
-    public const int BulletIdFieldNumber = 2;
-    private long bulletId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long BulletId {
-      get { return bulletId_; }
-      set {
-        bulletId_ = value;
-      }
-    }
-
     /// <summary>Field number for the "bullet_type" field.</summary>
-    public const int BulletTypeFieldNumber = 3;
+    public const int BulletTypeFieldNumber = 2;
     private int bulletType_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int BulletType {
@@ -2481,7 +2503,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_x" field.</summary>
-    public const int PosXFieldNumber = 4;
+    public const int PosXFieldNumber = 3;
     private float posX_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosX {
@@ -2492,7 +2514,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_y" field.</summary>
-    public const int PosYFieldNumber = 5;
+    public const int PosYFieldNumber = 4;
     private float posY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosY {
@@ -2503,7 +2525,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_z" field.</summary>
-    public const int PosZFieldNumber = 6;
+    public const int PosZFieldNumber = 5;
     private float posZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosZ {
@@ -2514,7 +2536,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "dir_x" field.</summary>
-    public const int DirXFieldNumber = 7;
+    public const int DirXFieldNumber = 6;
     private float dirX_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float DirX {
@@ -2525,7 +2547,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "dir_y" field.</summary>
-    public const int DirYFieldNumber = 8;
+    public const int DirYFieldNumber = 7;
     private float dirY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float DirY {
@@ -2536,7 +2558,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "dir_z" field.</summary>
-    public const int DirZFieldNumber = 9;
+    public const int DirZFieldNumber = 8;
     private float dirZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float DirZ {
@@ -2547,9 +2569,9 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "bullet_infos" field.</summary>
-    public const int BulletInfosFieldNumber = 10;
+    public const int BulletInfosFieldNumber = 9;
     private static readonly pb::FieldCodec<global::GAME.BULLET_INFO> _repeated_bulletInfos_codec
-        = pb::FieldCodec.ForMessage(82, global::GAME.BULLET_INFO.Parser);
+        = pb::FieldCodec.ForMessage(74, global::GAME.BULLET_INFO.Parser);
     private readonly pbc::RepeatedField<global::GAME.BULLET_INFO> bulletInfos_ = new pbc::RepeatedField<global::GAME.BULLET_INFO>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::GAME.BULLET_INFO> BulletInfos {
@@ -2570,7 +2592,6 @@ namespace GAME {
         return true;
       }
       if (ObjId != other.ObjId) return false;
-      if (BulletId != other.BulletId) return false;
       if (BulletType != other.BulletType) return false;
       if (PosX != other.PosX) return false;
       if (PosY != other.PosY) return false;
@@ -2586,7 +2607,6 @@ namespace GAME {
     public override int GetHashCode() {
       int hash = 1;
       if (ObjId != 0L) hash ^= ObjId.GetHashCode();
-      if (BulletId != 0L) hash ^= BulletId.GetHashCode();
       if (BulletType != 0) hash ^= BulletType.GetHashCode();
       if (PosX != 0F) hash ^= PosX.GetHashCode();
       if (PosY != 0F) hash ^= PosY.GetHashCode();
@@ -2609,36 +2629,32 @@ namespace GAME {
         output.WriteRawTag(8);
         output.WriteInt64(ObjId);
       }
-      if (BulletId != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(BulletId);
-      }
       if (BulletType != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(16);
         output.WriteInt32(BulletType);
       }
       if (PosX != 0F) {
-        output.WriteRawTag(37);
+        output.WriteRawTag(29);
         output.WriteFloat(PosX);
       }
       if (PosY != 0F) {
-        output.WriteRawTag(45);
+        output.WriteRawTag(37);
         output.WriteFloat(PosY);
       }
       if (PosZ != 0F) {
-        output.WriteRawTag(53);
+        output.WriteRawTag(45);
         output.WriteFloat(PosZ);
       }
       if (DirX != 0F) {
-        output.WriteRawTag(61);
+        output.WriteRawTag(53);
         output.WriteFloat(DirX);
       }
       if (DirY != 0F) {
-        output.WriteRawTag(69);
+        output.WriteRawTag(61);
         output.WriteFloat(DirY);
       }
       if (DirZ != 0F) {
-        output.WriteRawTag(77);
+        output.WriteRawTag(69);
         output.WriteFloat(DirZ);
       }
       bulletInfos_.WriteTo(output, _repeated_bulletInfos_codec);
@@ -2649,9 +2665,6 @@ namespace GAME {
       int size = 0;
       if (ObjId != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObjId);
-      }
-      if (BulletId != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(BulletId);
       }
       if (BulletType != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletType);
@@ -2685,9 +2698,6 @@ namespace GAME {
       }
       if (other.ObjId != 0L) {
         ObjId = other.ObjId;
-      }
-      if (other.BulletId != 0L) {
-        BulletId = other.BulletId;
       }
       if (other.BulletType != 0) {
         BulletType = other.BulletType;
@@ -2726,39 +2736,373 @@ namespace GAME {
             break;
           }
           case 16: {
-            BulletId = input.ReadInt64();
-            break;
-          }
-          case 24: {
             BulletType = input.ReadInt32();
             break;
           }
-          case 37: {
+          case 29: {
             PosX = input.ReadFloat();
             break;
           }
-          case 45: {
+          case 37: {
             PosY = input.ReadFloat();
             break;
           }
-          case 53: {
+          case 45: {
             PosZ = input.ReadFloat();
             break;
           }
-          case 61: {
+          case 53: {
             DirX = input.ReadFloat();
             break;
           }
-          case 69: {
+          case 61: {
             DirY = input.ReadFloat();
             break;
           }
-          case 77: {
+          case 69: {
             DirZ = input.ReadFloat();
             break;
           }
-          case 82: {
+          case 74: {
             bulletInfos_.AddEntriesFrom(input, _repeated_bulletInfos_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class DAMAGE_INFO : pb::IMessage<DAMAGE_INFO> {
+    private static readonly pb::MessageParser<DAMAGE_INFO> _parser = new pb::MessageParser<DAMAGE_INFO>(() => new DAMAGE_INFO());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<DAMAGE_INFO> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[12]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DAMAGE_INFO() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DAMAGE_INFO(DAMAGE_INFO other) : this() {
+      targetId_ = other.targetId_;
+      hp_ = other.hp_;
+      damage_ = other.damage_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DAMAGE_INFO Clone() {
+      return new DAMAGE_INFO(this);
+    }
+
+    /// <summary>Field number for the "target_id" field.</summary>
+    public const int TargetIdFieldNumber = 1;
+    private long targetId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long TargetId {
+      get { return targetId_; }
+      set {
+        targetId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hp" field.</summary>
+    public const int HpFieldNumber = 2;
+    private int hp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Hp {
+      get { return hp_; }
+      set {
+        hp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "damage" field.</summary>
+    public const int DamageFieldNumber = 3;
+    private long damage_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Damage {
+      get { return damage_; }
+      set {
+        damage_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as DAMAGE_INFO);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(DAMAGE_INFO other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (TargetId != other.TargetId) return false;
+      if (Hp != other.Hp) return false;
+      if (Damage != other.Damage) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (TargetId != 0L) hash ^= TargetId.GetHashCode();
+      if (Hp != 0) hash ^= Hp.GetHashCode();
+      if (Damage != 0L) hash ^= Damage.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (TargetId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(TargetId);
+      }
+      if (Hp != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Hp);
+      }
+      if (Damage != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Damage);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (TargetId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TargetId);
+      }
+      if (Hp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
+      }
+      if (Damage != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Damage);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(DAMAGE_INFO other) {
+      if (other == null) {
+        return;
+      }
+      if (other.TargetId != 0L) {
+        TargetId = other.TargetId;
+      }
+      if (other.Hp != 0) {
+        Hp = other.Hp;
+      }
+      if (other.Damage != 0L) {
+        Damage = other.Damage;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            TargetId = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Hp = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Damage = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_NOTI_DESTROY_BULLET : pb::IMessage<SC_NOTI_DESTROY_BULLET> {
+    private static readonly pb::MessageParser<SC_NOTI_DESTROY_BULLET> _parser = new pb::MessageParser<SC_NOTI_DESTROY_BULLET>(() => new SC_NOTI_DESTROY_BULLET());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_NOTI_DESTROY_BULLET> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_DESTROY_BULLET() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_DESTROY_BULLET(SC_NOTI_DESTROY_BULLET other) : this() {
+      objId_ = other.objId_;
+      bulletId_ = other.bulletId_;
+      damageInfos_ = other.damageInfos_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_DESTROY_BULLET Clone() {
+      return new SC_NOTI_DESTROY_BULLET(this);
+    }
+
+    /// <summary>Field number for the "obj_id" field.</summary>
+    public const int ObjIdFieldNumber = 1;
+    private long objId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ObjId {
+      get { return objId_; }
+      set {
+        objId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_id" field.</summary>
+    public const int BulletIdFieldNumber = 2;
+    private long bulletId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long BulletId {
+      get { return bulletId_; }
+      set {
+        bulletId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "damage_infos" field.</summary>
+    public const int DamageInfosFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::GAME.DAMAGE_INFO> _repeated_damageInfos_codec
+        = pb::FieldCodec.ForMessage(26, global::GAME.DAMAGE_INFO.Parser);
+    private readonly pbc::RepeatedField<global::GAME.DAMAGE_INFO> damageInfos_ = new pbc::RepeatedField<global::GAME.DAMAGE_INFO>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::GAME.DAMAGE_INFO> DamageInfos {
+      get { return damageInfos_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_NOTI_DESTROY_BULLET);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_NOTI_DESTROY_BULLET other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ObjId != other.ObjId) return false;
+      if (BulletId != other.BulletId) return false;
+      if(!damageInfos_.Equals(other.damageInfos_)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ObjId != 0L) hash ^= ObjId.GetHashCode();
+      if (BulletId != 0L) hash ^= BulletId.GetHashCode();
+      hash ^= damageInfos_.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ObjId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ObjId);
+      }
+      if (BulletId != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(BulletId);
+      }
+      damageInfos_.WriteTo(output, _repeated_damageInfos_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ObjId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObjId);
+      }
+      if (BulletId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(BulletId);
+      }
+      size += damageInfos_.CalculateSize(_repeated_damageInfos_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_NOTI_DESTROY_BULLET other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ObjId != 0L) {
+        ObjId = other.ObjId;
+      }
+      if (other.BulletId != 0L) {
+        BulletId = other.BulletId;
+      }
+      damageInfos_.Add(other.damageInfos_);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            ObjId = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            BulletId = input.ReadInt64();
+            break;
+          }
+          case 26: {
+            damageInfos_.AddEntriesFrom(input, _repeated_damageInfos_codec);
             break;
           }
         }

@@ -79,8 +79,7 @@ public class Game : MonoBehaviour {
         //var index = IndexInfos_[obj_id];
 
 		ReceiveUserClickInfo(obj_id, read.PosX, read.PosZ, false);
-        Debug.Log("다른 유저가 움직임\n");
-
+        //Debug.Log("다른 유저가 움직임\n");
     }
 
     // 나를 포함한 모든 탱크가 미사일 발사시 브로드캐스팅해서 전달됨
@@ -88,8 +87,6 @@ public class Game : MonoBehaviour {
     {
         // 발사한 탱크의 고유 아이디
         var obj_id = read.ObjId;
-        // 서버상 bullet 고유 아이디; 삭제시 날라온다
-        var bullet_id = read.BulletId;
 
         // 어떤 bullet인지; bullet의 메시정보 구별을 위해 필요. 값들은 동적으로 변함(파워, 스피드, etc)
         var bullet_type = read.BulletType;
@@ -101,6 +98,8 @@ public class Game : MonoBehaviour {
         for (var i = 0; i < read.BulletInfos.Count; ++i)
         {
             var bullet_info = read.BulletInfos[i];
+            var bullet_id = bullet_info.BulletId;
+
             var bullet_dir = new Vector3(bullet_info.DirX, bullet_info.DirY, bullet_info.DirZ);
             var size = new Vector3(bullet_info.SizeX, bullet_info.SizeY, bullet_info.SizeZ);
             var speed = bullet_info.Speed;
@@ -111,6 +110,19 @@ public class Game : MonoBehaviour {
         }
     
     }
+    public void handler_SC_NOTI_DESTROY_BULLET(GAME.SC_NOTI_DESTROY_BULLET read)
+    {
+        //Debug.Log("미사일 제거 호출");
+        //Debug.Log("bullet_id: " + read.BulletId);
+        BattleLib.Instance.DestroyBullet(read.BulletId);
+        foreach (var damage_info in read.DamageInfos)
+        {
+            var target_obj_id = damage_info.TargetId;
+            var damage = damage_info.Damage;
+            //var hp = damage_info.Damage;
+            BattleLib.Instance.GetDamage(target_obj_id, (int)damage);
+        }
+    }
 
     public void RegisterPacketHandler()
     {
@@ -120,6 +132,7 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_OTHER_LEAVE_FIELD>(opcode.SC_NOTI_OTHER_LEAVE_FIELD, handler_SC_NOTI_OTHER_LEAVE_FIELD);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_OTHER_MOVE>(opcode.SC_NOTI_OTHER_MOVE, handler_SC_NOTI_OTHER_MOVE);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_FIRE>(opcode.SC_NOTI_FIRE, handler_SC_NOTI_FIRE);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_DESTROY_BULLET>(opcode.SC_NOTI_DESTROY_BULLET, handler_SC_NOTI_DESTROY_BULLET);
     }
 
 	void OnTouchBegan(Vector3 pos)
