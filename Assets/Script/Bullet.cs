@@ -6,7 +6,7 @@ using System;
 public class Bullet : Entity
 {
     public enum Type { DirectBullet = 0 };
-
+	public GameObject ExpEffect;
     private Int64 Id_;
     private Vector3 Pos_;
     private Vector3 Dir_;
@@ -14,15 +14,20 @@ public class Bullet : Entity
     private float Speed_;
     private float Distance_;
 
+	Transform myTransform;
+
     void Start ()
     {
         //this.transform.rotation = Quaternion.LookRotation(Dir_);
-        this.transform.position = Pos_;
+		myTransform = this.transform;
+		myTransform.position = Pos_;
 	}
 
 
 	public override void Release()
 	{
+		GameObject exp = Instantiate(ExpEffect, myTransform.position, myTransform.rotation);
+		Destroy(exp, 1.0f);
 		gameObject.Recycle();
 	}
 
