@@ -294,15 +294,17 @@ public class BattleLib : MonoBehaviour {
         {
             var bullet_object = Instantiate(Resources.Load("Prefab/Bullet/DirectBullet"), pos, fire_transform.rotation) as GameObject;
             bullet_object.transform.localScale = new Vector3(bullet_object.transform.localScale.x * size.x, bullet_object.transform.localScale.y * size.y, bullet_object.transform.localScale.z * size.z);
-            bullet_object.GetComponent<Bullet>().SetProperty(bullet_id, pos, bullet_dir, speed, distance);
-
-            tankObject.AddBullet(bullet_id, bullet_object);
+			Bullet bulletEntity = bullet_object.GetComponent<Bullet> ();
+			bulletEntity.SetProperty(bullet_id, pos, bullet_dir, speed, distance);
+			AddEntity (bulletEntity);
+            //tankObject.AddBullet(bullet_id, bullet_object);
         }
     }
     public void DestroyBullet(Int64 owner_id, Int64 bullet_id)
     {
-        Tank tankObject = EntityDic[owner_id] as Tank;
-        tankObject.RemoveBullet(bullet_id);
+        //Tank tankObject = EntityDic[owner_id] as Tank;
+        //tankObject.RemoveBullet(bullet_id);
+		DeleteEntity(bullet_id);
     }
 
     public void GetDamage(Int64 obId, int damage)
