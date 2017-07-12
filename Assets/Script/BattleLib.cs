@@ -247,7 +247,8 @@ public class BattleLib : MonoBehaviour {
 		
 		if (obId > 0 && EntityDic.ContainsKey (obId) == true) 
 		{
-			EntityDic[obId].ProgressInput(posX, posZ, attack  );
+			Tank tankEntity = EntityDic[obId] as Tank;
+			tankEntity.ProgressInput(posX, posZ, attack);
 		}
 		
 	}
@@ -264,14 +265,12 @@ public class BattleLib : MonoBehaviour {
 
 	}
 
-	public void ReceivePos(int index, float posX , float posZ )
+	public void ReceivePos(Int64 obId , float posX , float posZ )
 	{
-		if( m_entityList[index] != null )
+		if (obId > 0 && EntityDic.ContainsKey (obId) == true) 
 		{
-			if (index == m_myIndex)
-				return;
-			
-			m_entityList[index].ProgressPos(posX, posZ );
+			Tank tankEntity = EntityDic[obId] as Tank;
+			tankEntity.ProgressPos(posX, posZ);
 		}
 	}
 

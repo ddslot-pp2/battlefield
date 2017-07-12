@@ -5,7 +5,6 @@ using System;
 
 public class Entity : MonoBehaviour, IDisposable {
 
-	public int m_index;
 	public Int64 ObjId;
 
 	bool m_my = false;
@@ -17,7 +16,6 @@ public class Entity : MonoBehaviour, IDisposable {
 		
 	public void SetMyEntity()
 	{
-		Debug.Log ("SetMyEntity:" + m_index);
 		m_my = true;
 	}
 
@@ -34,16 +32,6 @@ public class Entity : MonoBehaviour, IDisposable {
 	public void Dispose()
 	{
 		
-	}
-		
-	public virtual void ProgressInput(float posX, float posZ, bool attack)
-	{
-
-	}
-
-	public virtual void ProgressPos(float posX, float posZ)
-	{
-
 	}
 		
 	virtual public void EntityUpdate()

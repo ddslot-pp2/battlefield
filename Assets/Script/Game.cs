@@ -284,23 +284,22 @@ public class Game : MonoBehaviour {
 		}
     }
 
-    public void ReceiveUserPos(int index, float posX, float posZ)
+	public void ReceiveUserPos(Int64 obj_id, float posX, float posZ)
 	{
-		BattleLib.Instance.ReceivePos(index, posX, posZ);
+		BattleLib.Instance.ReceivePos(obj_id, posX, posZ);
 	}
 
-	public void ReceiveUserDamage(int index, int hp)
+	public void ReceiveUserDamage(Int64 obj_id, int hp)
 	{
-		Debug.Log ("damage index:" + index);
 		Debug.Log ("damage hp:" + hp);
 	}
 
-	public void Dead()
+	public void Dead(Int64 obj_id)
 	{
 
 	}
 
-	public void Revive()
+	public void Revive(Int64 obj_id)
 	{
 
 	}

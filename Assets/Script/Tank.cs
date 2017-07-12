@@ -33,6 +33,8 @@ public class Tank : Entity {
 		state = gameObject.GetComponent<Tank_State>();
 	}
 
+
+
 	public override void EntityUpdate () 
 	{
 		MoveEntity();
@@ -60,8 +62,8 @@ public class Tank : Entity {
 	{
 		
 	}
-
-	public override void ProgressInput(float posX, float posZ, bool attack)
+		
+	public virtual void ProgressInput(float posX, float posZ, bool attack)
 	{
 		if (attack) 
 		{
@@ -81,7 +83,7 @@ public class Tank : Entity {
 		}
 	}
 
-	public override void ProgressPos(float posX, float posZ)
+	public virtual void ProgressPos(float posX, float posZ)
 	{
 		
 		if (IsMyEntity ())
