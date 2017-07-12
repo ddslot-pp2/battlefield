@@ -106,12 +106,6 @@ public class Game : MonoBehaviour {
             var speed = bullet_info.Speed;
             var distance = bullet_info.Distance;
 
-            //if (!IndexInfos_.ContainsKey(obj_id)) return;
-            //var index = IndexInfos_[obj_id];
-
-            //var bullet_owner = BattleLib.Instance.GetEntity(index);
-            //if (bullet_owner == null) return;
-
             // bullet 생성 
 			BattleLib.Instance.CreateBullet(obj_id, (Bullet.Type)bullet_type, bullet_id, pos, look_dir, bullet_dir, size, speed, distance);
         }

@@ -287,11 +287,14 @@ public class BattleLib : MonoBehaviour {
 		Transform fire_transform = tankObject.fireTransform;
         fire_transform.rotation = Quaternion.LookRotation(look_dir);
 
+        var y = tankObject.GetFirePosition().position.y;
+        pos.y = y;
+
         if (bullet_type == Bullet.Type.DirectBullet)
         {
-            var bullet_object = Instantiate(Resources.Load("Prefab/Bullet/DirectBullet"), tankObject.GetFirePosition().position, fire_transform.rotation) as GameObject;
+            var bullet_object = Instantiate(Resources.Load("Prefab/Bullet/DirectBullet"), pos, fire_transform.rotation) as GameObject;
             bullet_object.transform.localScale = new Vector3(bullet_object.transform.localScale.x * size.x, bullet_object.transform.localScale.y * size.y, bullet_object.transform.localScale.z * size.z);
-            bullet_object.GetComponent<Bullet>().SetProperty(bullet_id, tankObject.GetFirePosition().position, bullet_dir, speed, distance);
+            bullet_object.GetComponent<Bullet>().SetProperty(bullet_id, pos, bullet_dir, speed, distance);
         }
     }
 
