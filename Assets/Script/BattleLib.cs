@@ -294,6 +294,18 @@ public class BattleLib : MonoBehaviour {
         }
     }
 
+	public void GetDamage(Int64 obId, int damage)
+	{
+		if (obId > 0 && EntityDic.ContainsKey (obId) == true) {
+			Tank tankObject = EntityDic [obId] as Tank;
+			if (tankObject == null)
+				return;
+
+			tankObject.GetDamage(damage);
+		}
+		
+	}
+
     public void DestroyBullet(Int64 bullet_id)
     {
 

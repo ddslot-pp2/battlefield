@@ -112,4 +112,9 @@ public class Tank : Entity {
 
 		Fire ();
 	}
+
+	public void GetDamage(int damage)
+	{
+		state.GetDamage(damage);
+	}
 }

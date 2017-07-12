@@ -250,8 +250,8 @@ public class Game : MonoBehaviour {
 		// 서버로 send
 
 
-		Debug.Log ("SendUserClickInfo");
-		// 움직임 테스트를 위해 바로 받음
+		//Debug.Log ("SendUserClickInfo");
+		// 내유닛은 바로 받음
 		ReceiveUserClickInfo(MyObjId, posX, posZ, attack);
 	}
 
