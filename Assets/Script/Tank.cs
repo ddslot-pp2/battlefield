@@ -32,6 +32,8 @@ public class Tank : Entity {
 		state = gameObject.GetComponent<Tank_State>();
 	}
 
+
+
 	public override void EntityUpdate () 
 	{
 		MoveEntity();
@@ -45,7 +47,7 @@ public class Tank : Entity {
 			if (Vector3.Distance (transform.position, ArrivePos) > 0.1f) {
 				ArrivePos.y = 0.0f;
 				Vector3 dir = (ArrivePos - transform.position).normalized;
-				transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (dir), Time.deltaTime * 10);
+				transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (dir), Time.deltaTime * 20);
 				playertank1.Translate (Vector3.forward * state.moveSpeed * Time.deltaTime);
 
 			} else 
@@ -59,8 +61,8 @@ public class Tank : Entity {
 	{
 		
 	}
-
-	public override void ProgressInput(float posX, float posZ, bool attack)
+		
+	public virtual void ProgressInput(float posX, float posZ, bool attack)
 	{
 		if (attack) 
 		{
@@ -80,8 +82,9 @@ public class Tank : Entity {
 		}
 	}
 
-	public override void ProgressPos(float posX, float posZ)
+	public virtual void ProgressPos(float posX, float posZ)
 	{
+		
 		if (IsMyEntity ())
 			return;
 		ArrivePos = new Vector3 (posX, 0.0f,  posZ);
@@ -118,4 +121,10 @@ public class Tank : Entity {
     {
         return new Vector3[] {};
     }
+	
+	public void GetDamage(int damage)
+	{
+		state.GetDamage(damage);
+	}
+
 }

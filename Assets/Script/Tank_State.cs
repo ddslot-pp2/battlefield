@@ -30,4 +30,13 @@ public class Tank_State : MonoBehaviour
 	{
 		forward = Vector3.forward;
 	}
+
+	public void GetDamage(int damage )
+	{
+		hp = hp - damage;
+
+		if (hp <= 0)
+			hp = 0;
+		
+	}
 }

@@ -35,7 +35,13 @@ namespace BattleInfo
 public class BattleLib : MonoBehaviour {
 
 
-	public RoomEntityInfo[]	m_roomEntityList = new RoomEntityInfo[MAX_ENTITY];
+	//public RoomEntityInfo[]	m_roomEntityList = new RoomEntityInfo[MAX_ENTITY];
+
+	public BetterList <Entity > EntityList = new BetterList<Entity>();
+
+	public Dictionary <Int64, Entity > EntityDic = new Dictionary< Int64, Entity>();
+
+	//public BetterList <Entity > EntityList = new BetterList<Entity>();
 
 	public Entity[] m_entityList = new Entity[MAX_ENTITY];
 
@@ -46,6 +52,8 @@ public class BattleLib : MonoBehaviour {
 	int m_stageNumber = 0;
 
 	int m_myIndex = -1;
+
+	Int64 m_myObId = -1;
 
 	bool m_gameStart = false;
 
@@ -84,6 +92,33 @@ public class BattleLib : MonoBehaviour {
 		{
 			m_entityList[i] = null;
 		}
+
+		for (int i = 0; i < EntityList.size ; i++) 
+		{
+			EntityList[i].Release();
+		}
+
+		EntityList.Clear();
+		EntityDic.Clear();
+	}
+
+
+	public void AddEntity( Entity entity )
+	{
+		EntityList.Add(entity);
+		EntityDic.Add (entity.ObjId, entity);
+	}
+
+	public void RemoveEnitiy( Entity entity )
+	{
+		EntityList.Remove(entity);
+
+		if (entity.ObjId > 0 && EntityDic.ContainsKey (entity.ObjId) == true) 
+		{
+			EntityDic.Remove (entity.ObjId);
+		}
+
+		entity.Release();
 	}
 
 	public void ProgressBattle()
@@ -91,6 +126,15 @@ public class BattleLib : MonoBehaviour {
 		if (!m_gameStart)
 			return;
 
+		for (int i = 0; i < EntityList.size; i++) 
+		{
+			if (EntityList[i] == null)
+				continue;
+
+			EntityList[i].EntityUpdate();
+		}
+
+		/*
 		for (int i = 0; i < m_entityList.Length; i++) 
 		{
 			if (m_entityList[i] == null)
@@ -99,8 +143,10 @@ public class BattleLib : MonoBehaviour {
 			m_entityList [i].EntityUpdate();
 
 		}
+		*/
 	}
 
+	/*
 	public void EnterRoom(int index, int type, string name)
 	{
 		
@@ -125,6 +171,7 @@ public class BattleLib : MonoBehaviour {
 	{
 		m_roomEntityList[index].EnterRoom = 0;
 	}
+	*/
 
 
 	public void GameStart()
@@ -154,22 +201,11 @@ public class BattleLib : MonoBehaviour {
 		tankobject.CreateBullet (posx, posz, speed, distance);
 	}
 
-	public void CreateEntity(Int64 obj_id, int type, int index, string name , bool myself, Vector3 spawnPos)
+	public void CreateEntity(Int64 obj_id, int type, string name , bool myself, Vector3 spawnPos)
 	{
-		if (myself) 
-		{
-			m_myIndex = index;
-		}
-
-		Debug.Log ("CreateEntityIndex: " + type);
-	
+		
 		float RotateValue = UnityEngine.Random.Range(0, 350);
-
-		if (m_entityList [index] != null) 
-		{
-			Debug.Log ("already create index");
-		}
-
+	
 		GameObject entity_instance = (GameObject)Instantiate(Resources.Load("Prefab/PlayerTank/PlayerTank" + type.ToString()), spawnPos, Quaternion.Euler(0, RotateValue, 0)) as GameObject;
 
 		if (entity_instance == null)
@@ -178,71 +214,70 @@ public class BattleLib : MonoBehaviour {
 		}
 
 		entity_instance.name = obj_id.ToString();
+		Entity tankEntity = entity_instance.GetComponent<Entity>();
 
-		m_entityList[index] = entity_instance.GetComponent<Entity>();
-		m_entityList[index].m_index = index;
-
-		if (index == m_myIndex)
+		if (myself) 
 		{
-			Debug.Log ("myIndex:" + index);
-			m_entityList[index].SetMyEntity();
+			tankEntity.SetMyEntity();
+			m_myObId = obj_id;
 		}
+
+		tankEntity.ObjId = obj_id;
+
+		AddEntity(tankEntity);
+
 	}
 
-	public void DeleteEntity(int index)
+	public void DeleteEntity(Int64 obj_id)
 	{
-		if (m_entityList[index] == null) 
-		{
-			Debug.Log ("already create index");
+		Entity RemoveEntity	= EntityDic[obj_id];
+		if (RemoveEntity == null)
 			return;
-		}
 
-		DestroyObject (m_entityList [index].gameObject);
-		m_entityList [index] = null;
-
+		RemoveEnitiy(RemoveEntity);
 	}
 
-	public GameObject GetEntity( int index )
+	public GameObject GetEntity( Int64 obj_id )
 	{
-		return m_entityList [index].gameObject;
+		return EntityDic[obj_id].gameObject;
 	}
 
-	public void ReceiveInput( int index, float posX , float posZ , bool attack)
+	public void ReceiveInput( Int64 obId , float posX , float posZ , bool attack)
 	{
 		
-		if( m_entityList[index] != null )
+		if (obId > 0 && EntityDic.ContainsKey (obId) == true) 
 		{
-			m_entityList[index].ProgressInput(posX, posZ, attack  );
+			Tank tankEntity = EntityDic[obId] as Tank;
+			tankEntity.ProgressInput(posX, posZ, attack);
 		}
 		
 	}
 
 	public Vector3 GetMyEntityPos()
 	{
-		if (m_myIndex == -1)
+		if (m_myObId == -1)
 			return Vector3.zero;
 		
-		if (m_entityList [m_myIndex] == null)
+		if (EntityDic [m_myObId] == null)
 			return Vector3.zero;
 	
-		return m_entityList[m_myIndex].GetEntityPos();
+		return EntityDic [m_myObId].GetEntityPos();
 
 	}
 
-	public void ReceivePos(int index, float posX , float posZ )
+	public void ReceivePos(Int64 obId , float posX , float posZ )
 	{
-		if( m_entityList[index] != null )
+		if (obId > 0 && EntityDic.ContainsKey (obId) == true) 
 		{
-			if (index == m_myIndex)
-				return;
-			
-			m_entityList[index].ProgressPos(posX, posZ );
+			Tank tankEntity = EntityDic[obId] as Tank;
+			tankEntity.ProgressPos(posX, posZ);
 		}
 	}
 
-    public void CreateBullet(int index , Bullet.Type bullet_type, Int64 bullet_id, Vector3 pos, Vector3 look_dir, Vector3 bullet_dir, Vector3 size, float speed, float distance)
+
+	public void CreateBullet(Int64 obId , Bullet.Type bullet_type, Int64 bullet_id, Vector3 pos, Vector3 look_dir, Vector3 bullet_dir, Vector3 size, float speed, float distance)
     {
-		Tank tankObject = BattleLib.Instance.m_entityList[index] as Tank;
+		Tank tankObject = EntityDic[obId] as Tank;
 		if (tankObject == null)
 			return;
 
@@ -260,15 +295,26 @@ public class BattleLib : MonoBehaviour {
         }
     }
 
+	public void GetDamage(Int64 obId, int damage)
+	{
+		if (obId > 0 && EntityDic.ContainsKey (obId) == true) {
+			Tank tankObject = EntityDic [obId] as Tank;
+			if (tankObject == null)
+				return;
+
+			tankObject.GetDamage(damage);
+		}
+	}
+
     public void DestroyBullet(Int64 bullet_id)
     {
 
     }
 
-    public void TryFire(int index, float x, float z)
+    public void TryFire(Int64 obj_id, float x, float z)
     {
         // 이것또한 탱크로 밀어 넣자
-        Tank tankObject = BattleLib.Instance.m_entityList[index] as Tank;
+        Tank tankObject = EntityDic[obj_id] as Tank;
 
         var tank_pos = tankObject.transform.position;
         var look_dir = (new Vector3(x, 0.0f, z) - tank_pos).normalized;
