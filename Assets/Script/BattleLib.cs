@@ -240,7 +240,7 @@ public class BattleLib : MonoBehaviour {
 		}
 	}
 
-    public void CreateBullet(int index , Bullet.Type bullet_type, Int64 bullet_id, Vector3 pos, Vector3 dir, Vector3 size, float speed, float distance)
+    public void CreateBullet(int index , Bullet.Type bullet_type, Int64 bullet_id, Vector3 pos, Vector3 look_dir, Vector3 bullet_dir, Vector3 size, float speed, float distance)
     {
 		Tank tankObject = BattleLib.Instance.m_entityList[index] as Tank;
 		if (tankObject == null)
@@ -250,13 +250,13 @@ public class BattleLib : MonoBehaviour {
 
         // bullet 발사의 시작 위치를 나이스하게 가져오고 싶음;
 		Transform fire_transform = tankObject.fireTransform;
-        fire_transform.rotation = Quaternion.LookRotation(dir);
+        fire_transform.rotation = Quaternion.LookRotation(look_dir);
 
         if (bullet_type == Bullet.Type.DirectBullet)
         {
-            var bullet_object = Instantiate(Resources.Load("Prefab/Bullet/DirectBullet"), pos, fire_transform.rotation) as GameObject;
+            var bullet_object = Instantiate(Resources.Load("Prefab/Bullet/DirectBullet"), tankObject.GetFirePosition().position, fire_transform.rotation) as GameObject;
             bullet_object.transform.localScale = new Vector3(bullet_object.transform.localScale.x * size.x, bullet_object.transform.localScale.y * size.y, bullet_object.transform.localScale.z * size.z);
-            bullet_object.GetComponent<Bullet>().SetProperty(bullet_id, pos, dir, speed, distance);
+            bullet_object.GetComponent<Bullet>().SetProperty(bullet_id, tankObject.GetFirePosition().position, bullet_dir, speed, distance);
         }
     }
 
@@ -265,4 +265,38 @@ public class BattleLib : MonoBehaviour {
 
     }
 
+    public void TryFire(int index, float x, float z)
+    {
+        // 이것또한 탱크로 밀어 넣자
+        Tank tankObject = BattleLib.Instance.m_entityList[index] as Tank;
+
+        var tank_pos = tankObject.transform.position;
+        var look_dir = (new Vector3(x, 0.0f, z) - tank_pos).normalized;
+
+        var fire_dirs = tankObject.GetFireDirs(look_dir);
+
+        var Send = new GAME.CS_FIRE();
+        // 추후 탱크마다 불렛 타입도 지정해줌
+        Send.BulletType = 0;
+
+        Send.PosX = tank_pos.x;
+        Send.PosY = tank_pos.y;
+        Send.PosZ = tank_pos.z;
+
+        Send.DirX = look_dir.x;
+        Send.DirY = look_dir.y;
+        Send.DirZ = look_dir.z;
+
+        foreach (var dir in fire_dirs)
+        {
+            GAME.BULLET_INFO bullet = new GAME.BULLET_INFO();
+            bullet.DirX = dir.x;
+            bullet.DirY = dir.y;
+            bullet.DirZ = dir.z;
+
+            Send.BulletInfos.Add(bullet);
+        }
+
+        ProtobufManager.Instance().Send(opcode.CS_FIRE, Send);
+    }
 }

@@ -14,7 +14,7 @@ public class BrianTank : Tank {
 
 		base.Init();
 
-		muzzleFlash_1.enabled = false;
+        muzzleFlash_1.enabled = false;
 		Debug.Log ("init");
 	}
 
@@ -78,4 +78,16 @@ public class BrianTank : Tank {
 		muzzleFlash_1.enabled = false;
 
 	}
+
+    public override Transform GetFirePosition()
+    {
+        return firePos_p1;
+    }
+
+    public override Vector3[] GetFireDirs(Vector3 NormalizedDir)
+    {
+        //var dir = (new Vector3(TouchDir.x, 0.0f, TouchDir.z) - transform.position).normalized;
+        return new Vector3[] { NormalizedDir };
+    }
+
 }

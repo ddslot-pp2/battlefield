@@ -41,12 +41,15 @@ namespace GAME {
             "CgVwb3NfehgEIAEoAiKLAQoLQlVMTEVUX0lORk8SDQoFZGlyX3gYASABKAIS",
             "DQoFZGlyX3kYAiABKAISDQoFZGlyX3oYAyABKAISDgoGc2l6ZV94GAQgASgC",
             "Eg4KBnNpemVfeRgFIAEoAhIOCgZzaXplX3oYBiABKAISDQoFc3BlZWQYByAB",
-            "KAISEAoIZGlzdGFuY2UYCCABKAIiRwoHQ1NfRklSRRITCgtidWxsZXRfdHlw",
-            "ZRgBIAEoBRInCgxidWxsZXRfaW5mb3MYAiADKAsyES5HQU1FLkJVTExFVF9J",
-            "TkZPIpwBCgxTQ19OT1RJX0ZJUkUSDgoGb2JqX2lkGAEgASgDEhEKCWJ1bGxl",
-            "dF9pZBgCIAEoAxITCgtidWxsZXRfdHlwZRgDIAEoBRINCgVwb3NfeBgEIAEo",
-            "AhINCgVwb3NfeRgFIAEoAhINCgVwb3NfehgGIAEoAhInCgxidWxsZXRfaW5m",
-            "b3MYByADKAsyES5HQU1FLkJVTExFVF9JTkZPYgZwcm90bzM="));
+            "KAISEAoIZGlzdGFuY2UYCCABKAIioQEKB0NTX0ZJUkUSEwoLYnVsbGV0X3R5",
+            "cGUYASABKAUSDQoFcG9zX3gYAiABKAISDQoFcG9zX3kYAyABKAISDQoFcG9z",
+            "X3oYBCABKAISDQoFZGlyX3gYBSABKAISDQoFZGlyX3kYBiABKAISDQoFZGly",
+            "X3oYByABKAISJwoMYnVsbGV0X2luZm9zGAggAygLMhEuR0FNRS5CVUxMRVRf",
+            "SU5GTyLJAQoMU0NfTk9USV9GSVJFEg4KBm9ial9pZBgBIAEoAxIRCglidWxs",
+            "ZXRfaWQYAiABKAMSEwoLYnVsbGV0X3R5cGUYAyABKAUSDQoFcG9zX3gYBCAB",
+            "KAISDQoFcG9zX3kYBSABKAISDQoFcG9zX3oYBiABKAISDQoFZGlyX3gYByAB",
+            "KAISDQoFZGlyX3kYCCABKAISDQoFZGlyX3oYCSABKAISJwoMYnVsbGV0X2lu",
+            "Zm9zGAogAygLMhEuR0FNRS5CVUxMRVRfSU5GT2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -60,8 +63,8 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_NOTI_MOVE), global::GAME.CS_NOTI_MOVE.Parser, new[]{ "PosX", "PosY", "PosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_MOVE), global::GAME.SC_NOTI_OTHER_MOVE.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.BULLET_INFO), global::GAME.BULLET_INFO.Parser, new[]{ "DirX", "DirY", "DirZ", "SizeX", "SizeY", "SizeZ", "Speed", "Distance" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_FIRE), global::GAME.CS_FIRE.Parser, new[]{ "BulletType", "BulletInfos" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_FIRE), global::GAME.SC_NOTI_FIRE.Parser, new[]{ "ObjId", "BulletId", "BulletType", "PosX", "PosY", "PosZ", "BulletInfos" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_FIRE), global::GAME.CS_FIRE.Parser, new[]{ "BulletType", "PosX", "PosY", "PosZ", "DirX", "DirY", "DirZ", "BulletInfos" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_FIRE), global::GAME.SC_NOTI_FIRE.Parser, new[]{ "ObjId", "BulletId", "BulletType", "PosX", "PosY", "PosZ", "DirX", "DirY", "DirZ", "BulletInfos" }, null, null, null)
           }));
     }
     #endregion
@@ -2123,6 +2126,12 @@ namespace GAME {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public CS_FIRE(CS_FIRE other) : this() {
       bulletType_ = other.bulletType_;
+      posX_ = other.posX_;
+      posY_ = other.posY_;
+      posZ_ = other.posZ_;
+      dirX_ = other.dirX_;
+      dirY_ = other.dirY_;
+      dirZ_ = other.dirZ_;
       bulletInfos_ = other.bulletInfos_.Clone();
     }
 
@@ -2142,10 +2151,76 @@ namespace GAME {
       }
     }
 
+    /// <summary>Field number for the "pos_x" field.</summary>
+    public const int PosXFieldNumber = 2;
+    private float posX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float PosX {
+      get { return posX_; }
+      set {
+        posX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_y" field.</summary>
+    public const int PosYFieldNumber = 3;
+    private float posY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float PosY {
+      get { return posY_; }
+      set {
+        posY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_z" field.</summary>
+    public const int PosZFieldNumber = 4;
+    private float posZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float PosZ {
+      get { return posZ_; }
+      set {
+        posZ_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dir_x" field.</summary>
+    public const int DirXFieldNumber = 5;
+    private float dirX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float DirX {
+      get { return dirX_; }
+      set {
+        dirX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dir_y" field.</summary>
+    public const int DirYFieldNumber = 6;
+    private float dirY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float DirY {
+      get { return dirY_; }
+      set {
+        dirY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dir_z" field.</summary>
+    public const int DirZFieldNumber = 7;
+    private float dirZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float DirZ {
+      get { return dirZ_; }
+      set {
+        dirZ_ = value;
+      }
+    }
+
     /// <summary>Field number for the "bullet_infos" field.</summary>
-    public const int BulletInfosFieldNumber = 2;
+    public const int BulletInfosFieldNumber = 8;
     private static readonly pb::FieldCodec<global::GAME.BULLET_INFO> _repeated_bulletInfos_codec
-        = pb::FieldCodec.ForMessage(18, global::GAME.BULLET_INFO.Parser);
+        = pb::FieldCodec.ForMessage(66, global::GAME.BULLET_INFO.Parser);
     private readonly pbc::RepeatedField<global::GAME.BULLET_INFO> bulletInfos_ = new pbc::RepeatedField<global::GAME.BULLET_INFO>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::GAME.BULLET_INFO> BulletInfos {
@@ -2166,6 +2241,12 @@ namespace GAME {
         return true;
       }
       if (BulletType != other.BulletType) return false;
+      if (PosX != other.PosX) return false;
+      if (PosY != other.PosY) return false;
+      if (PosZ != other.PosZ) return false;
+      if (DirX != other.DirX) return false;
+      if (DirY != other.DirY) return false;
+      if (DirZ != other.DirZ) return false;
       if(!bulletInfos_.Equals(other.bulletInfos_)) return false;
       return true;
     }
@@ -2174,6 +2255,12 @@ namespace GAME {
     public override int GetHashCode() {
       int hash = 1;
       if (BulletType != 0) hash ^= BulletType.GetHashCode();
+      if (PosX != 0F) hash ^= PosX.GetHashCode();
+      if (PosY != 0F) hash ^= PosY.GetHashCode();
+      if (PosZ != 0F) hash ^= PosZ.GetHashCode();
+      if (DirX != 0F) hash ^= DirX.GetHashCode();
+      if (DirY != 0F) hash ^= DirY.GetHashCode();
+      if (DirZ != 0F) hash ^= DirZ.GetHashCode();
       hash ^= bulletInfos_.GetHashCode();
       return hash;
     }
@@ -2189,6 +2276,30 @@ namespace GAME {
         output.WriteRawTag(8);
         output.WriteInt32(BulletType);
       }
+      if (PosX != 0F) {
+        output.WriteRawTag(21);
+        output.WriteFloat(PosX);
+      }
+      if (PosY != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(PosY);
+      }
+      if (PosZ != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(PosZ);
+      }
+      if (DirX != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(DirX);
+      }
+      if (DirY != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(DirY);
+      }
+      if (DirZ != 0F) {
+        output.WriteRawTag(61);
+        output.WriteFloat(DirZ);
+      }
       bulletInfos_.WriteTo(output, _repeated_bulletInfos_codec);
     }
 
@@ -2197,6 +2308,24 @@ namespace GAME {
       int size = 0;
       if (BulletType != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletType);
+      }
+      if (PosX != 0F) {
+        size += 1 + 4;
+      }
+      if (PosY != 0F) {
+        size += 1 + 4;
+      }
+      if (PosZ != 0F) {
+        size += 1 + 4;
+      }
+      if (DirX != 0F) {
+        size += 1 + 4;
+      }
+      if (DirY != 0F) {
+        size += 1 + 4;
+      }
+      if (DirZ != 0F) {
+        size += 1 + 4;
       }
       size += bulletInfos_.CalculateSize(_repeated_bulletInfos_codec);
       return size;
@@ -2209,6 +2338,24 @@ namespace GAME {
       }
       if (other.BulletType != 0) {
         BulletType = other.BulletType;
+      }
+      if (other.PosX != 0F) {
+        PosX = other.PosX;
+      }
+      if (other.PosY != 0F) {
+        PosY = other.PosY;
+      }
+      if (other.PosZ != 0F) {
+        PosZ = other.PosZ;
+      }
+      if (other.DirX != 0F) {
+        DirX = other.DirX;
+      }
+      if (other.DirY != 0F) {
+        DirY = other.DirY;
+      }
+      if (other.DirZ != 0F) {
+        DirZ = other.DirZ;
       }
       bulletInfos_.Add(other.bulletInfos_);
     }
@@ -2225,7 +2372,31 @@ namespace GAME {
             BulletType = input.ReadInt32();
             break;
           }
-          case 18: {
+          case 21: {
+            PosX = input.ReadFloat();
+            break;
+          }
+          case 29: {
+            PosY = input.ReadFloat();
+            break;
+          }
+          case 37: {
+            PosZ = input.ReadFloat();
+            break;
+          }
+          case 45: {
+            DirX = input.ReadFloat();
+            break;
+          }
+          case 53: {
+            DirY = input.ReadFloat();
+            break;
+          }
+          case 61: {
+            DirZ = input.ReadFloat();
+            break;
+          }
+          case 66: {
             bulletInfos_.AddEntriesFrom(input, _repeated_bulletInfos_codec);
             break;
           }
@@ -2265,6 +2436,9 @@ namespace GAME {
       posX_ = other.posX_;
       posY_ = other.posY_;
       posZ_ = other.posZ_;
+      dirX_ = other.dirX_;
+      dirY_ = other.dirY_;
+      dirZ_ = other.dirZ_;
       bulletInfos_ = other.bulletInfos_.Clone();
     }
 
@@ -2339,10 +2513,43 @@ namespace GAME {
       }
     }
 
+    /// <summary>Field number for the "dir_x" field.</summary>
+    public const int DirXFieldNumber = 7;
+    private float dirX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float DirX {
+      get { return dirX_; }
+      set {
+        dirX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dir_y" field.</summary>
+    public const int DirYFieldNumber = 8;
+    private float dirY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float DirY {
+      get { return dirY_; }
+      set {
+        dirY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dir_z" field.</summary>
+    public const int DirZFieldNumber = 9;
+    private float dirZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float DirZ {
+      get { return dirZ_; }
+      set {
+        dirZ_ = value;
+      }
+    }
+
     /// <summary>Field number for the "bullet_infos" field.</summary>
-    public const int BulletInfosFieldNumber = 7;
+    public const int BulletInfosFieldNumber = 10;
     private static readonly pb::FieldCodec<global::GAME.BULLET_INFO> _repeated_bulletInfos_codec
-        = pb::FieldCodec.ForMessage(58, global::GAME.BULLET_INFO.Parser);
+        = pb::FieldCodec.ForMessage(82, global::GAME.BULLET_INFO.Parser);
     private readonly pbc::RepeatedField<global::GAME.BULLET_INFO> bulletInfos_ = new pbc::RepeatedField<global::GAME.BULLET_INFO>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::GAME.BULLET_INFO> BulletInfos {
@@ -2368,6 +2575,9 @@ namespace GAME {
       if (PosX != other.PosX) return false;
       if (PosY != other.PosY) return false;
       if (PosZ != other.PosZ) return false;
+      if (DirX != other.DirX) return false;
+      if (DirY != other.DirY) return false;
+      if (DirZ != other.DirZ) return false;
       if(!bulletInfos_.Equals(other.bulletInfos_)) return false;
       return true;
     }
@@ -2381,6 +2591,9 @@ namespace GAME {
       if (PosX != 0F) hash ^= PosX.GetHashCode();
       if (PosY != 0F) hash ^= PosY.GetHashCode();
       if (PosZ != 0F) hash ^= PosZ.GetHashCode();
+      if (DirX != 0F) hash ^= DirX.GetHashCode();
+      if (DirY != 0F) hash ^= DirY.GetHashCode();
+      if (DirZ != 0F) hash ^= DirZ.GetHashCode();
       hash ^= bulletInfos_.GetHashCode();
       return hash;
     }
@@ -2416,6 +2629,18 @@ namespace GAME {
         output.WriteRawTag(53);
         output.WriteFloat(PosZ);
       }
+      if (DirX != 0F) {
+        output.WriteRawTag(61);
+        output.WriteFloat(DirX);
+      }
+      if (DirY != 0F) {
+        output.WriteRawTag(69);
+        output.WriteFloat(DirY);
+      }
+      if (DirZ != 0F) {
+        output.WriteRawTag(77);
+        output.WriteFloat(DirZ);
+      }
       bulletInfos_.WriteTo(output, _repeated_bulletInfos_codec);
     }
 
@@ -2438,6 +2663,15 @@ namespace GAME {
         size += 1 + 4;
       }
       if (PosZ != 0F) {
+        size += 1 + 4;
+      }
+      if (DirX != 0F) {
+        size += 1 + 4;
+      }
+      if (DirY != 0F) {
+        size += 1 + 4;
+      }
+      if (DirZ != 0F) {
         size += 1 + 4;
       }
       size += bulletInfos_.CalculateSize(_repeated_bulletInfos_codec);
@@ -2466,6 +2700,15 @@ namespace GAME {
       }
       if (other.PosZ != 0F) {
         PosZ = other.PosZ;
+      }
+      if (other.DirX != 0F) {
+        DirX = other.DirX;
+      }
+      if (other.DirY != 0F) {
+        DirY = other.DirY;
+      }
+      if (other.DirZ != 0F) {
+        DirZ = other.DirZ;
       }
       bulletInfos_.Add(other.bulletInfos_);
     }
@@ -2502,7 +2745,19 @@ namespace GAME {
             PosZ = input.ReadFloat();
             break;
           }
-          case 58: {
+          case 61: {
+            DirX = input.ReadFloat();
+            break;
+          }
+          case 69: {
+            DirY = input.ReadFloat();
+            break;
+          }
+          case 77: {
+            DirZ = input.ReadFloat();
+            break;
+          }
+          case 82: {
             bulletInfos_.AddEntriesFrom(input, _repeated_bulletInfos_codec);
             break;
           }

@@ -25,6 +25,7 @@ public class Bullet : Entity
         //Debug.Log("bullet update called\n");
         this.transform.position = this.transform.position + (Dir_ * Speed_ * Time.deltaTime);
         //this.transform.position = Pos_;
+        //Debug.Log("X: " + this.transform.position.x + ", z: " + this.transform.position.z);
     }
 
     public void SetProperty(Int64 Id, Vector3 Pos, Vector3 dir, float Speed, float Distance)

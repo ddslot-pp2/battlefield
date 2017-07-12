@@ -26,7 +26,8 @@ public class Game : MonoBehaviour {
 
     // 1초에 5번만
     private const float UPDATE_MOVE_INTERVAL = 1.0f / 5.0f;
-    private const float DRAG_AS_FIRE_DISTANCE = 30.0f;
+    // 터치랑 가끔 구별이 안되 길이를 늘림
+    private const float DRAG_AS_FIRE_DISTANCE = 80.0f;
     private float LastUpdateMoveTime_ = 0.0f;
 
     public void onConnect()
@@ -105,8 +106,8 @@ public class Game : MonoBehaviour {
 
         // 탱크가 미사일을 발사 했었던 위치
         var pos = new Vector3(read.PosX, read.PosY, read.PosZ);
+        var look_dir = new Vector3(read.DirX, read.DirY, read.DirZ);
 
-        // 불렛이 여러개 날라 올순없지만; 현재는 추후를 대비해서 미사일 리스트;
         for (var i = 0; i < read.BulletInfos.Count; ++i)
         {
             var bullet_info = read.BulletInfos[i];
@@ -122,7 +123,7 @@ public class Game : MonoBehaviour {
             //if (bullet_owner == null) return;
 
             // bullet 생성 
-			BattleLib.Instance.CreateBullet(index, (Bullet.Type)bullet_type, bullet_id, pos, dir, size, speed, distance);
+			BattleLib.Instance.CreateBullet(index, (Bullet.Type)bullet_type, bullet_id, pos, look_dir, dir, size, speed, distance);
         }
     
     }
@@ -161,7 +162,8 @@ public class Game : MonoBehaviour {
 
 		if (Vector3.Distance (BeginPos, pos) > DRAG_AS_FIRE_DISTANCE) 
 		{
-            TryFire(TFire.point.x, TFire.point.z);
+            BattleLib.Instance.TryFire(MyIndex, TFire.point.x, TFire.point.z);
+            //TryFire(TFire.point.x, TFire.point.z);
             //SendUserClickInfo(TFire.point.x, TFire.point.z, true);
         } 
 		else 
@@ -309,9 +311,13 @@ public class Game : MonoBehaviour {
 
 	}
 
+    /*
     void TryFire(float x, float z)
     {
+        // 이것또한 탱크로 밀어 넣자
         var obj = BattleLib.Instance.GetEntity(MyIndex);
+
+        var pos = obj.transform.position;
         var dir = (new Vector3(x, 0.0f, z) - obj.transform.position).normalized;
 
         var Send = new GAME.CS_FIRE();
@@ -319,6 +325,11 @@ public class Game : MonoBehaviour {
         Send.BulletType = 0;
 
         GAME.BULLET_INFO bullet_0 = new GAME.BULLET_INFO();
+
+        bullet_0.PosX = pos.x;
+        bullet_0.PosY = pos.y;
+        bullet_0.PosZ = pos.z;
+
         bullet_0.DirX = dir.x;
         bullet_0.DirY = dir.y;
         bullet_0.DirZ = dir.z;
@@ -328,9 +339,6 @@ public class Game : MonoBehaviour {
         var size = Send.BulletInfos.Count;
 
         ProtobufManager.Instance().Send(opcode.CS_FIRE, Send);
-        // 속드 줄여버림 state.movSpeed
-        //FireMoveHold_ = true;
-        // 발사 direction
-        //Debug.Log("Dir X: " + dir.x  + ", Dir Z: " + dir.z);
     }
+    */
 }

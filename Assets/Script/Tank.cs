@@ -20,7 +20,6 @@ public class Tank : Entity {
 	Vector3 ArrivePos = Vector3.zero;
 	Vector3 AttackDir = Vector3.zero;
 
-
 	public float nextfire = 0.0f;
 
 
@@ -101,12 +100,22 @@ public class Tank : Entity {
 		Fire ();
 	}
 
-	public void CreateBullet(float posX, float posZ, float speed, float distance)
-	{
-		AttackDir = ( new Vector3(posX, 0.0f, posZ ) - transform.position ).normalized;
-		AttackDir.y = 0;
-		fireTransform.rotation = Quaternion.LookRotation(AttackDir); 
+    public void CreateBullet(float posX, float posZ, float speed, float distance)
+    {
+        AttackDir = (new Vector3(posX, 0.0f, posZ) - transform.position).normalized;
+        AttackDir.y = 0;
+        fireTransform.rotation = Quaternion.LookRotation(AttackDir);
 
-		Fire ();
-	}
+        Fire();
+    }
+
+    public virtual Transform GetFirePosition()
+    {
+        return transform;
+    }
+
+    public virtual Vector3[] GetFireDirs(Vector3 Vector3)
+    {
+        return new Vector3[] {};
+    }
 }
