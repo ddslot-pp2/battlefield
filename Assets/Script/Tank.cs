@@ -15,6 +15,8 @@ public class Tank : Entity {
 	float h, v;
 	Controller controller;
 	public Tank_State state;
+	HpBar hpBar;
+
 
 	protected RaycastHit TFire;
 	Vector3 Click;
@@ -35,6 +37,8 @@ public class Tank : Entity {
         playertank1 = GetComponent<Transform>();
 
 		state = gameObject.GetComponent<Tank_State>();
+
+		hpBar = GetComponent<HpBar>();
 	}
 
 	public override void Release()
