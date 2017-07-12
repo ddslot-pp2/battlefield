@@ -14,7 +14,7 @@ public class Tank : Entity {
 
 	float h, v;
 	Controller controller;
-	protected Tank_State state;
+	public Tank_State state;
 
 	protected RaycastHit TFire;
 	Vector3 Click;
@@ -65,9 +65,16 @@ public class Tank : Entity {
 		}
 	}
 		
-	virtual public void Fire()
+	public virtual void  Fire()
 	{
 		
+	}
+
+	public virtual GameObject CreateBullet()
+	{
+		Fire();
+
+		return state.bullet.Spawn();
 	}
 		
 	public virtual void ProgressInput(float posX, float posZ, bool attack)
@@ -119,6 +126,8 @@ public class Tank : Entity {
 
         Fire();
     }
+
+
 
     public virtual Transform GetFirePosition()
     {
