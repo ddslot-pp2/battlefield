@@ -87,7 +87,7 @@ public class Game : MonoBehaviour {
         var obj_id = read.ObjId;
         var index = IndexInfos_[obj_id];
 
-        ReceiveUserClickInfo(index, read.PosX, read.PosZ, false);
+		ReceiveUserClickInfo(obj_id, read.PosX, read.PosZ, false);
         Debug.Log("다른 유저가 움직임\n");
 
     }
@@ -122,7 +122,7 @@ public class Game : MonoBehaviour {
             //if (bullet_owner == null) return;
 
             // bullet 생성 
-			BattleLib.Instance.CreateBullet(index, (Bullet.Type)bullet_type, bullet_id, pos, dir, size, speed, distance);
+			BattleLib.Instance.CreateBullet(obj_id, (Bullet.Type)bullet_type, bullet_id, pos, dir, size, speed, distance);
         }
     
     }
@@ -161,12 +161,12 @@ public class Game : MonoBehaviour {
 
 		if (Vector3.Distance (BeginPos, pos) > DRAG_AS_FIRE_DISTANCE) 
 		{
-            TryFire(TFire.point.x, TFire.point.z);
-            //SendUserClickInfo(TFire.point.x, TFire.point.z, true);
+			TryFire(TFire.point.x, TFire.point.z);
         } 
 		else 
 		{
 			SendUserClickInfo(TFire.point.x, TFire.point.z, false);
+
 		}
 
 	}
@@ -254,15 +254,15 @@ public class Game : MonoBehaviour {
 		// 서버로 send
 
 
-
+		Debug.Log ("SendUserClickInfo");
 		// 움직임 테스트를 위해 바로 받음
-		ReceiveUserClickInfo(MyIndex, posX, posZ, attack);
+		ReceiveUserClickInfo(MyObjId, posX, posZ, attack);
 	}
 
-	public void ReceiveUserClickInfo(int index, float posX, float posZ, bool attack)
+	public void ReceiveUserClickInfo(Int64 obId, float posX, float posZ, bool attack)
 	{
         //Debug.Log("PosX: " + posX + ", PosZ: " + posZ);
-		BattleLib.Instance.ReceiveInput(index, posX, posZ, attack);
+		BattleLib.Instance.ReceiveInput(obId, posX, posZ, attack);
 	}
 
 	public void EnterUser(Int64 obj_id, int type, int index, string name, bool myself, Vector3 pos)
@@ -271,7 +271,7 @@ public class Game : MonoBehaviour {
 
 		if (myself) 
 		{
-			gameCamera.SetTarget(BattleLib.Instance.GetEntity (index).transform);		
+			gameCamera.SetTarget(BattleLib.Instance.GetEntity (obj_id).transform);		
 		}
 	}
 		

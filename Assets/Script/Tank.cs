@@ -83,6 +83,7 @@ public class Tank : Entity {
 
 	public override void ProgressPos(float posX, float posZ)
 	{
+		
 		if (IsMyEntity ())
 			return;
 		ArrivePos = new Vector3 (posX, 0.0f,  posZ);
