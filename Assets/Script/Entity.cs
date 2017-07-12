@@ -24,7 +24,7 @@ public class Entity : MonoBehaviour, IDisposable {
 		return m_my;
 	}
 
-	public void Release()
+	virtual public void Release()
 	{
 		
 	}

@@ -37,7 +37,10 @@ public class Tank : Entity {
 		state = gameObject.GetComponent<Tank_State>();
 	}
 
+	public override void Release()
+	{
 
+	}
 
 	public override void EntityUpdate () 
 	{

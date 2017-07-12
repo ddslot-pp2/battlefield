@@ -19,7 +19,25 @@ public class Bullet : Entity
         //this.transform.rotation = Quaternion.LookRotation(Dir_);
         this.transform.position = Pos_;
 	}
-	
+
+
+	public override void Release()
+	{
+		gameObject.Recycle();
+	}
+
+	public override void EntityUpdate () 
+	{
+		MoveEntity();
+	}
+
+
+	void MoveEntity()
+	{
+		this.transform.position = this.transform.position + (Dir_ * Speed_ * Time.deltaTime);
+	}
+
+	/*
 	void Update ()
     {
         //Debug.Log("bullet update called\n");
@@ -27,6 +45,7 @@ public class Bullet : Entity
         //this.transform.position = Pos_;
         //Debug.Log("X: " + this.transform.position.x + ", z: " + this.transform.position.z);
     }
+    */
 
     public void SetProperty(Int64 Id, Vector3 Pos, Vector3 dir, float Speed, float Distance)
     {
