@@ -44,6 +44,7 @@ public class Tank : Entity {
 
 	public override void EntityUpdate () 
 	{
+		//Debug.Log ("move" + move);
 		MoveEntity();
 	}
 
@@ -60,9 +61,14 @@ public class Tank : Entity {
 
 			} else 
 			{
-				move = false;
+				SetMove (false);
 			}
 		}
+	}
+
+	public void SetMove(bool bMove)
+	{
+		move = bMove;
 	}
 		
 	public virtual void  Fire()
@@ -70,12 +76,16 @@ public class Tank : Entity {
 		
 	}
 
+	/*
 	public virtual GameObject CreateBullet()
 	{
+		SetMove (true);
+
 		Fire();
 
 		return state.bullet.Spawn();
 	}
+	*/
 		
 	public virtual void ProgressInput(float posX, float posZ, bool attack)
 	{
@@ -93,7 +103,7 @@ public class Tank : Entity {
 			}
 
 			ArrivePos = newPos;
-			move = true;
+			SetMove (true);
 		}
 	}
 

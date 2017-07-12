@@ -232,11 +232,13 @@ public class BattleLib : MonoBehaviour {
 
 	public void DeleteEntity(Int64 obj_id)
 	{
-		Entity remove_entity = EntityDic[obj_id];
-		if (remove_entity == null)
-			return;
-        
-        RemoveEnitiy(remove_entity);
+		if (obj_id > 0 && EntityDic.ContainsKey (obj_id) == true) {
+			Entity remove_entity = EntityDic [obj_id];
+			if (remove_entity == null)
+				return;
+	        
+			RemoveEnitiy (remove_entity);
+		}
     }
 
 	public GameObject GetEntity( Int64 obj_id )
@@ -335,6 +337,9 @@ public class BattleLib : MonoBehaviour {
         // 이것또한 탱크로 밀어 넣자
         Tank tankObject = EntityDic[obj_id] as Tank;
 
+		Debug.Log ("TryFire");
+		tankObject.SetMove (false);
+
         var tank_pos = tankObject.transform.position;
         var look_dir = (new Vector3(x, 0.0f, z) - tank_pos).normalized;
 
@@ -361,6 +366,8 @@ public class BattleLib : MonoBehaviour {
 
             Send.BulletInfos.Add(bullet);
         }
+
+
 
         ProtobufManager.Instance().Send(opcode.CS_FIRE, Send);
     }
