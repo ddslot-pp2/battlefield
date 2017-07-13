@@ -39,6 +39,8 @@ public class Tank : Entity {
 		state = gameObject.GetComponent<Tank_State>();
 
 		hpBar = GetComponent<HpBar>();
+
+		hpBar.UpdateHpBar();
 	}
 
 	public override void Release()
@@ -156,6 +158,7 @@ public class Tank : Entity {
 	public void GetDamage(int damage)
 	{
 		state.GetDamage(damage);
+		hpBar.UpdateHpBar();
 	}
 
     public void AddBullet(Int64 bullet_id, GameObject bullet_obj)
