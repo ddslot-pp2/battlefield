@@ -40,7 +40,7 @@ public class Tank : Entity {
 
 		hpBar = GetComponent<HpBar>();
 
-		hpBar.UpdateHpBar();
+		//hpBar.UpdateHpBar();
 	}
 
 	public override void Release()
