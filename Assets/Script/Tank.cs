@@ -49,6 +49,7 @@ public class Tank : Entity {
 
 	public override void Release()
 	{
+		DestroyImmediate(hpBar.gameObject);
 		DestroyImmediate (gameObject);
 	}
 
