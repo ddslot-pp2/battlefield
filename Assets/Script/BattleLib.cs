@@ -257,6 +257,23 @@ public class BattleLib : MonoBehaviour {
 		
 	}
 
+
+	public bool GetMyEntityIsDead()
+	{
+		if (m_myObId == -1)
+			return false;
+
+		if (EntityDic [m_myObId] == null)
+			return false;
+
+		Tank tankEntity = EntityDic[m_myObId] as Tank;
+
+		if (tankEntity == null)
+			return false;
+		
+		return tankEntity.IsDead ();
+	}
+
 	public Vector3 GetMyEntityPos()
 	{
 		if (m_myObId == -1)
@@ -332,10 +349,36 @@ public class BattleLib : MonoBehaviour {
 		}
 	}
 
+	public void EntityDead(Int64 obId)
+	{
+		if (obId > 0 && EntityDic.ContainsKey (obId) == true) {
+			Tank tankObject = EntityDic [obId] as Tank;
+			if (tankObject == null)
+				return;
+
+			tankObject.Dead ();
+		}
+	}
+
+	public void EntityRevive(Int64 obId )
+	{
+		if (obId > 0 && EntityDic.ContainsKey (obId) == true) {
+			Tank tankObject = EntityDic [obId] as Tank;
+			if (tankObject == null)
+				return;
+
+			tankObject.Revive ();
+		}
+	}
+
     public void TryFire(Int64 obj_id, float x, float z)
     {
         // 이것또한 탱크로 밀어 넣자
         Tank tankObject = EntityDic[obj_id] as Tank;
+
+		if (tankObject.IsDead ())
+			return;
+
 
 		Debug.Log ("TryFire");
 		tankObject.SetMove (false);
