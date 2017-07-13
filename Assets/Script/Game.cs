@@ -20,6 +20,8 @@ public class Game : MonoBehaviour {
     Int64 MyObjId;
     //int MyIndex;
 
+    Vector3 LastPos_;
+
 
     Dictionary<Int64, int> IndexInfos_;
     Queue<int> IndexQueue_;
@@ -55,7 +57,10 @@ public class Game : MonoBehaviour {
         // index 현재는 줄어들지 않게 함; 
         //IndexInfos_[read.ObjId] = Index;
         //MyIndex = Index;
-        EnterUser(read.ObjId, read.TankType, read.Nickname, true, new Vector3(read.PosX, read.PosY, read.PosZ));
+        var spawn_pos = new Vector3(read.PosX, read.PosY, read.PosZ);
+        LastPos_ = spawn_pos;
+
+        EnterUser(read.ObjId, read.TankType, read.Nickname, true, spawn_pos);
         MyObjId = read.ObjId;
         
         // 씬 관련 서버에서 정보를 가져옴
@@ -266,12 +271,19 @@ public class Game : MonoBehaviour {
 		// 내위치 얻어오기
 		Vector3 pos = BattleLib.Instance.GetMyEntityPos();
 
+        if (LastPos_ == pos)
+        {
+            return;
+        }
+
         // 서버 샌드 로직
         var Send = new GAME.CS_NOTI_MOVE();
         Send.PosX = pos.x;
         Send.PosY = pos.y;
         Send.PosZ = pos.z;
         ProtobufManager.Instance().Send(opcode.CS_NOTI_MOVE, Send);
+
+        LastPos_ = pos;
     }
 
 	public void SendUserClickInfo(float posX, float posZ, bool attack)
