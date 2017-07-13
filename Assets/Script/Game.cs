@@ -83,7 +83,8 @@ public class Game : MonoBehaviour {
         var obj_id = read.ObjId;
         //var index = IndexInfos_[obj_id];
 
-		ReceiveUserClickInfo(obj_id, read.PosX, read.PosZ, false);
+		ReceiveUserPos(obj_id, read.PosX, read.PosZ);
+		//ReceiveUserClickInfo(obj_id, read.PosX, read.PosZ, false);
         //Debug.Log("다른 유저가 움직임\n");
     }
 

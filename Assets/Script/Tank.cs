@@ -127,10 +127,10 @@ public class Tank : Entity {
 
 	public virtual void ProgressPos(float posX, float posZ)
 	{
-		
-		if (IsMyEntity ())
-			return;
+		//if (IsMyEntity ())
+		//	return;
 		ArrivePos = new Vector3 (posX, 0.0f,  posZ);
+		SetMove (true);
 	}
 
 	public void Attack(float posX, float posZ)
