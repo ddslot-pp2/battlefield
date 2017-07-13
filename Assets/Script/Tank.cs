@@ -178,10 +178,20 @@ public class Tank : Entity {
 		dead = true;
 	}
 
-	public void Revive()
+	public void Revive(BattleInfo.TANK_INFO TankInfo)
 	{
-		dead = false;
-	}
+        transform.position = TankInfo.Pos;
+
+        state.hp = TankInfo.Hp;
+        state.maxHp = TankInfo.MaxHp;
+
+        state.moveSpeed = TankInfo.MoveSpeed;
+        state.fireRate = TankInfo.ReloadTime;
+
+        hpBar.UpdateHpBar();
+
+        dead = false;
+    }
 
     public void AddBullet(Int64 bullet_id, GameObject bullet_obj)
     {

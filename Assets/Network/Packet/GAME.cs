@@ -23,48 +23,54 @@ namespace GAME {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgpHQU1FLnByb3RvEgRHQU1FIhwKB0NTX1BJTkcSEQoJdGltZXN0YW1wGAEg",
-            "ASgDIhwKB1NDX1BJTkcSEQoJdGltZXN0YW1wGAEgASgDInoKCk9USEVSX0lO",
-            "Rk8SDgoGb2JqX2lkGAEgASgDEhEKCXRhbmtfdHlwZRgCIAEoBRIQCghuaWNr",
-            "bmFtZRgDIAEoCRIKCgJocBgEIAEoBRINCgVwb3NfeBgFIAEoAhINCgVwb3Nf",
-            "eRgGIAEoAhINCgVwb3NfehgHIAEoAiIhCg1DU19TWU5DX0ZJRUxEEhAKCGZp",
-            "ZWxkX2lkGAEgASgFIqQBCg1TQ19TWU5DX0ZJRUxEEg4KBm9ial9pZBgBIAEo",
-            "AxIRCgl0YW5rX3R5cGUYAiABKAUSEAoIbmlja25hbWUYAyABKAkSCgoCaHAY",
-            "BCABKAUSDQoFcG9zX3gYBSABKAISDQoFcG9zX3kYBiABKAISDQoFcG9zX3oY",
-            "ByABKAISJQoLb3RoZXJfaW5mb3MYCCADKAsyEC5HQU1FLk9USEVSX0lORk8i",
-            "iQEKGVNDX05PVElfT1RIRVJfRU5URVJfRklFTEQSDgoGb2JqX2lkGAEgASgD",
-            "EhEKCXRhbmtfdHlwZRgCIAEoBRIQCghuaWNrbmFtZRgDIAEoCRIKCgJocBgE",
-            "IAEoBRINCgVwb3NfeBgFIAEoAhINCgVwb3NfeRgGIAEoAhINCgVwb3NfehgH",
-            "IAEoAiIrChlTQ19OT1RJX09USEVSX0xFQVZFX0ZJRUxEEg4KBm9ial9pZBgB",
-            "IAEoAyI7CgxDU19OT1RJX01PVkUSDQoFcG9zX3gYASABKAISDQoFcG9zX3kY",
-            "AiABKAISDQoFcG9zX3oYAyABKAIiUQoSU0NfTk9USV9PVEhFUl9NT1ZFEg4K",
-            "Bm9ial9pZBgBIAEoAxINCgVwb3NfeBgCIAEoAhINCgVwb3NfeRgDIAEoAhIN",
-            "CgVwb3NfehgEIAEoAiKeAQoLQlVMTEVUX0lORk8SEQoJYnVsbGV0X2lkGAEg",
-            "ASgDEg0KBWRpcl94GAIgASgCEg0KBWRpcl95GAMgASgCEg0KBWRpcl96GAQg",
-            "ASgCEg4KBnNpemVfeBgFIAEoAhIOCgZzaXplX3kYBiABKAISDgoGc2l6ZV96",
-            "GAcgASgCEg0KBXNwZWVkGAggASgCEhAKCGRpc3RhbmNlGAkgASgCIqEBCgdD",
-            "U19GSVJFEhMKC2J1bGxldF90eXBlGAEgASgFEg0KBXBvc194GAIgASgCEg0K",
-            "BXBvc195GAMgASgCEg0KBXBvc196GAQgASgCEg0KBWRpcl94GAUgASgCEg0K",
-            "BWRpcl95GAYgASgCEg0KBWRpcl96GAcgASgCEicKDGJ1bGxldF9pbmZvcxgI",
-            "IAMoCzIRLkdBTUUuQlVMTEVUX0lORk8itgEKDFNDX05PVElfRklSRRIOCgZv",
-            "YmpfaWQYASABKAMSEwoLYnVsbGV0X3R5cGUYAiABKAUSDQoFcG9zX3gYAyAB",
-            "KAISDQoFcG9zX3kYBCABKAISDQoFcG9zX3oYBSABKAISDQoFZGlyX3gYBiAB",
-            "KAISDQoFZGlyX3kYByABKAISDQoFZGlyX3oYCCABKAISJwoMYnVsbGV0X2lu",
-            "Zm9zGAkgAygLMhEuR0FNRS5CVUxMRVRfSU5GTyI8CgtEQU1BR0VfSU5GTxIR",
-            "Cgl0YXJnZXRfaWQYASABKAMSCgoCaHAYAiABKAUSDgoGZGFtYWdlGAMgASgD",
-            "ImQKFlNDX05PVElfREVTVFJPWV9CVUxMRVQSDgoGb2JqX2lkGAEgASgDEhEK",
-            "CWJ1bGxldF9pZBgCIAEoAxInCgxkYW1hZ2VfaW5mb3MYAyADKAsyES5HQU1F",
-            "LkRBTUFHRV9JTkZPIisKGVNDX05PVElfREVTVFJPWV9DSEFSQUNURVISDgoG",
-            "b2JqX2lkGAEgASgDIgwKCkNTX1JFU1BBV04iEQoPU0NfTk9USV9SRVNQQVdO",
-            "YgZwcm90bzM="));
+            "ASgDIhwKB1NDX1BJTkcSEQoJdGltZXN0YW1wGAEgASgDIq4BCgpPVEhFUl9J",
+            "TkZPEg4KBm9ial9pZBgBIAEoAxIRCgl0YW5rX3R5cGUYAiABKAUSEAoIbmlj",
+            "a25hbWUYAyABKAkSDQoFcG9zX3gYBCABKAISDQoFcG9zX3kYBSABKAISDQoF",
+            "cG9zX3oYBiABKAISDgoGbWF4X2hwGAcgASgFEgoKAmhwGAggASgFEg0KBXNw",
+            "ZWVkGAkgASgCEhMKC3JlbG9hZF90aW1lGAogASgCIiEKDUNTX1NZTkNfRklF",
+            "TEQSEAoIZmllbGRfaWQYASABKAUi2AEKDVNDX1NZTkNfRklFTEQSDgoGb2Jq",
+            "X2lkGAEgASgDEhEKCXRhbmtfdHlwZRgCIAEoBRIQCghuaWNrbmFtZRgDIAEo",
+            "CRINCgVwb3NfeBgEIAEoAhINCgVwb3NfeRgFIAEoAhINCgVwb3NfehgGIAEo",
+            "AhIOCgZtYXhfaHAYByABKAUSCgoCaHAYCCABKAUSDQoFc3BlZWQYCSABKAIS",
+            "EwoLcmVsb2FkX3RpbWUYCiABKAISJQoLb3RoZXJfaW5mb3MYCyADKAsyEC5H",
+            "QU1FLk9USEVSX0lORk8ivQEKGVNDX05PVElfT1RIRVJfRU5URVJfRklFTEQS",
+            "DgoGb2JqX2lkGAEgASgDEhEKCXRhbmtfdHlwZRgCIAEoBRIQCghuaWNrbmFt",
+            "ZRgDIAEoCRINCgVwb3NfeBgEIAEoAhINCgVwb3NfeRgFIAEoAhINCgVwb3Nf",
+            "ehgGIAEoAhIOCgZtYXhfaHAYByABKAUSCgoCaHAYCCABKAUSDQoFc3BlZWQY",
+            "CSABKAISEwoLcmVsb2FkX3RpbWUYCiABKAIiKwoZU0NfTk9USV9PVEhFUl9M",
+            "RUFWRV9GSUVMRBIOCgZvYmpfaWQYASABKAMiOwoMQ1NfTk9USV9NT1ZFEg0K",
+            "BXBvc194GAEgASgCEg0KBXBvc195GAIgASgCEg0KBXBvc196GAMgASgCIlEK",
+            "ElNDX05PVElfT1RIRVJfTU9WRRIOCgZvYmpfaWQYASABKAMSDQoFcG9zX3gY",
+            "AiABKAISDQoFcG9zX3kYAyABKAISDQoFcG9zX3oYBCABKAIingEKC0JVTExF",
+            "VF9JTkZPEhEKCWJ1bGxldF9pZBgBIAEoAxINCgVkaXJfeBgCIAEoAhINCgVk",
+            "aXJfeRgDIAEoAhINCgVkaXJfehgEIAEoAhIOCgZzaXplX3gYBSABKAISDgoG",
+            "c2l6ZV95GAYgASgCEg4KBnNpemVfehgHIAEoAhINCgVzcGVlZBgIIAEoAhIQ",
+            "CghkaXN0YW5jZRgJIAEoAiKhAQoHQ1NfRklSRRITCgtidWxsZXRfdHlwZRgB",
+            "IAEoBRINCgVwb3NfeBgCIAEoAhINCgVwb3NfeRgDIAEoAhINCgVwb3NfehgE",
+            "IAEoAhINCgVkaXJfeBgFIAEoAhINCgVkaXJfeRgGIAEoAhINCgVkaXJfehgH",
+            "IAEoAhInCgxidWxsZXRfaW5mb3MYCCADKAsyES5HQU1FLkJVTExFVF9JTkZP",
+            "IrYBCgxTQ19OT1RJX0ZJUkUSDgoGb2JqX2lkGAEgASgDEhMKC2J1bGxldF90",
+            "eXBlGAIgASgFEg0KBXBvc194GAMgASgCEg0KBXBvc195GAQgASgCEg0KBXBv",
+            "c196GAUgASgCEg0KBWRpcl94GAYgASgCEg0KBWRpcl95GAcgASgCEg0KBWRp",
+            "cl96GAggASgCEicKDGJ1bGxldF9pbmZvcxgJIAMoCzIRLkdBTUUuQlVMTEVU",
+            "X0lORk8iPAoLREFNQUdFX0lORk8SEQoJdGFyZ2V0X2lkGAEgASgDEgoKAmhw",
+            "GAIgASgFEg4KBmRhbWFnZRgDIAEoAyJkChZTQ19OT1RJX0RFU1RST1lfQlVM",
+            "TEVUEg4KBm9ial9pZBgBIAEoAxIRCglidWxsZXRfaWQYAiABKAMSJwoMZGFt",
+            "YWdlX2luZm9zGAMgAygLMhEuR0FNRS5EQU1BR0VfSU5GTyIrChlTQ19OT1RJ",
+            "X0RFU1RST1lfQ0hBUkFDVEVSEg4KBm9ial9pZBgBIAEoAyIWChRDU19SRVNQ",
+            "QVdOX0NIQVJBQ1RFUiKYAQoZU0NfTk9USV9SRVNQQVdOX0NIQVJBQ1RFUhIO",
+            "CgZvYmpfaWQYASABKAMSDQoFcG9zX3gYAiABKAISDQoFcG9zX3kYAyABKAIS",
+            "DQoFcG9zX3oYBCABKAISDgoGbWF4X2hwGAUgASgFEgoKAmhwGAYgASgFEg0K",
+            "BXNwZWVkGAcgASgCEhMKC3JlbG9hZF90aW1lGAggASgCYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_PING), global::GAME.CS_PING.Parser, new[]{ "Timestamp" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_PING), global::GAME.SC_PING.Parser, new[]{ "Timestamp" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.OTHER_INFO), global::GAME.OTHER_INFO.Parser, new[]{ "ObjId", "TankType", "Nickname", "Hp", "PosX", "PosY", "PosZ" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.OTHER_INFO), global::GAME.OTHER_INFO.Parser, new[]{ "ObjId", "TankType", "Nickname", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_SYNC_FIELD), global::GAME.CS_SYNC_FIELD.Parser, new[]{ "FieldId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_SYNC_FIELD), global::GAME.SC_SYNC_FIELD.Parser, new[]{ "ObjId", "TankType", "Nickname", "Hp", "PosX", "PosY", "PosZ", "OtherInfos" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_ENTER_FIELD), global::GAME.SC_NOTI_OTHER_ENTER_FIELD.Parser, new[]{ "ObjId", "TankType", "Nickname", "Hp", "PosX", "PosY", "PosZ" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_SYNC_FIELD), global::GAME.SC_SYNC_FIELD.Parser, new[]{ "ObjId", "TankType", "Nickname", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime", "OtherInfos" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_ENTER_FIELD), global::GAME.SC_NOTI_OTHER_ENTER_FIELD.Parser, new[]{ "ObjId", "TankType", "Nickname", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_LEAVE_FIELD), global::GAME.SC_NOTI_OTHER_LEAVE_FIELD.Parser, new[]{ "ObjId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_NOTI_MOVE), global::GAME.CS_NOTI_MOVE.Parser, new[]{ "PosX", "PosY", "PosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_MOVE), global::GAME.SC_NOTI_OTHER_MOVE.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ" }, null, null, null),
@@ -74,8 +80,8 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.DAMAGE_INFO), global::GAME.DAMAGE_INFO.Parser, new[]{ "TargetId", "Hp", "Damage" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_DESTROY_BULLET), global::GAME.SC_NOTI_DESTROY_BULLET.Parser, new[]{ "ObjId", "BulletId", "DamageInfos" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_DESTROY_CHARACTER), global::GAME.SC_NOTI_DESTROY_CHARACTER.Parser, new[]{ "ObjId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_RESPAWN), global::GAME.CS_RESPAWN.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_RESPAWN), global::GAME.SC_NOTI_RESPAWN.Parser, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_RESPAWN_CHARACTER), global::GAME.CS_RESPAWN_CHARACTER.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_RESPAWN_CHARACTER), global::GAME.SC_NOTI_RESPAWN_CHARACTER.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null)
           }));
     }
     #endregion
@@ -343,10 +349,13 @@ namespace GAME {
       objId_ = other.objId_;
       tankType_ = other.tankType_;
       nickname_ = other.nickname_;
-      hp_ = other.hp_;
       posX_ = other.posX_;
       posY_ = other.posY_;
       posZ_ = other.posZ_;
+      maxHp_ = other.maxHp_;
+      hp_ = other.hp_;
+      speed_ = other.speed_;
+      reloadTime_ = other.reloadTime_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -387,19 +396,8 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "hp" field.</summary>
-    public const int HpFieldNumber = 4;
-    private int hp_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Hp {
-      get { return hp_; }
-      set {
-        hp_ = value;
-      }
-    }
-
     /// <summary>Field number for the "pos_x" field.</summary>
-    public const int PosXFieldNumber = 5;
+    public const int PosXFieldNumber = 4;
     private float posX_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosX {
@@ -410,7 +408,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_y" field.</summary>
-    public const int PosYFieldNumber = 6;
+    public const int PosYFieldNumber = 5;
     private float posY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosY {
@@ -421,13 +419,57 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_z" field.</summary>
-    public const int PosZFieldNumber = 7;
+    public const int PosZFieldNumber = 6;
     private float posZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosZ {
       get { return posZ_; }
       set {
         posZ_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_hp" field.</summary>
+    public const int MaxHpFieldNumber = 7;
+    private int maxHp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxHp {
+      get { return maxHp_; }
+      set {
+        maxHp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hp" field.</summary>
+    public const int HpFieldNumber = 8;
+    private int hp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Hp {
+      get { return hp_; }
+      set {
+        hp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "speed" field.</summary>
+    public const int SpeedFieldNumber = 9;
+    private float speed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Speed {
+      get { return speed_; }
+      set {
+        speed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "reload_time" field.</summary>
+    public const int ReloadTimeFieldNumber = 10;
+    private float reloadTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float ReloadTime {
+      get { return reloadTime_; }
+      set {
+        reloadTime_ = value;
       }
     }
 
@@ -447,10 +489,13 @@ namespace GAME {
       if (ObjId != other.ObjId) return false;
       if (TankType != other.TankType) return false;
       if (Nickname != other.Nickname) return false;
-      if (Hp != other.Hp) return false;
       if (PosX != other.PosX) return false;
       if (PosY != other.PosY) return false;
       if (PosZ != other.PosZ) return false;
+      if (MaxHp != other.MaxHp) return false;
+      if (Hp != other.Hp) return false;
+      if (Speed != other.Speed) return false;
+      if (ReloadTime != other.ReloadTime) return false;
       return true;
     }
 
@@ -460,10 +505,13 @@ namespace GAME {
       if (ObjId != 0L) hash ^= ObjId.GetHashCode();
       if (TankType != 0) hash ^= TankType.GetHashCode();
       if (Nickname.Length != 0) hash ^= Nickname.GetHashCode();
-      if (Hp != 0) hash ^= Hp.GetHashCode();
       if (PosX != 0F) hash ^= PosX.GetHashCode();
       if (PosY != 0F) hash ^= PosY.GetHashCode();
       if (PosZ != 0F) hash ^= PosZ.GetHashCode();
+      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
+      if (Hp != 0) hash ^= Hp.GetHashCode();
+      if (Speed != 0F) hash ^= Speed.GetHashCode();
+      if (ReloadTime != 0F) hash ^= ReloadTime.GetHashCode();
       return hash;
     }
 
@@ -486,21 +534,33 @@ namespace GAME {
         output.WriteRawTag(26);
         output.WriteString(Nickname);
       }
-      if (Hp != 0) {
-        output.WriteRawTag(32);
-        output.WriteInt32(Hp);
-      }
       if (PosX != 0F) {
-        output.WriteRawTag(45);
+        output.WriteRawTag(37);
         output.WriteFloat(PosX);
       }
       if (PosY != 0F) {
-        output.WriteRawTag(53);
+        output.WriteRawTag(45);
         output.WriteFloat(PosY);
       }
       if (PosZ != 0F) {
-        output.WriteRawTag(61);
+        output.WriteRawTag(53);
         output.WriteFloat(PosZ);
+      }
+      if (MaxHp != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(MaxHp);
+      }
+      if (Hp != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(Hp);
+      }
+      if (Speed != 0F) {
+        output.WriteRawTag(77);
+        output.WriteFloat(Speed);
+      }
+      if (ReloadTime != 0F) {
+        output.WriteRawTag(85);
+        output.WriteFloat(ReloadTime);
       }
     }
 
@@ -516,9 +576,6 @@ namespace GAME {
       if (Nickname.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Nickname);
       }
-      if (Hp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
-      }
       if (PosX != 0F) {
         size += 1 + 4;
       }
@@ -526,6 +583,18 @@ namespace GAME {
         size += 1 + 4;
       }
       if (PosZ != 0F) {
+        size += 1 + 4;
+      }
+      if (MaxHp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
+      }
+      if (Hp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
+      }
+      if (Speed != 0F) {
+        size += 1 + 4;
+      }
+      if (ReloadTime != 0F) {
         size += 1 + 4;
       }
       return size;
@@ -545,9 +614,6 @@ namespace GAME {
       if (other.Nickname.Length != 0) {
         Nickname = other.Nickname;
       }
-      if (other.Hp != 0) {
-        Hp = other.Hp;
-      }
       if (other.PosX != 0F) {
         PosX = other.PosX;
       }
@@ -556,6 +622,18 @@ namespace GAME {
       }
       if (other.PosZ != 0F) {
         PosZ = other.PosZ;
+      }
+      if (other.MaxHp != 0) {
+        MaxHp = other.MaxHp;
+      }
+      if (other.Hp != 0) {
+        Hp = other.Hp;
+      }
+      if (other.Speed != 0F) {
+        Speed = other.Speed;
+      }
+      if (other.ReloadTime != 0F) {
+        ReloadTime = other.ReloadTime;
       }
     }
 
@@ -579,20 +657,32 @@ namespace GAME {
             Nickname = input.ReadString();
             break;
           }
-          case 32: {
-            Hp = input.ReadInt32();
-            break;
-          }
-          case 45: {
+          case 37: {
             PosX = input.ReadFloat();
             break;
           }
-          case 53: {
+          case 45: {
             PosY = input.ReadFloat();
             break;
           }
-          case 61: {
+          case 53: {
             PosZ = input.ReadFloat();
+            break;
+          }
+          case 56: {
+            MaxHp = input.ReadInt32();
+            break;
+          }
+          case 64: {
+            Hp = input.ReadInt32();
+            break;
+          }
+          case 77: {
+            Speed = input.ReadFloat();
+            break;
+          }
+          case 85: {
+            ReloadTime = input.ReadFloat();
             break;
           }
         }
@@ -745,10 +835,13 @@ namespace GAME {
       objId_ = other.objId_;
       tankType_ = other.tankType_;
       nickname_ = other.nickname_;
-      hp_ = other.hp_;
       posX_ = other.posX_;
       posY_ = other.posY_;
       posZ_ = other.posZ_;
+      maxHp_ = other.maxHp_;
+      hp_ = other.hp_;
+      speed_ = other.speed_;
+      reloadTime_ = other.reloadTime_;
       otherInfos_ = other.otherInfos_.Clone();
     }
 
@@ -790,19 +883,8 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "hp" field.</summary>
-    public const int HpFieldNumber = 4;
-    private int hp_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Hp {
-      get { return hp_; }
-      set {
-        hp_ = value;
-      }
-    }
-
     /// <summary>Field number for the "pos_x" field.</summary>
-    public const int PosXFieldNumber = 5;
+    public const int PosXFieldNumber = 4;
     private float posX_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosX {
@@ -813,7 +895,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_y" field.</summary>
-    public const int PosYFieldNumber = 6;
+    public const int PosYFieldNumber = 5;
     private float posY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosY {
@@ -824,7 +906,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_z" field.</summary>
-    public const int PosZFieldNumber = 7;
+    public const int PosZFieldNumber = 6;
     private float posZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosZ {
@@ -834,10 +916,54 @@ namespace GAME {
       }
     }
 
+    /// <summary>Field number for the "max_hp" field.</summary>
+    public const int MaxHpFieldNumber = 7;
+    private int maxHp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxHp {
+      get { return maxHp_; }
+      set {
+        maxHp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hp" field.</summary>
+    public const int HpFieldNumber = 8;
+    private int hp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Hp {
+      get { return hp_; }
+      set {
+        hp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "speed" field.</summary>
+    public const int SpeedFieldNumber = 9;
+    private float speed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Speed {
+      get { return speed_; }
+      set {
+        speed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "reload_time" field.</summary>
+    public const int ReloadTimeFieldNumber = 10;
+    private float reloadTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float ReloadTime {
+      get { return reloadTime_; }
+      set {
+        reloadTime_ = value;
+      }
+    }
+
     /// <summary>Field number for the "other_infos" field.</summary>
-    public const int OtherInfosFieldNumber = 8;
+    public const int OtherInfosFieldNumber = 11;
     private static readonly pb::FieldCodec<global::GAME.OTHER_INFO> _repeated_otherInfos_codec
-        = pb::FieldCodec.ForMessage(66, global::GAME.OTHER_INFO.Parser);
+        = pb::FieldCodec.ForMessage(90, global::GAME.OTHER_INFO.Parser);
     private readonly pbc::RepeatedField<global::GAME.OTHER_INFO> otherInfos_ = new pbc::RepeatedField<global::GAME.OTHER_INFO>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::GAME.OTHER_INFO> OtherInfos {
@@ -860,10 +986,13 @@ namespace GAME {
       if (ObjId != other.ObjId) return false;
       if (TankType != other.TankType) return false;
       if (Nickname != other.Nickname) return false;
-      if (Hp != other.Hp) return false;
       if (PosX != other.PosX) return false;
       if (PosY != other.PosY) return false;
       if (PosZ != other.PosZ) return false;
+      if (MaxHp != other.MaxHp) return false;
+      if (Hp != other.Hp) return false;
+      if (Speed != other.Speed) return false;
+      if (ReloadTime != other.ReloadTime) return false;
       if(!otherInfos_.Equals(other.otherInfos_)) return false;
       return true;
     }
@@ -874,10 +1003,13 @@ namespace GAME {
       if (ObjId != 0L) hash ^= ObjId.GetHashCode();
       if (TankType != 0) hash ^= TankType.GetHashCode();
       if (Nickname.Length != 0) hash ^= Nickname.GetHashCode();
-      if (Hp != 0) hash ^= Hp.GetHashCode();
       if (PosX != 0F) hash ^= PosX.GetHashCode();
       if (PosY != 0F) hash ^= PosY.GetHashCode();
       if (PosZ != 0F) hash ^= PosZ.GetHashCode();
+      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
+      if (Hp != 0) hash ^= Hp.GetHashCode();
+      if (Speed != 0F) hash ^= Speed.GetHashCode();
+      if (ReloadTime != 0F) hash ^= ReloadTime.GetHashCode();
       hash ^= otherInfos_.GetHashCode();
       return hash;
     }
@@ -901,21 +1033,33 @@ namespace GAME {
         output.WriteRawTag(26);
         output.WriteString(Nickname);
       }
-      if (Hp != 0) {
-        output.WriteRawTag(32);
-        output.WriteInt32(Hp);
-      }
       if (PosX != 0F) {
-        output.WriteRawTag(45);
+        output.WriteRawTag(37);
         output.WriteFloat(PosX);
       }
       if (PosY != 0F) {
-        output.WriteRawTag(53);
+        output.WriteRawTag(45);
         output.WriteFloat(PosY);
       }
       if (PosZ != 0F) {
-        output.WriteRawTag(61);
+        output.WriteRawTag(53);
         output.WriteFloat(PosZ);
+      }
+      if (MaxHp != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(MaxHp);
+      }
+      if (Hp != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(Hp);
+      }
+      if (Speed != 0F) {
+        output.WriteRawTag(77);
+        output.WriteFloat(Speed);
+      }
+      if (ReloadTime != 0F) {
+        output.WriteRawTag(85);
+        output.WriteFloat(ReloadTime);
       }
       otherInfos_.WriteTo(output, _repeated_otherInfos_codec);
     }
@@ -932,9 +1076,6 @@ namespace GAME {
       if (Nickname.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Nickname);
       }
-      if (Hp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
-      }
       if (PosX != 0F) {
         size += 1 + 4;
       }
@@ -942,6 +1083,18 @@ namespace GAME {
         size += 1 + 4;
       }
       if (PosZ != 0F) {
+        size += 1 + 4;
+      }
+      if (MaxHp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
+      }
+      if (Hp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
+      }
+      if (Speed != 0F) {
+        size += 1 + 4;
+      }
+      if (ReloadTime != 0F) {
         size += 1 + 4;
       }
       size += otherInfos_.CalculateSize(_repeated_otherInfos_codec);
@@ -962,9 +1115,6 @@ namespace GAME {
       if (other.Nickname.Length != 0) {
         Nickname = other.Nickname;
       }
-      if (other.Hp != 0) {
-        Hp = other.Hp;
-      }
       if (other.PosX != 0F) {
         PosX = other.PosX;
       }
@@ -973,6 +1123,18 @@ namespace GAME {
       }
       if (other.PosZ != 0F) {
         PosZ = other.PosZ;
+      }
+      if (other.MaxHp != 0) {
+        MaxHp = other.MaxHp;
+      }
+      if (other.Hp != 0) {
+        Hp = other.Hp;
+      }
+      if (other.Speed != 0F) {
+        Speed = other.Speed;
+      }
+      if (other.ReloadTime != 0F) {
+        ReloadTime = other.ReloadTime;
       }
       otherInfos_.Add(other.otherInfos_);
     }
@@ -997,23 +1159,35 @@ namespace GAME {
             Nickname = input.ReadString();
             break;
           }
-          case 32: {
-            Hp = input.ReadInt32();
-            break;
-          }
-          case 45: {
+          case 37: {
             PosX = input.ReadFloat();
             break;
           }
-          case 53: {
+          case 45: {
             PosY = input.ReadFloat();
             break;
           }
-          case 61: {
+          case 53: {
             PosZ = input.ReadFloat();
             break;
           }
-          case 66: {
+          case 56: {
+            MaxHp = input.ReadInt32();
+            break;
+          }
+          case 64: {
+            Hp = input.ReadInt32();
+            break;
+          }
+          case 77: {
+            Speed = input.ReadFloat();
+            break;
+          }
+          case 85: {
+            ReloadTime = input.ReadFloat();
+            break;
+          }
+          case 90: {
             otherInfos_.AddEntriesFrom(input, _repeated_otherInfos_codec);
             break;
           }
@@ -1050,10 +1224,13 @@ namespace GAME {
       objId_ = other.objId_;
       tankType_ = other.tankType_;
       nickname_ = other.nickname_;
-      hp_ = other.hp_;
       posX_ = other.posX_;
       posY_ = other.posY_;
       posZ_ = other.posZ_;
+      maxHp_ = other.maxHp_;
+      hp_ = other.hp_;
+      speed_ = other.speed_;
+      reloadTime_ = other.reloadTime_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1094,19 +1271,8 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "hp" field.</summary>
-    public const int HpFieldNumber = 4;
-    private int hp_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Hp {
-      get { return hp_; }
-      set {
-        hp_ = value;
-      }
-    }
-
     /// <summary>Field number for the "pos_x" field.</summary>
-    public const int PosXFieldNumber = 5;
+    public const int PosXFieldNumber = 4;
     private float posX_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosX {
@@ -1117,7 +1283,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_y" field.</summary>
-    public const int PosYFieldNumber = 6;
+    public const int PosYFieldNumber = 5;
     private float posY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosY {
@@ -1128,13 +1294,57 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_z" field.</summary>
-    public const int PosZFieldNumber = 7;
+    public const int PosZFieldNumber = 6;
     private float posZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosZ {
       get { return posZ_; }
       set {
         posZ_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_hp" field.</summary>
+    public const int MaxHpFieldNumber = 7;
+    private int maxHp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxHp {
+      get { return maxHp_; }
+      set {
+        maxHp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hp" field.</summary>
+    public const int HpFieldNumber = 8;
+    private int hp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Hp {
+      get { return hp_; }
+      set {
+        hp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "speed" field.</summary>
+    public const int SpeedFieldNumber = 9;
+    private float speed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Speed {
+      get { return speed_; }
+      set {
+        speed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "reload_time" field.</summary>
+    public const int ReloadTimeFieldNumber = 10;
+    private float reloadTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float ReloadTime {
+      get { return reloadTime_; }
+      set {
+        reloadTime_ = value;
       }
     }
 
@@ -1154,10 +1364,13 @@ namespace GAME {
       if (ObjId != other.ObjId) return false;
       if (TankType != other.TankType) return false;
       if (Nickname != other.Nickname) return false;
-      if (Hp != other.Hp) return false;
       if (PosX != other.PosX) return false;
       if (PosY != other.PosY) return false;
       if (PosZ != other.PosZ) return false;
+      if (MaxHp != other.MaxHp) return false;
+      if (Hp != other.Hp) return false;
+      if (Speed != other.Speed) return false;
+      if (ReloadTime != other.ReloadTime) return false;
       return true;
     }
 
@@ -1167,10 +1380,13 @@ namespace GAME {
       if (ObjId != 0L) hash ^= ObjId.GetHashCode();
       if (TankType != 0) hash ^= TankType.GetHashCode();
       if (Nickname.Length != 0) hash ^= Nickname.GetHashCode();
-      if (Hp != 0) hash ^= Hp.GetHashCode();
       if (PosX != 0F) hash ^= PosX.GetHashCode();
       if (PosY != 0F) hash ^= PosY.GetHashCode();
       if (PosZ != 0F) hash ^= PosZ.GetHashCode();
+      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
+      if (Hp != 0) hash ^= Hp.GetHashCode();
+      if (Speed != 0F) hash ^= Speed.GetHashCode();
+      if (ReloadTime != 0F) hash ^= ReloadTime.GetHashCode();
       return hash;
     }
 
@@ -1193,21 +1409,33 @@ namespace GAME {
         output.WriteRawTag(26);
         output.WriteString(Nickname);
       }
-      if (Hp != 0) {
-        output.WriteRawTag(32);
-        output.WriteInt32(Hp);
-      }
       if (PosX != 0F) {
-        output.WriteRawTag(45);
+        output.WriteRawTag(37);
         output.WriteFloat(PosX);
       }
       if (PosY != 0F) {
-        output.WriteRawTag(53);
+        output.WriteRawTag(45);
         output.WriteFloat(PosY);
       }
       if (PosZ != 0F) {
-        output.WriteRawTag(61);
+        output.WriteRawTag(53);
         output.WriteFloat(PosZ);
+      }
+      if (MaxHp != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(MaxHp);
+      }
+      if (Hp != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(Hp);
+      }
+      if (Speed != 0F) {
+        output.WriteRawTag(77);
+        output.WriteFloat(Speed);
+      }
+      if (ReloadTime != 0F) {
+        output.WriteRawTag(85);
+        output.WriteFloat(ReloadTime);
       }
     }
 
@@ -1223,9 +1451,6 @@ namespace GAME {
       if (Nickname.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Nickname);
       }
-      if (Hp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
-      }
       if (PosX != 0F) {
         size += 1 + 4;
       }
@@ -1233,6 +1458,18 @@ namespace GAME {
         size += 1 + 4;
       }
       if (PosZ != 0F) {
+        size += 1 + 4;
+      }
+      if (MaxHp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
+      }
+      if (Hp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
+      }
+      if (Speed != 0F) {
+        size += 1 + 4;
+      }
+      if (ReloadTime != 0F) {
         size += 1 + 4;
       }
       return size;
@@ -1252,9 +1489,6 @@ namespace GAME {
       if (other.Nickname.Length != 0) {
         Nickname = other.Nickname;
       }
-      if (other.Hp != 0) {
-        Hp = other.Hp;
-      }
       if (other.PosX != 0F) {
         PosX = other.PosX;
       }
@@ -1263,6 +1497,18 @@ namespace GAME {
       }
       if (other.PosZ != 0F) {
         PosZ = other.PosZ;
+      }
+      if (other.MaxHp != 0) {
+        MaxHp = other.MaxHp;
+      }
+      if (other.Hp != 0) {
+        Hp = other.Hp;
+      }
+      if (other.Speed != 0F) {
+        Speed = other.Speed;
+      }
+      if (other.ReloadTime != 0F) {
+        ReloadTime = other.ReloadTime;
       }
     }
 
@@ -1286,20 +1532,32 @@ namespace GAME {
             Nickname = input.ReadString();
             break;
           }
-          case 32: {
-            Hp = input.ReadInt32();
-            break;
-          }
-          case 45: {
+          case 37: {
             PosX = input.ReadFloat();
             break;
           }
-          case 53: {
+          case 45: {
             PosY = input.ReadFloat();
             break;
           }
-          case 61: {
+          case 53: {
             PosZ = input.ReadFloat();
+            break;
+          }
+          case 56: {
+            MaxHp = input.ReadInt32();
+            break;
+          }
+          case 64: {
+            Hp = input.ReadInt32();
+            break;
+          }
+          case 77: {
+            Speed = input.ReadFloat();
+            break;
+          }
+          case 85: {
+            ReloadTime = input.ReadFloat();
             break;
           }
         }
@@ -3233,10 +3491,10 @@ namespace GAME {
 
   }
 
-  public sealed partial class CS_RESPAWN : pb::IMessage<CS_RESPAWN> {
-    private static readonly pb::MessageParser<CS_RESPAWN> _parser = new pb::MessageParser<CS_RESPAWN>(() => new CS_RESPAWN());
+  public sealed partial class CS_RESPAWN_CHARACTER : pb::IMessage<CS_RESPAWN_CHARACTER> {
+    private static readonly pb::MessageParser<CS_RESPAWN_CHARACTER> _parser = new pb::MessageParser<CS_RESPAWN_CHARACTER>(() => new CS_RESPAWN_CHARACTER());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CS_RESPAWN> Parser { get { return _parser; } }
+    public static pb::MessageParser<CS_RESPAWN_CHARACTER> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -3249,28 +3507,28 @@ namespace GAME {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CS_RESPAWN() {
+    public CS_RESPAWN_CHARACTER() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CS_RESPAWN(CS_RESPAWN other) : this() {
+    public CS_RESPAWN_CHARACTER(CS_RESPAWN_CHARACTER other) : this() {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CS_RESPAWN Clone() {
-      return new CS_RESPAWN(this);
+    public CS_RESPAWN_CHARACTER Clone() {
+      return new CS_RESPAWN_CHARACTER(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as CS_RESPAWN);
+      return Equals(other as CS_RESPAWN_CHARACTER);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CS_RESPAWN other) {
+    public bool Equals(CS_RESPAWN_CHARACTER other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -3302,7 +3560,7 @@ namespace GAME {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CS_RESPAWN other) {
+    public void MergeFrom(CS_RESPAWN_CHARACTER other) {
       if (other == null) {
         return;
       }
@@ -3322,10 +3580,10 @@ namespace GAME {
 
   }
 
-  public sealed partial class SC_NOTI_RESPAWN : pb::IMessage<SC_NOTI_RESPAWN> {
-    private static readonly pb::MessageParser<SC_NOTI_RESPAWN> _parser = new pb::MessageParser<SC_NOTI_RESPAWN>(() => new SC_NOTI_RESPAWN());
+  public sealed partial class SC_NOTI_RESPAWN_CHARACTER : pb::IMessage<SC_NOTI_RESPAWN_CHARACTER> {
+    private static readonly pb::MessageParser<SC_NOTI_RESPAWN_CHARACTER> _parser = new pb::MessageParser<SC_NOTI_RESPAWN_CHARACTER>(() => new SC_NOTI_RESPAWN_CHARACTER());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<SC_NOTI_RESPAWN> Parser { get { return _parser; } }
+    public static pb::MessageParser<SC_NOTI_RESPAWN_CHARACTER> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -3338,40 +3596,152 @@ namespace GAME {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SC_NOTI_RESPAWN() {
+    public SC_NOTI_RESPAWN_CHARACTER() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SC_NOTI_RESPAWN(SC_NOTI_RESPAWN other) : this() {
+    public SC_NOTI_RESPAWN_CHARACTER(SC_NOTI_RESPAWN_CHARACTER other) : this() {
+      objId_ = other.objId_;
+      posX_ = other.posX_;
+      posY_ = other.posY_;
+      posZ_ = other.posZ_;
+      maxHp_ = other.maxHp_;
+      hp_ = other.hp_;
+      speed_ = other.speed_;
+      reloadTime_ = other.reloadTime_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SC_NOTI_RESPAWN Clone() {
-      return new SC_NOTI_RESPAWN(this);
+    public SC_NOTI_RESPAWN_CHARACTER Clone() {
+      return new SC_NOTI_RESPAWN_CHARACTER(this);
+    }
+
+    /// <summary>Field number for the "obj_id" field.</summary>
+    public const int ObjIdFieldNumber = 1;
+    private long objId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ObjId {
+      get { return objId_; }
+      set {
+        objId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_x" field.</summary>
+    public const int PosXFieldNumber = 2;
+    private float posX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float PosX {
+      get { return posX_; }
+      set {
+        posX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_y" field.</summary>
+    public const int PosYFieldNumber = 3;
+    private float posY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float PosY {
+      get { return posY_; }
+      set {
+        posY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_z" field.</summary>
+    public const int PosZFieldNumber = 4;
+    private float posZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float PosZ {
+      get { return posZ_; }
+      set {
+        posZ_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_hp" field.</summary>
+    public const int MaxHpFieldNumber = 5;
+    private int maxHp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxHp {
+      get { return maxHp_; }
+      set {
+        maxHp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hp" field.</summary>
+    public const int HpFieldNumber = 6;
+    private int hp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Hp {
+      get { return hp_; }
+      set {
+        hp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "speed" field.</summary>
+    public const int SpeedFieldNumber = 7;
+    private float speed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Speed {
+      get { return speed_; }
+      set {
+        speed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "reload_time" field.</summary>
+    public const int ReloadTimeFieldNumber = 8;
+    private float reloadTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float ReloadTime {
+      get { return reloadTime_; }
+      set {
+        reloadTime_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as SC_NOTI_RESPAWN);
+      return Equals(other as SC_NOTI_RESPAWN_CHARACTER);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(SC_NOTI_RESPAWN other) {
+    public bool Equals(SC_NOTI_RESPAWN_CHARACTER other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (ObjId != other.ObjId) return false;
+      if (PosX != other.PosX) return false;
+      if (PosY != other.PosY) return false;
+      if (PosZ != other.PosZ) return false;
+      if (MaxHp != other.MaxHp) return false;
+      if (Hp != other.Hp) return false;
+      if (Speed != other.Speed) return false;
+      if (ReloadTime != other.ReloadTime) return false;
       return true;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (ObjId != 0L) hash ^= ObjId.GetHashCode();
+      if (PosX != 0F) hash ^= PosX.GetHashCode();
+      if (PosY != 0F) hash ^= PosY.GetHashCode();
+      if (PosZ != 0F) hash ^= PosZ.GetHashCode();
+      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
+      if (Hp != 0) hash ^= Hp.GetHashCode();
+      if (Speed != 0F) hash ^= Speed.GetHashCode();
+      if (ReloadTime != 0F) hash ^= ReloadTime.GetHashCode();
       return hash;
     }
 
@@ -3382,18 +3752,98 @@ namespace GAME {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (ObjId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ObjId);
+      }
+      if (PosX != 0F) {
+        output.WriteRawTag(21);
+        output.WriteFloat(PosX);
+      }
+      if (PosY != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(PosY);
+      }
+      if (PosZ != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(PosZ);
+      }
+      if (MaxHp != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(MaxHp);
+      }
+      if (Hp != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Hp);
+      }
+      if (Speed != 0F) {
+        output.WriteRawTag(61);
+        output.WriteFloat(Speed);
+      }
+      if (ReloadTime != 0F) {
+        output.WriteRawTag(69);
+        output.WriteFloat(ReloadTime);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (ObjId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObjId);
+      }
+      if (PosX != 0F) {
+        size += 1 + 4;
+      }
+      if (PosY != 0F) {
+        size += 1 + 4;
+      }
+      if (PosZ != 0F) {
+        size += 1 + 4;
+      }
+      if (MaxHp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
+      }
+      if (Hp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
+      }
+      if (Speed != 0F) {
+        size += 1 + 4;
+      }
+      if (ReloadTime != 0F) {
+        size += 1 + 4;
+      }
       return size;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(SC_NOTI_RESPAWN other) {
+    public void MergeFrom(SC_NOTI_RESPAWN_CHARACTER other) {
       if (other == null) {
         return;
+      }
+      if (other.ObjId != 0L) {
+        ObjId = other.ObjId;
+      }
+      if (other.PosX != 0F) {
+        PosX = other.PosX;
+      }
+      if (other.PosY != 0F) {
+        PosY = other.PosY;
+      }
+      if (other.PosZ != 0F) {
+        PosZ = other.PosZ;
+      }
+      if (other.MaxHp != 0) {
+        MaxHp = other.MaxHp;
+      }
+      if (other.Hp != 0) {
+        Hp = other.Hp;
+      }
+      if (other.Speed != 0F) {
+        Speed = other.Speed;
+      }
+      if (other.ReloadTime != 0F) {
+        ReloadTime = other.ReloadTime;
       }
     }
 
@@ -3405,6 +3855,38 @@ namespace GAME {
           default:
             input.SkipLastField();
             break;
+          case 8: {
+            ObjId = input.ReadInt64();
+            break;
+          }
+          case 21: {
+            PosX = input.ReadFloat();
+            break;
+          }
+          case 29: {
+            PosY = input.ReadFloat();
+            break;
+          }
+          case 37: {
+            PosZ = input.ReadFloat();
+            break;
+          }
+          case 40: {
+            MaxHp = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            Hp = input.ReadInt32();
+            break;
+          }
+          case 61: {
+            Speed = input.ReadFloat();
+            break;
+          }
+          case 69: {
+            ReloadTime = input.ReadFloat();
+            break;
+          }
         }
       }
     }

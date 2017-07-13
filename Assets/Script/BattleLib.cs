@@ -29,6 +29,25 @@ namespace BattleInfo
 
 	}
 
+    // 처음 셋팅시 탱크의 기본적인 정보들 
+    public struct TANK_INFO
+    {
+        public Vector3 Pos;
+        public int MaxHp;
+        public int Hp;
+        public float MoveSpeed;
+        public float ReloadTime;
+
+        public TANK_INFO(Vector3 pos, int max_hp, int hp, float move_speed, float reload_time)
+        {
+            Pos = pos;
+            MaxHp = max_hp;
+            Hp = hp; ;
+            MoveSpeed = move_speed;
+            ReloadTime = reload_time;
+        }
+    }
+
 }
 
 
@@ -360,14 +379,14 @@ public class BattleLib : MonoBehaviour {
 		}
 	}
 
-	public void EntityRevive(Int64 obId )
+	public void EntityRevive(Int64 obId, TANK_INFO TankInfo)
 	{
 		if (obId > 0 && EntityDic.ContainsKey (obId) == true) {
 			Tank tankObject = EntityDic [obId] as Tank;
 			if (tankObject == null)
 				return;
 
-			tankObject.Revive ();
+			tankObject.Revive (TankInfo);
 		}
 	}
 

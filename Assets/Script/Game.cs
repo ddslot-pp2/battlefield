@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Net.Sockets;
 using System;
 using GameCore;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour {
 
@@ -21,7 +22,7 @@ public class Game : MonoBehaviour {
     //int MyIndex;
 
     Vector3 LastPos_;
-
+    public Button RespawnButton_;
 
     Dictionary<Int64, int> IndexInfos_;
     Queue<int> IndexQueue_;
@@ -119,7 +120,6 @@ public class Game : MonoBehaviour {
             // bullet 생성 
 			BattleLib.Instance.CreateBullet(obj_id, (Bullet.Type)bullet_type, bullet_id, pos, look_dir, bullet_dir, size, speed, distance);
         }
-    
     }
     public void handler_SC_NOTI_DESTROY_BULLET(GAME.SC_NOTI_DESTROY_BULLET read)
     {
@@ -144,7 +144,7 @@ public class Game : MonoBehaviour {
 
         if (MyObjId == read.ObjId)
         {
-
+            RespawnButton_.gameObject.SetActive(true);
             return;
         }
 
@@ -153,6 +153,19 @@ public class Game : MonoBehaviour {
         var OtherObjId = read.ObjId;
         
         // bullet destroy는 따로 올테니 일단은 신경안씀; 이 오브젝트 기준으로 bullet을 다 제거 할수도 있지만... 보류
+    }
+
+    public void handler_SC_NOTI_RESPAWN_CHARACTER(GAME.SC_NOTI_RESPAWN_CHARACTER read)
+    {
+        BattleInfo.TANK_INFO tank_info = new BattleInfo.TANK_INFO(new Vector3(read.PosX, read.PosY, read.PosZ), read.MaxHp, read.Hp, read.Speed, read.ReloadTime);
+        
+        // 내가 respawn 됨
+        if (MyObjId == read.ObjId)
+        {
+            
+        }
+
+        BattleLib.Instance.EntityRevive(read.ObjId, tank_info);
     }
 
     public void RegisterPacketHandler()
@@ -165,6 +178,7 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_FIRE>(opcode.SC_NOTI_FIRE, handler_SC_NOTI_FIRE);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_DESTROY_BULLET>(opcode.SC_NOTI_DESTROY_BULLET, handler_SC_NOTI_DESTROY_BULLET);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_DESTROY_CHARACTER>(opcode.SC_NOTI_DESTROY_CHARACTER, handler_SC_NOTI_DESTROY_CHARACTER);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_RESPAWN_CHARACTER>(opcode.SC_NOTI_RESPAWN_CHARACTER, handler_SC_NOTI_RESPAWN_CHARACTER);
     }
 
 	void OnTouchBegan(Vector3 pos)
@@ -218,6 +232,8 @@ public class Game : MonoBehaviour {
         IndexQueue_ = new Queue<int>();
      
         MyObjId = 0;
+        RespawnButton_.gameObject.SetActive(false);
+        //RespawnButton_.enabled = false;
 
         RegisterPacketHandler();
 
@@ -319,7 +335,6 @@ public class Game : MonoBehaviour {
 		BattleLib.Instance.DeleteEntity (obj_id);
 
         //IndexQueue_.Enqueue(index);
-
 		if (obj_id == MyObjId) 
 		{
 			UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby");
@@ -345,4 +360,11 @@ public class Game : MonoBehaviour {
 	{
 
 	}
+
+    public void onRespawnButton()
+    {
+        RespawnButton_.gameObject.SetActive(false);
+        var Send = new GAME.CS_RESPAWN_CHARACTER();
+        ProtobufManager.Instance().Send(opcode.CS_RESPAWN_CHARACTER, Send);
+    }
 }
