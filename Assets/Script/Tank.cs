@@ -6,7 +6,9 @@ using System;
 
 public class Tank : Entity {
 
+	bool dead = false;
 	bool move = false;
+
 	public Vector3 lookDirection;
 	public Transform fireTransform;
 
@@ -40,12 +42,19 @@ public class Tank : Entity {
 
 		hpBar = GetComponent<HpBar>();
 
+		dead = false;
+
 		//hpBar.UpdateHpBar();
 	}
 
 	public override void Release()
 	{
+		DestroyImmediate (gameObject);
+	}
 
+	public bool IsDead()
+	{
+		return dead;
 	}
 
 	public override void EntityUpdate () 
@@ -57,6 +66,8 @@ public class Tank : Entity {
 
 	void MoveEntity()
 	{
+		if (IsDead()) return;
+
 		if (move) 
 		{
 			if (Vector3.Distance (transform.position, ArrivePos) > 0.1f) {
@@ -161,6 +172,16 @@ public class Tank : Entity {
 		hpBar.UpdateHpBar();
 	}
 
+	public void Dead()
+	{
+		dead = true;
+	}
+
+	public void Revive()
+	{
+		dead = false;
+	}
+
     public void AddBullet(Int64 bullet_id, GameObject bullet_obj)
     {
         Bullets_[bullet_id] = bullet_obj;
@@ -169,7 +190,6 @@ public class Tank : Entity {
     public void RemoveBullet(Int64 bullet_id)
     {
         // bullet 사리질때 파티클이라도 생기기
-
         Bullets_.Remove(bullet_id);
     }
 }

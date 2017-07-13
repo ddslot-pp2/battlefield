@@ -71,6 +71,11 @@ public class Game : MonoBehaviour {
     public void handler_SC_NOTI_OTHER_LEAVE_FIELD(GAME.SC_NOTI_OTHER_LEAVE_FIELD read)
     {
         BattleLib.Instance.DeleteEntity(read.ObjId);
+
+		if (read.ObjId == MyObjId) 
+		{
+			UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby");
+		}
     }
 
     public void handler_SC_NOTI_OTHER_MOVE(GAME.SC_NOTI_OTHER_MOVE read)
@@ -128,11 +133,15 @@ public class Game : MonoBehaviour {
         // 현재 케릭터가 hp가 0이라서; 폭파한 상태 스모그 이펙트 나오면서 3초후 respawn 나오면 되겠징;;
         // 헐 내가 죽었네 ㅜㅜ;
         // 미사일 발사 금지 이동 금지 등등 핸들링
+
+		BattleLib.Instance.EntityDead (read.ObjId);
+
         if (MyObjId == read.ObjId)
         {
 
             return;
         }
+
 
         // 휴 다행이 난 아니다 다른 탱크군 후훗 여기부분 처리해주자
         var OtherObjId = read.ObjId;
@@ -170,6 +179,9 @@ public class Game : MonoBehaviour {
 
 	void OnTouchEnded(Vector3 pos)
 	{
+
+		if (BattleLib.Instance.GetMyEntityIsDead ())
+			return;
 		
 		Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out TFire);
 
