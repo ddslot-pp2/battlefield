@@ -28,6 +28,11 @@ public class HpBar : MonoBehaviour {
 		//hpBar2.healthBarImage[1].sprite = emptyHp;
     }
 
+	public void DeleteHpobject()
+	{
+		Destroy(healthBarObj);
+	}
+
 	public void UpdateHpBar()
 	{
 		maxHealth = state.maxHp;

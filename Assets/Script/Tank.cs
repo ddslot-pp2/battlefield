@@ -49,8 +49,8 @@ public class Tank : Entity {
 
 	public override void Release()
 	{
-		DestroyImmediate(hpBar.gameObject);
-		DestroyImmediate (gameObject);
+		hpBar.DeleteHpobject();
+		Destroy(gameObject);
 	}
 
 	public bool IsDead()
