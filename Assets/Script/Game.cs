@@ -123,6 +123,22 @@ public class Game : MonoBehaviour {
             BattleLib.Instance.GetDamage(target_obj_id, (int)damage);
         }
     }
+    public void handler_SC_NOTI_DESTROY_CHARACTER(GAME.SC_NOTI_DESTROY_CHARACTER read)
+    {
+        // 현재 케릭터가 hp가 0이라서; 폭파한 상태 스모그 이펙트 나오면서 3초후 respawn 나오면 되겠징;;
+        // 헐 내가 죽었네 ㅜㅜ;
+        // 미사일 발사 금지 이동 금지 등등 핸들링
+        if (MyObjId == read.ObjId)
+        {
+
+            return;
+        }
+
+        // 휴 다행이 난 아니다 다른 탱크군 후훗 여기부분 처리해주자
+        var OtherObjId = read.ObjId;
+        
+        // bullet destroy는 따로 올테니 일단은 신경안씀; 이 오브젝트 기준으로 bullet을 다 제거 할수도 있지만... 보류
+    }
 
     public void RegisterPacketHandler()
     {
@@ -133,6 +149,7 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_OTHER_MOVE>(opcode.SC_NOTI_OTHER_MOVE, handler_SC_NOTI_OTHER_MOVE);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_FIRE>(opcode.SC_NOTI_FIRE, handler_SC_NOTI_FIRE);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_DESTROY_BULLET>(opcode.SC_NOTI_DESTROY_BULLET, handler_SC_NOTI_DESTROY_BULLET);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_DESTROY_CHARACTER>(opcode.SC_NOTI_DESTROY_CHARACTER, handler_SC_NOTI_DESTROY_CHARACTER);
     }
 
 	void OnTouchBegan(Vector3 pos)

@@ -104,5 +104,10 @@ public class ProtobufHandler //: MonoBehaviour
         {
             return GAME.SC_NOTI_DESTROY_BULLET.Parser.ParseFrom(Buf);
         };
+
+        Deserializer_[OpcodeToInt16(opcode.SC_NOTI_DESTROY_CHARACTER)] = (byte[] Buf) =>
+        {
+            return GAME.SC_NOTI_DESTROY_CHARACTER.Parser.ParseFrom(Buf);
+        };
     }
 }
