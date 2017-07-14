@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChrisTank : Tank {
 
+	public Transform[] firePos;
 	//총알 발사좌표
 	public Transform firePos_p1;
 	//MuzzleFlash의 MeshRenderer 컴포넌트 연결 변수
@@ -38,6 +39,16 @@ public class ChrisTank : Tank {
 		//EntityUpdate ();
 	}
 
+
+	public override Vector3[] GetFireDirs(Vector3 NormalizedDir)
+	{
+		//var dir = (new Vector3(TouchDir.x, 0.0f, TouchDir.z) - transform.position).normalized;
+		return new Vector3[] { 
+			Quaternion.AngleAxis (5.0f, Vector3.up) * NormalizedDir
+			,Quaternion.AngleAxis (-5.0f, Vector3.up) * NormalizedDir
+		
+		};
+	}
 
 	public override void Fire()
 	{
