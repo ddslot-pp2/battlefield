@@ -12,13 +12,14 @@ public class Tank : Entity {
 	public Vector3 lookDirection;
 	public Transform fireTransform;
 
-	Transform playertank1;
+	Transform myTransform;
 
 	float h, v;
 	Controller controller;
 	public Tank_State state;
 	HpBar hpBar;
 
+	GameObject DustEffect;
 
 	protected RaycastHit TFire;
 	Vector3 Click;
@@ -27,8 +28,6 @@ public class Tank : Entity {
 
 	public float nextfire = 0.0f;
 
-    protected Dictionary <Int64, GameObject> Bullets_;
-
     private float FireTime_;
 
 
@@ -36,9 +35,9 @@ public class Tank : Entity {
 
 		base.Init();
 
-        Bullets_ = new Dictionary<long, GameObject>();
+      
 
-        playertank1 = GetComponent<Transform>();
+		myTransform = this.transform;
 
 		state = gameObject.GetComponent<Tank_State>();
 
@@ -73,11 +72,11 @@ public class Tank : Entity {
 
 		if (move) 
 		{
-			if (Vector3.Distance (transform.position, ArrivePos) > 0.4f) {
+			if (Vector3.Distance (myTransform.position, ArrivePos) > 0.4f) {
 				ArrivePos.y = 0.0f;
-				Vector3 dir = (ArrivePos - transform.position).normalized;
-				transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (dir), Time.deltaTime * 20);
-				playertank1.Translate (Vector3.forward * state.moveSpeed * Time.deltaTime);
+				Vector3 dir = (ArrivePos - myTransform.position).normalized;
+				myTransform.rotation = Quaternion.Lerp (myTransform.rotation, Quaternion.LookRotation (dir), Time.deltaTime * 20);
+				myTransform.Translate (Vector3.forward * state.moveSpeed * Time.deltaTime);
 
 			} else 
 			{
@@ -112,16 +111,6 @@ public class Tank : Entity {
         FireTime_ = 0.0f;
         return true;
     }
-	/*
-	public virtual GameObject CreateBullet()
-	{
-		SetMove (true);
-
-		Fire();
-
-		return state.bullet.Spawn();
-	}
-	*/
 		
 	public virtual void ProgressInput(float posX, float posZ, bool attack)
 	{
@@ -133,7 +122,7 @@ public class Tank : Entity {
 		{
 			Vector3 newPos = new Vector3 (posX, 0.0f,  posZ);
 
-			if (Vector3.Distance (transform.position, newPos) < 2.0f)
+			if (Vector3.Distance (myTransform.position, newPos) < 2.0f)
 			{
 				return;
 			}
@@ -166,7 +155,7 @@ public class Tank : Entity {
 
     public void CreateBullet(float posX, float posZ, float speed, float distance)
     {
-        AttackDir = (new Vector3(posX, 0.0f, posZ) - transform.position).normalized;
+		AttackDir = (new Vector3(posX, 0.0f, posZ) - myTransform.position).normalized;
         AttackDir.y = 0;
         fireTransform.rotation = Quaternion.LookRotation(AttackDir);
 
@@ -177,7 +166,7 @@ public class Tank : Entity {
 
     public virtual Transform GetFirePosition()
     {
-        return transform;
+		return myTransform;
     }
 
     public virtual Vector3[] GetFireDirs(Vector3 Vector3)
@@ -194,21 +183,23 @@ public class Tank : Entity {
 	public void Dead()
 	{
 		dead = true;
+		DustEffect = EffectManager.Instance.DustEffect.Spawn(transform.position);
 	}
 
 	public void Revive(BattleInfo.TANK_INFO TankInfo)
 	{
-        transform.position = TankInfo.Pos;
+		myTransform.position = TankInfo.Pos;
 
         state.hp = TankInfo.Hp;
         state.maxHp = TankInfo.MaxHp;
-
         state.moveSpeed = TankInfo.MoveSpeed;
         state.fireRate = TankInfo.ReloadTime;
 
         hpBar.UpdateHpBar();
 
-        dead = false;
+		dead = false;
+
+		DustEffect.Recycle();
     }
 
     public void SetTankInfo(BattleInfo.TANK_INFO TankInfo)
@@ -225,14 +216,5 @@ public class Tank : Entity {
         hpBar.UpdateHpBar();
     }
 
-    public void AddBullet(Int64 bullet_id, GameObject bullet_obj)
-    {
-        Bullets_[bullet_id] = bullet_obj;
-    }
-
-    public void RemoveBullet(Int64 bullet_id)
-    {
-        // bullet 사리질때 파티클이라도 생기기
-        Bullets_.Remove(bullet_id);
-    }
+   
 }
