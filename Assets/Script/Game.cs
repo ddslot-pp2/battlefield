@@ -23,6 +23,9 @@ public class Game : MonoBehaviour {
 
     Vector3 LastPos_;
     public Button RespawnButton_;
+    public Button[] BuffButton_;
+    public GameObject BuffButtons_;
+    enum BuffType { MaxHpUp, TankSpeedUp, BulletSpeedUp, BulletPowerUp, BulletDistanceUp, BulletReloadTimeDown };
 
     Dictionary<Int64, int> IndexInfos_;
     Queue<int> IndexQueue_;
@@ -168,6 +171,27 @@ public class Game : MonoBehaviour {
         BattleLib.Instance.EntityRevive(read.ObjId, tank_info);
     }
 
+    public void handler_SC_SELECT_BUFF(GAME.SC_SELECT_BUFF read)
+    {
+        // 버프 가능 횟수 증가해줘야함 
+        // 유저가 바빠 바로 못하면 2번 3번 쌓았다가 1개씩 처리;
+        ShowBuffButtons();
+    }
+
+    public void handler_SC_NOTI_UPDATE_CHARACTER_STATUS(GAME.SC_NOTI_UPDATE_CHARACTER_STATUS read)
+    {
+        if (MyObjId == read.ObjId)
+        {
+            // 내꺼 버프 업데이트 된거라서 respawnTime은 업데이트
+            var reloadTime = read.ReloadTime;
+        }
+        // 나머지는 공통
+        var tank_speed = read.Speed;
+        var max_hp     = read.MaxHp;
+        var hp         = read.Hp;
+
+    }
+
     public void RegisterPacketHandler()
     {
         // 이번 패킷에 사용할 패킷관련 핸들러를 지정
@@ -179,6 +203,8 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_DESTROY_BULLET>(opcode.SC_NOTI_DESTROY_BULLET, handler_SC_NOTI_DESTROY_BULLET);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_DESTROY_CHARACTER>(opcode.SC_NOTI_DESTROY_CHARACTER, handler_SC_NOTI_DESTROY_CHARACTER);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_RESPAWN_CHARACTER>(opcode.SC_NOTI_RESPAWN_CHARACTER, handler_SC_NOTI_RESPAWN_CHARACTER);
+        ProtobufManager.Instance().SetHandler<GAME.SC_SELECT_BUFF>(opcode.SC_NOTI_RESPAWN_CHARACTER, handler_SC_SELECT_BUFF);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_UPDATE_CHARACTER_STATUS>(opcode.SC_NOTI_RESPAWN_CHARACTER, handler_SC_NOTI_UPDATE_CHARACTER_STATUS);
     }
 
 	void OnTouchBegan(Vector3 pos)
@@ -233,6 +259,8 @@ public class Game : MonoBehaviour {
      
         MyObjId = 0;
         RespawnButton_.gameObject.SetActive(false);
+        HideBuffButtons();
+        //ShowBuffButtons();
         //RespawnButton_.enabled = false;
 
         RegisterPacketHandler();
@@ -366,5 +394,49 @@ public class Game : MonoBehaviour {
         RespawnButton_.gameObject.SetActive(false);
         var Send = new GAME.CS_RESPAWN_CHARACTER();
         ProtobufManager.Instance().Send(opcode.CS_RESPAWN_CHARACTER, Send);
+    }
+
+    public void ShowBuffButtons()
+    {
+        BuffButtons_.SetActive(true);
+    }
+
+    public void HideBuffButtons()
+    {
+        BuffButtons_.SetActive(false);
+    }
+
+    public void onBuffButton(int type)
+    {
+        // 밑에는 클라이언트 버튼 max 이상 방지를 위한 작업 및 이펙트 효과 + 해줌
+        if (type == (int)BuffType.MaxHpUp)
+        {
+
+        }
+        else if (type == (int)BuffType.TankSpeedUp)
+        {
+
+        }
+        else if (type == (int)BuffType.BulletSpeedUp)
+        {
+
+        }
+        else if (type == (int)BuffType.BulletPowerUp)
+        {
+
+        }
+        else if (type == (int)BuffType.BulletDistanceUp)
+        {
+
+        }
+        else if (type == (int)BuffType.BulletReloadTimeDown)
+        {
+
+        }
+
+        // 서버에 전송
+        var Send = new GAME.CS_ENHANCE_BUFF();
+        Send.BuffType = type;
+        ProtobufManager.Instance().Send(opcode.CS_ENHANCE_BUFF, Send);
     }
 }

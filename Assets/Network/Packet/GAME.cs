@@ -61,7 +61,12 @@ namespace GAME {
             "QVdOX0NIQVJBQ1RFUiKYAQoZU0NfTk9USV9SRVNQQVdOX0NIQVJBQ1RFUhIO",
             "CgZvYmpfaWQYASABKAMSDQoFcG9zX3gYAiABKAISDQoFcG9zX3kYAyABKAIS",
             "DQoFcG9zX3oYBCABKAISDgoGbWF4X2hwGAUgASgFEgoKAmhwGAYgASgFEg0K",
-            "BXNwZWVkGAcgASgCEhMKC3JlbG9hZF90aW1lGAggASgCYgZwcm90bzM="));
+            "BXNwZWVkGAcgASgCEhMKC3JlbG9hZF90aW1lGAggASgCIiAKDlNDX1NFTEVD",
+            "VF9CVUZGEg4KBm9ial9pZBgBIAEoAyIkCg9DU19FTkhBTkNFX0JVRkYSEQoJ",
+            "YnVmZl90eXBlGAEgASgFInEKH1NDX05PVElfVVBEQVRFX0NIQVJBQ1RFUl9T",
+            "VEFUVVMSDgoGb2JqX2lkGAEgASgDEg4KBm1heF9ocBgCIAEoBRIKCgJocBgD",
+            "IAEoBRINCgVzcGVlZBgEIAEoAhITCgtyZWxvYWRfdGltZRgFIAEoAmIGcHJv",
+            "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -81,7 +86,10 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_DESTROY_BULLET), global::GAME.SC_NOTI_DESTROY_BULLET.Parser, new[]{ "ObjId", "BulletId", "DamageInfos" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_DESTROY_CHARACTER), global::GAME.SC_NOTI_DESTROY_CHARACTER.Parser, new[]{ "ObjId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_RESPAWN_CHARACTER), global::GAME.CS_RESPAWN_CHARACTER.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_RESPAWN_CHARACTER), global::GAME.SC_NOTI_RESPAWN_CHARACTER.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_RESPAWN_CHARACTER), global::GAME.SC_NOTI_RESPAWN_CHARACTER.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_SELECT_BUFF), global::GAME.SC_SELECT_BUFF.Parser, new[]{ "ObjId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_ENHANCE_BUFF), global::GAME.CS_ENHANCE_BUFF.Parser, new[]{ "BuffType" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS), global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS.Parser, new[]{ "ObjId", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null)
           }));
     }
     #endregion
@@ -3884,6 +3892,469 @@ namespace GAME {
             break;
           }
           case 69: {
+            ReloadTime = input.ReadFloat();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_SELECT_BUFF : pb::IMessage<SC_SELECT_BUFF> {
+    private static readonly pb::MessageParser<SC_SELECT_BUFF> _parser = new pb::MessageParser<SC_SELECT_BUFF>(() => new SC_SELECT_BUFF());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_SELECT_BUFF> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[17]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_SELECT_BUFF() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_SELECT_BUFF(SC_SELECT_BUFF other) : this() {
+      objId_ = other.objId_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_SELECT_BUFF Clone() {
+      return new SC_SELECT_BUFF(this);
+    }
+
+    /// <summary>Field number for the "obj_id" field.</summary>
+    public const int ObjIdFieldNumber = 1;
+    private long objId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ObjId {
+      get { return objId_; }
+      set {
+        objId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_SELECT_BUFF);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_SELECT_BUFF other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ObjId != other.ObjId) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ObjId != 0L) hash ^= ObjId.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ObjId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ObjId);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ObjId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObjId);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_SELECT_BUFF other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ObjId != 0L) {
+        ObjId = other.ObjId;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            ObjId = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CS_ENHANCE_BUFF : pb::IMessage<CS_ENHANCE_BUFF> {
+    private static readonly pb::MessageParser<CS_ENHANCE_BUFF> _parser = new pb::MessageParser<CS_ENHANCE_BUFF>(() => new CS_ENHANCE_BUFF());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_ENHANCE_BUFF> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[18]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_ENHANCE_BUFF() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_ENHANCE_BUFF(CS_ENHANCE_BUFF other) : this() {
+      buffType_ = other.buffType_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_ENHANCE_BUFF Clone() {
+      return new CS_ENHANCE_BUFF(this);
+    }
+
+    /// <summary>Field number for the "buff_type" field.</summary>
+    public const int BuffTypeFieldNumber = 1;
+    private int buffType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BuffType {
+      get { return buffType_; }
+      set {
+        buffType_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_ENHANCE_BUFF);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_ENHANCE_BUFF other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (BuffType != other.BuffType) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (BuffType != 0) hash ^= BuffType.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (BuffType != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(BuffType);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (BuffType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BuffType);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_ENHANCE_BUFF other) {
+      if (other == null) {
+        return;
+      }
+      if (other.BuffType != 0) {
+        BuffType = other.BuffType;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            BuffType = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_NOTI_UPDATE_CHARACTER_STATUS : pb::IMessage<SC_NOTI_UPDATE_CHARACTER_STATUS> {
+    private static readonly pb::MessageParser<SC_NOTI_UPDATE_CHARACTER_STATUS> _parser = new pb::MessageParser<SC_NOTI_UPDATE_CHARACTER_STATUS>(() => new SC_NOTI_UPDATE_CHARACTER_STATUS());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_NOTI_UPDATE_CHARACTER_STATUS> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[19]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_UPDATE_CHARACTER_STATUS() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_UPDATE_CHARACTER_STATUS(SC_NOTI_UPDATE_CHARACTER_STATUS other) : this() {
+      objId_ = other.objId_;
+      maxHp_ = other.maxHp_;
+      hp_ = other.hp_;
+      speed_ = other.speed_;
+      reloadTime_ = other.reloadTime_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_UPDATE_CHARACTER_STATUS Clone() {
+      return new SC_NOTI_UPDATE_CHARACTER_STATUS(this);
+    }
+
+    /// <summary>Field number for the "obj_id" field.</summary>
+    public const int ObjIdFieldNumber = 1;
+    private long objId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ObjId {
+      get { return objId_; }
+      set {
+        objId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_hp" field.</summary>
+    public const int MaxHpFieldNumber = 2;
+    private int maxHp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxHp {
+      get { return maxHp_; }
+      set {
+        maxHp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hp" field.</summary>
+    public const int HpFieldNumber = 3;
+    private int hp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Hp {
+      get { return hp_; }
+      set {
+        hp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "speed" field.</summary>
+    public const int SpeedFieldNumber = 4;
+    private float speed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Speed {
+      get { return speed_; }
+      set {
+        speed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "reload_time" field.</summary>
+    public const int ReloadTimeFieldNumber = 5;
+    private float reloadTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float ReloadTime {
+      get { return reloadTime_; }
+      set {
+        reloadTime_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_NOTI_UPDATE_CHARACTER_STATUS);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_NOTI_UPDATE_CHARACTER_STATUS other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ObjId != other.ObjId) return false;
+      if (MaxHp != other.MaxHp) return false;
+      if (Hp != other.Hp) return false;
+      if (Speed != other.Speed) return false;
+      if (ReloadTime != other.ReloadTime) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ObjId != 0L) hash ^= ObjId.GetHashCode();
+      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
+      if (Hp != 0) hash ^= Hp.GetHashCode();
+      if (Speed != 0F) hash ^= Speed.GetHashCode();
+      if (ReloadTime != 0F) hash ^= ReloadTime.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ObjId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ObjId);
+      }
+      if (MaxHp != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(MaxHp);
+      }
+      if (Hp != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Hp);
+      }
+      if (Speed != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(Speed);
+      }
+      if (ReloadTime != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(ReloadTime);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ObjId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObjId);
+      }
+      if (MaxHp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
+      }
+      if (Hp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
+      }
+      if (Speed != 0F) {
+        size += 1 + 4;
+      }
+      if (ReloadTime != 0F) {
+        size += 1 + 4;
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_NOTI_UPDATE_CHARACTER_STATUS other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ObjId != 0L) {
+        ObjId = other.ObjId;
+      }
+      if (other.MaxHp != 0) {
+        MaxHp = other.MaxHp;
+      }
+      if (other.Hp != 0) {
+        Hp = other.Hp;
+      }
+      if (other.Speed != 0F) {
+        Speed = other.Speed;
+      }
+      if (other.ReloadTime != 0F) {
+        ReloadTime = other.ReloadTime;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            ObjId = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            MaxHp = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Hp = input.ReadInt32();
+            break;
+          }
+          case 37: {
+            Speed = input.ReadFloat();
+            break;
+          }
+          case 45: {
             ReloadTime = input.ReadFloat();
             break;
           }
