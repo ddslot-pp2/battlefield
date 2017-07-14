@@ -87,7 +87,13 @@ public class BrianTank : Tank {
     public override Vector3[] GetFireDirs(Vector3 NormalizedDir)
     {
         //var dir = (new Vector3(TouchDir.x, 0.0f, TouchDir.z) - transform.position).normalized;
-        return new Vector3[] { NormalizedDir };
+       // return new Vector3[] { NormalizedDir };
+
+		return new Vector3[] { 
+			Quaternion.AngleAxis (5.0f, Vector3.up) * NormalizedDir
+			,Quaternion.AngleAxis (-5.0f, Vector3.up) * NormalizedDir
+
+		};
     }
 
 }
