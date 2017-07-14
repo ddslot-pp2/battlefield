@@ -73,7 +73,7 @@ public class Tank : Entity {
 
 		if (move) 
 		{
-			if (Vector3.Distance (transform.position, ArrivePos) > 0.1f) {
+			if (Vector3.Distance (transform.position, ArrivePos) > 0.4f) {
 				ArrivePos.y = 0.0f;
 				Vector3 dir = (ArrivePos - transform.position).normalized;
 				transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (dir), Time.deltaTime * 20);
