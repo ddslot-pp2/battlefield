@@ -61,12 +61,12 @@ namespace GAME {
             "QVdOX0NIQVJBQ1RFUiKYAQoZU0NfTk9USV9SRVNQQVdOX0NIQVJBQ1RFUhIO",
             "CgZvYmpfaWQYASABKAMSDQoFcG9zX3gYAiABKAISDQoFcG9zX3kYAyABKAIS",
             "DQoFcG9zX3oYBCABKAISDgoGbWF4X2hwGAUgASgFEgoKAmhwGAYgASgFEg0K",
-            "BXNwZWVkGAcgASgCEhMKC3JlbG9hZF90aW1lGAggASgCIiAKDlNDX1NFTEVD",
-            "VF9CVUZGEg4KBm9ial9pZBgBIAEoAyIkCg9DU19FTkhBTkNFX0JVRkYSEQoJ",
-            "YnVmZl90eXBlGAEgASgFInEKH1NDX05PVElfVVBEQVRFX0NIQVJBQ1RFUl9T",
-            "VEFUVVMSDgoGb2JqX2lkGAEgASgDEg4KBm1heF9ocBgCIAEoBRIKCgJocBgD",
-            "IAEoBRINCgVzcGVlZBgEIAEoAhITCgtyZWxvYWRfdGltZRgFIAEoAmIGcHJv",
-            "dG8z"));
+            "BXNwZWVkGAcgASgCEhMKC3JlbG9hZF90aW1lGAggASgCIh8KDlNDX1NFTEVD",
+            "VF9CVUZGEg0KBWNvdW50GAEgASgFIiQKD0NTX0VOSEFOQ0VfQlVGRhIRCgli",
+            "dWZmX3R5cGUYASABKAUicQofU0NfTk9USV9VUERBVEVfQ0hBUkFDVEVSX1NU",
+            "QVRVUxIOCgZvYmpfaWQYASABKAMSDgoGbWF4X2hwGAIgASgFEgoKAmhwGAMg",
+            "ASgFEg0KBXNwZWVkGAQgASgCEhMKC3JlbG9hZF90aW1lGAUgASgCYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -87,7 +87,7 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_DESTROY_CHARACTER), global::GAME.SC_NOTI_DESTROY_CHARACTER.Parser, new[]{ "ObjId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_RESPAWN_CHARACTER), global::GAME.CS_RESPAWN_CHARACTER.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_RESPAWN_CHARACTER), global::GAME.SC_NOTI_RESPAWN_CHARACTER.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_SELECT_BUFF), global::GAME.SC_SELECT_BUFF.Parser, new[]{ "ObjId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_SELECT_BUFF), global::GAME.SC_SELECT_BUFF.Parser, new[]{ "Count" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_ENHANCE_BUFF), global::GAME.CS_ENHANCE_BUFF.Parser, new[]{ "BuffType" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS), global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS.Parser, new[]{ "ObjId", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null)
           }));
@@ -3925,7 +3925,7 @@ namespace GAME {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SC_SELECT_BUFF(SC_SELECT_BUFF other) : this() {
-      objId_ = other.objId_;
+      count_ = other.count_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3933,14 +3933,14 @@ namespace GAME {
       return new SC_SELECT_BUFF(this);
     }
 
-    /// <summary>Field number for the "obj_id" field.</summary>
-    public const int ObjIdFieldNumber = 1;
-    private long objId_;
+    /// <summary>Field number for the "count" field.</summary>
+    public const int CountFieldNumber = 1;
+    private int count_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long ObjId {
-      get { return objId_; }
+    public int Count {
+      get { return count_; }
       set {
-        objId_ = value;
+        count_ = value;
       }
     }
 
@@ -3957,14 +3957,14 @@ namespace GAME {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (ObjId != other.ObjId) return false;
+      if (Count != other.Count) return false;
       return true;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (ObjId != 0L) hash ^= ObjId.GetHashCode();
+      if (Count != 0) hash ^= Count.GetHashCode();
       return hash;
     }
 
@@ -3975,17 +3975,17 @@ namespace GAME {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (ObjId != 0L) {
+      if (Count != 0) {
         output.WriteRawTag(8);
-        output.WriteInt64(ObjId);
+        output.WriteInt32(Count);
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (ObjId != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObjId);
+      if (Count != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Count);
       }
       return size;
     }
@@ -3995,8 +3995,8 @@ namespace GAME {
       if (other == null) {
         return;
       }
-      if (other.ObjId != 0L) {
-        ObjId = other.ObjId;
+      if (other.Count != 0) {
+        Count = other.Count;
       }
     }
 
@@ -4009,7 +4009,7 @@ namespace GAME {
             input.SkipLastField();
             break;
           case 8: {
-            ObjId = input.ReadInt64();
+            Count = input.ReadInt32();
             break;
           }
         }

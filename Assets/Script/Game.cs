@@ -189,7 +189,6 @@ public class Game : MonoBehaviour {
         var tank_speed = read.Speed;
         var max_hp     = read.MaxHp;
         var hp         = read.Hp;
-
     }
 
     public void RegisterPacketHandler()
@@ -203,8 +202,8 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_DESTROY_BULLET>(opcode.SC_NOTI_DESTROY_BULLET, handler_SC_NOTI_DESTROY_BULLET);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_DESTROY_CHARACTER>(opcode.SC_NOTI_DESTROY_CHARACTER, handler_SC_NOTI_DESTROY_CHARACTER);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_RESPAWN_CHARACTER>(opcode.SC_NOTI_RESPAWN_CHARACTER, handler_SC_NOTI_RESPAWN_CHARACTER);
-        ProtobufManager.Instance().SetHandler<GAME.SC_SELECT_BUFF>(opcode.SC_NOTI_RESPAWN_CHARACTER, handler_SC_SELECT_BUFF);
-        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_UPDATE_CHARACTER_STATUS>(opcode.SC_NOTI_RESPAWN_CHARACTER, handler_SC_NOTI_UPDATE_CHARACTER_STATUS);
+        ProtobufManager.Instance().SetHandler<GAME.SC_SELECT_BUFF>(opcode.SC_SELECT_BUFF, handler_SC_SELECT_BUFF);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_UPDATE_CHARACTER_STATUS>(opcode.SC_NOTI_UPDATE_CHARACTER_STATUS, handler_SC_NOTI_UPDATE_CHARACTER_STATUS);
     }
 
 	void OnTouchBegan(Vector3 pos)
