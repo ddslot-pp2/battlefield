@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 namespace GameCore
 {
@@ -30,6 +31,11 @@ namespace GameCore
 	       if( Application.platform == RuntimePlatform.Android && Input.GetKey(KeyCode.Escape) )
 			{
 				Application.Quit();
+				return;
+			}
+
+			if (EventSystem.current.IsPointerOverGameObject ()) 
+			{
 				return;
 			}
 			
