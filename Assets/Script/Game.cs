@@ -54,8 +54,11 @@ public class Game : MonoBehaviour {
             var other_pos = new Vector3(other_info.PosX, other_info.PosY, other_info.PosZ);
             var other_nickname = other_info.Nickname;
             var other_tanktype = other_info.TankType;
+
             //IndexInfos_[other_obj_id] = Index;
             EnterUser(other_obj_id, other_tanktype, other_nickname, false, other_pos);
+            BattleInfo.TANK_INFO other_tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), other_info.MaxHp, other_info.Hp, other_info.Speed, 0.0f);
+            BattleLib.Instance.SetTankInfo(other_obj_id, other_tank_info);
         }
 
         // index 현재는 줄어들지 않게 함; 
@@ -65,6 +68,11 @@ public class Game : MonoBehaviour {
         LastPos_ = spawn_pos;
 
         EnterUser(read.ObjId, read.TankType, read.Nickname, true, spawn_pos);
+
+        // state가 없어서 디짐
+        BattleInfo.TANK_INFO tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), read.MaxHp, read.Hp, read.Speed, read.ReloadTime);
+        BattleLib.Instance.SetTankInfo(read.ObjId, tank_info);
+
         MyObjId = read.ObjId;
         
         // 씬 관련 서버에서 정보를 가져옴
@@ -75,6 +83,9 @@ public class Game : MonoBehaviour {
     {
         //IndexInfos_[read.ObjId] = Index;
         EnterUser(read.ObjId, read.TankType, read.Nickname, false, new Vector3(read.PosX, read.PosY, read.PosZ));
+
+        BattleInfo.TANK_INFO other_tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), read.MaxHp, read.Hp, read.Speed, 0.0f);
+        BattleLib.Instance.SetTankInfo(read.ObjId, other_tank_info);
     }
 
     public void handler_SC_NOTI_OTHER_LEAVE_FIELD(GAME.SC_NOTI_OTHER_LEAVE_FIELD read)
@@ -180,15 +191,8 @@ public class Game : MonoBehaviour {
 
     public void handler_SC_NOTI_UPDATE_CHARACTER_STATUS(GAME.SC_NOTI_UPDATE_CHARACTER_STATUS read)
     {
-        if (MyObjId == read.ObjId)
-        {
-            // 내꺼 버프 업데이트 된거라서 respawnTime은 업데이트
-            var reloadTime = read.ReloadTime;
-        }
-        // 나머지는 공통
-        var tank_speed = read.Speed;
-        var max_hp     = read.MaxHp;
-        var hp         = read.Hp;
+        BattleInfo.TANK_INFO tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), read.MaxHp, read.Hp, read.Speed, read.ReloadTime);
+        BattleLib.Instance.SetTankInfo(read.ObjId, tank_info);
     }
 
     public void RegisterPacketHandler()
@@ -258,8 +262,8 @@ public class Game : MonoBehaviour {
      
         MyObjId = 0;
         RespawnButton_.gameObject.SetActive(false);
-        HideBuffButtons();
-        //ShowBuffButtons();
+        //HideBuffButtons();
+        ShowBuffButtons();
         //RespawnButton_.enabled = false;
 
         RegisterPacketHandler();

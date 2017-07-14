@@ -16,16 +16,20 @@ public class HpBar : MonoBehaviour {
 	Tank_State state;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-		myTransform = this.transform;
+        myTransform = this.transform;
         healthBarObj = Instantiate(healthBarPrefab, transform.position, transform.rotation) as GameObject;
         hpBar2 = healthBarObj.GetComponent<HpBar2>();
-        hpBar2.nickname.text = gameObject.name;
-		state = GetComponent<Tank_State>();
+        //hpBar2.nickname.text = gameObject.name;
+        state = GetComponent<Tank_State>();
+    }
 
-		//hpBar2.healthBarImage[0].sprite = fullHp;
-		//hpBar2.healthBarImage[1].sprite = emptyHp;
+    void Start()
+    {
+        hpBar2.nickname.text = gameObject.name;
+        //hpBar2.healthBarImage[0].sprite = fullHp;
+        //hpBar2.healthBarImage[1].sprite = emptyHp;
     }
 
 	public void DeleteHpobject()

@@ -23,59 +23,58 @@ namespace GAME {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgpHQU1FLnByb3RvEgRHQU1FIhwKB0NTX1BJTkcSEQoJdGltZXN0YW1wGAEg",
-            "ASgDIhwKB1NDX1BJTkcSEQoJdGltZXN0YW1wGAEgASgDIq4BCgpPVEhFUl9J",
+            "ASgDIhwKB1NDX1BJTkcSEQoJdGltZXN0YW1wGAEgASgDIpkBCgpPVEhFUl9J",
             "TkZPEg4KBm9ial9pZBgBIAEoAxIRCgl0YW5rX3R5cGUYAiABKAUSEAoIbmlj",
             "a25hbWUYAyABKAkSDQoFcG9zX3gYBCABKAISDQoFcG9zX3kYBSABKAISDQoF",
             "cG9zX3oYBiABKAISDgoGbWF4X2hwGAcgASgFEgoKAmhwGAggASgFEg0KBXNw",
-            "ZWVkGAkgASgCEhMKC3JlbG9hZF90aW1lGAogASgCIiEKDUNTX1NZTkNfRklF",
-            "TEQSEAoIZmllbGRfaWQYASABKAUi2AEKDVNDX1NZTkNfRklFTEQSDgoGb2Jq",
-            "X2lkGAEgASgDEhEKCXRhbmtfdHlwZRgCIAEoBRIQCghuaWNrbmFtZRgDIAEo",
-            "CRINCgVwb3NfeBgEIAEoAhINCgVwb3NfeRgFIAEoAhINCgVwb3NfehgGIAEo",
-            "AhIOCgZtYXhfaHAYByABKAUSCgoCaHAYCCABKAUSDQoFc3BlZWQYCSABKAIS",
-            "EwoLcmVsb2FkX3RpbWUYCiABKAISJQoLb3RoZXJfaW5mb3MYCyADKAsyEC5H",
-            "QU1FLk9USEVSX0lORk8ivQEKGVNDX05PVElfT1RIRVJfRU5URVJfRklFTEQS",
-            "DgoGb2JqX2lkGAEgASgDEhEKCXRhbmtfdHlwZRgCIAEoBRIQCghuaWNrbmFt",
-            "ZRgDIAEoCRINCgVwb3NfeBgEIAEoAhINCgVwb3NfeRgFIAEoAhINCgVwb3Nf",
-            "ehgGIAEoAhIOCgZtYXhfaHAYByABKAUSCgoCaHAYCCABKAUSDQoFc3BlZWQY",
-            "CSABKAISEwoLcmVsb2FkX3RpbWUYCiABKAIiKwoZU0NfTk9USV9PVEhFUl9M",
-            "RUFWRV9GSUVMRBIOCgZvYmpfaWQYASABKAMiOwoMQ1NfTk9USV9NT1ZFEg0K",
-            "BXBvc194GAEgASgCEg0KBXBvc195GAIgASgCEg0KBXBvc196GAMgASgCIlEK",
-            "ElNDX05PVElfT1RIRVJfTU9WRRIOCgZvYmpfaWQYASABKAMSDQoFcG9zX3gY",
-            "AiABKAISDQoFcG9zX3kYAyABKAISDQoFcG9zX3oYBCABKAIingEKC0JVTExF",
-            "VF9JTkZPEhEKCWJ1bGxldF9pZBgBIAEoAxINCgVkaXJfeBgCIAEoAhINCgVk",
-            "aXJfeRgDIAEoAhINCgVkaXJfehgEIAEoAhIOCgZzaXplX3gYBSABKAISDgoG",
-            "c2l6ZV95GAYgASgCEg4KBnNpemVfehgHIAEoAhINCgVzcGVlZBgIIAEoAhIQ",
-            "CghkaXN0YW5jZRgJIAEoAiKhAQoHQ1NfRklSRRITCgtidWxsZXRfdHlwZRgB",
-            "IAEoBRINCgVwb3NfeBgCIAEoAhINCgVwb3NfeRgDIAEoAhINCgVwb3NfehgE",
-            "IAEoAhINCgVkaXJfeBgFIAEoAhINCgVkaXJfeRgGIAEoAhINCgVkaXJfehgH",
-            "IAEoAhInCgxidWxsZXRfaW5mb3MYCCADKAsyES5HQU1FLkJVTExFVF9JTkZP",
-            "IrYBCgxTQ19OT1RJX0ZJUkUSDgoGb2JqX2lkGAEgASgDEhMKC2J1bGxldF90",
-            "eXBlGAIgASgFEg0KBXBvc194GAMgASgCEg0KBXBvc195GAQgASgCEg0KBXBv",
-            "c196GAUgASgCEg0KBWRpcl94GAYgASgCEg0KBWRpcl95GAcgASgCEg0KBWRp",
-            "cl96GAggASgCEicKDGJ1bGxldF9pbmZvcxgJIAMoCzIRLkdBTUUuQlVMTEVU",
-            "X0lORk8iPAoLREFNQUdFX0lORk8SEQoJdGFyZ2V0X2lkGAEgASgDEgoKAmhw",
-            "GAIgASgFEg4KBmRhbWFnZRgDIAEoAyJkChZTQ19OT1RJX0RFU1RST1lfQlVM",
-            "TEVUEg4KBm9ial9pZBgBIAEoAxIRCglidWxsZXRfaWQYAiABKAMSJwoMZGFt",
-            "YWdlX2luZm9zGAMgAygLMhEuR0FNRS5EQU1BR0VfSU5GTyIrChlTQ19OT1RJ",
-            "X0RFU1RST1lfQ0hBUkFDVEVSEg4KBm9ial9pZBgBIAEoAyIWChRDU19SRVNQ",
-            "QVdOX0NIQVJBQ1RFUiKYAQoZU0NfTk9USV9SRVNQQVdOX0NIQVJBQ1RFUhIO",
-            "CgZvYmpfaWQYASABKAMSDQoFcG9zX3gYAiABKAISDQoFcG9zX3kYAyABKAIS",
-            "DQoFcG9zX3oYBCABKAISDgoGbWF4X2hwGAUgASgFEgoKAmhwGAYgASgFEg0K",
-            "BXNwZWVkGAcgASgCEhMKC3JlbG9hZF90aW1lGAggASgCIh8KDlNDX1NFTEVD",
-            "VF9CVUZGEg0KBWNvdW50GAEgASgFIiQKD0NTX0VOSEFOQ0VfQlVGRhIRCgli",
-            "dWZmX3R5cGUYASABKAUicQofU0NfTk9USV9VUERBVEVfQ0hBUkFDVEVSX1NU",
-            "QVRVUxIOCgZvYmpfaWQYASABKAMSDgoGbWF4X2hwGAIgASgFEgoKAmhwGAMg",
-            "ASgFEg0KBXNwZWVkGAQgASgCEhMKC3JlbG9hZF90aW1lGAUgASgCYgZwcm90",
-            "bzM="));
+            "ZWVkGAkgASgCIiEKDUNTX1NZTkNfRklFTEQSEAoIZmllbGRfaWQYASABKAUi",
+            "2AEKDVNDX1NZTkNfRklFTEQSDgoGb2JqX2lkGAEgASgDEhEKCXRhbmtfdHlw",
+            "ZRgCIAEoBRIQCghuaWNrbmFtZRgDIAEoCRINCgVwb3NfeBgEIAEoAhINCgVw",
+            "b3NfeRgFIAEoAhINCgVwb3NfehgGIAEoAhIOCgZtYXhfaHAYByABKAUSCgoC",
+            "aHAYCCABKAUSDQoFc3BlZWQYCSABKAISEwoLcmVsb2FkX3RpbWUYCiABKAIS",
+            "JQoLb3RoZXJfaW5mb3MYCyADKAsyEC5HQU1FLk9USEVSX0lORk8iqAEKGVND",
+            "X05PVElfT1RIRVJfRU5URVJfRklFTEQSDgoGb2JqX2lkGAEgASgDEhEKCXRh",
+            "bmtfdHlwZRgCIAEoBRIQCghuaWNrbmFtZRgDIAEoCRINCgVwb3NfeBgEIAEo",
+            "AhINCgVwb3NfeRgFIAEoAhINCgVwb3NfehgGIAEoAhIOCgZtYXhfaHAYByAB",
+            "KAUSCgoCaHAYCCABKAUSDQoFc3BlZWQYCSABKAIiKwoZU0NfTk9USV9PVEhF",
+            "Ul9MRUFWRV9GSUVMRBIOCgZvYmpfaWQYASABKAMiOwoMQ1NfTk9USV9NT1ZF",
+            "Eg0KBXBvc194GAEgASgCEg0KBXBvc195GAIgASgCEg0KBXBvc196GAMgASgC",
+            "IlEKElNDX05PVElfT1RIRVJfTU9WRRIOCgZvYmpfaWQYASABKAMSDQoFcG9z",
+            "X3gYAiABKAISDQoFcG9zX3kYAyABKAISDQoFcG9zX3oYBCABKAIingEKC0JV",
+            "TExFVF9JTkZPEhEKCWJ1bGxldF9pZBgBIAEoAxINCgVkaXJfeBgCIAEoAhIN",
+            "CgVkaXJfeRgDIAEoAhINCgVkaXJfehgEIAEoAhIOCgZzaXplX3gYBSABKAIS",
+            "DgoGc2l6ZV95GAYgASgCEg4KBnNpemVfehgHIAEoAhINCgVzcGVlZBgIIAEo",
+            "AhIQCghkaXN0YW5jZRgJIAEoAiKhAQoHQ1NfRklSRRITCgtidWxsZXRfdHlw",
+            "ZRgBIAEoBRINCgVwb3NfeBgCIAEoAhINCgVwb3NfeRgDIAEoAhINCgVwb3Nf",
+            "ehgEIAEoAhINCgVkaXJfeBgFIAEoAhINCgVkaXJfeRgGIAEoAhINCgVkaXJf",
+            "ehgHIAEoAhInCgxidWxsZXRfaW5mb3MYCCADKAsyES5HQU1FLkJVTExFVF9J",
+            "TkZPIrYBCgxTQ19OT1RJX0ZJUkUSDgoGb2JqX2lkGAEgASgDEhMKC2J1bGxl",
+            "dF90eXBlGAIgASgFEg0KBXBvc194GAMgASgCEg0KBXBvc195GAQgASgCEg0K",
+            "BXBvc196GAUgASgCEg0KBWRpcl94GAYgASgCEg0KBWRpcl95GAcgASgCEg0K",
+            "BWRpcl96GAggASgCEicKDGJ1bGxldF9pbmZvcxgJIAMoCzIRLkdBTUUuQlVM",
+            "TEVUX0lORk8iPAoLREFNQUdFX0lORk8SEQoJdGFyZ2V0X2lkGAEgASgDEgoK",
+            "AmhwGAIgASgFEg4KBmRhbWFnZRgDIAEoAyJkChZTQ19OT1RJX0RFU1RST1lf",
+            "QlVMTEVUEg4KBm9ial9pZBgBIAEoAxIRCglidWxsZXRfaWQYAiABKAMSJwoM",
+            "ZGFtYWdlX2luZm9zGAMgAygLMhEuR0FNRS5EQU1BR0VfSU5GTyIrChlTQ19O",
+            "T1RJX0RFU1RST1lfQ0hBUkFDVEVSEg4KBm9ial9pZBgBIAEoAyIWChRDU19S",
+            "RVNQQVdOX0NIQVJBQ1RFUiKYAQoZU0NfTk9USV9SRVNQQVdOX0NIQVJBQ1RF",
+            "UhIOCgZvYmpfaWQYASABKAMSDQoFcG9zX3gYAiABKAISDQoFcG9zX3kYAyAB",
+            "KAISDQoFcG9zX3oYBCABKAISDgoGbWF4X2hwGAUgASgFEgoKAmhwGAYgASgF",
+            "Eg0KBXNwZWVkGAcgASgCEhMKC3JlbG9hZF90aW1lGAggASgCIh8KDlNDX1NF",
+            "TEVDVF9CVUZGEg0KBWNvdW50GAEgASgFIiQKD0NTX0VOSEFOQ0VfQlVGRhIR",
+            "CglidWZmX3R5cGUYASABKAUicQofU0NfTk9USV9VUERBVEVfQ0hBUkFDVEVS",
+            "X1NUQVRVUxIOCgZvYmpfaWQYASABKAMSDgoGbWF4X2hwGAIgASgFEgoKAmhw",
+            "GAMgASgFEg0KBXNwZWVkGAQgASgCEhMKC3JlbG9hZF90aW1lGAUgASgCYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_PING), global::GAME.CS_PING.Parser, new[]{ "Timestamp" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_PING), global::GAME.SC_PING.Parser, new[]{ "Timestamp" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.OTHER_INFO), global::GAME.OTHER_INFO.Parser, new[]{ "ObjId", "TankType", "Nickname", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.OTHER_INFO), global::GAME.OTHER_INFO.Parser, new[]{ "ObjId", "TankType", "Nickname", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_SYNC_FIELD), global::GAME.CS_SYNC_FIELD.Parser, new[]{ "FieldId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_SYNC_FIELD), global::GAME.SC_SYNC_FIELD.Parser, new[]{ "ObjId", "TankType", "Nickname", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime", "OtherInfos" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_ENTER_FIELD), global::GAME.SC_NOTI_OTHER_ENTER_FIELD.Parser, new[]{ "ObjId", "TankType", "Nickname", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_ENTER_FIELD), global::GAME.SC_NOTI_OTHER_ENTER_FIELD.Parser, new[]{ "ObjId", "TankType", "Nickname", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_LEAVE_FIELD), global::GAME.SC_NOTI_OTHER_LEAVE_FIELD.Parser, new[]{ "ObjId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_NOTI_MOVE), global::GAME.CS_NOTI_MOVE.Parser, new[]{ "PosX", "PosY", "PosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_MOVE), global::GAME.SC_NOTI_OTHER_MOVE.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ" }, null, null, null),
@@ -363,7 +362,6 @@ namespace GAME {
       maxHp_ = other.maxHp_;
       hp_ = other.hp_;
       speed_ = other.speed_;
-      reloadTime_ = other.reloadTime_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -470,17 +468,6 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "reload_time" field.</summary>
-    public const int ReloadTimeFieldNumber = 10;
-    private float reloadTime_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public float ReloadTime {
-      get { return reloadTime_; }
-      set {
-        reloadTime_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as OTHER_INFO);
@@ -503,7 +490,6 @@ namespace GAME {
       if (MaxHp != other.MaxHp) return false;
       if (Hp != other.Hp) return false;
       if (Speed != other.Speed) return false;
-      if (ReloadTime != other.ReloadTime) return false;
       return true;
     }
 
@@ -519,7 +505,6 @@ namespace GAME {
       if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
       if (Hp != 0) hash ^= Hp.GetHashCode();
       if (Speed != 0F) hash ^= Speed.GetHashCode();
-      if (ReloadTime != 0F) hash ^= ReloadTime.GetHashCode();
       return hash;
     }
 
@@ -566,10 +551,6 @@ namespace GAME {
         output.WriteRawTag(77);
         output.WriteFloat(Speed);
       }
-      if (ReloadTime != 0F) {
-        output.WriteRawTag(85);
-        output.WriteFloat(ReloadTime);
-      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -600,9 +581,6 @@ namespace GAME {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
       }
       if (Speed != 0F) {
-        size += 1 + 4;
-      }
-      if (ReloadTime != 0F) {
         size += 1 + 4;
       }
       return size;
@@ -639,9 +617,6 @@ namespace GAME {
       }
       if (other.Speed != 0F) {
         Speed = other.Speed;
-      }
-      if (other.ReloadTime != 0F) {
-        ReloadTime = other.ReloadTime;
       }
     }
 
@@ -687,10 +662,6 @@ namespace GAME {
           }
           case 77: {
             Speed = input.ReadFloat();
-            break;
-          }
-          case 85: {
-            ReloadTime = input.ReadFloat();
             break;
           }
         }
@@ -1238,7 +1209,6 @@ namespace GAME {
       maxHp_ = other.maxHp_;
       hp_ = other.hp_;
       speed_ = other.speed_;
-      reloadTime_ = other.reloadTime_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1345,17 +1315,6 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "reload_time" field.</summary>
-    public const int ReloadTimeFieldNumber = 10;
-    private float reloadTime_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public float ReloadTime {
-      get { return reloadTime_; }
-      set {
-        reloadTime_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SC_NOTI_OTHER_ENTER_FIELD);
@@ -1378,7 +1337,6 @@ namespace GAME {
       if (MaxHp != other.MaxHp) return false;
       if (Hp != other.Hp) return false;
       if (Speed != other.Speed) return false;
-      if (ReloadTime != other.ReloadTime) return false;
       return true;
     }
 
@@ -1394,7 +1352,6 @@ namespace GAME {
       if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
       if (Hp != 0) hash ^= Hp.GetHashCode();
       if (Speed != 0F) hash ^= Speed.GetHashCode();
-      if (ReloadTime != 0F) hash ^= ReloadTime.GetHashCode();
       return hash;
     }
 
@@ -1441,10 +1398,6 @@ namespace GAME {
         output.WriteRawTag(77);
         output.WriteFloat(Speed);
       }
-      if (ReloadTime != 0F) {
-        output.WriteRawTag(85);
-        output.WriteFloat(ReloadTime);
-      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1475,9 +1428,6 @@ namespace GAME {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
       }
       if (Speed != 0F) {
-        size += 1 + 4;
-      }
-      if (ReloadTime != 0F) {
         size += 1 + 4;
       }
       return size;
@@ -1514,9 +1464,6 @@ namespace GAME {
       }
       if (other.Speed != 0F) {
         Speed = other.Speed;
-      }
-      if (other.ReloadTime != 0F) {
-        ReloadTime = other.ReloadTime;
       }
     }
 
@@ -1562,10 +1509,6 @@ namespace GAME {
           }
           case 77: {
             Speed = input.ReadFloat();
-            break;
-          }
-          case 85: {
-            ReloadTime = input.ReadFloat();
             break;
           }
         }

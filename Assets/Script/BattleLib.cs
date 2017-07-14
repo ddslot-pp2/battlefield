@@ -390,6 +390,18 @@ public class BattleLib : MonoBehaviour {
 		}
 	}
 
+    public void SetTankInfo(Int64 obId, TANK_INFO TankInfo)
+    {
+        if (obId > 0 && EntityDic.ContainsKey(obId) == true)
+        {
+            Tank tankObject = EntityDic[obId] as Tank;
+            if (tankObject == null)
+                return;
+
+            tankObject.SetTankInfo(TankInfo);
+        }
+    }
+
     public void TryFire(Int64 obj_id, float x, float z)
     {
         // 이것또한 탱크로 밀어 넣자
@@ -398,8 +410,9 @@ public class BattleLib : MonoBehaviour {
 		if (tankObject.IsDead ())
 			return;
 
+        if (!tankObject.CheckFire())
+            return;
 
-		Debug.Log ("TryFire");
 		tankObject.SetMove (false);
 
         var tank_pos = tankObject.transform.position;

@@ -29,6 +29,8 @@ public class Tank : Entity {
 
     protected Dictionary <Int64, GameObject> Bullets_;
 
+    private float FireTime_;
+
 
 	protected override void Init () {
 
@@ -94,6 +96,22 @@ public class Tank : Entity {
 		
 	}
 
+    protected void Update()
+    {
+        //Debug.Log("탱크 업데이트 콜\n");
+        FireTime_ = FireTime_ + (Time.deltaTime * 1000.0f);
+    }
+
+    public bool CheckFire()
+    {
+        Debug.Log("FireTime: " + FireTime_);
+        Debug.Log("FireRate: " + state.fireRate);
+
+        if (FireTime_ < state.fireRate) return false;
+
+        FireTime_ = 0.0f;
+        return true;
+    }
 	/*
 	public virtual GameObject CreateBullet()
 	{
@@ -191,6 +209,20 @@ public class Tank : Entity {
         hpBar.UpdateHpBar();
 
         dead = false;
+    }
+
+    public void SetTankInfo(BattleInfo.TANK_INFO TankInfo)
+    {
+        Debug.Log("SetTankInfo 받음");
+        //transform.position = TankInfo.Pos;
+
+        state.hp = TankInfo.Hp;
+        state.maxHp = TankInfo.MaxHp;
+
+        state.moveSpeed = TankInfo.MoveSpeed;
+        state.fireRate = TankInfo.ReloadTime;
+
+        hpBar.UpdateHpBar();
     }
 
     public void AddBullet(Int64 bullet_id, GameObject bullet_obj)
