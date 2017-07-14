@@ -182,9 +182,9 @@ public class Tank : Entity {
 
     public virtual Vector3[] GetFireDirs(Vector3 Vector3)
     {
-        return new Vector3[] {};
+		return new Vector3[] { Vector3 };
     }
-	
+		
 	public void GetDamage(int damage)
 	{
 		state.GetDamage(damage);
