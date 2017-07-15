@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System;
 using GameCore;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Game : MonoBehaviour {
 
@@ -12,23 +13,19 @@ public class Game : MonoBehaviour {
 	TouchDispatcher _TouchDispatcher = new TouchDispatcher();
 
 	protected RaycastHit TFire;
-	Vector3 Click;
-	Vector3 BeginPos;
+	Vector3 Click,BeginPos,LastPos_ ;
 
 	float lastSendTime;
 
-    //int Index;
+  
     Int64 MyObjId;
-    //int MyIndex;
-
-    Vector3 LastPos_;
+    
     public Button RespawnButton_;
     public Button[] BuffButton_;
     public GameObject BuffButtons_;
+
     enum BuffType { MaxHpUp, TankSpeedUp, BulletSpeedUp, BulletPowerUp, BulletDistanceUp, BulletReloadTimeDown };
 
-    Dictionary<Int64, int> IndexInfos_;
-    Queue<int> IndexQueue_;
 
     // 1초에 5번만
     private const float UPDATE_MOVE_INTERVAL = 1.0f / 5.0f;
@@ -100,10 +97,7 @@ public class Game : MonoBehaviour {
 
     public void handler_SC_NOTI_OTHER_MOVE(GAME.SC_NOTI_OTHER_MOVE read)
     {
-        var obj_id = read.ObjId;
-        //var index = IndexInfos_[obj_id];
-
-		ReceiveUserPos(obj_id, read.PosX, read.PosZ);
+		BattleLib.Instance.ReceivePos(read.ObjId, read.PosX, read.PosZ);
 		//ReceiveUserClickInfo(obj_id, read.PosX, read.PosZ, false);
         //Debug.Log("다른 유저가 움직임\n");
     }
@@ -212,41 +206,26 @@ public class Game : MonoBehaviour {
 
 	void OnTouchBegan(Vector3 pos)
 	{
-		//Debug.Log ("OnTouchBegan:");
 		BeginPos = pos;
 	}
-
-	void OnTouchMoved(Vector3 pos)
-	{
-		//Debug.Log ("OnTouchMoved:");
-	}
-
-	void OnTouchPressed(Vector3 pos)
-	{
-		//Debug.Log ("OnTouchPressed:");
-	}
-
+		
 	void OnTouchEnded(Vector3 pos)
 	{
-
+		
 		if (BattleLib.Instance.GetMyEntityIsDead ())
 			return;
-		
+
 		Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out TFire);
 
 
 		if (Vector3.Distance (BeginPos, pos) > DRAG_AS_FIRE_DISTANCE) 
 		{
             BattleLib.Instance.TryFire(MyObjId, TFire.point.x, TFire.point.z);
-            //TryFire(TFire.point.x, TFire.point.z);
-            //SendUserClickInfo(TFire.point.x, TFire.point.z, true);
         } 
 		else 
 		{
 			SendUserClickInfo(TFire.point.x, TFire.point.z, false);
-
 		}
-
 	}
 
 	void Awake ()
@@ -257,8 +236,6 @@ public class Game : MonoBehaviour {
     // Use this for initialization
     void Start () 
 	{
-        IndexInfos_ = new Dictionary<Int64, int>();
-        IndexQueue_ = new Queue<int>();
      
         MyObjId = 0;
         RespawnButton_.gameObject.SetActive(false);
@@ -271,8 +248,6 @@ public class Game : MonoBehaviour {
         SendSyncField();
 
 		_TouchDispatcher.BeganDelegate = new TouchDispatcher.TouchDelegate(OnTouchBegan);
-		_TouchDispatcher.MovedDelegate = new TouchDispatcher.TouchDelegate(OnTouchMoved);
-		_TouchDispatcher.PressedDelegate = new TouchDispatcher.TouchDelegate(OnTouchPressed);
 		_TouchDispatcher.EndedDelegate = new TouchDispatcher.TouchDelegate(OnTouchEnded);
 
 	}
@@ -365,33 +340,12 @@ public class Game : MonoBehaviour {
     {
 		BattleLib.Instance.DeleteEntity (obj_id);
 
-        //IndexQueue_.Enqueue(index);
 		if (obj_id == MyObjId) 
 		{
 			UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby");
 		}
     }
-
-	public void ReceiveUserPos(Int64 obj_id, float posX, float posZ)
-	{
-		BattleLib.Instance.ReceivePos(obj_id, posX, posZ);
-	}
-
-	public void ReceiveUserDamage(Int64 obj_id, int hp)
-	{
-		Debug.Log ("damage hp:" + hp);
-	}
-
-	public void Dead(Int64 obj_id)
-	{
-
-	}
-
-	public void Revive(Int64 obj_id)
-	{
-
-	}
-
+		
     public void onRespawnButton()
     {
         RespawnButton_.gameObject.SetActive(false);
