@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
 namespace GameCore
@@ -21,10 +22,21 @@ namespace GameCore
         private Vector3 _beginPosition;
         private Vector3 _prevPosition;
 		private Vector3 _positionForDBClick = Vector3.zero;
+		private int pointId = -1;
 		private float _prevTouchTime;
-		
+
+	
 		public bool UsableDBClickMode = false;
 
+		void Awake()
+		{
+
+			#if (UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX)
+				pointId	 = -1;
+			#else
+				pointId = 0;
+			#endif
+		}
         // Update is called once per frame
         public void Update()
         {
@@ -34,11 +46,7 @@ namespace GameCore
 				return;
 			}
 
-			if (EventSystem.current.IsPointerOverGameObject ()) 
-			{
-				return;
-			}
-			
+		
             if (IsTouchBegan())
             {
                 //Debug.Log("Touch Began! : " + GetTouchPosition().ToString());
@@ -80,6 +88,9 @@ namespace GameCore
 
         public void LateUpdate()
         {
+			
+
+
 #if (UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX)
             _prevPosition = Input.mousePosition;
 #else
@@ -90,14 +101,53 @@ namespace GameCore
 #endif
         }
 
+		bool IsPointerOverUiObjectTouch()
+		{
+			PointerEventData eventDataCurrentPosition = new PointerEventData (EventSystem.current);
+			eventDataCurrentPosition.position = new Vector2 (Input.touches[0].position.x, Input.touches[0].position.y);
+
+			List<RaycastResult> results = new List<RaycastResult> ();
+
+			EventSystem.current.RaycastAll (eventDataCurrentPosition, results);
+			return results.Count > 0;
+		}
+
+		bool IsPointerOverUiObjectMouse()
+		{
+			PointerEventData eventDataCurrentPosition = new PointerEventData (EventSystem.current);
+			eventDataCurrentPosition.position = new Vector2 (Input.mousePosition.x, Input.mousePosition.y);
+
+			List<RaycastResult> results = new List<RaycastResult> ();
+
+			EventSystem.current.RaycastAll (eventDataCurrentPosition, results);
+			return results.Count > 0;
+		}
+
+
         bool IsTouchEnded()
         {
 #if (UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX )
+
+
+			if( IsPointerOverUiObjectMouse() )
+			{
+				return false;
+			}
+
             return Input.GetButtonUp("Fire1");
 #else
-        return Input.touchCount > 0 && (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled);
+
+
+			if( IsPointerOverUiObjectTouch() )
+			{
+				return false;
+			}
+		
+
+        	return Input.touchCount > 0 && (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled);
 #endif
         }
+
 
         bool IsTouchPressed()
         {
@@ -107,6 +157,24 @@ namespace GameCore
             return Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Stationary;
 #endif
         }
+
+
+
+		bool IsPointerOverGameObject( int fingerId )
+		{
+
+			EventSystem eventSystem = EventSystem.current;
+			 //return ( eventSystem.IsPointerOverGameObject( fingerId ) && eventSystem.currentSelectedGameObject != null );
+			return ( eventSystem.IsPointerOverGameObject( fingerId ) );
+		}
+
+		bool IsPointerOverGameObject()
+		{
+
+			EventSystem eventSystem = EventSystem.current;
+			return ( eventSystem.IsPointerOverGameObject() && eventSystem.currentSelectedGameObject != null );
+		}
+		
 
         bool IsTouchMoved()
         {
@@ -129,12 +197,19 @@ namespace GameCore
 #if (UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX )
             if (Input.GetButtonDown("Fire1"))
             {
+				if( IsPointerOverGameObject())
+				{
+					//return false;
+				}
+
                 _beginPosition = Input.mousePosition;
                 return true;
             }
 
             return false;
 #else
+
+
             if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
             {
                 _beginPosition = Input.touches[0].position;
@@ -200,4 +275,8 @@ namespace GameCore
             return delta;
         }
     }
+
+
+
+
 }
