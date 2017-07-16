@@ -31,7 +31,7 @@ public class Tank : Entity {
     private float FireTime_;
 
     private float SlowdownSpeed_ = 0.0f;
-    private float SlowdownTimer_ = 0.0f;
+    private float SlowdownTime_ = 0.0f;
 
     protected override void Init () {
 
@@ -93,14 +93,14 @@ public class Tank : Entity {
 		//Debug.Log("탱크 업데이트 콜\n");
 		FireTime_ = FireTime_ + (Time.deltaTime * 1000.0f);
 
-		if (SlowdownTimer_ > 0.0f)
+		if (SlowdownTime_ > 0.0f)
 		{
-			SlowdownTimer_ = SlowdownTimer_ - Time.deltaTime;
-			if (SlowdownTimer_ <= 0.0f)
+            SlowdownTime_ = SlowdownTime_ - Time.deltaTime;
+			if (SlowdownTime_ <= 0.0f)
 			{
 				Debug.Log("슬로우 다운 풀림");
 				SlowdownSpeed_ = 1.0f;
-				SlowdownTimer_ = 0.0f;
+                SlowdownTime_  = 0.0f;
 			}
 		}
 	}
@@ -239,7 +239,7 @@ public class Tank : Entity {
     {
         Debug.Log("슬로우 다운 시작");
         SlowdownSpeed_ = 0.4f;
-        SlowdownTimer_ += delta;
+        SlowdownTime_ += delta;
     }  
    
 }
