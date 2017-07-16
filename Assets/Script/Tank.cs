@@ -62,6 +62,7 @@ public class Tank : Entity {
 	public override void EntityUpdate () 
 	{
 		//Debug.Log ("move" + move);
+		UpdateFireTime();
 		MoveEntity();
 	}
 
@@ -87,6 +88,23 @@ public class Tank : Entity {
 		}
 	}
 
+	void UpdateFireTime()
+	{
+		//Debug.Log("탱크 업데이트 콜\n");
+		FireTime_ = FireTime_ + (Time.deltaTime * 1000.0f);
+
+		if (SlowdownTimer_ > 0.0f)
+		{
+			SlowdownTimer_ = SlowdownTimer_ - Time.deltaTime;
+			if (SlowdownTimer_ <= 0.0f)
+			{
+				Debug.Log("슬로우 다운 풀림");
+				SlowdownSpeed_ = 1.0f;
+				SlowdownTimer_ = 0.0f;
+			}
+		}
+	}
+
 	public void SetMove(bool bMove)
 	{
 		move = bMove;
@@ -99,19 +117,7 @@ public class Tank : Entity {
 
     protected void Update()
     {
-        //Debug.Log("탱크 업데이트 콜\n");
-        FireTime_ = FireTime_ + (Time.deltaTime * 1000.0f);
-
-        if (SlowdownTimer_ > 0.0f)
-        {
-            SlowdownTimer_ = SlowdownTimer_ - Time.deltaTime;
-            if (SlowdownTimer_ <= 0.0f)
-            {
-                Debug.Log("슬로우 다운 풀림");
-                SlowdownSpeed_ = 1.0f;
-                SlowdownTimer_ = 0.0f;
-            }
-        }
+		// EntityUpdate 에서 사용 Update 사용금지.
     }
 
     public bool CheckFire()
