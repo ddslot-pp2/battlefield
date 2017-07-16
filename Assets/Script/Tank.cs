@@ -30,12 +30,12 @@ public class Tank : Entity {
 
     private float FireTime_;
 
+    private float SlowdownSpeed_ = 0.0f;
+    private float SlowdownTimer_ = 0.0f;
 
-	protected override void Init () {
+    protected override void Init () {
 
 		base.Init();
-
-      
 
 		myTransform = this.transform;
 
@@ -45,8 +45,8 @@ public class Tank : Entity {
 
 		dead = false;
 
-		//hpBar.UpdateHpBar();
-	}
+        SlowdownSpeed_ = 1.0f;
+    }
 
 	public override void Release()
 	{
@@ -76,12 +76,14 @@ public class Tank : Entity {
 				ArrivePos.y = 0.0f;
 				Vector3 dir = (ArrivePos - myTransform.position).normalized;
 				myTransform.rotation = Quaternion.Lerp (myTransform.rotation, Quaternion.LookRotation (dir), Time.deltaTime * 20);
-				myTransform.Translate (Vector3.forward * state.moveSpeed * Time.deltaTime);
+
+                var speed = state.moveSpeed * SlowdownSpeed_;
+                myTransform.Translate (Vector3.forward * speed * Time.deltaTime);
 
 			} else 
 			{
-				SetMove (false);
-			}
+                SetMove (false);
+            }
 		}
 	}
 
@@ -99,6 +101,17 @@ public class Tank : Entity {
     {
         //Debug.Log("탱크 업데이트 콜\n");
         FireTime_ = FireTime_ + (Time.deltaTime * 1000.0f);
+
+        if (SlowdownTimer_ > 0.0f)
+        {
+            SlowdownTimer_ = SlowdownTimer_ - Time.deltaTime;
+            if (SlowdownTimer_ <= 0.0f)
+            {
+                Debug.Log("슬로우 다운 풀림");
+                SlowdownSpeed_ = 1.0f;
+                SlowdownTimer_ = 0.0f;
+            }
+        }
     }
 
     public bool CheckFire()
@@ -216,5 +229,11 @@ public class Tank : Entity {
         hpBar.UpdateHpBar();
     }
 
+    public void AddSlowdownTime(float delta)
+    {
+        Debug.Log("슬로우 다운 시작");
+        SlowdownSpeed_ = 0.4f;
+        SlowdownTimer_ += delta;
+    }  
    
 }

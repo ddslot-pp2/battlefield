@@ -413,7 +413,8 @@ public class BattleLib : MonoBehaviour {
         if (!tankObject.CheckFire())
             return;
 
-		tankObject.SetMove (false);
+        tankObject.AddSlowdownTime(1.0f);
+		//tankObject.SetMove (false);
 
         var tank_pos = tankObject.transform.position;
         var look_dir = (new Vector3(x, 0.0f, z) - tank_pos).normalized;
