@@ -23,6 +23,9 @@ public class Game : MonoBehaviour {
     public Button RespawnButton_;
     public Button[] BuffButton_;
     public GameObject BuffButtons_;
+	public GameObject BuffRoot_;
+	public GameObject BuffRootHide;
+	public GameObject BuffRootShow;
 
     enum BuffType { MaxHpUp, TankSpeedUp, BulletSpeedUp, BulletPowerUp, BulletDistanceUp, BulletReloadTimeDown };
 
@@ -355,12 +358,12 @@ public class Game : MonoBehaviour {
 
     public void ShowBuffButtons()
     {
-        BuffButtons_.SetActive(true);
+        //BuffButtons_.SetActive(true);
     }
 
     public void HideBuffButtons()
     {
-        BuffButtons_.SetActive(false);
+        //BuffButtons_.SetActive(false);
     }
 
     public void onBuffButton(int type)
@@ -396,4 +399,27 @@ public class Game : MonoBehaviour {
         Send.BuffType = type;
         ProtobufManager.Instance().Send(opcode.CS_ENHANCE_BUFF, Send);
     }
+
+
+	public void BuffSelectBtnShow()
+	{
+		Debug.Log ("BuffSelectBtnShow");
+		BuffRootHide.SetActive (true);
+		BuffRootShow.SetActive (false);
+		RectTransform rootRect = BuffRoot_.GetComponent<RectTransform> ();
+		BuffRoot_.GetComponent<RectTransform> ().localPosition 
+		= new Vector3 (BuffRoot_.GetComponent<RectTransform>().localPosition.x, BuffRoot_.GetComponent<RectTransform> ().localPosition.y + 100, BuffRoot_.GetComponent<RectTransform>().localPosition.z);
+
+	}
+
+	public void BuffSelectBtnHide()
+	{
+		Debug.Log ("BuffSelectBtnHide");
+		BuffRootHide.SetActive (false);
+		BuffRootShow.SetActive (true);
+		RectTransform rootRect = BuffRoot_.GetComponent<RectTransform> ();
+		BuffRoot_.GetComponent<RectTransform> ().localPosition 
+		= new Vector3 (BuffRoot_.GetComponent<RectTransform>().localPosition.x, BuffRoot_.GetComponent<RectTransform> ().localPosition.y - 100, BuffRoot_.GetComponent<RectTransform>().localPosition.z);
+
+	}
 }
