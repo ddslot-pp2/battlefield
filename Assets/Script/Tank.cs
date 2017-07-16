@@ -93,6 +93,15 @@ public class Tank : Entity {
 		//Debug.Log("탱크 업데이트 콜\n");
 		FireTime_ = FireTime_ + (Time.deltaTime * 1000.0f);
 
+
+		if (SlowdownSpeed_ < 1.0f)
+		{
+			SlowdownSpeed_ = SlowdownSpeed_ + 0.02f;
+		}
+
+		return;
+
+
 		if (SlowdownTime_ > 0.0f)
 		{
             SlowdownTime_ = SlowdownTime_ - Time.deltaTime;
@@ -238,7 +247,7 @@ public class Tank : Entity {
     public void AddSlowdownTime(float delta)
     {
         Debug.Log("슬로우 다운 시작");
-        SlowdownSpeed_ = 0.4f;
+        SlowdownSpeed_ = 0.0f;
         SlowdownTime_ += delta;
     }  
    
