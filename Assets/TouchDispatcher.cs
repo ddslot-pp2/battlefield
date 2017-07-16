@@ -24,6 +24,8 @@ namespace GameCore
 		private Vector3 _positionForDBClick = Vector3.zero;
 		private int pointId = -1;
 		private float _prevTouchTime;
+		private bool CheckUiBegin = false;
+
 
 	
 		public bool UsableDBClickMode = false;
@@ -134,6 +136,12 @@ namespace GameCore
 				return false;
 			}
 
+			if( CheckUiBegin ) 
+			{
+				CheckUiBegin = false;
+				return false;
+			}
+
             return Input.GetButtonUp("Fire1");
 #else
 
@@ -197,9 +205,10 @@ namespace GameCore
 #if (UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX )
             if (Input.GetButtonDown("Fire1"))
             {
-				if( IsPointerOverGameObject())
+
+				if(IsPointerOverUiObjectMouse() )
 				{
-					//return false;
+					CheckUiBegin = true;
 				}
 
                 _beginPosition = Input.mousePosition;
