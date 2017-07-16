@@ -8,6 +8,8 @@ using System;
 
 public class LobbyManager : MonoBehaviour {
 
+    public GameObject NewTank;
+
     // 접속 완료 후 콜백
     public void onConnect()
     {
@@ -72,6 +74,7 @@ public class LobbyManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        NewTank.SetActive(false);
         RegisterPacketHandler();
         //ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
         ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
@@ -90,11 +93,23 @@ public class LobbyManager : MonoBehaviour {
         //ProtobufManager.Instance().Destroy();
     }
 
-    public void onLoginButtonClicked()
+    public void onLoginButton()
     {
         var Send = new LOBBY.CS_LOG_IN();
         Send.Id = "냐옹이";
         Send.Password = "1234ABCD";
         ProtobufManager.Instance().Send(opcode.CS_LOG_IN, Send);
     }
+
+    public void onNewTankButton(bool active)
+    {
+        NewTank.SetActive(active);
+    }
+
+    public void onPurchaseGoldButton()
+    {
+        Debug.Log("골드 구매하기");
+    }
+
+
 }
