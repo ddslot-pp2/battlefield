@@ -37,8 +37,7 @@ public class BrianTank : Tank {
 
 	public override void Fire()
 	{
-
-		Debug.Log ("Fire");
+		base.Fire();
 		StartCoroutine(this.ShowMuzzleFlash());
 
 		/*

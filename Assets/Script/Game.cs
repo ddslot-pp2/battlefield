@@ -10,6 +10,7 @@ using UnityEngine.EventSystems;
 public class Game : MonoBehaviour {
 
 	public GameCamera gameCamera;
+
 	TouchDispatcher _TouchDispatcher = new TouchDispatcher();
 
 	protected RaycastHit TFire;
@@ -229,6 +230,7 @@ public class Game : MonoBehaviour {
 		{
 			SendUserClickInfo(TFire.point.x, TFire.point.z, false);
 		}
+			
 	}
 
 	void Awake ()
@@ -334,7 +336,7 @@ public class Game : MonoBehaviour {
 
 		if (myself) 
 		{
-			gameCamera.SetTarget(BattleLib.Instance.GetEntity (obj_id).transform);		
+			gameCamera.SetTarget(BattleLib.Instance.GetEntity (obj_id).transform);	
 		}
 	}
 		
