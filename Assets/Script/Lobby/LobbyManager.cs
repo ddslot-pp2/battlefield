@@ -76,8 +76,8 @@ public class LobbyManager : MonoBehaviour {
     {
         NewTank.SetActive(false);
         RegisterPacketHandler();
-        //ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
-        ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
+        ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
+        //ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
     }
 	
 	// Update is called once per frame
