@@ -136,11 +136,7 @@ namespace GameCore
 				return false;
 			}
 
-			if( CheckUiBegin ) 
-			{
-				CheckUiBegin = false;
-				return false;
-			}
+		
 
             return Input.GetButtonUp("Fire1");
 #else
@@ -151,6 +147,11 @@ namespace GameCore
 				return false;
 			}
 		
+			if( CheckUiBegin ) 
+			{
+				CheckUiBegin = false;
+				return false;
+			}
 
         	return Input.touchCount > 0 && (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled);
 #endif
@@ -221,6 +222,12 @@ namespace GameCore
 
             if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
             {
+
+				if(IsPointerOverUiObjectTouch() )
+				{
+					CheckUiBegin = true;
+				}
+
                 _beginPosition = Input.touches[0].position;
                 return true;
             }
