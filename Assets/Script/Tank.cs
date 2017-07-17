@@ -121,7 +121,10 @@ public class Tank : Entity {
 		
 	public virtual void  Fire()
 	{
-		GameCamera.ToggleShake (0.1f);
+		if( IsMyEntity () )
+		{
+			GameCamera.ToggleShake (0.1f);
+		}
 	}
 
     protected void Update()
@@ -206,7 +209,11 @@ public class Tank : Entity {
 		
 	public void GetDamage(int damage)
 	{
-		GameCamera.ToggleShake (0.2f);
+		if( IsMyEntity () )
+		{
+			GameCamera.ToggleShake (0.2f);
+		}
+
 		state.GetDamage(damage);
 		hpBar.UpdateHpBar();
 	}
