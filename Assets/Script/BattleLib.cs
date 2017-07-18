@@ -54,15 +54,12 @@ namespace BattleInfo
 public class BattleLib : MonoBehaviour {
 
 
-	//public RoomEntityInfo[]	m_roomEntityList = new RoomEntityInfo[MAX_ENTITY];
 
 	public BetterList <Entity > EntityList = new BetterList<Entity>();
 
 	public Dictionary <Int64, Entity > EntityDic = new Dictionary< Int64, Entity>();
 
-	//public BetterList <Entity > EntityList = new BetterList<Entity>();
 
-	//public Entity[] m_entityList = new Entity[MAX_ENTITY];
 
 	static int MAX_ENTITY = 10;
 
@@ -77,6 +74,11 @@ public class BattleLib : MonoBehaviour {
 	bool m_gameStart = false;
 
 	static 	BattleLib _Instance;
+
+
+	public delegate void BattleDelegate(float value);
+
+	public BattleDelegate FireDelegate;
 
 
 	public static BattleLib Instance
@@ -412,6 +414,8 @@ public class BattleLib : MonoBehaviour {
 
         if (!tankObject.CheckFire())
             return;
+
+		if (null != FireDelegate) FireDelegate(tankObject.state.fireRate);
 
         tankObject.AddSlowdownTime(1.0f);
 		//tankObject.SetMove (false);
