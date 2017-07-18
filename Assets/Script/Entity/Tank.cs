@@ -134,8 +134,8 @@ public class Tank : Entity {
 
     public bool CheckFire()
     {
-        Debug.Log("FireTime: " + FireTime_);
-        Debug.Log("FireRate: " + state.fireRate);
+        //Debug.Log("FireTime: " + FireTime_);
+        //Debug.Log("FireRate: " + state.fireRate);
 
         if (FireTime_ < state.fireRate) return false;
 
