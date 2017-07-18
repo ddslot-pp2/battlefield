@@ -26,8 +26,9 @@ public class Bullet : Entity
 
 	public override void Release()
 	{
-		GameObject exp = Instantiate(ExpEffect, myTransform.position, myTransform.rotation);
-		Destroy(exp, 1.0f);
+		ExpEffect.Spawn (myTransform.position, myTransform.rotation);
+		//GameObject exp = Instantiate(ExpEffect, myTransform.position, myTransform.rotation);
+		//Destroy(exp, 1.0f);
 		gameObject.Recycle();
 	}
 
