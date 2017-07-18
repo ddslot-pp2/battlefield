@@ -32,7 +32,7 @@ public class Game : MonoBehaviour {
 
 
     // 나중에 item_manager가 되든 빼야할듯
-    public Dictionary<Int64, Item> Items_;
+    public Dictionary<Int64, GameObject> Items_;
 
     // 1초에 5번만
     private const float UPDATE_MOVE_INTERVAL = 1.0f / 5.0f;
@@ -156,7 +156,6 @@ public class Game : MonoBehaviour {
         // 현재 케릭터가 hp가 0이라서; 폭파한 상태 스모그 이펙트 나오면서 3초후 respawn 나오면 되겠징;;
         // 헐 내가 죽었네 ㅜㅜ;
         // 미사일 발사 금지 이동 금지 등등 핸들링
-
 		BattleLib.Instance.EntityDead (read.ObjId);
 
         if (MyObjId == read.ObjId)
@@ -215,25 +214,39 @@ public class Game : MonoBehaviour {
         foreach (var item_info in read.ItemInfos)
         {
             var item_id = item_info.ItemId;
-            var item_type = item_info.ItemType;
+            Debug.Log("active item_id: " + item_id);
+
+            if (Items_.ContainsKey(item_id))
+            {
+                continue;
+            }
+
             var pos = new Vector3(item_info.PosX, item_info.PosY, item_info.PosZ);
 
-            Debug.Log("item_id: " + item_id);
+            if (item_info.ItemType == 0)
+            {
+                GameObject item = (GameObject)Instantiate(Resources.Load("Prefab/Item/HpItem")) as GameObject;
+                item.transform.position = pos;
+                Items_[item_id] = item;
+            }
         }
     }
 
     public void handler_SC_NOTI_ACQUIRE_ITEM(GAME.SC_NOTI_ACQUIRE_ITEM read)
     {
-        Debug.Log("어떤 탱크가 아이템 획득 받음");
-        var item_id = read.ItemType;
+        var item_id = read.ItemId;
         var item_type = read.ItemType;
         var hp = read.Hp;
 
         // 만약 내가 먹은것이라면 효과해줄까?
         if (read.ObjId == MyObjId)
         {
-
+            
         }
+
+        var destry_obj = Items_[item_id];
+        DestroyObject(destry_obj);
+        Items_.Remove(item_id);
     }
 
     public void RegisterPacketHandler()
@@ -299,7 +312,9 @@ public class Game : MonoBehaviour {
 		_TouchDispatcher.BeganDelegate = new TouchDispatcher.TouchDelegate(OnTouchBegan);
 		_TouchDispatcher.EndedDelegate = new TouchDispatcher.TouchDelegate(OnTouchEnded);
 
-	}
+        Items_ = new Dictionary<Int64, GameObject>();
+
+    }
 	// Update is called once per frame
 
 	void LateUpdate()
