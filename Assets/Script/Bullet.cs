@@ -16,18 +16,21 @@ public class Bullet : Entity
 
 	Transform myTransform;
 
-    void Start ()
-    {
-        //this.transform.rotation = Quaternion.LookRotation(Dir_);
+
+	protected override void Init () {
+
+		base.Init();
+
 		myTransform = this.transform;
 		myTransform.position = Pos_;
+
 	}
-
-
+   
 	public override void Release()
 	{
-		GameObject exp = Instantiate(ExpEffect, myTransform.position, myTransform.rotation);
-		Destroy(exp, 1.0f);
+		ExpEffect.Spawn (myTransform.position, myTransform.rotation);
+		//GameObject exp = Instantiate(ExpEffect, myTransform.position, myTransform.rotation);
+		//Destroy(exp, 1.0f);
 		gameObject.Recycle();
 	}
 
