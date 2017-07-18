@@ -37,6 +37,8 @@ public class Game : MonoBehaviour {
     private const float DRAG_AS_FIRE_DISTANCE = 80.0f;
     private float LastUpdateMoveTime_ = 0.0f;
 
+    private int BuffCount_ = 0;
+
     public void onConnect()
     {
         Debug.Log("OnConnected called\n");
@@ -182,13 +184,23 @@ public class Game : MonoBehaviour {
 
     public void handler_SC_SELECT_BUFF(GAME.SC_SELECT_BUFF read)
     {
+        BuffCount_ += read.Count;
+        BuffSelectBtnShow();
         // 버프 가능 횟수 증가해줘야함 
         // 유저가 바빠 바로 못하면 2번 3번 쌓았다가 1개씩 처리;
-        ShowBuffButtons();
+        //ShowBuffButtons();
     }
 
     public void handler_SC_NOTI_UPDATE_CHARACTER_STATUS(GAME.SC_NOTI_UPDATE_CHARACTER_STATUS read)
     {
+        if (read.ObjId == MyObjId && BuffCount_ <= 0)
+        {
+            BuffSelectBtnHide();
+        }
+        else
+        {
+            Debug.Log("업그레이드 버프 카운트 남아있음: " + BuffCount_);
+        }
         BattleInfo.TANK_INFO tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), read.MaxHp, read.Hp, read.Speed, read.ReloadTime);
         BattleLib.Instance.SetTankInfo(read.ObjId, tank_info);
     }
@@ -241,11 +253,10 @@ public class Game : MonoBehaviour {
     // Use this for initialization
     void Start () 
 	{
-     
         MyObjId = 0;
         RespawnButton_.gameObject.SetActive(false);
-        //HideBuffButtons();
-        ShowBuffButtons();
+
+        BuffSelectBtnHide();
         //RespawnButton_.enabled = false;
 
         RegisterPacketHandler();
@@ -396,6 +407,10 @@ public class Game : MonoBehaviour {
 
         }
 
+        if (BuffCount_ > 0)
+        {
+            BuffCount_--;
+        }
         // 서버에 전송
         var Send = new GAME.CS_ENHANCE_BUFF();
         Send.BuffType = type;
@@ -405,7 +420,12 @@ public class Game : MonoBehaviour {
 
 	public void BuffSelectBtnShow()
 	{
-		Debug.Log ("BuffSelectBtnShow");
+        if (BuffRootHide.activeSelf)
+        {
+            return;
+        }
+
+        Debug.Log ("BuffSelectBtnShow");
 		BuffRootHide.SetActive (true);
 		BuffRootShow.SetActive (false);
 		RectTransform rootRect = BuffRoot_.GetComponent<RectTransform> ();
@@ -416,7 +436,13 @@ public class Game : MonoBehaviour {
 
 	public void BuffSelectBtnHide()
 	{
-		Debug.Log ("BuffSelectBtnHide");
+        if (!BuffRootHide.activeSelf)
+        {
+            return;
+        }
+
+
+        Debug.Log ("BuffSelectBtnHide");
 		BuffRootHide.SetActive (false);
 		BuffRootShow.SetActive (true);
 		RectTransform rootRect = BuffRoot_.GetComponent<RectTransform> ();
@@ -424,4 +450,9 @@ public class Game : MonoBehaviour {
 		= new Vector3 (BuffRoot_.GetComponent<RectTransform>().localPosition.x, BuffRoot_.GetComponent<RectTransform> ().localPosition.y - 100, BuffRoot_.GetComponent<RectTransform>().localPosition.z);
 
 	}
+
+    private void Reset()
+    {
+        BuffCount_ = 0;
+    }
 }

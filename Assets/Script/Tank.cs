@@ -123,7 +123,7 @@ public class Tank : Entity {
 	{
 		if( IsMyEntity () )
 		{
-			GameCamera.ToggleShake (0.1f);
+			//GameCamera.ToggleShake (0.1f);
 		}
 	}
 
