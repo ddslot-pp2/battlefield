@@ -64,8 +64,13 @@ namespace GAME {
             "TEVDVF9CVUZGEg0KBWNvdW50GAEgASgFIiQKD0NTX0VOSEFOQ0VfQlVGRhIR",
             "CglidWZmX3R5cGUYASABKAUicQofU0NfTk9USV9VUERBVEVfQ0hBUkFDVEVS",
             "X1NUQVRVUxIOCgZvYmpfaWQYASABKAMSDgoGbWF4X2hwGAIgASgFEgoKAmhw",
-            "GAMgASgFEg0KBXNwZWVkGAQgASgCEhMKC3JlbG9hZF90aW1lGAUgASgCYgZw",
-            "cm90bzM="));
+            "GAMgASgFEg0KBXNwZWVkGAQgASgCEhMKC3JlbG9hZF90aW1lGAUgASgCIlwK",
+            "CUlURU1fSU5GTxIPCgdpdGVtX2lkGAEgASgDEhEKCWl0ZW1fdHlwZRgCIAEo",
+            "BRINCgVwb3NfeBgDIAEoAhINCgVwb3NfeRgEIAEoAhINCgVwb3NfehgFIAEo",
+            "AiI6ChNTQ19OT1RJX0FDVElWRV9JVEVNEiMKCml0ZW1faW5mb3MYASADKAsy",
+            "Dy5HQU1FLklURU1fSU5GTyJjChRTQ19OT1RJX0FDUVVJUkVfSVRFTRIOCgZv",
+            "YmpfaWQYASABKAMSDwoHaXRlbV9pZBgCIAEoAxIRCglpdGVtX3R5cGUYAyAB",
+            "KAUSCgoCaHAYBCABKAUSCwoDZXhwGAUgASgFYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -88,7 +93,10 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_RESPAWN_CHARACTER), global::GAME.SC_NOTI_RESPAWN_CHARACTER.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_SELECT_BUFF), global::GAME.SC_SELECT_BUFF.Parser, new[]{ "Count" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_ENHANCE_BUFF), global::GAME.CS_ENHANCE_BUFF.Parser, new[]{ "BuffType" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS), global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS.Parser, new[]{ "ObjId", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS), global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS.Parser, new[]{ "ObjId", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.ITEM_INFO), global::GAME.ITEM_INFO.Parser, new[]{ "ItemId", "ItemType", "PosX", "PosY", "PosZ" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACTIVE_ITEM), global::GAME.SC_NOTI_ACTIVE_ITEM.Parser, new[]{ "ItemInfos" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_ITEM), global::GAME.SC_NOTI_ACQUIRE_ITEM.Parser, new[]{ "ObjId", "ItemId", "ItemType", "Hp", "Exp" }, null, null, null)
           }));
     }
     #endregion
@@ -4299,6 +4307,573 @@ namespace GAME {
           }
           case 45: {
             ReloadTime = input.ReadFloat();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class ITEM_INFO : pb::IMessage<ITEM_INFO> {
+    private static readonly pb::MessageParser<ITEM_INFO> _parser = new pb::MessageParser<ITEM_INFO>(() => new ITEM_INFO());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ITEM_INFO> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[20]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ITEM_INFO() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ITEM_INFO(ITEM_INFO other) : this() {
+      itemId_ = other.itemId_;
+      itemType_ = other.itemType_;
+      posX_ = other.posX_;
+      posY_ = other.posY_;
+      posZ_ = other.posZ_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ITEM_INFO Clone() {
+      return new ITEM_INFO(this);
+    }
+
+    /// <summary>Field number for the "item_id" field.</summary>
+    public const int ItemIdFieldNumber = 1;
+    private long itemId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ItemId {
+      get { return itemId_; }
+      set {
+        itemId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "item_type" field.</summary>
+    public const int ItemTypeFieldNumber = 2;
+    private int itemType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ItemType {
+      get { return itemType_; }
+      set {
+        itemType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_x" field.</summary>
+    public const int PosXFieldNumber = 3;
+    private float posX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float PosX {
+      get { return posX_; }
+      set {
+        posX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_y" field.</summary>
+    public const int PosYFieldNumber = 4;
+    private float posY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float PosY {
+      get { return posY_; }
+      set {
+        posY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_z" field.</summary>
+    public const int PosZFieldNumber = 5;
+    private float posZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float PosZ {
+      get { return posZ_; }
+      set {
+        posZ_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ITEM_INFO);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ITEM_INFO other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ItemId != other.ItemId) return false;
+      if (ItemType != other.ItemType) return false;
+      if (PosX != other.PosX) return false;
+      if (PosY != other.PosY) return false;
+      if (PosZ != other.PosZ) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ItemId != 0L) hash ^= ItemId.GetHashCode();
+      if (ItemType != 0) hash ^= ItemType.GetHashCode();
+      if (PosX != 0F) hash ^= PosX.GetHashCode();
+      if (PosY != 0F) hash ^= PosY.GetHashCode();
+      if (PosZ != 0F) hash ^= PosZ.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ItemId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ItemId);
+      }
+      if (ItemType != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(ItemType);
+      }
+      if (PosX != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(PosX);
+      }
+      if (PosY != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(PosY);
+      }
+      if (PosZ != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(PosZ);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ItemId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ItemId);
+      }
+      if (ItemType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ItemType);
+      }
+      if (PosX != 0F) {
+        size += 1 + 4;
+      }
+      if (PosY != 0F) {
+        size += 1 + 4;
+      }
+      if (PosZ != 0F) {
+        size += 1 + 4;
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ITEM_INFO other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ItemId != 0L) {
+        ItemId = other.ItemId;
+      }
+      if (other.ItemType != 0) {
+        ItemType = other.ItemType;
+      }
+      if (other.PosX != 0F) {
+        PosX = other.PosX;
+      }
+      if (other.PosY != 0F) {
+        PosY = other.PosY;
+      }
+      if (other.PosZ != 0F) {
+        PosZ = other.PosZ;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            ItemId = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            ItemType = input.ReadInt32();
+            break;
+          }
+          case 29: {
+            PosX = input.ReadFloat();
+            break;
+          }
+          case 37: {
+            PosY = input.ReadFloat();
+            break;
+          }
+          case 45: {
+            PosZ = input.ReadFloat();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_NOTI_ACTIVE_ITEM : pb::IMessage<SC_NOTI_ACTIVE_ITEM> {
+    private static readonly pb::MessageParser<SC_NOTI_ACTIVE_ITEM> _parser = new pb::MessageParser<SC_NOTI_ACTIVE_ITEM>(() => new SC_NOTI_ACTIVE_ITEM());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_NOTI_ACTIVE_ITEM> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[21]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_ACTIVE_ITEM() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_ACTIVE_ITEM(SC_NOTI_ACTIVE_ITEM other) : this() {
+      itemInfos_ = other.itemInfos_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_ACTIVE_ITEM Clone() {
+      return new SC_NOTI_ACTIVE_ITEM(this);
+    }
+
+    /// <summary>Field number for the "item_infos" field.</summary>
+    public const int ItemInfosFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::GAME.ITEM_INFO> _repeated_itemInfos_codec
+        = pb::FieldCodec.ForMessage(10, global::GAME.ITEM_INFO.Parser);
+    private readonly pbc::RepeatedField<global::GAME.ITEM_INFO> itemInfos_ = new pbc::RepeatedField<global::GAME.ITEM_INFO>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::GAME.ITEM_INFO> ItemInfos {
+      get { return itemInfos_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_NOTI_ACTIVE_ITEM);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_NOTI_ACTIVE_ITEM other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!itemInfos_.Equals(other.itemInfos_)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= itemInfos_.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      itemInfos_.WriteTo(output, _repeated_itemInfos_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += itemInfos_.CalculateSize(_repeated_itemInfos_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_NOTI_ACTIVE_ITEM other) {
+      if (other == null) {
+        return;
+      }
+      itemInfos_.Add(other.itemInfos_);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            itemInfos_.AddEntriesFrom(input, _repeated_itemInfos_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_NOTI_ACQUIRE_ITEM : pb::IMessage<SC_NOTI_ACQUIRE_ITEM> {
+    private static readonly pb::MessageParser<SC_NOTI_ACQUIRE_ITEM> _parser = new pb::MessageParser<SC_NOTI_ACQUIRE_ITEM>(() => new SC_NOTI_ACQUIRE_ITEM());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_NOTI_ACQUIRE_ITEM> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[22]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_ACQUIRE_ITEM() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_ACQUIRE_ITEM(SC_NOTI_ACQUIRE_ITEM other) : this() {
+      objId_ = other.objId_;
+      itemId_ = other.itemId_;
+      itemType_ = other.itemType_;
+      hp_ = other.hp_;
+      exp_ = other.exp_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_ACQUIRE_ITEM Clone() {
+      return new SC_NOTI_ACQUIRE_ITEM(this);
+    }
+
+    /// <summary>Field number for the "obj_id" field.</summary>
+    public const int ObjIdFieldNumber = 1;
+    private long objId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ObjId {
+      get { return objId_; }
+      set {
+        objId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "item_id" field.</summary>
+    public const int ItemIdFieldNumber = 2;
+    private long itemId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ItemId {
+      get { return itemId_; }
+      set {
+        itemId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "item_type" field.</summary>
+    public const int ItemTypeFieldNumber = 3;
+    private int itemType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ItemType {
+      get { return itemType_; }
+      set {
+        itemType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hp" field.</summary>
+    public const int HpFieldNumber = 4;
+    private int hp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Hp {
+      get { return hp_; }
+      set {
+        hp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "exp" field.</summary>
+    public const int ExpFieldNumber = 5;
+    private int exp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Exp {
+      get { return exp_; }
+      set {
+        exp_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_NOTI_ACQUIRE_ITEM);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_NOTI_ACQUIRE_ITEM other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ObjId != other.ObjId) return false;
+      if (ItemId != other.ItemId) return false;
+      if (ItemType != other.ItemType) return false;
+      if (Hp != other.Hp) return false;
+      if (Exp != other.Exp) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ObjId != 0L) hash ^= ObjId.GetHashCode();
+      if (ItemId != 0L) hash ^= ItemId.GetHashCode();
+      if (ItemType != 0) hash ^= ItemType.GetHashCode();
+      if (Hp != 0) hash ^= Hp.GetHashCode();
+      if (Exp != 0) hash ^= Exp.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ObjId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ObjId);
+      }
+      if (ItemId != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(ItemId);
+      }
+      if (ItemType != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(ItemType);
+      }
+      if (Hp != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Hp);
+      }
+      if (Exp != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Exp);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ObjId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObjId);
+      }
+      if (ItemId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ItemId);
+      }
+      if (ItemType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ItemType);
+      }
+      if (Hp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
+      }
+      if (Exp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Exp);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_NOTI_ACQUIRE_ITEM other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ObjId != 0L) {
+        ObjId = other.ObjId;
+      }
+      if (other.ItemId != 0L) {
+        ItemId = other.ItemId;
+      }
+      if (other.ItemType != 0) {
+        ItemType = other.ItemType;
+      }
+      if (other.Hp != 0) {
+        Hp = other.Hp;
+      }
+      if (other.Exp != 0) {
+        Exp = other.Exp;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            ObjId = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            ItemId = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            ItemType = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Hp = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            Exp = input.ReadInt32();
             break;
           }
         }

@@ -31,6 +31,9 @@ public class Game : MonoBehaviour {
     enum BuffType { MaxHpUp, TankSpeedUp, BulletSpeedUp, BulletPowerUp, BulletDistanceUp, BulletReloadTimeDown };
 
 
+    // 나중에 item_manager가 되든 빼야할듯
+    public Dictionary<Int64, Item> Items_;
+
     // 1초에 5번만
     private const float UPDATE_MOVE_INTERVAL = 1.0f / 5.0f;
     // 터치랑 가끔 구별이 안되 길이를 늘림
@@ -205,6 +208,34 @@ public class Game : MonoBehaviour {
         BattleLib.Instance.SetTankInfo(read.ObjId, tank_info);
     }
 
+    public void handler_SC_NOTI_ACTIVE_ITEM(GAME.SC_NOTI_ACTIVE_ITEM read)
+    {
+        Debug.Log("아이템 정보 받음");
+        // 아이템 잔상 때문에 이렇게 한번에 보냄 기종 item 리스트와 비교해서 업데이트
+        foreach (var item_info in read.ItemInfos)
+        {
+            var item_id = item_info.ItemId;
+            var item_type = item_info.ItemType;
+            var pos = new Vector3(item_info.PosX, item_info.PosY, item_info.PosZ);
+
+            Debug.Log("item_id: " + item_id);
+        }
+    }
+
+    public void handler_SC_NOTI_ACQUIRE_ITEM(GAME.SC_NOTI_ACQUIRE_ITEM read)
+    {
+        Debug.Log("어떤 탱크가 아이템 획득 받음");
+        var item_id = read.ItemType;
+        var item_type = read.ItemType;
+        var hp = read.Hp;
+
+        // 만약 내가 먹은것이라면 효과해줄까?
+        if (read.ObjId == MyObjId)
+        {
+
+        }
+    }
+
     public void RegisterPacketHandler()
     {
         // 이번 패킷에 사용할 패킷관련 핸들러를 지정
@@ -218,6 +249,8 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_RESPAWN_CHARACTER>(opcode.SC_NOTI_RESPAWN_CHARACTER, handler_SC_NOTI_RESPAWN_CHARACTER);
         ProtobufManager.Instance().SetHandler<GAME.SC_SELECT_BUFF>(opcode.SC_SELECT_BUFF, handler_SC_SELECT_BUFF);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_UPDATE_CHARACTER_STATUS>(opcode.SC_NOTI_UPDATE_CHARACTER_STATUS, handler_SC_NOTI_UPDATE_CHARACTER_STATUS);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_ACTIVE_ITEM>(opcode.SC_NOTI_ACTIVE_ITEM, handler_SC_NOTI_ACTIVE_ITEM);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_ACQUIRE_ITEM>(opcode.SC_NOTI_ACQUIRE_ITEM, handler_SC_NOTI_ACQUIRE_ITEM);
     }
 
 	void OnTouchBegan(Vector3 pos)
