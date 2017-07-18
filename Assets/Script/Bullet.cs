@@ -16,14 +16,16 @@ public class Bullet : Entity
 
 	Transform myTransform;
 
-    void Start ()
-    {
-        //this.transform.rotation = Quaternion.LookRotation(Dir_);
+
+	protected override void Init () {
+
+		base.Init();
+
 		myTransform = this.transform;
 		myTransform.position = Pos_;
+
 	}
-
-
+   
 	public override void Release()
 	{
 		ExpEffect.Spawn (myTransform.position, myTransform.rotation);
