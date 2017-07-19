@@ -109,13 +109,6 @@ public class BattleLib : MonoBehaviour {
 	{
 		m_gameStart = false;
 
-		/*
-		for (int i = 0; i < m_entityList.Length; i++) 
-		{
-			m_entityList[i] = null;
-		}
-		*/
-
 		for (int i = 0; i < EntityList.size ; i++) 
 		{
 			EntityList[i].Release();
@@ -157,44 +150,7 @@ public class BattleLib : MonoBehaviour {
 			EntityList[i].EntityUpdate();
 		}
 
-		/*
-		for (int i = 0; i < m_entityList.Length; i++) 
-		{
-			if (m_entityList[i] == null)
-				continue;
-
-			m_entityList [i].EntityUpdate();
-
-		}
-		*/
 	}
-
-	/*
-	public void EnterRoom(int index, int type, string name)
-	{
-		
-		if( index >= MAX_ENTITY)
-		{
-			Debug.Log ("EnterRoom max player over" );
-		}
-
-		if( m_roomEntityList[index].EnterRoom == 1 )
-		{
-			Debug.Log ("already Enitity exist" );
-			return;
-		}
-
-		m_roomEntityList[index].Type = type;
-		m_roomEntityList[index].Name = name;
-		m_roomEntityList[index].EnterRoom = 1;
-	
-	}
-
-	public void ExitRoom(int index)
-	{
-		m_roomEntityList[index].EnterRoom = 0;
-	}
-	*/
 
 
 	public void GameStart()
@@ -202,21 +158,6 @@ public class BattleLib : MonoBehaviour {
 		Debug.Log ("Battle Start");
 		BattleLib.Instance.m_gameStart = true;
 	}
-
-	/*
-	public void InitBattleEntity()
-	{
-		Debug.Log("InitBattleEntity");
-
-		for (int i = 0; i < MAX_ENTITY; i++)
-		{
-			if (m_roomEntityList[i].EnterRoom == 1)
-			{
-				CreateEntity(m_roomEntityList[i].Type, i , m_roomEntityList[i].Name);
-			}
-		}
-	}
-	*/
 
 
 	public void CreateEntity(Int64 obj_id, int type, string name , bool myself, Vector3 spawnPos)
@@ -349,24 +290,11 @@ public class BattleLib : MonoBehaviour {
 		bulletEntity.SetProperty(bullet_id, pos, bullet_dir, speed, distance);
         
 		AddEntity (bulletEntity);
-
-		/*
-        if (bullet_type == Bullet.Type.DirectBullet)
-        {
-			
-            var bullet_object = Instantiate(Resources.Load("Prefab/Bullet/DirectBullet"), pos, fire_transform.rotation) as GameObject;
-            bullet_object.transform.localScale = new Vector3(bullet_object.transform.localScale.x * size.x, bullet_object.transform.localScale.y * size.y, bullet_object.transform.localScale.z * size.z);
-			Bullet bulletEntity = bullet_object.GetComponent<Bullet> ();
-			bulletEntity.SetProperty(bullet_id, pos, bullet_dir, speed, distance);
-			AddEntity (bulletEntity);
-            //tankObject.AddBullet(bullet_id, bullet_object);
-        }
-        */
     }
+
+
     public void DestroyBullet(Int64 bullet_id)
     {
-        //Tank tankObject = EntityDic[owner_id] as Tank;
-        //tankObject.RemoveBullet(bullet_id);
 		DeleteEntity(bullet_id);
     }
 
