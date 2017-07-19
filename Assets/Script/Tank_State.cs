@@ -34,7 +34,6 @@ public class Tank_State : MonoBehaviour
 	public void GetDamage(int damage )
 	{
 		hp = hp - damage;
-		Debug.Log ("hp: " + hp);
 		if (hp <= 0)
 			hp = 0;
 		

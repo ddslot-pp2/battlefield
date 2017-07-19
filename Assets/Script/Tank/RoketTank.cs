@@ -43,7 +43,7 @@ public class RoketTank : Tank {
 
 	public override void Fire()
 	{
-		
+		/*
 		int l = TFire.transform.gameObject.layer;
 
 		if (l == 8 && (Vector3.Distance(transform.position, TFire.point) <= state.range))
@@ -55,11 +55,22 @@ public class RoketTank : Tank {
 			GameObject.Find("GameManager").GetComponent<GameManager>().CoolTimeCounter(state.fireRate);
 			StartCoroutine("CreateBullet");
 		}
+		*/
+
+		if (Time.time >= nextfire)
+		{
+			nextfire = Time.time + state.fireRate;
+
+
+			//잠시 기다리는 루틴을 위해 코루틴 함수로 호출
+			//StartCoroutine(this.ShowMuzzleFlash());
+		}
 
 
 
 	}
 
+	/*
 	IEnumerator CreateBullet()
 	{
 		if (haveBullet[0] != null || haveBullet[0].GetComponent<RocketBullet>().start == false)
@@ -83,6 +94,7 @@ public class RoketTank : Tank {
 			haveBullet[1].transform.parent = gameObject.transform;
 		}
 	}
+	*/
 
 	IEnumerator DestroyTargetRange(GameObject obj)
 	{

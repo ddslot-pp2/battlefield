@@ -14,20 +14,15 @@ public class Tank : Entity {
 
 	Transform myTransform;
 
-	float h, v;
-	Controller controller;
 	public Tank_State state;
 	HpBar hpBar;
 
 	GameObject DustEffect;
 
-	protected RaycastHit TFire;
-	Vector3 Click;
 	Vector3 ArrivePos = Vector3.zero;
 	Vector3 AttackDir = Vector3.zero;
 
-	public float nextfire = 0.0f;
-
+	public  float nextfire = 0.0f;
     private float FireTime_;
 
     private float SlowdownSpeed_ = 0.0f;
@@ -134,9 +129,6 @@ public class Tank : Entity {
 
     public bool CheckFire()
     {
-        //Debug.Log("FireTime: " + FireTime_);
-        //Debug.Log("FireRate: " + state.fireRate);
-
         if (FireTime_ < state.fireRate) return false;
 
         FireTime_ = 0.0f;
@@ -147,7 +139,7 @@ public class Tank : Entity {
 	{
 		if (attack) 
 		{
-			Attack (posX, posZ);
+			//Attack (posX, posZ);
 		} 
 		else
 		{
@@ -171,6 +163,7 @@ public class Tank : Entity {
 		SetMove (true);
 	}
 
+	/*
 	public void Attack(float posX, float posZ)
 	{
 		if (fireTransform == null)
@@ -183,6 +176,7 @@ public class Tank : Entity {
 
 		Fire ();
 	}
+	*/
 
     public void CreateBullet(float posX, float posZ, float speed, float distance)
     {
