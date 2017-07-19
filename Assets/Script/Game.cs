@@ -10,6 +10,8 @@ using UnityEngine.EventSystems;
 public class Game : MonoBehaviour {
 
 	public GameCamera gameCamera;
+	public PlayUi playUi;
+
 
 	TouchDispatcher _TouchDispatcher = new TouchDispatcher();
 
@@ -21,13 +23,7 @@ public class Game : MonoBehaviour {
   
     Int64 MyObjId;
     
-    public Button RespawnButton_;
-    public Button[] BuffButton_;
-    public GameObject BuffButtons_;
-	public GameObject BuffRoot_;
-	public GameObject BuffRootHide;
-	public GameObject BuffRootShow;
-
+ 
     enum BuffType { MaxHpUp, TankSpeedUp, BulletSpeedUp, BulletPowerUp, BulletDistanceUp, BulletReloadTimeDown };
 
 
@@ -160,7 +156,7 @@ public class Game : MonoBehaviour {
 
         if (MyObjId == read.ObjId)
         {
-            RespawnButton_.gameObject.SetActive(true);
+			playUi.RespawnButton_.SetActive(true);
             return;
         }
 
@@ -187,7 +183,7 @@ public class Game : MonoBehaviour {
     public void handler_SC_SELECT_BUFF(GAME.SC_SELECT_BUFF read)
     {
         BuffCount_ += read.Count;
-        BuffSelectBtnShow();
+		playUi.BuffSelectBtnShow();
         // 버프 가능 횟수 증가해줘야함 
         // 유저가 바빠 바로 못하면 2번 3번 쌓았다가 1개씩 처리;
         //ShowBuffButtons();
@@ -197,7 +193,7 @@ public class Game : MonoBehaviour {
     {
         if (read.ObjId == MyObjId && BuffCount_ <= 0)
         {
-            BuffSelectBtnHide();
+			playUi.BuffSelectBtnHide();
         }
         else
         {
@@ -308,9 +304,8 @@ public class Game : MonoBehaviour {
     void Start () 
 	{
         MyObjId = 0;
-        RespawnButton_.gameObject.SetActive(false);
-
-        BuffSelectBtnHide();
+        
+        //BuffSelectBtnHide();
         //RespawnButton_.enabled = false;
 
         RegisterPacketHandler();
@@ -420,7 +415,7 @@ public class Game : MonoBehaviour {
 		
     public void onRespawnButton()
     {
-        RespawnButton_.gameObject.SetActive(false);
+		playUi.RespawnButton_.SetActive(false);
         var Send = new GAME.CS_RESPAWN_CHARACTER();
         ProtobufManager.Instance().Send(opcode.CS_RESPAWN_CHARACTER, Send);
     }
@@ -473,7 +468,7 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().Send(opcode.CS_ENHANCE_BUFF, Send);
     }
 
-
+	/*
 	public void BuffSelectBtnShow()
 	{
         if (BuffRootHide.activeSelf)
@@ -506,6 +501,7 @@ public class Game : MonoBehaviour {
 		= new Vector3 (BuffRoot_.GetComponent<RectTransform>().localPosition.x, BuffRoot_.GetComponent<RectTransform> ().localPosition.y - 100, BuffRoot_.GetComponent<RectTransform>().localPosition.z);
 
 	}
+	*/
 
     private void Reset()
     {

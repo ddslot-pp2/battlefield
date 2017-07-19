@@ -7,7 +7,10 @@ using UnityEngine.UI;
 public class PlayUi : MonoBehaviour {
 
 	public Image coolTimer;
-
+	public GameObject BuffRoot_;
+	public GameObject BuffRootHide;
+	public GameObject BuffRootShow;
+	public GameObject RespawnButton_;
 
 	bool CheckCoolTime = false;
 
@@ -19,6 +22,8 @@ public class PlayUi : MonoBehaviour {
 	void Start () 
 	{
 		BattleLib.Instance.FireDelegate = ResetCoolTime;
+		RespawnButton_.SetActive(false);
+		BuffSelectBtnHide();
 	}
 	
 	// Update is called once per frame
@@ -45,4 +50,39 @@ public class PlayUi : MonoBehaviour {
 		myCoolTime = fireRate;
 		progressTime = 0.0f;
 	}
+
+	public void BuffSelectBtnShow()
+	{
+		if (BuffRootHide.activeSelf)
+		{
+			return;
+		}
+
+		Debug.Log ("BuffSelectBtnShow");
+		BuffRootHide.SetActive (true);
+		BuffRootShow.SetActive (false);
+		RectTransform rootRect = BuffRoot_.GetComponent<RectTransform> ();
+		BuffRoot_.GetComponent<RectTransform> ().localPosition 
+		= new Vector3 (BuffRoot_.GetComponent<RectTransform>().localPosition.x, BuffRoot_.GetComponent<RectTransform> ().localPosition.y + 100, BuffRoot_.GetComponent<RectTransform>().localPosition.z);
+
+	}
+
+	public void BuffSelectBtnHide()
+	{
+		if (!BuffRootHide.activeSelf)
+		{
+			return;
+		}
+
+
+		Debug.Log ("BuffSelectBtnHide");
+		BuffRootHide.SetActive (false);
+		BuffRootShow.SetActive (true);
+		RectTransform rootRect = BuffRoot_.GetComponent<RectTransform> ();
+		BuffRoot_.GetComponent<RectTransform> ().localPosition 
+		= new Vector3 (BuffRoot_.GetComponent<RectTransform>().localPosition.x, BuffRoot_.GetComponent<RectTransform> ().localPosition.y - 100, BuffRoot_.GetComponent<RectTransform>().localPosition.z);
+
+	}
+
+
 }
