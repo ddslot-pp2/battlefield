@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour {
 
+	public GameObject[] InGameItem;
+
+	/*
 	public GameObject hpItem;
 	public GameObject ExpItem;
 	public GameObject ShieldItem;
+	*/
 
 	static 	ItemManager _Instance;
 
@@ -36,22 +40,12 @@ public class ItemManager : MonoBehaviour {
 	public GameObject CreateItem( int itemType, float posX, float posY, float posZ)
 	{
 		Vector3 respawnPos = new Vector3 (posX, posY, posZ);
-
-		if (itemType == 0) 
+		if (InGameItem [itemType] == null) 
 		{
-			return hpItem.Spawn (respawnPos);
-		}
-		else if (itemType == 1)
-		{
-			return ExpItem.Spawn (respawnPos);
-		}
-		else if (itemType == 2)
-		{
-			return ShieldItem.Spawn (respawnPos);
+			return null;
 		}
 
-		return null;
-
+		return InGameItem [itemType].Spawn(respawnPos);
 	}
 		
 }

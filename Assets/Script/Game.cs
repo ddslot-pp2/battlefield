@@ -238,7 +238,7 @@ public class Game : MonoBehaviour {
 
     public void handler_SC_NOTI_ACQUIRE_ITEM(GAME.SC_NOTI_ACQUIRE_ITEM read)
     {
-		BattleLib.Instance.DestroyItem (read.ItemId, read.ObjId);
+		BattleLib.Instance.DestroyItem (read.ItemId, read.ObjId, read.ItemType, read.Hp);
 		/*
         var item_id = read.ItemId;
         var item_type = read.ItemType;

@@ -212,6 +212,12 @@ public class Tank : Entity {
 		hpBar.UpdateHpBar();
 	}
 
+	public void SetHp(int hp)
+	{
+		state.hp = hp;
+		hpBar.UpdateHpBar();
+	}
+
 	public void Dead()
 	{
 		dead = true;
