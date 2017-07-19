@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class HpItem : Item
 {
-	void Start ()
-    {
-        Type_ = Item.Type.HpItem;
-    }
-	
-	void Update ()
-    {
-        transform.RotateAround(transform.position, transform.up, Time.deltaTime * 45.0f);
-    }
+
+	protected override void Init () {
+
+		base.Init();
+
+		Type_ = Item.Type.Hp_Item;
+	}
+		
+	public override void EntityUpdate () 
+	{
+		transform.RotateAround(transform.position, transform.up, Time.deltaTime * 45.0f);
+	}
+
+
 }

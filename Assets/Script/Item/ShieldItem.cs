@@ -5,13 +5,15 @@ using UnityEngine;
 public class ShieldItem : Item
 {
 
-	// Use this for initialization
-	void Start () {
-		
+	protected override void Init () {
+
+		base.Init();
+
+		Type_ = Item.Type.SHILD_Item;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public override void EntityUpdate () 
+	{
+		transform.RotateAround(transform.position, transform.up, Time.deltaTime * 45.0f);
 	}
 }

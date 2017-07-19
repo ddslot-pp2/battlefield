@@ -213,6 +213,7 @@ public class Game : MonoBehaviour {
         // 아이템 잔상 때문에 이렇게 한번에 보냄 기종 item 리스트와 비교해서 업데이트
         foreach (var item_info in read.ItemInfos)
         {
+			/*
             var item_id = item_info.ItemId;
             Debug.Log("active item_id: " + item_id);
 
@@ -229,11 +230,16 @@ public class Game : MonoBehaviour {
                 item.transform.position = pos;
                 Items_[item_id] = item;
             }
+            */
+
+			BattleLib.Instance.CreateItem (item_info.ItemId , item_info.ItemType, item_info.PosX, item_info.PosY, item_info.PosZ);
         }
     }
 
     public void handler_SC_NOTI_ACQUIRE_ITEM(GAME.SC_NOTI_ACQUIRE_ITEM read)
     {
+		BattleLib.Instance.DestroyItem (read.ItemId, read.ObjId);
+		/*
         var item_id = read.ItemId;
         var item_type = read.ItemType;
         var hp = read.Hp;
@@ -247,6 +253,8 @@ public class Game : MonoBehaviour {
         var destry_obj = Items_[item_id];
         DestroyObject(destry_obj);
         Items_.Remove(item_id);
+        */
+
     }
 
     public void RegisterPacketHandler()

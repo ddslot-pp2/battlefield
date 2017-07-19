@@ -218,11 +218,6 @@ public class BattleLib : MonoBehaviour {
 	}
 	*/
 
-	public void CreateBullet(int index, float distance, float posx, float posz, float speed)
-	{
-		//Tank tankobject = m_entityList[index] as Tank;
-		//tankobject.CreateBullet (posx, posz, speed, distance);
-	}
 
 	public void CreateEntity(Int64 obj_id, int type, string name , bool myself, Vector3 spawnPos)
 	{
@@ -316,6 +311,22 @@ public class BattleLib : MonoBehaviour {
 		}
 	}
 
+	public void CreateItem( Int64 obId, int itemType, float posX, float posY, float posZ)
+	{
+		GameObject createItem = ItemManager.Instance.CreateItem (itemType, posX, posY, posZ);
+		if (createItem == null)
+			return;
+
+		Item itemEntity = createItem.GetComponent<Item> ();
+		itemEntity.ObjId = obId;
+
+		AddEntity (itemEntity);
+	}
+
+	public void DestroyItem(Int64 itemId, Int64 getUserId)
+	{
+		DeleteEntity(itemId);
+	}
 
 	public void CreateBullet(Int64 obId , Bullet.Type bullet_type, Int64 bullet_id, Vector3 pos, Vector3 look_dir, Vector3 bullet_dir, Vector3 size, float speed, float distance)
     {

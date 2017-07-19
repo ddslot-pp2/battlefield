@@ -7,7 +7,6 @@ public class Bullet : Entity
 {
     public enum Type { DirectBullet = 0 };
 	public GameObject ExpEffect;
-    private Int64 Id_;
     private Vector3 Pos_;
     private Vector3 Dir_;
 
@@ -58,16 +57,12 @@ public class Bullet : Entity
     public void SetProperty(Int64 Id, Vector3 Pos, Vector3 dir, float Speed, float Distance)
     {
         ObjId = Id;
-        Id_ = Id;
         Pos_ = Pos;
         Dir_ = dir;
         Speed_ = Speed;
         Distance_ = Distance;
     }
 
-    public Int64 GetId()
-    {
-        return Id_;
-    }
+    
 
 }

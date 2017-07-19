@@ -2,19 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item : Entity
 {
-    public enum Type { HpItem = 0 };
+    public enum Type { Hp_Item = 0, EXP_Item = 1, SHILD_Item = 2};
 
-	void Start ()
-    {
+	protected override void Init () {
+
+		base.Init();
+	}
+
+	public override void Release()
+	{
+		gameObject.Recycle();
+	}
+
+	public override void EntityUpdate () 
+	{
 		
 	}
-	
-	void Update ()
-    {
-       
-    }
-
+		
     protected Type Type_;
 }

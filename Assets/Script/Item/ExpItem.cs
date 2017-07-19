@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class ExpItem : Item
 {
-	void Start ()
-    {
-		
-	}
 	
-	void Update () {
-		
+	protected override void Init () {
+
+		base.Init();
+
+		Type_ = Item.Type.EXP_Item;
+	}
+
+	public override void EntityUpdate () 
+	{
+		transform.RotateAround(transform.position, transform.up, Time.deltaTime * 45.0f);
 	}
 }
