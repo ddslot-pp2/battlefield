@@ -121,6 +121,13 @@ public class BattleLib : MonoBehaviour {
 
 	public void AddEntity( Entity entity )
 	{
+
+		if (entity.ObjId > 0 && EntityDic.ContainsKey (entity.ObjId) == true) 
+		{
+			Debug.Log ("already exist id :" + entity.ObjId);
+			return;
+		}
+
 		EntityList.Add(entity);
 		EntityDic.Add (entity.ObjId, entity);
 	}
@@ -213,8 +220,7 @@ public class BattleLib : MonoBehaviour {
 		}
 		
 	}
-
-
+		
 	public bool GetMyEntityIsDead()
 	{
 		if (m_myObId == -1)
@@ -254,6 +260,7 @@ public class BattleLib : MonoBehaviour {
 
 	public void CreateItem( Int64 obId, int itemType, float posX, float posY, float posZ)
 	{
+		//Debug.Log ("CreateItem itemId:" + obId);
 		GameObject createItem = ItemManager.Instance.CreateItem (itemType, posX, posY, posZ);
 		if (createItem == null)
 			return;
@@ -266,6 +273,7 @@ public class BattleLib : MonoBehaviour {
 
 	public void DestroyItem(Int64 itemId, Int64 tankId, int itemType, int tankHp)
 	{
+		//Debug.Log ("DestroyItem itemId:" + itemId);
 		DeleteEntity(itemId);
 
 		Tank tankObject = EntityDic[tankId] as Tank;
