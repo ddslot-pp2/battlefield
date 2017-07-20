@@ -28,6 +28,10 @@ public class Tank : Entity {
     private float SlowdownSpeed_ = 0.0f;
     private float SlowdownTime_ = 0.0f;
 
+	Vector3 controllDir = Vector3.zero;
+
+	//private Controller controller;
+
     protected override void Init () {
 
 		base.Init();
@@ -42,6 +46,13 @@ public class Tank : Entity {
 
         SlowdownSpeed_ = 1.0f;
     }
+
+	public void SetMyEntity()
+	{
+		m_my = true;
+
+		Controller.Instance.DirDelegate = SetControllDir;
+	}
 
 	public override void Release()
 	{
@@ -61,10 +72,29 @@ public class Tank : Entity {
 		MoveEntity();
 	}
 
+	public void SetControllDir(Vector3 Dir)
+	{
+		controllDir = Dir;
+	}
 
 	void MoveEntity()
 	{
 		if (IsDead()) return;
+
+
+		if (IsMyEntity ()) 
+		{
+			if (controllDir.x != 0 && controllDir.y != 0)
+			{
+				lookDirection = controllDir.x * Vector3.right + controllDir.y * Vector3.forward;
+				myTransform.rotation = Quaternion.LookRotation(state.direct * lookDirection);
+				if (controllDir != new Vector3(0, 0, 0))
+					myTransform.Translate(state.forward * state.moveSpeed * Time.deltaTime * SlowdownSpeed_);
+
+				//Debug.Log(Time.deltaTime);
+			}
+		}
+
 
 		if (move) 
 		{

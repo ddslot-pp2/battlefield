@@ -6,16 +6,49 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Controller : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler {
-    private Image joystickImg;
+
+
+	public Image joystickImg;
     private Vector3 inputVector;
     private Vector3 first;
     public Vector3 dir;
     public Vector2 pos;
     public float distance;
+
+	public delegate void ControllDelegate(Vector3 pos);
+
+	public ControllDelegate DirDelegate;
+
     // Use this for initialization
     
+	static 	Controller _Instance;
+
+	public static Controller Instance
+	{
+		get
+		{
+			if (_Instance == null)
+			{
+				_Instance = GameObject.FindObjectOfType(typeof(Controller)) as Controller;
+
+				if (_Instance == null)
+				{
+					GameObject kNewObject = GameObject.Instantiate( Resources.Load("Prefab/Global/Controller") ) as GameObject;
+					kNewObject.name = "Controller";
+
+					DontDestroyOnLoad( kNewObject );
+
+					_Instance = kNewObject.GetComponent<Controller>();
+				}
+			}
+
+			return _Instance;
+		}
+	}
+
+
     void Start () {
-        joystickImg = transform.GetChild(0).GetComponent<Image>();
+       
         first = joystickImg.transform.position;
     }
 	
@@ -63,6 +96,8 @@ public class Controller : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoint
 
 	public void Update()
 	{
+		if (null != DirDelegate) DirDelegate(dir);
+
 		if (Input.GetMouseButtonDown(0))
 		{
 

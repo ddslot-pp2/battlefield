@@ -11,7 +11,7 @@ public class Game : MonoBehaviour {
 
 	public GameCamera gameCamera;
 	public PlayUi playUi;
-
+	//public bool UseJoystick = false;
 
 	TouchDispatcher _TouchDispatcher = new TouchDispatcher();
 
@@ -283,6 +283,12 @@ public class Game : MonoBehaviour {
 
 		Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out TFire);
 
+
+		if ( playUi.UseJoystick)
+		{
+			BattleLib.Instance.TryFire(MyObjId, TFire.point.x, TFire.point.z);
+			return;
+		}
 
 		if (Vector3.Distance (BeginPos, pos) > DRAG_AS_FIRE_DISTANCE) 
 		{

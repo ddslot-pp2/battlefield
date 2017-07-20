@@ -180,7 +180,7 @@ public class BattleLib : MonoBehaviour {
 		}
 
 		entity_instance.name = obj_id.ToString();
-		Entity tankEntity = entity_instance.GetComponent<Entity>();
+		Tank tankEntity = entity_instance.GetComponent<Tank>();
 
 		if (myself) 
 		{

@@ -11,11 +11,15 @@ public class PlayUi : MonoBehaviour {
 	public GameObject BuffRootHide;
 	public GameObject BuffRootShow;
 	public GameObject RespawnButton_;
+	public GameObject UseJoypad;
+	public GameObject JoyStick;
 
 	bool CheckCoolTime = false;
 
 	float myCoolTime = 0.0f;
 	float progressTime = 0.0f;
+
+	public bool UseJoystick = false;
 
 
 	// Use this for initialization
@@ -24,6 +28,8 @@ public class PlayUi : MonoBehaviour {
 		BattleLib.Instance.FireDelegate = ResetCoolTime;
 		RespawnButton_.SetActive(false);
 		BuffSelectBtnHide();
+		UseJoystick = false;
+		JoyStick.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -49,6 +55,18 @@ public class PlayUi : MonoBehaviour {
 		coolTimer.fillAmount = 0;
 		myCoolTime = fireRate;
 		progressTime = 0.0f;
+	}
+
+	public void ChangeJostick()
+	{
+		if (UseJoystick) {
+			UseJoystick = false;
+			JoyStick.SetActive (false);
+		} else 
+		{
+			UseJoystick = true;
+			JoyStick.SetActive (true);
+		}
 	}
 
 	public void BuffSelectBtnShow()
