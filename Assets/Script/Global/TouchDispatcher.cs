@@ -136,11 +136,13 @@ namespace GameCore
 				return false;
 			}
 
+
 			if( CheckUiBegin ) 
 			{
 				CheckUiBegin = false;
 				return false;
 			}
+
 
             return Input.GetButtonUp("Fire1");
 #else
