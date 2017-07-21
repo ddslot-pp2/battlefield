@@ -94,6 +94,7 @@ public class InputManager : MonoBehaviour {
 
 	bool IsTouchEnded()
 	{
+		
 		#if (UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX )
 
 		if( IsPointerOverUiObjectMouse() )
@@ -134,8 +135,9 @@ public class InputManager : MonoBehaviour {
 		}		
 		}
 
-		return false
+		return false;
 		#endif
+
 	}
 
 	bool IsTouchBegan()
