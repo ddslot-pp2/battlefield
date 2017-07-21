@@ -21,6 +21,8 @@ public class InputManager : MonoBehaviour {
 
 	private bool CheckUiBegin = false;
 	private bool CheckUiBegin2 = false;
+	private Vector3 _beginPosition;
+	private Vector3 _beginPosition2;
 
 	public static InputManager Instance
 	{
@@ -108,31 +110,32 @@ public class InputManager : MonoBehaviour {
 			return false;
 		}
 
+		Debug.Log("GetTouchPosition(0)"+ GetTouchPosition(0));
 		return Input.GetButtonUp("Fire1");
 		#else
 
-		if( Input.touchCount > 0 && (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
+		if( Input.touchCount > 0 && (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled))
 		{
-		if( CheckUiBegin ) 
-		{
-		CheckUiBegin = false;
-		}
-		else
-		{
-		if (null != ClickDelegate) ClickDelegate(GetTouchPosition(0));
-		}
+			if( CheckUiBegin ) 
+			{
+			CheckUiBegin = false;
+			}
+			else
+			{
+			if (null != ClickDelegate) ClickDelegate(GetTouchPosition(0));
+			}
 		}
 
-		if( Input.touchCount > 1 && (Input.touches[1].phase == TouchPhase.Ended || Input.touches[1].phase == TouchPhase.Canceled)
+		if( Input.touchCount > 1 && (Input.touches[1].phase == TouchPhase.Ended || Input.touches[1].phase == TouchPhase.Canceled))
 		{
-		if( CheckUiBegin2 ) 
-		{
-		CheckUiBegin2 = false;
-		}
-		else
-		{
-		if (null != ClickDelegate) ClickDelegate(GetTouchPosition(1));
-		}		
+			if( CheckUiBegin2 ) 
+			{
+				CheckUiBegin2 = false;
+			}
+			else
+			{
+				if (null != ClickDelegate) ClickDelegate(GetTouchPosition(1));
+			}		
 		}
 
 		return false;
