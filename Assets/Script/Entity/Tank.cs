@@ -51,7 +51,11 @@ public class Tank : Entity {
 	{
 		m_my = true;
 
-		Controller.Instance.DirDelegate = SetControllDir;
+		Debug.Log ("SetMyEntity");
+		Controller.Instance.DirDelegate += SetControllDir;
+		//Debug.Log ("Controller.Instance.DirDelegate" + Controller.Instance.DirDelegate);
+
+
 	}
 
 	public override void Release()
@@ -74,6 +78,7 @@ public class Tank : Entity {
 
 	public void SetControllDir(Vector3 Dir)
 	{
+		//Debug.Log ("SetControllDir:" + Dir);
 		controllDir = Dir;
 	}
 

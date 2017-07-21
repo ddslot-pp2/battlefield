@@ -15,8 +15,19 @@ public class Controller : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoint
     public Vector2 pos;
     public float distance;
 
-	public delegate void ControllDelegate(Vector3 pos);
 
+	private Vector3 _beginPosition;
+	private Vector3 _beginPosition2;
+
+	private Vector3 _prevPosition;
+	private Vector3 _positionForDBClick = Vector3.zero;
+
+	private float _prevTouchTime;
+
+	private bool CheckUiBegin = false;
+	private bool CheckUiBegin2 = false;
+
+	public delegate void ControllDelegate(Vector3 pos);
 	public ControllDelegate DirDelegate;
 
     // Use this for initialization
@@ -50,7 +61,10 @@ public class Controller : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoint
     void Start () {
        
         first = joystickImg.transform.position;
+		//DirDelegate += aaaaaA;
     }
+
+
 	
     public void OnDrag(PointerEventData ped)
     {
@@ -96,12 +110,13 @@ public class Controller : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoint
 
 	public void Update()
 	{
-		if (null != DirDelegate) DirDelegate(dir);
-
-		if (Input.GetMouseButtonDown(0))
+		//Debug.Log ("Controller.Instance.DirDelegate" + DirDelegate);
+		if (null != DirDelegate) 
 		{
-
+			//Debug.Log ("DirDelegate");
+			DirDelegate (dir);
 		}
-	}
 
+	}
+		
 }

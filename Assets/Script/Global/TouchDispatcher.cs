@@ -22,7 +22,6 @@ namespace GameCore
         private Vector3 _beginPosition;
         private Vector3 _prevPosition;
 		private Vector3 _positionForDBClick = Vector3.zero;
-		private int pointId = -1;
 		private float _prevTouchTime;
 		private bool CheckUiBegin = false;
 
@@ -33,12 +32,8 @@ namespace GameCore
 		void Awake()
 		{
 
-			#if (UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX)
-				pointId	 = -1;
-			#else
-				pointId = 0;
-			#endif
 		}
+
         // Update is called once per frame
         public void Update()
         {

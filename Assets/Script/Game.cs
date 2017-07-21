@@ -11,24 +11,16 @@ public class Game : MonoBehaviour {
 
 	public GameCamera gameCamera;
 	public PlayUi playUi;
-	//public bool UseJoystick = false;
 
 	TouchDispatcher _TouchDispatcher = new TouchDispatcher();
 
 	protected RaycastHit TFire;
-	Vector3 Click,BeginPos,LastPos_ ;
+	Vector3 BeginPos,LastPos_ ;
 
-	float lastSendTime;
-
-  
     Int64 MyObjId;
     
- 
     enum BuffType { MaxHpUp, TankSpeedUp, BulletSpeedUp, BulletPowerUp, BulletDistanceUp, BulletReloadTimeDown };
 
-
-    // 나중에 item_manager가 되든 빼야할듯
-    public Dictionary<Int64, GameObject> Items_;
 
     // 1초에 5번만
     private const float UPDATE_MOVE_INTERVAL = 1.0f / 5.0f;
@@ -275,20 +267,36 @@ public class Game : MonoBehaviour {
 		BeginPos = pos;
 	}
 		
-	void OnTouchEnded(Vector3 pos)
+	void JoystickModeTouch(Vector3 pos)
 	{
-		
+		Debug.Log ("JoystickModeTouch");
+
+		if (!playUi.UseJoystick) 
+		{
+			return;
+		}
+
 		if (BattleLib.Instance.GetMyEntityIsDead ())
 			return;
 
 		Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out TFire);
 
+		BattleLib.Instance.TryFire(MyObjId, TFire.point.x, TFire.point.z);
+	}
 
-		if ( playUi.UseJoystick)
+	void OnTouchEnded(Vector3 pos)
+	{
+		
+		if (playUi.UseJoystick) 
 		{
-			BattleLib.Instance.TryFire(MyObjId, TFire.point.x, TFire.point.z);
 			return;
 		}
+
+		if (BattleLib.Instance.GetMyEntityIsDead ())
+			return;
+
+
+		Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out TFire);
 
 		if (Vector3.Distance (BeginPos, pos) > DRAG_AS_FIRE_DISTANCE) 
 		{
@@ -321,9 +329,28 @@ public class Game : MonoBehaviour {
 		_TouchDispatcher.BeganDelegate = new TouchDispatcher.TouchDelegate(OnTouchBegan);
 		_TouchDispatcher.EndedDelegate = new TouchDispatcher.TouchDelegate(OnTouchEnded);
 
-        Items_ = new Dictionary<Int64, GameObject>();
+		InputManager.Instance.ClickDelegate += JoystickModeTouch;
+		//Controller.Instance.test1dele = Testaaa;
+		//Controller.Instance.test2dele = Testbbb;
 
+		//test.Instance.test1dele = Testaaa;
+		//test.Instance.test2dele = Testbbb;
+		//aatest.test1dele = Testaaa;
+		//aatest.test2dele = Testbbb;
+
+
+		 //Controller.Instance.ClickDelegate += JoystickModeTouch;
     }
+
+	public void Testaaa()
+	{
+		Debug.Log("Testaaa:");
+	}
+
+	public void Testbbb()
+	{
+		Debug.Log("Testbbb:");
+	}
 	// Update is called once per frame
 
 	void LateUpdate()
