@@ -267,6 +267,7 @@ public class Game : MonoBehaviour {
 		BeginPos = pos;
 	}
 		
+	/*
 	void JoystickModeTouch(Vector3 pos)
 	{
 		Debug.Log ("JoystickModeTouch");
@@ -283,6 +284,7 @@ public class Game : MonoBehaviour {
 
 		BattleLib.Instance.TryFire(MyObjId, TFire.point.x, TFire.point.z);
 	}
+	*/
 
 	void OnTouchEnded(Vector3 pos)
 	{
@@ -300,7 +302,7 @@ public class Game : MonoBehaviour {
 
 		if (Vector3.Distance (BeginPos, pos) > DRAG_AS_FIRE_DISTANCE) 
 		{
-            BattleLib.Instance.TryFire(MyObjId, TFire.point.x, TFire.point.z);
+            BattleLib.Instance.TryFire(TFire.point.x, TFire.point.z);
         } 
 		else 
 		{

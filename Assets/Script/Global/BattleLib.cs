@@ -367,21 +367,10 @@ public class BattleLib : MonoBehaviour {
         }
     }
 
-	public void CheckRightPad(Vector3 padDir)
-	{
-		Tank tankObject = EntityDic[m_myObId] as Tank;
-
-		bool sendComplete = tankObject.SendFire (padDir.x, padDir.y, true);
-
-		if (sendComplete) 
-		{
-			//if (null != FireDelegate) FireDelegate(tankObject.state.fireRate);
-		}
-	}
 		
-    public void TryFire(Int64 obj_id, float x, float z)
+    public void TryFire(float x, float z)
     {
-        Tank tankObject = EntityDic[obj_id] as Tank;
+		Tank tankObject = EntityDic[m_myObId] as Tank;
 
 		bool sendComplete = tankObject.SendFire (x, z, false);
 

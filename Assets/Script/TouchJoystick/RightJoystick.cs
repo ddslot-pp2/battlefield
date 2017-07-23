@@ -140,7 +140,7 @@ public class RightJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPo
 		//Debug.Log ("inputVector.x:" + inputVector.x);
 		//Debug.Log ("inputVector.y:" + inputVector.y);
 
-		BattleLib.Instance.CheckRightPad(GetInputDirection());
+		BattleLib.Instance.TryFire(inputVector.x, inputVector.y);
 
 
         inputVector = Vector3.zero; // resets the inputVector so that output will no longer affect movement of the game object (example, a player character or any desired game object)
