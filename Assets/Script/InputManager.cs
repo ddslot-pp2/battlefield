@@ -110,7 +110,7 @@ public class InputManager : MonoBehaviour {
 			return false;
 		}
 
-		Debug.Log("GetTouchPosition(0)"+ GetTouchPosition(0));
+		//Debug.Log("GetTouchPosition(0)"+ GetTouchPosition(0));
 		return Input.GetButtonUp("Fire1");
 		#else
 

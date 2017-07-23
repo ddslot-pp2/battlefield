@@ -362,6 +362,56 @@ public class BattleLib : MonoBehaviour {
         }
     }
 
+	public void CheckRightPad(Vector3 padDir)
+	{
+
+		Tank tankObject = EntityDic[m_myObId] as Tank;
+
+		if (tankObject.IsDead ())
+			return;
+
+		if (!tankObject.CheckFire())
+			return;
+
+		if (null != FireDelegate) FireDelegate(tankObject.state.fireRate);
+
+		tankObject.AddSlowdownTime(1.0f);
+		//tankObject.SetMove (false);
+
+		var tank_pos = tankObject.transform.position;
+		Vector3 look_dir = padDir.x * Vector3.right + padDir.y * Vector3.forward;
+
+		var fire_dirs = tankObject.GetFireDirs(look_dir);
+
+		var Send = new GAME.CS_FIRE();
+		// 추후 탱크마다 불렛 타입도 지정해줌
+		Send.BulletType = 0;
+
+		Send.PosX = tank_pos.x;
+		Send.PosY = tank_pos.y;
+		Send.PosZ = tank_pos.z;
+
+		Send.DirX = look_dir.x;
+		Send.DirY = look_dir.y;
+		Send.DirZ = look_dir.z;
+
+		foreach (var dir in fire_dirs)
+		{
+			GAME.BULLET_INFO bullet = new GAME.BULLET_INFO();
+			bullet.DirX = dir.x;
+			bullet.DirY = dir.y;
+			bullet.DirZ = dir.z;
+
+			Send.BulletInfos.Add(bullet);
+		}
+
+
+
+		ProtobufManager.Instance().Send(opcode.CS_FIRE, Send);
+
+
+	}
+
     public void TryFire(Int64 obj_id, float x, float z)
     {
         // 이것또한 탱크로 밀어 넣자

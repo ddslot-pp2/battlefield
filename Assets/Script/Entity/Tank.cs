@@ -52,7 +52,7 @@ public class Tank : Entity {
 		m_my = true;
 
 		Debug.Log ("SetMyEntity");
-		Controller.Instance.DirDelegate += SetControllDir;
+		//Controller.Instance.DirDelegate += SetControllDir;
 		//Debug.Log ("Controller.Instance.DirDelegate" + Controller.Instance.DirDelegate);
 
 
@@ -79,7 +79,7 @@ public class Tank : Entity {
 	public void SetControllDir(Vector3 Dir)
 	{
 		//Debug.Log ("SetControllDir:" + Dir);
-		controllDir = Dir;
+		//controllDir = Dir;
 	}
 
 	void MoveEntity()
@@ -89,6 +89,8 @@ public class Tank : Entity {
 
 		if (IsMyEntity ()) 
 		{
+			controllDir = DualJoystickPlayerController.Instance.GetleftJoystickDirection();
+
 			if (controllDir.x != 0 && controllDir.y != 0)
 			{
 				lookDirection = controllDir.x * Vector3.right + controllDir.y * Vector3.forward;
@@ -96,8 +98,10 @@ public class Tank : Entity {
 				if (controllDir != new Vector3(0, 0, 0))
 					myTransform.Translate(state.forward * state.moveSpeed * Time.deltaTime * SlowdownSpeed_);
 
+				return;
 				//Debug.Log(Time.deltaTime);
 			}
+				
 		}
 
 

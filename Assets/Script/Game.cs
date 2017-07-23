@@ -329,7 +329,7 @@ public class Game : MonoBehaviour {
 		_TouchDispatcher.BeganDelegate = new TouchDispatcher.TouchDelegate(OnTouchBegan);
 		_TouchDispatcher.EndedDelegate = new TouchDispatcher.TouchDelegate(OnTouchEnded);
 
-		InputManager.Instance.ClickDelegate += JoystickModeTouch;
+		//InputManager.Instance.ClickDelegate += JoystickModeTouch;
 		//Controller.Instance.test1dele = Testaaa;
 		//Controller.Instance.test2dele = Testbbb;
 
