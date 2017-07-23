@@ -12,7 +12,7 @@ public class PlayUi : MonoBehaviour {
 	public GameObject BuffRootShow;
 	public GameObject RespawnButton_;
 	public GameObject UseJoypad;
-	public GameObject JoyStick;
+	//public GameObject JoyStick;
 
 	bool CheckCoolTime = false;
 
@@ -29,7 +29,7 @@ public class PlayUi : MonoBehaviour {
 		RespawnButton_.SetActive(false);
 		BuffSelectBtnHide();
 		UseJoystick = false;
-		JoyStick.SetActive (false);
+		//JoyStick.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -61,11 +61,11 @@ public class PlayUi : MonoBehaviour {
 	{
 		if (UseJoystick) {
 			UseJoystick = false;
-			JoyStick.SetActive (false);
+			//JoyStick.SetActive (false);
 		} else 
 		{
 			UseJoystick = true;
-			JoyStick.SetActive (true);
+			//JoyStick.SetActive (true);
 		}
 	}
 

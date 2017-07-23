@@ -50,12 +50,6 @@ public class Tank : Entity {
 	public void SetMyEntity()
 	{
 		m_my = true;
-
-		Debug.Log ("SetMyEntity");
-		//Controller.Instance.DirDelegate += SetControllDir;
-		//Debug.Log ("Controller.Instance.DirDelegate" + Controller.Instance.DirDelegate);
-
-
 	}
 
 	public override void Release()
@@ -97,6 +91,8 @@ public class Tank : Entity {
 				myTransform.rotation = Quaternion.LookRotation(state.direct * lookDirection);
 				if (controllDir != new Vector3(0, 0, 0))
 					myTransform.Translate(state.forward * state.moveSpeed * Time.deltaTime * SlowdownSpeed_);
+
+				move = false;
 
 				return;
 				//Debug.Log(Time.deltaTime);
