@@ -412,6 +412,8 @@ public class BattleLib : MonoBehaviour {
 
 	}
 
+
+
     public void TryFire(Int64 obj_id, float x, float z)
     {
         // 이것또한 탱크로 밀어 넣자

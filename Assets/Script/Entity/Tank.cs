@@ -83,24 +83,26 @@ public class Tank : Entity {
 
 		if (IsMyEntity ()) 
 		{
-			controllDir = DualJoystickPlayerController.Instance.GetleftJoystickDirection();
-
-			if (controllDir.x != 0 && controllDir.y != 0)
+			Vector3 RightDir = DualJoystickPlayerController.Instance.GetRightJoystickDirection();
+			if (RightDir.x != 0 && RightDir.y != 0)
 			{
-				lookDirection = controllDir.x * Vector3.right + controllDir.y * Vector3.forward;
+				lookDirection = RightDir.x * Vector3.right + RightDir.y * Vector3.forward;
+				fireTransform.rotation = Quaternion.LookRotation(state.direct * lookDirection);
+			}
+				
+			Vector3 LeftDir = DualJoystickPlayerController.Instance.GetleftJoystickDirection();
+
+			if (LeftDir.x != 0 && LeftDir.y != 0)
+			{
+				lookDirection = LeftDir.x * Vector3.right + LeftDir.y * Vector3.forward;
 				myTransform.rotation = Quaternion.LookRotation(state.direct * lookDirection);
-				if (controllDir != new Vector3(0, 0, 0))
+				if (LeftDir != new Vector3(0, 0, 0))
 					myTransform.Translate(state.forward * state.moveSpeed * Time.deltaTime * SlowdownSpeed_);
-
 				move = false;
-
-				return;
-				//Debug.Log(Time.deltaTime);
 			}
 				
 		}
-
-
+			
 		if (move) 
 		{
 			if (Vector3.Distance (myTransform.position, ArrivePos) > 0.4f) {
@@ -198,20 +200,6 @@ public class Tank : Entity {
 		SetMove (true);
 	}
 
-	/*
-	public void Attack(float posX, float posZ)
-	{
-		if (fireTransform == null)
-		return;
-
-        //AttackDir = ( new Vector3(posX, 0.0f, posZ ) - transform.position ).normalized;
-        //AttackDir.y = 0;
-        AttackDir = new Vector3(posX, 0.0f, posZ);
-        fireTransform.rotation = Quaternion.LookRotation(AttackDir); 
-
-		Fire ();
-	}
-	*/
 
     public void CreateBullet(float posX, float posZ, float speed, float distance)
     {
@@ -235,6 +223,7 @@ public class Tank : Entity {
     {
 		return new Vector3[] { Vector3 };
     }
+		
 		
 	public void GetDamage(int damage)
 	{
