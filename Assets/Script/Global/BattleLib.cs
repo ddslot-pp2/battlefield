@@ -290,11 +290,16 @@ public class BattleLib : MonoBehaviour {
 
 	public void CreateBullet(Int64 obId , Bullet.Type bullet_type, Int64 bullet_id, Vector3 pos, Vector3 look_dir, Vector3 bullet_dir, Vector3 size, float speed, float distance)
     {
+		//Debug.Log ("speed:" + speed);
+
 		Tank tankObject = EntityDic[obId] as Tank;
 		if (tankObject == null)
 			return;
 
 		tankObject.Fire();
+
+		if (null != FireDelegate)
+			FireDelegate (tankObject.state.fireRate);
 
         // bullet 발사의 시작 위치를 나이스하게 가져오고 싶음;
 		Transform fire_transform = tankObject.fireTransform;
@@ -364,101 +369,25 @@ public class BattleLib : MonoBehaviour {
 
 	public void CheckRightPad(Vector3 padDir)
 	{
-
 		Tank tankObject = EntityDic[m_myObId] as Tank;
 
-		if (tankObject.IsDead ())
-			return;
+		bool sendComplete = tankObject.SendFire (padDir.x, padDir.y, true);
 
-		if (!tankObject.CheckFire())
-			return;
-
-		if (null != FireDelegate) FireDelegate(tankObject.state.fireRate);
-
-		tankObject.AddSlowdownTime(1.0f);
-		//tankObject.SetMove (false);
-
-		var tank_pos = tankObject.transform.position;
-		Vector3 look_dir = padDir.x * Vector3.right + padDir.y * Vector3.forward;
-
-		var fire_dirs = tankObject.GetFireDirs(look_dir);
-
-		var Send = new GAME.CS_FIRE();
-		// 추후 탱크마다 불렛 타입도 지정해줌
-		Send.BulletType = 0;
-
-		Send.PosX = tank_pos.x;
-		Send.PosY = tank_pos.y;
-		Send.PosZ = tank_pos.z;
-
-		Send.DirX = look_dir.x;
-		Send.DirY = look_dir.y;
-		Send.DirZ = look_dir.z;
-
-		foreach (var dir in fire_dirs)
+		if (sendComplete) 
 		{
-			GAME.BULLET_INFO bullet = new GAME.BULLET_INFO();
-			bullet.DirX = dir.x;
-			bullet.DirY = dir.y;
-			bullet.DirZ = dir.z;
-
-			Send.BulletInfos.Add(bullet);
+			//if (null != FireDelegate) FireDelegate(tankObject.state.fireRate);
 		}
-
-
-
-		ProtobufManager.Instance().Send(opcode.CS_FIRE, Send);
-
-
 	}
-
-
-
+		
     public void TryFire(Int64 obj_id, float x, float z)
     {
-        // 이것또한 탱크로 밀어 넣자
         Tank tankObject = EntityDic[obj_id] as Tank;
 
-		if (tankObject.IsDead ())
-			return;
+		bool sendComplete = tankObject.SendFire (x, z, false);
 
-        if (!tankObject.CheckFire())
-            return;
-
-		if (null != FireDelegate) FireDelegate(tankObject.state.fireRate);
-
-        tankObject.AddSlowdownTime(1.0f);
-		//tankObject.SetMove (false);
-
-        var tank_pos = tankObject.transform.position;
-        var look_dir = (new Vector3(x, 0.0f, z) - tank_pos).normalized;
-
-        var fire_dirs = tankObject.GetFireDirs(look_dir);
-
-        var Send = new GAME.CS_FIRE();
-        // 추후 탱크마다 불렛 타입도 지정해줌
-        Send.BulletType = 0;
-
-        Send.PosX = tank_pos.x;
-        Send.PosY = tank_pos.y;
-        Send.PosZ = tank_pos.z;
-
-        Send.DirX = look_dir.x;
-        Send.DirY = look_dir.y;
-        Send.DirZ = look_dir.z;
-
-        foreach (var dir in fire_dirs)
-        {
-            GAME.BULLET_INFO bullet = new GAME.BULLET_INFO();
-            bullet.DirX = dir.x;
-            bullet.DirY = dir.y;
-            bullet.DirZ = dir.z;
-
-            Send.BulletInfos.Add(bullet);
-        }
-
-
-
-        ProtobufManager.Instance().Send(opcode.CS_FIRE, Send);
+		if (sendComplete) 
+		{
+			//if (null != FireDelegate) FireDelegate(tankObject.state.fireRate);
+		}
     }
 }

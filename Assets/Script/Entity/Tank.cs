@@ -88,6 +88,8 @@ public class Tank : Entity {
 			{
 				lookDirection = RightDir.x * Vector3.right + RightDir.y * Vector3.forward;
 				fireTransform.rotation = Quaternion.LookRotation(state.direct * lookDirection);
+
+				SendFire (RightDir.x, RightDir.y, true);
 			}
 				
 			Vector3 LeftDir = DualJoystickPlayerController.Instance.GetleftJoystickDirection();
@@ -99,6 +101,7 @@ public class Tank : Entity {
 				if (LeftDir != new Vector3(0, 0, 0))
 					myTransform.Translate(state.forward * state.moveSpeed * Time.deltaTime * SlowdownSpeed_);
 				move = false;
+
 			}
 				
 		}
@@ -122,9 +125,7 @@ public class Tank : Entity {
 
 	void UpdateFireTime()
 	{
-		//Debug.Log("탱크 업데이트 콜\n");
 		FireTime_ = FireTime_ + (Time.deltaTime * 1000.0f);
-
 
 		if (SlowdownSpeed_ < 1.0f)
 		{
@@ -132,7 +133,6 @@ public class Tank : Entity {
 		}
 
 		return;
-
 
 		if (SlowdownTime_ > 0.0f)
 		{
@@ -280,9 +280,53 @@ public class Tank : Entity {
 
     public void AddSlowdownTime(float delta)
     {
-        Debug.Log("슬로우 다운 시작");
+        //Debug.Log("슬로우 다운 시작");
         SlowdownSpeed_ = 0.0f;
         SlowdownTime_ += delta;
     }  
+
+	public bool SendFire(float x, float z, bool joystick)
+	{
+		if (IsDead())
+			return false;
+
+		if (!CheckFire())
+			return false;
+
+		AddSlowdownTime(1.0f);
+	
+		var look_dir = (new Vector3(x, 0.0f, z) - myTransform.position).normalized;
+
+		if (joystick) 
+		{
+			look_dir = x * Vector3.right + z * Vector3.forward;
+		} 
+	
+		var fire_dirs = GetFireDirs(look_dir);
+
+		var Send = new GAME.CS_FIRE();
+		// 추후 탱크마다 불렛 타입도 지정해줌
+		Send.BulletType = 0;
+		Send.PosX = myTransform.position.x;
+		Send.PosY = myTransform.position.y;
+		Send.PosZ = myTransform.position.z;
+		Send.DirX = look_dir.x;
+		Send.DirY = look_dir.y;
+		Send.DirZ = look_dir.z;
+
+		foreach (var dir in fire_dirs)
+		{
+			GAME.BULLET_INFO bullet = new GAME.BULLET_INFO();
+			bullet.DirX = dir.x;
+			bullet.DirY = dir.y;
+			bullet.DirZ = dir.z;
+
+			Send.BulletInfos.Add(bullet);
+		}
+			
+		ProtobufManager.Instance().Send(opcode.CS_FIRE, Send);
+
+		return true;
+	}
    
 }

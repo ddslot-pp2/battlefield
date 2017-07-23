@@ -47,7 +47,7 @@ public class Bullet : Entity
     {
         ObjId = Id;
         Pos_ = Pos;
-        Dir_ = dir;
+		Dir_ = dir.normalized;
         Speed_ = Speed;
         Distance_ = Distance;
     }
