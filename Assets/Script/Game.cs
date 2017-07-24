@@ -96,7 +96,7 @@ public class Game : MonoBehaviour {
     {
 		BattleLib.Instance.ReceivePos(read.ObjId, read.PosX, read.PosZ);
 		//ReceiveUserClickInfo(obj_id, read.PosX, read.PosZ, false);
-        //Debug.Log("다른 유저가 움직임\n");
+		//Debug.Log("read" + read.ObjId);
     }
 
     // 나를 포함한 모든 탱크가 미사일 발사시 브로드캐스팅해서 전달됨

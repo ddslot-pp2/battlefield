@@ -70,11 +70,12 @@ public class Tank : Entity {
 		MoveEntity();
 	}
 
+	/*
 	public void SetControllDir(Vector3 Dir)
 	{
-		//Debug.Log ("SetControllDir:" + Dir);
 		//controllDir = Dir;
 	}
+	*/
 
 	void MoveEntity()
 	{
@@ -127,12 +128,13 @@ public class Tank : Entity {
 	{
 		FireTime_ = FireTime_ + (Time.deltaTime * 1000.0f);
 
+		/*
 		if (SlowdownSpeed_ < 1.0f)
 		{
 			SlowdownSpeed_ = SlowdownSpeed_ + 0.02f;
 		}
 
-		return;
+
 
 		if (SlowdownTime_ > 0.0f)
 		{
@@ -144,6 +146,7 @@ public class Tank : Entity {
                 SlowdownTime_  = 0.0f;
 			}
 		}
+		*/
 	}
 
 	public void SetMove(bool bMove)
@@ -293,7 +296,7 @@ public class Tank : Entity {
 		if (!CheckFire())
 			return false;
 
-		AddSlowdownTime(1.0f);
+		//AddSlowdownTime(1.0f);
 	
 		var look_dir = (new Vector3(x, 0.0f, z) - myTransform.position).normalized;
 
