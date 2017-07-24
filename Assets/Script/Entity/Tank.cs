@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class Tank : Entity {
@@ -29,6 +30,9 @@ public class Tank : Entity {
     private float SlowdownTime_ = 0.0f;
 
 	Vector3 controllDir = Vector3.zero;
+
+	public Slider hpSlider;
+
 
 	//private Controller controller;
 
@@ -236,6 +240,13 @@ public class Tank : Entity {
 		}
 
 		state.GetDamage(damage);
+
+		/*
+		int maxHealth = state.maxHp;
+		int currHealth = state.hp;
+		float healthPercent = currHealth / maxHealth;
+		*/
+
 		hpBar.UpdateHpBar();
 	}
 
