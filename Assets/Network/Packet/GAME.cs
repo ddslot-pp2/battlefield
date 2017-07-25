@@ -70,7 +70,14 @@ namespace GAME {
             "AiI6ChNTQ19OT1RJX0FDVElWRV9JVEVNEiMKCml0ZW1faW5mb3MYASADKAsy",
             "Dy5HQU1FLklURU1fSU5GTyJjChRTQ19OT1RJX0FDUVVJUkVfSVRFTRIOCgZv",
             "YmpfaWQYASABKAMSDwoHaXRlbV9pZBgCIAEoAxIRCglpdGVtX3R5cGUYAyAB",
-            "KAUSCgoCaHAYBCABKAUSCwoDZXhwGAUgASgFYgZwcm90bzM="));
+            "KAUSCgoCaHAYBCABKAUSCwoDZXhwGAUgASgFIqcBCg9NRURBTF9JVEVNX0lO",
+            "Rk8SDwoHaXRlbV9pZBgBIAEoAxIRCglpdGVtX3R5cGUYAiABKAUSEgoKZnJv",
+            "bV9wb3NfeBgDIAEoAhISCgpmcm9tX3Bvc195GAQgASgCEhIKCmZyb21fcG9z",
+            "X3oYBSABKAISEAoIdG9fcG9zX3gYBiABKAISEAoIdG9fcG9zX3kYByABKAIS",
+            "EAoIdG9fcG9zX3oYCCABKAIiTAoZU0NfTk9USV9DUkVBVEVfTUVEQUxfSVRF",
+            "TRIvChBtZWRhbF9pdGVtX2luZm9zGAEgAygLMhUuR0FNRS5NRURBTF9JVEVN",
+            "X0lORk8iPAoaU0NfTk9USV9BQ1FVSVJFX01FREFMX0lURU0SDwoHaXRlbV9p",
+            "ZBgBIAEoAxINCgVjb3VudBgCIAEoBWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -96,7 +103,10 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS), global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS.Parser, new[]{ "ObjId", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.ITEM_INFO), global::GAME.ITEM_INFO.Parser, new[]{ "ItemId", "ItemType", "PosX", "PosY", "PosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACTIVE_ITEM), global::GAME.SC_NOTI_ACTIVE_ITEM.Parser, new[]{ "ItemInfos" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_ITEM), global::GAME.SC_NOTI_ACQUIRE_ITEM.Parser, new[]{ "ObjId", "ItemId", "ItemType", "Hp", "Exp" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_ITEM), global::GAME.SC_NOTI_ACQUIRE_ITEM.Parser, new[]{ "ObjId", "ItemId", "ItemType", "Hp", "Exp" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.MEDAL_ITEM_INFO), global::GAME.MEDAL_ITEM_INFO.Parser, new[]{ "ItemId", "ItemType", "FromPosX", "FromPosY", "FromPosZ", "ToPosX", "ToPosY", "ToPosZ" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_CREATE_MEDAL_ITEM), global::GAME.SC_NOTI_CREATE_MEDAL_ITEM.Parser, new[]{ "MedalItemInfos" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM), global::GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM.Parser, new[]{ "ItemId", "Count" }, null, null, null)
           }));
     }
     #endregion
@@ -4874,6 +4884,573 @@ namespace GAME {
           }
           case 40: {
             Exp = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class MEDAL_ITEM_INFO : pb::IMessage<MEDAL_ITEM_INFO> {
+    private static readonly pb::MessageParser<MEDAL_ITEM_INFO> _parser = new pb::MessageParser<MEDAL_ITEM_INFO>(() => new MEDAL_ITEM_INFO());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<MEDAL_ITEM_INFO> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[23]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MEDAL_ITEM_INFO() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MEDAL_ITEM_INFO(MEDAL_ITEM_INFO other) : this() {
+      itemId_ = other.itemId_;
+      itemType_ = other.itemType_;
+      fromPosX_ = other.fromPosX_;
+      fromPosY_ = other.fromPosY_;
+      fromPosZ_ = other.fromPosZ_;
+      toPosX_ = other.toPosX_;
+      toPosY_ = other.toPosY_;
+      toPosZ_ = other.toPosZ_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MEDAL_ITEM_INFO Clone() {
+      return new MEDAL_ITEM_INFO(this);
+    }
+
+    /// <summary>Field number for the "item_id" field.</summary>
+    public const int ItemIdFieldNumber = 1;
+    private long itemId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ItemId {
+      get { return itemId_; }
+      set {
+        itemId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "item_type" field.</summary>
+    public const int ItemTypeFieldNumber = 2;
+    private int itemType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ItemType {
+      get { return itemType_; }
+      set {
+        itemType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "from_pos_x" field.</summary>
+    public const int FromPosXFieldNumber = 3;
+    private float fromPosX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float FromPosX {
+      get { return fromPosX_; }
+      set {
+        fromPosX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "from_pos_y" field.</summary>
+    public const int FromPosYFieldNumber = 4;
+    private float fromPosY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float FromPosY {
+      get { return fromPosY_; }
+      set {
+        fromPosY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "from_pos_z" field.</summary>
+    public const int FromPosZFieldNumber = 5;
+    private float fromPosZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float FromPosZ {
+      get { return fromPosZ_; }
+      set {
+        fromPosZ_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "to_pos_x" field.</summary>
+    public const int ToPosXFieldNumber = 6;
+    private float toPosX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float ToPosX {
+      get { return toPosX_; }
+      set {
+        toPosX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "to_pos_y" field.</summary>
+    public const int ToPosYFieldNumber = 7;
+    private float toPosY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float ToPosY {
+      get { return toPosY_; }
+      set {
+        toPosY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "to_pos_z" field.</summary>
+    public const int ToPosZFieldNumber = 8;
+    private float toPosZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float ToPosZ {
+      get { return toPosZ_; }
+      set {
+        toPosZ_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as MEDAL_ITEM_INFO);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(MEDAL_ITEM_INFO other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ItemId != other.ItemId) return false;
+      if (ItemType != other.ItemType) return false;
+      if (FromPosX != other.FromPosX) return false;
+      if (FromPosY != other.FromPosY) return false;
+      if (FromPosZ != other.FromPosZ) return false;
+      if (ToPosX != other.ToPosX) return false;
+      if (ToPosY != other.ToPosY) return false;
+      if (ToPosZ != other.ToPosZ) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ItemId != 0L) hash ^= ItemId.GetHashCode();
+      if (ItemType != 0) hash ^= ItemType.GetHashCode();
+      if (FromPosX != 0F) hash ^= FromPosX.GetHashCode();
+      if (FromPosY != 0F) hash ^= FromPosY.GetHashCode();
+      if (FromPosZ != 0F) hash ^= FromPosZ.GetHashCode();
+      if (ToPosX != 0F) hash ^= ToPosX.GetHashCode();
+      if (ToPosY != 0F) hash ^= ToPosY.GetHashCode();
+      if (ToPosZ != 0F) hash ^= ToPosZ.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ItemId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ItemId);
+      }
+      if (ItemType != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(ItemType);
+      }
+      if (FromPosX != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(FromPosX);
+      }
+      if (FromPosY != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(FromPosY);
+      }
+      if (FromPosZ != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(FromPosZ);
+      }
+      if (ToPosX != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(ToPosX);
+      }
+      if (ToPosY != 0F) {
+        output.WriteRawTag(61);
+        output.WriteFloat(ToPosY);
+      }
+      if (ToPosZ != 0F) {
+        output.WriteRawTag(69);
+        output.WriteFloat(ToPosZ);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ItemId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ItemId);
+      }
+      if (ItemType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ItemType);
+      }
+      if (FromPosX != 0F) {
+        size += 1 + 4;
+      }
+      if (FromPosY != 0F) {
+        size += 1 + 4;
+      }
+      if (FromPosZ != 0F) {
+        size += 1 + 4;
+      }
+      if (ToPosX != 0F) {
+        size += 1 + 4;
+      }
+      if (ToPosY != 0F) {
+        size += 1 + 4;
+      }
+      if (ToPosZ != 0F) {
+        size += 1 + 4;
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(MEDAL_ITEM_INFO other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ItemId != 0L) {
+        ItemId = other.ItemId;
+      }
+      if (other.ItemType != 0) {
+        ItemType = other.ItemType;
+      }
+      if (other.FromPosX != 0F) {
+        FromPosX = other.FromPosX;
+      }
+      if (other.FromPosY != 0F) {
+        FromPosY = other.FromPosY;
+      }
+      if (other.FromPosZ != 0F) {
+        FromPosZ = other.FromPosZ;
+      }
+      if (other.ToPosX != 0F) {
+        ToPosX = other.ToPosX;
+      }
+      if (other.ToPosY != 0F) {
+        ToPosY = other.ToPosY;
+      }
+      if (other.ToPosZ != 0F) {
+        ToPosZ = other.ToPosZ;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            ItemId = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            ItemType = input.ReadInt32();
+            break;
+          }
+          case 29: {
+            FromPosX = input.ReadFloat();
+            break;
+          }
+          case 37: {
+            FromPosY = input.ReadFloat();
+            break;
+          }
+          case 45: {
+            FromPosZ = input.ReadFloat();
+            break;
+          }
+          case 53: {
+            ToPosX = input.ReadFloat();
+            break;
+          }
+          case 61: {
+            ToPosY = input.ReadFloat();
+            break;
+          }
+          case 69: {
+            ToPosZ = input.ReadFloat();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_NOTI_CREATE_MEDAL_ITEM : pb::IMessage<SC_NOTI_CREATE_MEDAL_ITEM> {
+    private static readonly pb::MessageParser<SC_NOTI_CREATE_MEDAL_ITEM> _parser = new pb::MessageParser<SC_NOTI_CREATE_MEDAL_ITEM>(() => new SC_NOTI_CREATE_MEDAL_ITEM());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_NOTI_CREATE_MEDAL_ITEM> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[24]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_CREATE_MEDAL_ITEM() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_CREATE_MEDAL_ITEM(SC_NOTI_CREATE_MEDAL_ITEM other) : this() {
+      medalItemInfos_ = other.medalItemInfos_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_CREATE_MEDAL_ITEM Clone() {
+      return new SC_NOTI_CREATE_MEDAL_ITEM(this);
+    }
+
+    /// <summary>Field number for the "medal_item_infos" field.</summary>
+    public const int MedalItemInfosFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::GAME.MEDAL_ITEM_INFO> _repeated_medalItemInfos_codec
+        = pb::FieldCodec.ForMessage(10, global::GAME.MEDAL_ITEM_INFO.Parser);
+    private readonly pbc::RepeatedField<global::GAME.MEDAL_ITEM_INFO> medalItemInfos_ = new pbc::RepeatedField<global::GAME.MEDAL_ITEM_INFO>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::GAME.MEDAL_ITEM_INFO> MedalItemInfos {
+      get { return medalItemInfos_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_NOTI_CREATE_MEDAL_ITEM);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_NOTI_CREATE_MEDAL_ITEM other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!medalItemInfos_.Equals(other.medalItemInfos_)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= medalItemInfos_.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      medalItemInfos_.WriteTo(output, _repeated_medalItemInfos_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += medalItemInfos_.CalculateSize(_repeated_medalItemInfos_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_NOTI_CREATE_MEDAL_ITEM other) {
+      if (other == null) {
+        return;
+      }
+      medalItemInfos_.Add(other.medalItemInfos_);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            medalItemInfos_.AddEntriesFrom(input, _repeated_medalItemInfos_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_NOTI_ACQUIRE_MEDAL_ITEM : pb::IMessage<SC_NOTI_ACQUIRE_MEDAL_ITEM> {
+    private static readonly pb::MessageParser<SC_NOTI_ACQUIRE_MEDAL_ITEM> _parser = new pb::MessageParser<SC_NOTI_ACQUIRE_MEDAL_ITEM>(() => new SC_NOTI_ACQUIRE_MEDAL_ITEM());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_NOTI_ACQUIRE_MEDAL_ITEM> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GAME.GAMEReflection.Descriptor.MessageTypes[25]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_ACQUIRE_MEDAL_ITEM() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_ACQUIRE_MEDAL_ITEM(SC_NOTI_ACQUIRE_MEDAL_ITEM other) : this() {
+      itemId_ = other.itemId_;
+      count_ = other.count_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_NOTI_ACQUIRE_MEDAL_ITEM Clone() {
+      return new SC_NOTI_ACQUIRE_MEDAL_ITEM(this);
+    }
+
+    /// <summary>Field number for the "item_id" field.</summary>
+    public const int ItemIdFieldNumber = 1;
+    private long itemId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ItemId {
+      get { return itemId_; }
+      set {
+        itemId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "count" field.</summary>
+    public const int CountFieldNumber = 2;
+    private int count_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Count {
+      get { return count_; }
+      set {
+        count_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_NOTI_ACQUIRE_MEDAL_ITEM);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_NOTI_ACQUIRE_MEDAL_ITEM other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ItemId != other.ItemId) return false;
+      if (Count != other.Count) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ItemId != 0L) hash ^= ItemId.GetHashCode();
+      if (Count != 0) hash ^= Count.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ItemId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ItemId);
+      }
+      if (Count != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Count);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ItemId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ItemId);
+      }
+      if (Count != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Count);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_NOTI_ACQUIRE_MEDAL_ITEM other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ItemId != 0L) {
+        ItemId = other.ItemId;
+      }
+      if (other.Count != 0) {
+        Count = other.Count;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            ItemId = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Count = input.ReadInt32();
             break;
           }
         }

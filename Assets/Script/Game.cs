@@ -201,25 +201,6 @@ public class Game : MonoBehaviour {
         // 아이템 잔상 때문에 이렇게 한번에 보냄 기종 item 리스트와 비교해서 업데이트
         foreach (var item_info in read.ItemInfos)
         {
-			/*
-            var item_id = item_info.ItemId;
-            Debug.Log("active item_id: " + item_id);
-
-            if (Items_.ContainsKey(item_id))
-            {
-                continue;
-            }
-
-            var pos = new Vector3(item_info.PosX, item_info.PosY, item_info.PosZ);
-
-            if (item_info.ItemType == 0)
-            {
-                GameObject item = (GameObject)Instantiate(Resources.Load("Prefab/Item/HpItem")) as GameObject;
-                item.transform.position = pos;
-                Items_[item_id] = item;
-            }
-            */
-
 			BattleLib.Instance.CreateItem (item_info.ItemId , item_info.ItemType, item_info.PosX, item_info.PosY, item_info.PosZ);
         }
     }
@@ -227,22 +208,25 @@ public class Game : MonoBehaviour {
     public void handler_SC_NOTI_ACQUIRE_ITEM(GAME.SC_NOTI_ACQUIRE_ITEM read)
     {
 		BattleLib.Instance.DestroyItem (read.ItemId, read.ObjId, read.ItemType, read.Hp);
-		/*
-        var item_id = read.ItemId;
-        var item_type = read.ItemType;
-        var hp = read.Hp;
-
-        // 만약 내가 먹은것이라면 효과해줄까?
-        if (read.ObjId == MyObjId)
+    }
+    public void handler_SC_NOTI_CREATE_MEDAL_ITEM(GAME.SC_NOTI_CREATE_MEDAL_ITEM read)
+    {
+        foreach (var medal_item_info in read.MedalItemInfos)
         {
-            
+            var item_id = medal_item_info.ItemId;
+            var from_pos = new Vector3(medal_item_info.FromPosX, medal_item_info.FromPosY, medal_item_info.FromPosZ);
+            var to_pos = new Vector3(medal_item_info.FromPosX, medal_item_info.FromPosY, medal_item_info.FromPosZ);
+
+            Debug.Log("메달 생성됨: " + item_id);
         }
+    }
+    public void handler_SC_NOTI_ACQUIRE_MEDAL_ITEM(GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM read)
+    {
+        var item_id = read.ItemId;
+        var current_medal_count = read.Count;
 
-        var destry_obj = Items_[item_id];
-        DestroyObject(destry_obj);
-        Items_.Remove(item_id);
-        */
-
+        Debug.Log("메달 먹어서 삭제: " + item_id);
+        Debug.Log("현재 메달 카운트: " + current_medal_count);
     }
 
     public void RegisterPacketHandler()
@@ -260,6 +244,8 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_UPDATE_CHARACTER_STATUS>(opcode.SC_NOTI_UPDATE_CHARACTER_STATUS, handler_SC_NOTI_UPDATE_CHARACTER_STATUS);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_ACTIVE_ITEM>(opcode.SC_NOTI_ACTIVE_ITEM, handler_SC_NOTI_ACTIVE_ITEM);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_ACQUIRE_ITEM>(opcode.SC_NOTI_ACQUIRE_ITEM, handler_SC_NOTI_ACQUIRE_ITEM);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_CREATE_MEDAL_ITEM>(opcode.SC_NOTI_CREATE_MEDAL_ITEM, handler_SC_NOTI_CREATE_MEDAL_ITEM);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM>(opcode.SC_NOTI_ACQUIRE_MEDAL_ITEM, handler_SC_NOTI_ACQUIRE_MEDAL_ITEM);
     }
 
 	void OnTouchBegan(Vector3 pos)

@@ -134,5 +134,15 @@ public class ProtobufHandler //: MonoBehaviour
         {
             return GAME.SC_NOTI_ACQUIRE_ITEM.Parser.ParseFrom(Buf);
         };
+
+        Deserializer_[OpcodeToInt16(opcode.SC_NOTI_CREATE_MEDAL_ITEM)] = (byte[] Buf) =>
+        {
+            return GAME.SC_NOTI_CREATE_MEDAL_ITEM.Parser.ParseFrom(Buf);
+        };
+
+        Deserializer_[OpcodeToInt16(opcode.SC_NOTI_ACQUIRE_MEDAL_ITEM)] = (byte[] Buf) =>
+        {
+            return GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM.Parser.ParseFrom(Buf);
+        };
     }
 }
