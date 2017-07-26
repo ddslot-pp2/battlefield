@@ -5,15 +5,20 @@ using System.IO;
 using System.Net.Sockets;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviour {
 
     public GameObject NewTank;
 
+    public Text MedalText;
+    public Text CoinText;
+
     // 접속 완료 후 콜백
     public void onConnect()
     {
         Debug.Log("OnConnected called\n");
+        Login();
     }
 
     // 접속 종료시 콜백
@@ -30,6 +35,9 @@ public class LobbyManager : MonoBehaviour {
         Debug.Log(read.Result);
         Debug.Log(read.Nickname);
 
+        MedalText.text = read.MedalCount.ToString();
+        CoinText.text = read.CoinCount.ToString();
+
         // 필드 리스트 요청
         var Send = new LOBBY.CS_FIELD_LIST();
         ProtobufManager.Instance().Send(opcode.CS_FIELD_LIST, Send);
@@ -43,11 +51,6 @@ public class LobbyManager : MonoBehaviour {
             Debug.Log(field_info.MaxUserCount);
             Debug.Log("----------------------------");
         }
-
-        // 필드에 진입 요청
-        var Send = new LOBBY.CS_ENTER_FIELD();
-        Send.FieldId = 0;
-        ProtobufManager.Instance().Send(opcode.CS_ENTER_FIELD, Send);
     }
     public void handler_SC_ENTER_FIELD(LOBBY.SC_ENTER_FIELD read)
     {
@@ -93,12 +96,12 @@ public class LobbyManager : MonoBehaviour {
         //ProtobufManager.Instance().Destroy();
     }
 
-    public void onLoginButton()
+    public void onStartButton()
     {
-        var Send = new LOBBY.CS_LOG_IN();
-        Send.Id = "냐옹이";
-        Send.Password = "1234ABCD";
-        ProtobufManager.Instance().Send(opcode.CS_LOG_IN, Send);
+        // 필드에 진입 요청
+        var Send = new LOBBY.CS_ENTER_FIELD();
+        Send.FieldId = 0;
+        ProtobufManager.Instance().Send(opcode.CS_ENTER_FIELD, Send);
     }
 
     public void onNewTankButton(bool active)
@@ -106,10 +109,17 @@ public class LobbyManager : MonoBehaviour {
         NewTank.SetActive(active);
     }
 
-    public void onPurchaseGoldButton()
+    public void onPurchaseCoinButton()
     {
-        Debug.Log("골드 구매하기");
+        Debug.Log("코인 구매하기");
     }
 
 
+    private void Login()
+    {
+        var Send = new LOBBY.CS_LOG_IN();
+        Send.Id = "냐옹이";
+        Send.Password = "1234ABCD";
+        ProtobufManager.Instance().Send(opcode.CS_LOG_IN, Send);
+    }
 }

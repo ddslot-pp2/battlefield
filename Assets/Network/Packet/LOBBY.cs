@@ -23,22 +23,23 @@ namespace LOBBY {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgtMT0JCWS5wcm90bxIFTE9CQlkiKQoJQ1NfTE9HX0lOEgoKAmlkGAEgASgJ",
-            "EhAKCHBhc3N3b3JkGAIgASgJIkAKCVNDX0xPR19JThIOCgZyZXN1bHQYASAB",
-            "KAgSEQoJdGltZXN0YW1wGAIgASgDEhAKCG5pY2tuYW1lGAMgASgJIkoKCkZJ",
-            "RUxEX0lORk8SEAoIZmllbGRfaWQYASABKAUSEgoKdXNlcl9jb3VudBgCIAEo",
-            "BRIWCg5tYXhfdXNlcl9jb3VudBgDIAEoBSIPCg1DU19GSUVMRF9MSVNUIkcK",
-            "DVNDX0ZJRUxEX0xJU1QSDgoGcmVzdWx0GAEgASgIEiYKC2ZpZWxkX2luZm9z",
-            "GAIgAygLMhEuTE9CQlkuRklFTERfSU5GTyIiCg5DU19FTlRFUl9GSUVMRBIQ",
-            "CghmaWVsZF9pZBgBIAEoBSI+Cg5TQ19FTlRFUl9GSUVMRBIOCgZyZXN1bHQY",
-            "ASABKAgSEAoIZmllbGRfaWQYAiABKAUSCgoCZWMYAyABKAkiIgoOQ1NfTEVB",
-            "VkVfRklFTEQSEAoIZmllbGRfaWQYASABKAUiLAoOU0NfTEVBVkVfRklFTEQS",
-            "DgoGcmVzdWx0GAEgASgIEgoKAmVjGAIgASgJKjIKDEdhbWVEYXRhVHlwZRIK",
-            "CgZ0ZXN0XzEQABIKCgZ0ZXN0XzIQARIKCgZ0ZXN0XzMQAmIGcHJvdG8z"));
+            "EhAKCHBhc3N3b3JkGAIgASgJImkKCVNDX0xPR19JThIOCgZyZXN1bHQYASAB",
+            "KAgSEQoJdGltZXN0YW1wGAIgASgDEhAKCG5pY2tuYW1lGAMgASgJEhMKC21l",
+            "ZGFsX2NvdW50GAQgASgFEhIKCmNvaW5fY291bnQYBSABKAUiSgoKRklFTERf",
+            "SU5GTxIQCghmaWVsZF9pZBgBIAEoBRISCgp1c2VyX2NvdW50GAIgASgFEhYK",
+            "Dm1heF91c2VyX2NvdW50GAMgASgFIg8KDUNTX0ZJRUxEX0xJU1QiRwoNU0Nf",
+            "RklFTERfTElTVBIOCgZyZXN1bHQYASABKAgSJgoLZmllbGRfaW5mb3MYAiAD",
+            "KAsyES5MT0JCWS5GSUVMRF9JTkZPIiIKDkNTX0VOVEVSX0ZJRUxEEhAKCGZp",
+            "ZWxkX2lkGAEgASgFIj4KDlNDX0VOVEVSX0ZJRUxEEg4KBnJlc3VsdBgBIAEo",
+            "CBIQCghmaWVsZF9pZBgCIAEoBRIKCgJlYxgDIAEoCSIiCg5DU19MRUFWRV9G",
+            "SUVMRBIQCghmaWVsZF9pZBgBIAEoBSIsCg5TQ19MRUFWRV9GSUVMRBIOCgZy",
+            "ZXN1bHQYASABKAgSCgoCZWMYAiABKAkqMgoMR2FtZURhdGFUeXBlEgoKBnRl",
+            "c3RfMRAAEgoKBnRlc3RfMhABEgoKBnRlc3RfMxACYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LOBBY.GameDataType), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_LOG_IN), global::LOBBY.CS_LOG_IN.Parser, new[]{ "Id", "Password" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_LOG_IN), global::LOBBY.SC_LOG_IN.Parser, new[]{ "Result", "Timestamp", "Nickname" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_LOG_IN), global::LOBBY.SC_LOG_IN.Parser, new[]{ "Result", "Timestamp", "Nickname", "MedalCount", "CoinCount" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.FIELD_INFO), global::LOBBY.FIELD_INFO.Parser, new[]{ "FieldId", "UserCount", "MaxUserCount" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_FIELD_LIST), global::LOBBY.CS_FIELD_LIST.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_FIELD_LIST), global::LOBBY.SC_FIELD_LIST.Parser, new[]{ "Result", "FieldInfos" }, null, null, null),
@@ -233,6 +234,8 @@ namespace LOBBY {
       result_ = other.result_;
       timestamp_ = other.timestamp_;
       nickname_ = other.nickname_;
+      medalCount_ = other.medalCount_;
+      coinCount_ = other.coinCount_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -273,6 +276,28 @@ namespace LOBBY {
       }
     }
 
+    /// <summary>Field number for the "medal_count" field.</summary>
+    public const int MedalCountFieldNumber = 4;
+    private int medalCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MedalCount {
+      get { return medalCount_; }
+      set {
+        medalCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "coin_count" field.</summary>
+    public const int CoinCountFieldNumber = 5;
+    private int coinCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CoinCount {
+      get { return coinCount_; }
+      set {
+        coinCount_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SC_LOG_IN);
@@ -289,6 +314,8 @@ namespace LOBBY {
       if (Result != other.Result) return false;
       if (Timestamp != other.Timestamp) return false;
       if (Nickname != other.Nickname) return false;
+      if (MedalCount != other.MedalCount) return false;
+      if (CoinCount != other.CoinCount) return false;
       return true;
     }
 
@@ -298,6 +325,8 @@ namespace LOBBY {
       if (Result != false) hash ^= Result.GetHashCode();
       if (Timestamp != 0L) hash ^= Timestamp.GetHashCode();
       if (Nickname.Length != 0) hash ^= Nickname.GetHashCode();
+      if (MedalCount != 0) hash ^= MedalCount.GetHashCode();
+      if (CoinCount != 0) hash ^= CoinCount.GetHashCode();
       return hash;
     }
 
@@ -320,6 +349,14 @@ namespace LOBBY {
         output.WriteRawTag(26);
         output.WriteString(Nickname);
       }
+      if (MedalCount != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(MedalCount);
+      }
+      if (CoinCount != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(CoinCount);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -333,6 +370,12 @@ namespace LOBBY {
       }
       if (Nickname.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Nickname);
+      }
+      if (MedalCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MedalCount);
+      }
+      if (CoinCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CoinCount);
       }
       return size;
     }
@@ -350,6 +393,12 @@ namespace LOBBY {
       }
       if (other.Nickname.Length != 0) {
         Nickname = other.Nickname;
+      }
+      if (other.MedalCount != 0) {
+        MedalCount = other.MedalCount;
+      }
+      if (other.CoinCount != 0) {
+        CoinCount = other.CoinCount;
       }
     }
 
@@ -371,6 +420,14 @@ namespace LOBBY {
           }
           case 26: {
             Nickname = input.ReadString();
+            break;
+          }
+          case 32: {
+            MedalCount = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            CoinCount = input.ReadInt32();
             break;
           }
         }
