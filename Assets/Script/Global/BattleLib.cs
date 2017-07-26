@@ -284,7 +284,7 @@ public class BattleLib : MonoBehaviour {
 		AddEntity (itemEntity);
 	}
 
-	public void DestroyItem(Int64 itemId, Int64 tankId, int itemType, int tankHp)
+	public void DestroyItem(Int64 itemId, Int64 tankId, Item.Type itemType, int tankHp)
 	{
 		//Debug.Log ("DestroyItem itemId:" + itemId);
 		DeleteEntity(itemId);
@@ -293,10 +293,14 @@ public class BattleLib : MonoBehaviour {
 		if (tankObject == null)
 			return;
 
-		if (itemType == 0) 
-		{
-			tankObject.SetHp(tankHp);
-		}
+        if (itemType == Item.Type.Hp_Item)
+        {
+            tankObject.SetHp(tankHp);
+        }
+        else if (itemType == Item.Type.Medal_Item)
+        {
+
+        }
 
 
 	}

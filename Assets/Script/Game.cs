@@ -207,7 +207,7 @@ public class Game : MonoBehaviour {
 
     public void handler_SC_NOTI_ACQUIRE_ITEM(GAME.SC_NOTI_ACQUIRE_ITEM read)
     {
-		BattleLib.Instance.DestroyItem (read.ItemId, read.ObjId, read.ItemType, read.Hp);
+		BattleLib.Instance.DestroyItem (read.ItemId, read.ObjId, (Item.Type)read.ItemType, read.Hp);
     }
     public void handler_SC_NOTI_CREATE_MEDAL_ITEM(GAME.SC_NOTI_CREATE_MEDAL_ITEM read)
     {
@@ -230,17 +230,19 @@ public class Game : MonoBehaviour {
         var current_medal_count = read.Count;
 
         // 만약 내가 먹은게 아니라면 그냥 훈장만 삭제한다.
+        /*
         if (MyObjId != obj_id)
         {
 
             return;
         }
+        */
 
         // 내가 먹은거라면 훈장 몇개라고 ui 잠시 나왔다가 fade out 해준다.
 
-
         Debug.Log("메달 먹어서 삭제: " + item_id);
         Debug.Log("현재 메달 카운트: " + current_medal_count);
+        BattleLib.Instance.DestroyItem(read.ItemId, obj_id, Item.Type.Medal_Item, 0);
     }
 
     public void RegisterPacketHandler()
