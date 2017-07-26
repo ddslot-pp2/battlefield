@@ -218,12 +218,25 @@ public class Game : MonoBehaviour {
             var to_pos = new Vector3(medal_item_info.FromPosX, medal_item_info.FromPosY, medal_item_info.FromPosZ);
 
             Debug.Log("메달 생성됨: " + item_id);
+
+            
         }
     }
     public void handler_SC_NOTI_ACQUIRE_MEDAL_ITEM(GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM read)
     {
+        var obj_id = read.ObjId;
         var item_id = read.ItemId;
         var current_medal_count = read.Count;
+
+        // 만약 내가 먹은게 아니라면 그냥 훈장만 삭제한다.
+        if (MyObjId != obj_id)
+        {
+
+            return;
+        }
+
+        // 내가 먹은거라면 훈장 몇개라고 ui 잠시 나왔다가 fade out 해준다.
+
 
         Debug.Log("메달 먹어서 삭제: " + item_id);
         Debug.Log("현재 메달 카운트: " + current_medal_count);

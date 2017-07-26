@@ -76,8 +76,9 @@ namespace GAME {
             "X3oYBSABKAISEAoIdG9fcG9zX3gYBiABKAISEAoIdG9fcG9zX3kYByABKAIS",
             "EAoIdG9fcG9zX3oYCCABKAIiTAoZU0NfTk9USV9DUkVBVEVfTUVEQUxfSVRF",
             "TRIvChBtZWRhbF9pdGVtX2luZm9zGAEgAygLMhUuR0FNRS5NRURBTF9JVEVN",
-            "X0lORk8iPAoaU0NfTk9USV9BQ1FVSVJFX01FREFMX0lURU0SDwoHaXRlbV9p",
-            "ZBgBIAEoAxINCgVjb3VudBgCIAEoBWIGcHJvdG8z"));
+            "X0lORk8iTAoaU0NfTk9USV9BQ1FVSVJFX01FREFMX0lURU0SDgoGb2JqX2lk",
+            "GAEgASgDEg8KB2l0ZW1faWQYAiABKAMSDQoFY291bnQYAyABKAViBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -106,7 +107,7 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_ITEM), global::GAME.SC_NOTI_ACQUIRE_ITEM.Parser, new[]{ "ObjId", "ItemId", "ItemType", "Hp", "Exp" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.MEDAL_ITEM_INFO), global::GAME.MEDAL_ITEM_INFO.Parser, new[]{ "ItemId", "ItemType", "FromPosX", "FromPosY", "FromPosZ", "ToPosX", "ToPosY", "ToPosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_CREATE_MEDAL_ITEM), global::GAME.SC_NOTI_CREATE_MEDAL_ITEM.Parser, new[]{ "MedalItemInfos" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM), global::GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM.Parser, new[]{ "ItemId", "Count" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM), global::GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM.Parser, new[]{ "ObjId", "ItemId", "Count" }, null, null, null)
           }));
     }
     #endregion
@@ -5338,6 +5339,7 @@ namespace GAME {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SC_NOTI_ACQUIRE_MEDAL_ITEM(SC_NOTI_ACQUIRE_MEDAL_ITEM other) : this() {
+      objId_ = other.objId_;
       itemId_ = other.itemId_;
       count_ = other.count_;
     }
@@ -5347,8 +5349,19 @@ namespace GAME {
       return new SC_NOTI_ACQUIRE_MEDAL_ITEM(this);
     }
 
+    /// <summary>Field number for the "obj_id" field.</summary>
+    public const int ObjIdFieldNumber = 1;
+    private long objId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ObjId {
+      get { return objId_; }
+      set {
+        objId_ = value;
+      }
+    }
+
     /// <summary>Field number for the "item_id" field.</summary>
-    public const int ItemIdFieldNumber = 1;
+    public const int ItemIdFieldNumber = 2;
     private long itemId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long ItemId {
@@ -5359,7 +5372,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "count" field.</summary>
-    public const int CountFieldNumber = 2;
+    public const int CountFieldNumber = 3;
     private int count_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Count {
@@ -5382,6 +5395,7 @@ namespace GAME {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (ObjId != other.ObjId) return false;
       if (ItemId != other.ItemId) return false;
       if (Count != other.Count) return false;
       return true;
@@ -5390,6 +5404,7 @@ namespace GAME {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (ObjId != 0L) hash ^= ObjId.GetHashCode();
       if (ItemId != 0L) hash ^= ItemId.GetHashCode();
       if (Count != 0) hash ^= Count.GetHashCode();
       return hash;
@@ -5402,12 +5417,16 @@ namespace GAME {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (ItemId != 0L) {
+      if (ObjId != 0L) {
         output.WriteRawTag(8);
+        output.WriteInt64(ObjId);
+      }
+      if (ItemId != 0L) {
+        output.WriteRawTag(16);
         output.WriteInt64(ItemId);
       }
       if (Count != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(24);
         output.WriteInt32(Count);
       }
     }
@@ -5415,6 +5434,9 @@ namespace GAME {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (ObjId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObjId);
+      }
       if (ItemId != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(ItemId);
       }
@@ -5428,6 +5450,9 @@ namespace GAME {
     public void MergeFrom(SC_NOTI_ACQUIRE_MEDAL_ITEM other) {
       if (other == null) {
         return;
+      }
+      if (other.ObjId != 0L) {
+        ObjId = other.ObjId;
       }
       if (other.ItemId != 0L) {
         ItemId = other.ItemId;
@@ -5446,10 +5471,14 @@ namespace GAME {
             input.SkipLastField();
             break;
           case 8: {
-            ItemId = input.ReadInt64();
+            ObjId = input.ReadInt64();
             break;
           }
           case 16: {
+            ItemId = input.ReadInt64();
+            break;
+          }
+          case 24: {
             Count = input.ReadInt32();
             break;
           }
