@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Item : Entity
 {
-    public enum Type { Hp_Item = 0, EXP_Item = 1, SHILD_Item = 2, MEDAL_Item = 3};
+    public enum Type { Hp_Item = 0, Medal_Item = 1, Coin_Item = 2, Exp_Item = 3, Shield_Item = 4 };
 
-	protected override void Init () {
-
+    protected override void Init ()
+    {
 		base.Init();
 	}
 

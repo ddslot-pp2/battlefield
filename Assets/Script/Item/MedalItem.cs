@@ -11,7 +11,7 @@ public class MedalItem : Item
 
 		base.Init();
 
-		Type_ = Item.Type.MEDAL_Item;
+		Type_ = Item.Type.Medal_Item;
 
 		myTransform = transform;
 	}
@@ -32,8 +32,7 @@ public class MedalItem : Item
 
 			Debug.Log ("medalpos: " + myTransform.position);
 		}
-
-
-		transform.RotateAround(transform.position, transform.up, Time.deltaTime * 45.0f);
+        
+		//transform.RotateAround(transform.position, transform.up, Time.deltaTime * 45.0f);
 	}
 }

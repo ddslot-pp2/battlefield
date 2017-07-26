@@ -214,13 +214,13 @@ public class Game : MonoBehaviour {
         foreach (var medal_item_info in read.MedalItemInfos)
         {
             var item_id = medal_item_info.ItemId;
-            var from_pos = new Vector3(medal_item_info.FromPosX, medal_item_info.FromPosY, medal_item_info.FromPosZ);
-			var to_pos = new Vector3(medal_item_info.ToPosX, medal_item_info.ToPosY, medal_item_info.ToPosZ);
+            //var from_pos = new Vector3(medal_item_info.FromPosX, medal_item_info.FromPosY, medal_item_info.FromPosZ);
+			//var to_pos = new Vector3(medal_item_info.ToPosX, medal_item_info.ToPosY, medal_item_info.ToPosZ);
 
-			BattleLib.Instance.CreateAniItem (medal_item_info.ItemId , 3, 
+			BattleLib.Instance.CreateAniItem (medal_item_info.ItemId , (int)Item.Type.Medal_Item, 
 				medal_item_info.FromPosX, medal_item_info.FromPosY, medal_item_info.FromPosZ, medal_item_info.ToPosX, medal_item_info.ToPosY, medal_item_info.ToPosZ);
-			Debug.Log("from pos: " + from_pos); 
-			Debug.Log("to pos: " + to_pos); 
+			//Debug.Log("from pos: " + from_pos); 
+			//Debug.Log("to pos: " + to_pos); 
         }
     }
     public void handler_SC_NOTI_ACQUIRE_MEDAL_ITEM(GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM read)

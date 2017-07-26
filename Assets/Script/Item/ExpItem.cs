@@ -9,7 +9,7 @@ public class ExpItem : Item
 
 		base.Init();
 
-		Type_ = Item.Type.EXP_Item;
+		Type_ = Item.Type.Exp_Item;
 	}
 
 	public override void EntityUpdate () 

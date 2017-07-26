@@ -9,7 +9,7 @@ public class ShieldItem : Item
 
 		base.Init();
 
-		Type_ = Item.Type.SHILD_Item;
+		Type_ = Item.Type.Shield_Item;
 	}
 
 	public override void EntityUpdate () 
