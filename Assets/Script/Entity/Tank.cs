@@ -58,6 +58,10 @@ public class Tank : Entity {
 	public override void Release()
 	{
 		hpBar.DeleteHpobject();
+
+		if( IsDead())
+		DustEffect.Recycle();
+		
 		Destroy(gameObject);
 	}
 

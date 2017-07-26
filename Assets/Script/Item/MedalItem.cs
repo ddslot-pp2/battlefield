@@ -28,9 +28,9 @@ public class MedalItem : Item
 		if (Vector3.Distance (myTransform.position, ArrivePos) > 0.1f) {
 			ArrivePos.y = 0.0f;
 			Vector3 dir = (ArrivePos - myTransform.position).normalized;
-			myTransform.Translate (dir * 1f * Time.deltaTime);
+			myTransform.Translate (dir * 10f * Time.deltaTime);
 
-			Debug.Log ("medalpos: " + myTransform.position);
+			//Debug.Log ("medalpos: " + myTransform.position);
 		}
         
 		//transform.RotateAround(transform.position, transform.up, Time.deltaTime * 45.0f);
