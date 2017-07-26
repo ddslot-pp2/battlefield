@@ -271,6 +271,19 @@ public class BattleLib : MonoBehaviour {
 		AddEntity (itemEntity);
 	}
 
+	public void CreateAniItem( Int64 obId, int itemType, float fposX, float fposY, float fposZ, float tposX, float tposY, float tposZ)
+	{
+		//Debug.Log ("CreateItem itemId:" + obId);
+		GameObject createItem = ItemManager.Instance.CreateItem (itemType, fposX, fposY, fposZ);
+		if (createItem == null)
+			return;
+
+		MedalItem itemEntity = createItem.GetComponent<MedalItem> ();
+		itemEntity.ObjId = obId;
+		itemEntity.SetMovePos (new Vector3(tposX, tposY, tposZ));
+		AddEntity (itemEntity);
+	}
+
 	public void DestroyItem(Int64 itemId, Int64 tankId, int itemType, int tankHp)
 	{
 		//Debug.Log ("DestroyItem itemId:" + itemId);

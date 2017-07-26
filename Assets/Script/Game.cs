@@ -215,11 +215,12 @@ public class Game : MonoBehaviour {
         {
             var item_id = medal_item_info.ItemId;
             var from_pos = new Vector3(medal_item_info.FromPosX, medal_item_info.FromPosY, medal_item_info.FromPosZ);
-            var to_pos = new Vector3(medal_item_info.FromPosX, medal_item_info.FromPosY, medal_item_info.FromPosZ);
+			var to_pos = new Vector3(medal_item_info.ToPosX, medal_item_info.ToPosY, medal_item_info.ToPosZ);
 
-            Debug.Log("메달 생성됨: " + item_id);
-
-            
+			BattleLib.Instance.CreateAniItem (medal_item_info.ItemId , 3, 
+				medal_item_info.FromPosX, medal_item_info.FromPosY, medal_item_info.FromPosZ, medal_item_info.ToPosX, medal_item_info.ToPosY, medal_item_info.ToPosZ);
+			Debug.Log("from pos: " + from_pos); 
+			Debug.Log("to pos: " + to_pos); 
         }
     }
     public void handler_SC_NOTI_ACQUIRE_MEDAL_ITEM(GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM read)

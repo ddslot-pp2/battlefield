@@ -31,7 +31,6 @@ public class Tank : Entity {
 
 	Vector3 controllDir = Vector3.zero;
 
-	public Slider hpSlider;
 
 
 	//private Controller controller;
@@ -118,8 +117,8 @@ public class Tank : Entity {
 				Vector3 dir = (ArrivePos - myTransform.position).normalized;
 				myTransform.rotation = Quaternion.Lerp (myTransform.rotation, Quaternion.LookRotation (dir), Time.deltaTime * 20);
 
-                var speed = state.moveSpeed * SlowdownSpeed_;
-                myTransform.Translate (Vector3.forward * speed * Time.deltaTime);
+                //var speed = state.moveSpeed * SlowdownSpeed_;
+				myTransform.Translate (Vector3.forward * state.moveSpeed * Time.deltaTime);
 
 			} else 
 			{
