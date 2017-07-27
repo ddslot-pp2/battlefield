@@ -179,8 +179,9 @@ public class BattleLib : MonoBehaviour {
 			Debug.Log("entity_instance create fail");
 		}
 
-		entity_instance.name = obj_id.ToString();
-		Tank tankEntity = entity_instance.GetComponent<Tank>();
+        //entity_instance.name = obj_id.ToString();
+        entity_instance.name = name;
+        Tank tankEntity = entity_instance.GetComponent<Tank>();
 
 		if (myself) 
 		{
