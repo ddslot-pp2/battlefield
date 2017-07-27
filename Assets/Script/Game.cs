@@ -254,6 +254,57 @@ public class Game : MonoBehaviour {
         BattleLib.Instance.DestroyItem(read.ItemId, obj_id, itemType, 0);
     }
 
+    public void handler_SC_NOTI_RANK_INFO(GAME.SC_NOTI_RANK_INFO read)
+    {
+        var index = 0;
+        foreach(var rank_info in read.RankInfos)
+        {
+            var rank = playUi.Ranks[index];
+            var name = rank.transform.GetChild(0);
+            var textComponent = name.GetComponent<Text>();
+            textComponent.text = rank_info.Nickname;
+
+            var point = rank.transform.GetChild(2);
+            textComponent = point.GetComponent<Text>();
+            textComponent.text = rank_info.Score.ToString();
+
+            ++index;
+        }
+
+        const int max_rank_info = 5;
+        if (read.RankInfos.Count < max_rank_info)
+        {
+            var left_over_count = max_rank_info - read.RankInfos.Count + 1;
+            for (var i = 1; i < left_over_count; ++i)
+            {
+                var rank = playUi.Ranks[max_rank_info - i];
+                var name = rank.transform.GetChild(0);
+                var textComponent = name.GetComponent<Text>();
+                textComponent.text = "";
+
+                var point = rank.transform.GetChild(2);
+                textComponent = point.GetComponent<Text>();
+                textComponent.text = "";
+            }
+        }
+    }
+
+    public void handler_SC_NOTI_RANK(GAME.SC_NOTI_RANK read)
+    {
+        var rank = playUi.MyRank;
+        var name = rank.transform.GetChild(0);
+        var textComponent = name.GetComponent<Text>();
+        textComponent.text = read.Nickname;
+
+        var rank_count = rank.transform.GetChild(1);
+        textComponent = rank_count.GetComponent<Text>();
+        textComponent.text = read.Rank.ToString();
+
+        var point = rank.transform.GetChild(2);
+        textComponent = point.GetComponent<Text>();
+        textComponent.text = read.Score.ToString();
+    }
+
     public void RegisterPacketHandler()
     {
         // 이번 패킷에 사용할 패킷관련 핸들러를 지정
@@ -271,6 +322,8 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_ACQUIRE_ITEM>(opcode.SC_NOTI_ACQUIRE_ITEM, handler_SC_NOTI_ACQUIRE_ITEM);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_CREATE_MEDAL_ITEM>(opcode.SC_NOTI_CREATE_MEDAL_ITEM, handler_SC_NOTI_CREATE_MEDAL_ITEM);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_ACQUIRE_PERSIST_ITEM>(opcode.SC_NOTI_ACQUIRE_PERSIST_ITEM, handler_SC_NOTI_ACQUIRE_PERSIST_ITEM);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_RANK_INFO>(opcode.SC_NOTI_RANK_INFO, handler_SC_NOTI_RANK_INFO);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_RANK>(opcode.SC_NOTI_RANK, handler_SC_NOTI_RANK);
     }
 
 	void OnTouchBegan(Vector3 pos)

@@ -21,16 +21,20 @@ public class PlayUi : MonoBehaviour {
 
 	public bool UseJoystick = false;
 
+    private int max_rank_info = 5;
+    public GameObject [] Ranks;
+    public GameObject MyRank;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
-		BattleLib.Instance.FireDelegate = ResetCoolTime;
+        BattleLib.Instance.FireDelegate = ResetCoolTime;
 		RespawnButton_.SetActive(false);
 		BuffSelectBtnHide();
 		UseJoystick = false;
-		//JoyStick.SetActive (false);
-	}
+        
+        //JoyStick.SetActive (false);
+    }
 	
 	// Update is called once per frame
 	void Update () 

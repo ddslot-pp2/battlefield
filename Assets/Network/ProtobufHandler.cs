@@ -144,5 +144,15 @@ public class ProtobufHandler //: MonoBehaviour
         {
             return GAME.SC_NOTI_ACQUIRE_PERSIST_ITEM.Parser.ParseFrom(Buf);
         };
+
+        Deserializer_[OpcodeToInt16(opcode.SC_NOTI_RANK_INFO)] = (byte[] Buf) =>
+        {
+            return GAME.SC_NOTI_RANK_INFO.Parser.ParseFrom(Buf);
+        };
+
+        Deserializer_[OpcodeToInt16(opcode.SC_NOTI_RANK)] = (byte[] Buf) =>
+        {
+            return GAME.SC_NOTI_RANK.Parser.ParseFrom(Buf);
+        };
     }
 }
