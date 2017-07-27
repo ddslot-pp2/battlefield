@@ -207,6 +207,7 @@ public class Game : MonoBehaviour {
 
     public void handler_SC_NOTI_ACQUIRE_ITEM(GAME.SC_NOTI_ACQUIRE_ITEM read)
     {
+        Debug.Log("아아템 삭제 패킷 받음");
 		BattleLib.Instance.DestroyItem (read.ItemId, read.ObjId, (Item.Type)read.ItemType, read.Hp);
     }
     public void handler_SC_NOTI_CREATE_MEDAL_ITEM(GAME.SC_NOTI_CREATE_MEDAL_ITEM read)
@@ -223,11 +224,11 @@ public class Game : MonoBehaviour {
 			//Debug.Log("to pos: " + to_pos); 
         }
     }
-    public void handler_SC_NOTI_ACQUIRE_MEDAL_ITEM(GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM read)
+    public void handler_SC_NOTI_ACQUIRE_PERSIST_ITEM(GAME.SC_NOTI_ACQUIRE_PERSIST_ITEM read)
     {
         var obj_id = read.ObjId;
         var item_id = read.ItemId;
-        var current_medal_count = read.Count;
+        var count = read.Count;
 
         // 만약 내가 먹은게 아니라면 그냥 훈장만 삭제한다.
         /*
@@ -238,11 +239,19 @@ public class Game : MonoBehaviour {
         }
         */
 
-        // 내가 먹은거라면 훈장 몇개라고 ui 잠시 나왔다가 fade out 해준다.
+        Item.Type itemType = (Item.Type)read.ItemType;
+        if (itemType == Item.Type.Medal_Item)
+        {
+            Debug.Log("메달 아이템 획득\n");
+            Debug.Log("현재 매달 갯수: " + count);
+        }
+        else if (itemType == Item.Type.Coin_Item)
+        {
+            Debug.Log("코인 아이템 획득\n");
+            Debug.Log("현재 코인 갯수: " + count);
+        }
 
-        Debug.Log("메달 먹어서 삭제: " + item_id);
-        Debug.Log("현재 메달 카운트: " + current_medal_count);
-        BattleLib.Instance.DestroyItem(read.ItemId, obj_id, Item.Type.Medal_Item, 0);
+        BattleLib.Instance.DestroyItem(read.ItemId, obj_id, itemType, 0);
     }
 
     public void RegisterPacketHandler()
@@ -261,7 +270,7 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_ACTIVE_ITEM>(opcode.SC_NOTI_ACTIVE_ITEM, handler_SC_NOTI_ACTIVE_ITEM);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_ACQUIRE_ITEM>(opcode.SC_NOTI_ACQUIRE_ITEM, handler_SC_NOTI_ACQUIRE_ITEM);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_CREATE_MEDAL_ITEM>(opcode.SC_NOTI_CREATE_MEDAL_ITEM, handler_SC_NOTI_CREATE_MEDAL_ITEM);
-        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM>(opcode.SC_NOTI_ACQUIRE_MEDAL_ITEM, handler_SC_NOTI_ACQUIRE_MEDAL_ITEM);
+        ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_ACQUIRE_PERSIST_ITEM>(opcode.SC_NOTI_ACQUIRE_PERSIST_ITEM, handler_SC_NOTI_ACQUIRE_PERSIST_ITEM);
     }
 
 	void OnTouchBegan(Vector3 pos)

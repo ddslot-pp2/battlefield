@@ -301,9 +301,12 @@ public class BattleLib : MonoBehaviour {
         {
 
         }
+        else if (itemType == Item.Type.Coin_Item)
+        {
 
+        }
 
-	}
+    }
 
 	public void CreateBullet(Int64 obId , Bullet.Type bullet_type, Int64 bullet_id, Vector3 pos, Vector3 look_dir, Vector3 bullet_dir, Vector3 size, float speed, float distance)
     {

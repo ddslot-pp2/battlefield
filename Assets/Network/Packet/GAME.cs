@@ -76,9 +76,9 @@ namespace GAME {
             "X3oYBSABKAISEAoIdG9fcG9zX3gYBiABKAISEAoIdG9fcG9zX3kYByABKAIS",
             "EAoIdG9fcG9zX3oYCCABKAIiTAoZU0NfTk9USV9DUkVBVEVfTUVEQUxfSVRF",
             "TRIvChBtZWRhbF9pdGVtX2luZm9zGAEgAygLMhUuR0FNRS5NRURBTF9JVEVN",
-            "X0lORk8iTAoaU0NfTk9USV9BQ1FVSVJFX01FREFMX0lURU0SDgoGb2JqX2lk",
-            "GAEgASgDEg8KB2l0ZW1faWQYAiABKAMSDQoFY291bnQYAyABKAViBnByb3Rv",
-            "Mw=="));
+            "X0lORk8iYQocU0NfTk9USV9BQ1FVSVJFX1BFUlNJU1RfSVRFTRIOCgZvYmpf",
+            "aWQYASABKAMSDwoHaXRlbV9pZBgCIAEoAxIRCglpdGVtX3R5cGUYAyABKAUS",
+            "DQoFY291bnQYBCABKAViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -107,7 +107,7 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_ITEM), global::GAME.SC_NOTI_ACQUIRE_ITEM.Parser, new[]{ "ObjId", "ItemId", "ItemType", "Hp", "Exp" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.MEDAL_ITEM_INFO), global::GAME.MEDAL_ITEM_INFO.Parser, new[]{ "ItemId", "ItemType", "FromPosX", "FromPosY", "FromPosZ", "ToPosX", "ToPosY", "ToPosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_CREATE_MEDAL_ITEM), global::GAME.SC_NOTI_CREATE_MEDAL_ITEM.Parser, new[]{ "MedalItemInfos" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM), global::GAME.SC_NOTI_ACQUIRE_MEDAL_ITEM.Parser, new[]{ "ObjId", "ItemId", "Count" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_PERSIST_ITEM), global::GAME.SC_NOTI_ACQUIRE_PERSIST_ITEM.Parser, new[]{ "ObjId", "ItemId", "ItemType", "Count" }, null, null, null)
           }));
     }
     #endregion
@@ -5315,10 +5315,10 @@ namespace GAME {
 
   }
 
-  public sealed partial class SC_NOTI_ACQUIRE_MEDAL_ITEM : pb::IMessage<SC_NOTI_ACQUIRE_MEDAL_ITEM> {
-    private static readonly pb::MessageParser<SC_NOTI_ACQUIRE_MEDAL_ITEM> _parser = new pb::MessageParser<SC_NOTI_ACQUIRE_MEDAL_ITEM>(() => new SC_NOTI_ACQUIRE_MEDAL_ITEM());
+  public sealed partial class SC_NOTI_ACQUIRE_PERSIST_ITEM : pb::IMessage<SC_NOTI_ACQUIRE_PERSIST_ITEM> {
+    private static readonly pb::MessageParser<SC_NOTI_ACQUIRE_PERSIST_ITEM> _parser = new pb::MessageParser<SC_NOTI_ACQUIRE_PERSIST_ITEM>(() => new SC_NOTI_ACQUIRE_PERSIST_ITEM());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<SC_NOTI_ACQUIRE_MEDAL_ITEM> Parser { get { return _parser; } }
+    public static pb::MessageParser<SC_NOTI_ACQUIRE_PERSIST_ITEM> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -5331,22 +5331,23 @@ namespace GAME {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SC_NOTI_ACQUIRE_MEDAL_ITEM() {
+    public SC_NOTI_ACQUIRE_PERSIST_ITEM() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SC_NOTI_ACQUIRE_MEDAL_ITEM(SC_NOTI_ACQUIRE_MEDAL_ITEM other) : this() {
+    public SC_NOTI_ACQUIRE_PERSIST_ITEM(SC_NOTI_ACQUIRE_PERSIST_ITEM other) : this() {
       objId_ = other.objId_;
       itemId_ = other.itemId_;
+      itemType_ = other.itemType_;
       count_ = other.count_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SC_NOTI_ACQUIRE_MEDAL_ITEM Clone() {
-      return new SC_NOTI_ACQUIRE_MEDAL_ITEM(this);
+    public SC_NOTI_ACQUIRE_PERSIST_ITEM Clone() {
+      return new SC_NOTI_ACQUIRE_PERSIST_ITEM(this);
     }
 
     /// <summary>Field number for the "obj_id" field.</summary>
@@ -5371,8 +5372,19 @@ namespace GAME {
       }
     }
 
+    /// <summary>Field number for the "item_type" field.</summary>
+    public const int ItemTypeFieldNumber = 3;
+    private int itemType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ItemType {
+      get { return itemType_; }
+      set {
+        itemType_ = value;
+      }
+    }
+
     /// <summary>Field number for the "count" field.</summary>
-    public const int CountFieldNumber = 3;
+    public const int CountFieldNumber = 4;
     private int count_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Count {
@@ -5384,11 +5396,11 @@ namespace GAME {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as SC_NOTI_ACQUIRE_MEDAL_ITEM);
+      return Equals(other as SC_NOTI_ACQUIRE_PERSIST_ITEM);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(SC_NOTI_ACQUIRE_MEDAL_ITEM other) {
+    public bool Equals(SC_NOTI_ACQUIRE_PERSIST_ITEM other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -5397,6 +5409,7 @@ namespace GAME {
       }
       if (ObjId != other.ObjId) return false;
       if (ItemId != other.ItemId) return false;
+      if (ItemType != other.ItemType) return false;
       if (Count != other.Count) return false;
       return true;
     }
@@ -5406,6 +5419,7 @@ namespace GAME {
       int hash = 1;
       if (ObjId != 0L) hash ^= ObjId.GetHashCode();
       if (ItemId != 0L) hash ^= ItemId.GetHashCode();
+      if (ItemType != 0) hash ^= ItemType.GetHashCode();
       if (Count != 0) hash ^= Count.GetHashCode();
       return hash;
     }
@@ -5425,8 +5439,12 @@ namespace GAME {
         output.WriteRawTag(16);
         output.WriteInt64(ItemId);
       }
-      if (Count != 0) {
+      if (ItemType != 0) {
         output.WriteRawTag(24);
+        output.WriteInt32(ItemType);
+      }
+      if (Count != 0) {
+        output.WriteRawTag(32);
         output.WriteInt32(Count);
       }
     }
@@ -5440,6 +5458,9 @@ namespace GAME {
       if (ItemId != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(ItemId);
       }
+      if (ItemType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ItemType);
+      }
       if (Count != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Count);
       }
@@ -5447,7 +5468,7 @@ namespace GAME {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(SC_NOTI_ACQUIRE_MEDAL_ITEM other) {
+    public void MergeFrom(SC_NOTI_ACQUIRE_PERSIST_ITEM other) {
       if (other == null) {
         return;
       }
@@ -5456,6 +5477,9 @@ namespace GAME {
       }
       if (other.ItemId != 0L) {
         ItemId = other.ItemId;
+      }
+      if (other.ItemType != 0) {
+        ItemType = other.ItemType;
       }
       if (other.Count != 0) {
         Count = other.Count;
@@ -5479,6 +5503,10 @@ namespace GAME {
             break;
           }
           case 24: {
+            ItemType = input.ReadInt32();
+            break;
+          }
+          case 32: {
             Count = input.ReadInt32();
             break;
           }
