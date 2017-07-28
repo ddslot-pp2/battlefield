@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : Entity
 {
-    public enum Type { Hp_Item = 0, Medal_Item = 1, Coin_Item = 2, Exp_Item = 3, Shield_Item = 4 };
+    public enum Type { Hp_Item = 0, Medal_Item = 1, Coin_Item = 2, Shield_Item = 3 };
 
     protected override void Init ()
     {

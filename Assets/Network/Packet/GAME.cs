@@ -68,21 +68,22 @@ namespace GAME {
             "CUlURU1fSU5GTxIPCgdpdGVtX2lkGAEgASgDEhEKCWl0ZW1fdHlwZRgCIAEo",
             "BRINCgVwb3NfeBgDIAEoAhINCgVwb3NfeRgEIAEoAhINCgVwb3NfehgFIAEo",
             "AiI6ChNTQ19OT1RJX0FDVElWRV9JVEVNEiMKCml0ZW1faW5mb3MYASADKAsy",
-            "Dy5HQU1FLklURU1fSU5GTyJjChRTQ19OT1RJX0FDUVVJUkVfSVRFTRIOCgZv",
+            "Dy5HQU1FLklURU1fSU5GTyJ4ChRTQ19OT1RJX0FDUVVJUkVfSVRFTRIOCgZv",
             "YmpfaWQYASABKAMSDwoHaXRlbV9pZBgCIAEoAxIRCglpdGVtX3R5cGUYAyAB",
-            "KAUSCgoCaHAYBCABKAUSCwoDZXhwGAUgASgFIqcBCg9NRURBTF9JVEVNX0lO",
-            "Rk8SDwoHaXRlbV9pZBgBIAEoAxIRCglpdGVtX3R5cGUYAiABKAUSEgoKZnJv",
-            "bV9wb3NfeBgDIAEoAhISCgpmcm9tX3Bvc195GAQgASgCEhIKCmZyb21fcG9z",
-            "X3oYBSABKAISEAoIdG9fcG9zX3gYBiABKAISEAoIdG9fcG9zX3kYByABKAIS",
-            "EAoIdG9fcG9zX3oYCCABKAIiTAoZU0NfTk9USV9DUkVBVEVfTUVEQUxfSVRF",
-            "TRIvChBtZWRhbF9pdGVtX2luZm9zGAEgAygLMhUuR0FNRS5NRURBTF9JVEVN",
-            "X0lORk8iYQocU0NfTk9USV9BQ1FVSVJFX1BFUlNJU1RfSVRFTRIOCgZvYmpf",
-            "aWQYASABKAMSDwoHaXRlbV9pZBgCIAEoAxIRCglpdGVtX3R5cGUYAyABKAUS",
-            "DQoFY291bnQYBCABKAUiPwoJUkFOS19JTkZPEhEKCW9iamVjdF9pZBgBIAEo",
-            "AxIQCghuaWNrbmFtZRgCIAEoCRINCgVzY29yZRgDIAEoBSI4ChFTQ19OT1RJ",
-            "X1JBTktfSU5GTxIjCgpyYW5rX2luZm9zGAEgAygLMg8uR0FNRS5SQU5LX0lO",
-            "Rk8iPQoMU0NfTk9USV9SQU5LEgwKBHJhbmsYASABKAUSEAoIbmlja25hbWUY",
-            "AiABKAkSDQoFc2NvcmUYAyABKAViBnByb3RvMw=="));
+            "KAUSCgoCaHAYBCABKAUSEwoLc2hpZWxkX3RpbWUYBSABKAUSCwoDZXhwGAYg",
+            "ASgFIqcBCg9NRURBTF9JVEVNX0lORk8SDwoHaXRlbV9pZBgBIAEoAxIRCglp",
+            "dGVtX3R5cGUYAiABKAUSEgoKZnJvbV9wb3NfeBgDIAEoAhISCgpmcm9tX3Bv",
+            "c195GAQgASgCEhIKCmZyb21fcG9zX3oYBSABKAISEAoIdG9fcG9zX3gYBiAB",
+            "KAISEAoIdG9fcG9zX3kYByABKAISEAoIdG9fcG9zX3oYCCABKAIiTAoZU0Nf",
+            "Tk9USV9DUkVBVEVfTUVEQUxfSVRFTRIvChBtZWRhbF9pdGVtX2luZm9zGAEg",
+            "AygLMhUuR0FNRS5NRURBTF9JVEVNX0lORk8iYQocU0NfTk9USV9BQ1FVSVJF",
+            "X1BFUlNJU1RfSVRFTRIOCgZvYmpfaWQYASABKAMSDwoHaXRlbV9pZBgCIAEo",
+            "AxIRCglpdGVtX3R5cGUYAyABKAUSDQoFY291bnQYBCABKAUiPwoJUkFOS19J",
+            "TkZPEhEKCW9iamVjdF9pZBgBIAEoAxIQCghuaWNrbmFtZRgCIAEoCRINCgVz",
+            "Y29yZRgDIAEoBSI4ChFTQ19OT1RJX1JBTktfSU5GTxIjCgpyYW5rX2luZm9z",
+            "GAEgAygLMg8uR0FNRS5SQU5LX0lORk8iPQoMU0NfTk9USV9SQU5LEgwKBHJh",
+            "bmsYASABKAUSEAoIbmlja25hbWUYAiABKAkSDQoFc2NvcmUYAyABKAViBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -108,7 +109,7 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS), global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS.Parser, new[]{ "ObjId", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.ITEM_INFO), global::GAME.ITEM_INFO.Parser, new[]{ "ItemId", "ItemType", "PosX", "PosY", "PosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACTIVE_ITEM), global::GAME.SC_NOTI_ACTIVE_ITEM.Parser, new[]{ "ItemInfos" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_ITEM), global::GAME.SC_NOTI_ACQUIRE_ITEM.Parser, new[]{ "ObjId", "ItemId", "ItemType", "Hp", "Exp" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_ITEM), global::GAME.SC_NOTI_ACQUIRE_ITEM.Parser, new[]{ "ObjId", "ItemId", "ItemType", "Hp", "ShieldTime", "Exp" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.MEDAL_ITEM_INFO), global::GAME.MEDAL_ITEM_INFO.Parser, new[]{ "ItemId", "ItemType", "FromPosX", "FromPosY", "FromPosZ", "ToPosX", "ToPosY", "ToPosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_CREATE_MEDAL_ITEM), global::GAME.SC_NOTI_CREATE_MEDAL_ITEM.Parser, new[]{ "MedalItemInfos" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_PERSIST_ITEM), global::GAME.SC_NOTI_ACQUIRE_PERSIST_ITEM.Parser, new[]{ "ObjId", "ItemId", "ItemType", "Count" }, null, null, null),
@@ -4699,6 +4700,7 @@ namespace GAME {
       itemId_ = other.itemId_;
       itemType_ = other.itemType_;
       hp_ = other.hp_;
+      shieldTime_ = other.shieldTime_;
       exp_ = other.exp_;
     }
 
@@ -4751,8 +4753,19 @@ namespace GAME {
       }
     }
 
+    /// <summary>Field number for the "shield_time" field.</summary>
+    public const int ShieldTimeFieldNumber = 5;
+    private int shieldTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ShieldTime {
+      get { return shieldTime_; }
+      set {
+        shieldTime_ = value;
+      }
+    }
+
     /// <summary>Field number for the "exp" field.</summary>
-    public const int ExpFieldNumber = 5;
+    public const int ExpFieldNumber = 6;
     private int exp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Exp {
@@ -4779,6 +4792,7 @@ namespace GAME {
       if (ItemId != other.ItemId) return false;
       if (ItemType != other.ItemType) return false;
       if (Hp != other.Hp) return false;
+      if (ShieldTime != other.ShieldTime) return false;
       if (Exp != other.Exp) return false;
       return true;
     }
@@ -4790,6 +4804,7 @@ namespace GAME {
       if (ItemId != 0L) hash ^= ItemId.GetHashCode();
       if (ItemType != 0) hash ^= ItemType.GetHashCode();
       if (Hp != 0) hash ^= Hp.GetHashCode();
+      if (ShieldTime != 0) hash ^= ShieldTime.GetHashCode();
       if (Exp != 0) hash ^= Exp.GetHashCode();
       return hash;
     }
@@ -4817,8 +4832,12 @@ namespace GAME {
         output.WriteRawTag(32);
         output.WriteInt32(Hp);
       }
-      if (Exp != 0) {
+      if (ShieldTime != 0) {
         output.WriteRawTag(40);
+        output.WriteInt32(ShieldTime);
+      }
+      if (Exp != 0) {
+        output.WriteRawTag(48);
         output.WriteInt32(Exp);
       }
     }
@@ -4837,6 +4856,9 @@ namespace GAME {
       }
       if (Hp != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
+      }
+      if (ShieldTime != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ShieldTime);
       }
       if (Exp != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Exp);
@@ -4860,6 +4882,9 @@ namespace GAME {
       }
       if (other.Hp != 0) {
         Hp = other.Hp;
+      }
+      if (other.ShieldTime != 0) {
+        ShieldTime = other.ShieldTime;
       }
       if (other.Exp != 0) {
         Exp = other.Exp;
@@ -4891,6 +4916,10 @@ namespace GAME {
             break;
           }
           case 40: {
+            ShieldTime = input.ReadInt32();
+            break;
+          }
+          case 48: {
             Exp = input.ReadInt32();
             break;
           }

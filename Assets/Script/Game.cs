@@ -207,9 +207,23 @@ public class Game : MonoBehaviour {
 
     public void handler_SC_NOTI_ACQUIRE_ITEM(GAME.SC_NOTI_ACQUIRE_ITEM read)
     {
-        Debug.Log("아아템 삭제 패킷 받음");
-		BattleLib.Instance.DestroyItem (read.ItemId, read.ObjId, (Item.Type)read.ItemType, read.Hp);
+        Debug.Log("아아템 사용 패킷 받음");
+
+        var item_type = (Item.Type)read.ItemType;
+
+        // 효과 처리
+        if (item_type == Item.Type.Hp_Item)
+        {
+            BattleLib.Instance.DestroyItem(read.ItemId, read.ObjId, (Item.Type)read.ItemType, read.Hp, 0);
+        }
+        else if (item_type == Item.Type.Shield_Item)
+        {
+            // 이 시간만큼만 해주고 타이머를 걸어서 효과 제거
+            var shield_time = read.ShieldTime;
+            BattleLib.Instance.DestroyItem(read.ItemId, read.ObjId, (Item.Type)read.ItemType, read.Hp, shield_time);
+        }
     }
+
     public void handler_SC_NOTI_CREATE_MEDAL_ITEM(GAME.SC_NOTI_CREATE_MEDAL_ITEM read)
     {
         foreach (var medal_item_info in read.MedalItemInfos)
@@ -251,7 +265,7 @@ public class Game : MonoBehaviour {
             Debug.Log("현재 코인 갯수: " + count);
         }
 
-        BattleLib.Instance.DestroyItem(read.ItemId, obj_id, itemType, 0);
+        BattleLib.Instance.DestroyItem(read.ItemId, obj_id, itemType, 0, 0);
     }
 
     public void handler_SC_NOTI_RANK_INFO(GAME.SC_NOTI_RANK_INFO read)

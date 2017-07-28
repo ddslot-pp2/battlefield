@@ -19,8 +19,10 @@ public class Tank : Entity {
 	HpBar hpBar;
 
 	GameObject DustEffect;
+    GameObject ShieldEffect;
+    bool ShieldOn = false;
 
-	Vector3 ArrivePos = Vector3.zero;
+    Vector3 ArrivePos = Vector3.zero;
 	Vector3 AttackDir = Vector3.zero;
 
 	public  float nextfire = 0.0f;
@@ -48,6 +50,8 @@ public class Tank : Entity {
 		dead = false;
 
         SlowdownSpeed_ = 1.0f;
+
+        ShieldEffect = null;
     }
 
 	public void SetMyEntity()
@@ -75,7 +79,13 @@ public class Tank : Entity {
 		//Debug.Log ("move" + move);
 		UpdateFireTime();
 		MoveEntity();
-	}
+
+        if (ShieldEffect)
+        {
+            ShieldEffect.transform.position = this.transform.position;
+        }
+
+    }
 
 	/*
 	public void SetControllDir(Vector3 Dir)
@@ -265,7 +275,25 @@ public class Tank : Entity {
 		DustEffect = EffectManager.Instance.DustEffect.Spawn(transform.position);
 	}
 
-	public void Revive(BattleInfo.TANK_INFO TankInfo)
+    public void StartShield(int time)
+    {
+        if (ShieldOn) return;
+
+        ShieldOn = true;
+        StartCoroutine(FinishShieldEffect(time));
+        ShieldEffect = EffectManager.Instance.ShieldEffect.Spawn(transform.position);
+    }
+
+    IEnumerator FinishShieldEffect(int time)
+    {
+        yield return new WaitForSeconds(time);
+        // do sth
+        ShieldEffect.Recycle();
+        ShieldOn = false;
+    }
+
+
+    public void Revive(BattleInfo.TANK_INFO TankInfo)
 	{
 		myTransform.position = TankInfo.Pos;
 

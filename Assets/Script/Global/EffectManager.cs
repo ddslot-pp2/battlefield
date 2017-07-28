@@ -5,9 +5,10 @@ using UnityEngine;
 public class EffectManager : MonoBehaviour {
 
 	public GameObject DustEffect;
+    public GameObject ShieldEffect;
 
 
-	static 	EffectManager _Instance;
+    static 	EffectManager _Instance;
 
 
 	public static EffectManager Instance

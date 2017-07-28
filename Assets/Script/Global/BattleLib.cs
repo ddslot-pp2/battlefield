@@ -285,7 +285,7 @@ public class BattleLib : MonoBehaviour {
 		AddEntity (itemEntity);
 	}
 
-	public void DestroyItem(Int64 itemId, Int64 tankId, Item.Type itemType, int tankHp)
+	public void DestroyItem(Int64 itemId, Int64 tankId, Item.Type itemType, int tankHp, int shield_time)
 	{
 		//Debug.Log ("DestroyItem itemId:" + itemId);
 		DeleteEntity(itemId);
@@ -306,7 +306,10 @@ public class BattleLib : MonoBehaviour {
         {
 
         }
-
+        else if (itemType == Item.Type.Shield_Item)
+        {
+            tankObject.StartShield((int)(shield_time / 1000.0f));
+        }
     }
 
 	public void CreateBullet(Int64 obId , Bullet.Type bullet_type, Int64 bullet_id, Vector3 pos, Vector3 look_dir, Vector3 bullet_dir, Vector3 size, float speed, float distance)
