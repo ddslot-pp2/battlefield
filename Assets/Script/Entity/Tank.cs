@@ -260,7 +260,6 @@ public class Tank : Entity {
 		int currHealth = state.hp;
 		float healthPercent = currHealth / maxHealth;
 		*/
-		damageOutlineFlash.StartDamageFlash();
 		hpBar.UpdateHpBar();
 	}
 
