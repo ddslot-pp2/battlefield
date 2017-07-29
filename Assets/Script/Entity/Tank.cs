@@ -32,7 +32,7 @@ public class Tank : Entity {
     private float SlowdownTime_ = 0.0f;
 
 	Vector3 controllDir = Vector3.zero;
-	DamageOutlineFlash damageOutlineFlash;
+
 
 
 	//private Controller controller;
@@ -52,8 +52,7 @@ public class Tank : Entity {
         SlowdownSpeed_ = 1.0f;
 
         ShieldEffect = null;
-
-		damageOutlineFlash =  gameObject.GetComponent<DamageOutlineFlash>();
+	
     }
 
 	public void SetMyEntity()

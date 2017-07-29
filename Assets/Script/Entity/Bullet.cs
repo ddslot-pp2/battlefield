@@ -27,7 +27,7 @@ public class Bullet : Entity
    
 	public override void Release()
 	{
-		//ExpEffect.Spawn (myTransform.position, myTransform.rotation);
+		ExpEffect.Spawn (myTransform.position, myTransform.rotation);
 		gameObject.Recycle();
 	}
 
