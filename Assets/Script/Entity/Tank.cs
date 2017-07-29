@@ -120,7 +120,7 @@ public class Tank : Entity {
 				if (LeftDir != new Vector3(0, 0, 0))
 					myTransform.Translate(state.forward * state.moveSpeed * Time.deltaTime * SlowdownSpeed_);
 				move = false;
-
+				ArrivePos = myTransform.position;
 			}
 				
 		}
