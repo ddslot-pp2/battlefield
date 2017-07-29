@@ -14,7 +14,7 @@ public class CoinItem : Item
 
     public override void EntityUpdate()
     {
-        //transform.RotateAround(transform.position, transform.up, Time.deltaTime * 45.0f);
+        transform.RotateAround(transform.position, transform.up, Time.deltaTime * 45.0f);
     }
 
 }
