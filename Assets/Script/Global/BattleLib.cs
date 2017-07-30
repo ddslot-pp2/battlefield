@@ -322,8 +322,10 @@ public class BattleLib : MonoBehaviour {
 
 		tankObject.Fire();
 
-		if (null != FireDelegate)
+		if (null != FireDelegate && obId == m_myObId) 
+		{
 			FireDelegate (tankObject.state.fireRate);
+		}
 
         // bullet 발사의 시작 위치를 나이스하게 가져오고 싶음;
 		Transform fire_transform = tankObject.fireTransform;
