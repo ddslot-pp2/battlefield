@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour {
 
 	public GameObject[] InGameItem;
-
+	public GameObject ItemGainEffect;
 	/*
 	public GameObject hpItem;
 	public GameObject ExpItem;
@@ -46,6 +46,12 @@ public class ItemManager : MonoBehaviour {
 		}
 
 		return InGameItem [itemType].Spawn(respawnPos);
+	}
+
+
+	public void ItemGain( Vector3 spawnPos)
+	{
+		ItemGainEffect.Spawn(spawnPos);
 	}
 		
 }
