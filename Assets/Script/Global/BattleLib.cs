@@ -290,7 +290,10 @@ public class BattleLib : MonoBehaviour {
 		//Debug.Log ("DestroyItem itemId:" + itemId);
 		DeleteEntity(itemId);
 
-		Tank tankObject = EntityDic[tankId] as Tank;
+        if (tankId == 0) return;
+
+
+        Tank tankObject = EntityDic[tankId] as Tank;
 		if (tankObject == null)
 			return;
 
