@@ -14,6 +14,8 @@ public class LobbyManager : MonoBehaviour {
     public Text MedalText;
     public Text CoinText;
 
+    private string uuid_;
+
     // 접속 완료 후 콜백
     public void onConnect()
     {
@@ -77,10 +79,12 @@ public class LobbyManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        uuid_ = SystemInfo.deviceUniqueIdentifier;
+        Debug.Log("uuid: " + uuid_);
         NewTank.SetActive(false);
         RegisterPacketHandler();
-        //ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
-        ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
+        ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
+        //ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
     }
 	
 	// Update is called once per frame
@@ -118,7 +122,9 @@ public class LobbyManager : MonoBehaviour {
     private void Login()
     {
         var Send = new LOBBY.CS_LOG_IN();
-        Send.Id = "냐옹이";
+        
+        //Send.Id = "냐옹이";
+        Send.Id = uuid_;
         Send.Password = "1234ABCD";
         ProtobufManager.Instance().Send(opcode.CS_LOG_IN, Send);
     }
