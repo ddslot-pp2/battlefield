@@ -33,8 +33,12 @@ namespace LOBBY {
             "ZWxkX2lkGAEgASgFIj4KDlNDX0VOVEVSX0ZJRUxEEg4KBnJlc3VsdBgBIAEo",
             "CBIQCghmaWVsZF9pZBgCIAEoBRIKCgJlYxgDIAEoCSIiCg5DU19MRUFWRV9G",
             "SUVMRBIQCghmaWVsZF9pZBgBIAEoBSIsCg5TQ19MRUFWRV9GSUVMRBIOCgZy",
-            "ZXN1bHQYASABKAgSCgoCZWMYAiABKAkqMgoMR2FtZURhdGFUeXBlEgoKBnRl",
-            "c3RfMRAAEgoKBnRlc3RfMhABEgoKBnRlc3RfMxACYgZwcm90bzM="));
+            "ZXN1bHQYASABKAgSCgoCZWMYAiABKAkiLwoVQ1NfUFVSQ0hBU0VfQ0hBUkFD",
+            "VEVSEhYKDmNoYXJhY3Rlcl90eXBlGAEgASgFIlwKFVNDX1BVUkNIQVNFX0NI",
+            "QVJBQ1RFUhITCgttZWRhbF9jb3VudBgBIAEoBRISCgpjb2luX2NvdW50GAIg",
+            "ASgFEg4KBnJlc3VsdBgDIAEoCBIKCgJlYxgEIAEoCSoyCgxHYW1lRGF0YVR5",
+            "cGUSCgoGdGVzdF8xEAASCgoGdGVzdF8yEAESCgoGdGVzdF8zEAJiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LOBBY.GameDataType), }, new pbr::GeneratedClrTypeInfo[] {
@@ -46,7 +50,9 @@ namespace LOBBY {
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_ENTER_FIELD), global::LOBBY.CS_ENTER_FIELD.Parser, new[]{ "FieldId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_ENTER_FIELD), global::LOBBY.SC_ENTER_FIELD.Parser, new[]{ "Result", "FieldId", "Ec" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_LEAVE_FIELD), global::LOBBY.CS_LEAVE_FIELD.Parser, new[]{ "FieldId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_LEAVE_FIELD), global::LOBBY.SC_LEAVE_FIELD.Parser, new[]{ "Result", "Ec" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_LEAVE_FIELD), global::LOBBY.SC_LEAVE_FIELD.Parser, new[]{ "Result", "Ec" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_PURCHASE_CHARACTER), global::LOBBY.CS_PURCHASE_CHARACTER.Parser, new[]{ "CharacterType" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_PURCHASE_CHARACTER), global::LOBBY.SC_PURCHASE_CHARACTER.Parser, new[]{ "MedalCount", "CoinCount", "Result", "Ec" }, null, null, null)
           }));
     }
     #endregion
@@ -1378,6 +1384,324 @@ namespace LOBBY {
             break;
           }
           case 18: {
+            Ec = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CS_PURCHASE_CHARACTER : pb::IMessage<CS_PURCHASE_CHARACTER> {
+    private static readonly pb::MessageParser<CS_PURCHASE_CHARACTER> _parser = new pb::MessageParser<CS_PURCHASE_CHARACTER>(() => new CS_PURCHASE_CHARACTER());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_PURCHASE_CHARACTER> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::LOBBY.LOBBYReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_PURCHASE_CHARACTER() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_PURCHASE_CHARACTER(CS_PURCHASE_CHARACTER other) : this() {
+      characterType_ = other.characterType_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_PURCHASE_CHARACTER Clone() {
+      return new CS_PURCHASE_CHARACTER(this);
+    }
+
+    /// <summary>Field number for the "character_type" field.</summary>
+    public const int CharacterTypeFieldNumber = 1;
+    private int characterType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CharacterType {
+      get { return characterType_; }
+      set {
+        characterType_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_PURCHASE_CHARACTER);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_PURCHASE_CHARACTER other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (CharacterType != other.CharacterType) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (CharacterType != 0) hash ^= CharacterType.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (CharacterType != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(CharacterType);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (CharacterType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CharacterType);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_PURCHASE_CHARACTER other) {
+      if (other == null) {
+        return;
+      }
+      if (other.CharacterType != 0) {
+        CharacterType = other.CharacterType;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            CharacterType = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_PURCHASE_CHARACTER : pb::IMessage<SC_PURCHASE_CHARACTER> {
+    private static readonly pb::MessageParser<SC_PURCHASE_CHARACTER> _parser = new pb::MessageParser<SC_PURCHASE_CHARACTER>(() => new SC_PURCHASE_CHARACTER());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_PURCHASE_CHARACTER> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::LOBBY.LOBBYReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_PURCHASE_CHARACTER() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_PURCHASE_CHARACTER(SC_PURCHASE_CHARACTER other) : this() {
+      medalCount_ = other.medalCount_;
+      coinCount_ = other.coinCount_;
+      result_ = other.result_;
+      ec_ = other.ec_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_PURCHASE_CHARACTER Clone() {
+      return new SC_PURCHASE_CHARACTER(this);
+    }
+
+    /// <summary>Field number for the "medal_count" field.</summary>
+    public const int MedalCountFieldNumber = 1;
+    private int medalCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MedalCount {
+      get { return medalCount_; }
+      set {
+        medalCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "coin_count" field.</summary>
+    public const int CoinCountFieldNumber = 2;
+    private int coinCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CoinCount {
+      get { return coinCount_; }
+      set {
+        coinCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "result" field.</summary>
+    public const int ResultFieldNumber = 3;
+    private bool result_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Result {
+      get { return result_; }
+      set {
+        result_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ec" field.</summary>
+    public const int EcFieldNumber = 4;
+    private string ec_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Ec {
+      get { return ec_; }
+      set {
+        ec_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_PURCHASE_CHARACTER);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_PURCHASE_CHARACTER other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (MedalCount != other.MedalCount) return false;
+      if (CoinCount != other.CoinCount) return false;
+      if (Result != other.Result) return false;
+      if (Ec != other.Ec) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (MedalCount != 0) hash ^= MedalCount.GetHashCode();
+      if (CoinCount != 0) hash ^= CoinCount.GetHashCode();
+      if (Result != false) hash ^= Result.GetHashCode();
+      if (Ec.Length != 0) hash ^= Ec.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (MedalCount != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(MedalCount);
+      }
+      if (CoinCount != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(CoinCount);
+      }
+      if (Result != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(Result);
+      }
+      if (Ec.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Ec);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (MedalCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MedalCount);
+      }
+      if (CoinCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CoinCount);
+      }
+      if (Result != false) {
+        size += 1 + 1;
+      }
+      if (Ec.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ec);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_PURCHASE_CHARACTER other) {
+      if (other == null) {
+        return;
+      }
+      if (other.MedalCount != 0) {
+        MedalCount = other.MedalCount;
+      }
+      if (other.CoinCount != 0) {
+        CoinCount = other.CoinCount;
+      }
+      if (other.Result != false) {
+        Result = other.Result;
+      }
+      if (other.Ec.Length != 0) {
+        Ec = other.Ec;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            MedalCount = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            CoinCount = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Result = input.ReadBool();
+            break;
+          }
+          case 34: {
             Ec = input.ReadString();
             break;
           }

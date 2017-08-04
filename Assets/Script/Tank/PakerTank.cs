@@ -17,7 +17,9 @@ public class PakerTank : Tank {
 
 		base.Init();
 
-		Debug.Log ("init");
+        muzzleFlash_1.enabled = false;
+        muzzleFlash_2.enabled = false;
+        Debug.Log ("init");
 	}
 
 	public override void EntityUpdate () {
@@ -33,37 +35,28 @@ public class PakerTank : Tank {
 
 	void Update()
 	{
-		//EntityUpdate ();
-	}
+        base.Update();
+        //EntityUpdate ();
+    }
 
 
 	public override void Fire()
 	{
-		if (Time.time >= nextfire)
-		{
-			nextfire = Time.time + state.fireRate;
-			//GameObject.Find("GameManager").GetComponent<GameManager>().CoolTimeCounter(state.fireRate);
-			CreateBullet();
-
-			//잠시 기다리는 루틴을 위해 코루틴 함수로 호출
-			StartCoroutine(this.ShowMuzzleFlash());
-		}
-	}
+        base.Fire();
+        StartCoroutine(this.ShowMuzzleFlash());
+    }
 
 	void CreateBullet()
 	{
-		//Bullet 프리팹을 동적으로 생성
-		GameObject bulletLocalSize1 = Instantiate(state.bullet, firePos_p1.position, firePos_p1.rotation);
-		bulletLocalSize1.transform.localScale = new Vector3(bulletLocalSize1.transform.localScale.x * state.bulletSize, bulletLocalSize1.transform.localScale.y * state.bulletSize, bulletLocalSize1.transform.localScale.z * state.bulletSize);
-		bulletLocalSize1.GetComponent<DirectBullet>().GetDamageType(state.damage, 1, transform.gameObject, state.range, state.bulletSpeed);
-
-		GameObject bulletLocalSize2 = Instantiate(state.bullet, firePos_p2.position, firePos_p2.rotation);
-		bulletLocalSize2.transform.localScale = new Vector3(bulletLocalSize2.transform.localScale.x * state.bulletSize, bulletLocalSize2.transform.localScale.y * state.bulletSize, bulletLocalSize2.transform.localScale.z * state.bulletSize);
-		bulletLocalSize2.GetComponent<DirectBullet>().GetDamageType(state.damage, 1, transform.gameObject, state.range, state.bulletSpeed);
+        //Bullet 프리팹을 동적으로 생성
+        GameObject bulletLocalSize = Instantiate(state.bullet, firePos_p1.position, firePos_p1.rotation);
+        bulletLocalSize.transform.localScale = new Vector3(bulletLocalSize.transform.localScale.x * state.bulletSize, bulletLocalSize.transform.localScale.y * state.bulletSize, bulletLocalSize.transform.localScale.z * state.bulletSize);
+        bulletLocalSize.GetComponent<DirectBullet>().GetDamageType(state.damage, 1, transform.gameObject, state.range, state.bulletSpeed);
 	}
 
 	IEnumerator ShowMuzzleFlash()
 	{
+        
 		//MuzzleFlash 스케일을 불규칙하게 변경
 		float scale = Random.Range(2.0f, 4.0f);
 		muzzleFlash_1.transform.localScale = Vector3.one * scale;
@@ -78,5 +71,24 @@ public class PakerTank : Tank {
 		//비활성화해서 보이지 않게 함
 		muzzleFlash_1.enabled = false;
 		muzzleFlash_2.enabled = false;
-	}
+    }
+
+    public override Transform GetFirePosition()
+    {
+        return firePos_p1;
+    }
+
+    public override Vector3[] GetFireDirs(Vector3 NormalizedDir)
+    {
+        //var dir = (new Vector3(TouchDir.x, 0.0f, TouchDir.z) - transform.position).normalized;
+        //return new Vector3[] { NormalizedDir };
+
+        
+		return new Vector3[] { 
+			Quaternion.AngleAxis (5.0f, Vector3.up) * NormalizedDir
+			,Quaternion.AngleAxis (-5.0f, Vector3.up) * NormalizedDir
+
+		};
+        
+    }
 }
