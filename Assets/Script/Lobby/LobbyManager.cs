@@ -56,7 +56,6 @@ public class LobbyManager : MonoBehaviour {
     }
     public void handler_SC_ENTER_FIELD(LOBBY.SC_ENTER_FIELD read)
     {
-        
         // 게임씬 로딩 시작
         Debug.Log("게임씬 로딩");
         UnityEngine.SceneManagement.SceneManager.LoadScene("GAME");
@@ -64,6 +63,21 @@ public class LobbyManager : MonoBehaviour {
     public void handler_SC_LEAVE_FIELD(LOBBY.SC_LEAVE_FIELD read)
     {
 
+    }
+    public void handler_SC_PURCHASE_CHARACTER(LOBBY.SC_PURCHASE_CHARACTER read)
+    {
+        var result = read.Result;
+
+        if (!result)
+        {
+            var ec = read.Ec;
+            return;
+        }
+
+        MedalText.text = read.MedalCount.ToString();
+        CoinText.text = read.CoinCount.ToString();
+
+        Debug.Log("탱크 구매 성공\n");
     }
 
     // 사용할 패킷 등록
@@ -74,7 +88,10 @@ public class LobbyManager : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<LOBBY.SC_FIELD_LIST>(opcode.SC_FIELD_LIST, handle_SC_FIELD_LIST);
         ProtobufManager.Instance().SetHandler<LOBBY.SC_ENTER_FIELD>(opcode.SC_ENTER_FIELD, handler_SC_ENTER_FIELD);
         ProtobufManager.Instance().SetHandler<LOBBY.SC_LEAVE_FIELD>(opcode.SC_LEAVE_FIELD, handler_SC_LEAVE_FIELD);
+        ProtobufManager.Instance().SetHandler<LOBBY.SC_PURCHASE_CHARACTER>(opcode.SC_PURCHASE_CHARACTER, handler_SC_PURCHASE_CHARACTER);
     }
+
+
 
     // Use this for initialization
     void Start ()
@@ -83,8 +100,8 @@ public class LobbyManager : MonoBehaviour {
         Debug.Log("uuid: " + uuid_);
         NewTank.SetActive(false);
         RegisterPacketHandler();
-        //ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
-        ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
+        ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
+        //ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
     }
 	
 	// Update is called once per frame
