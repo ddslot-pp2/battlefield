@@ -83,6 +83,13 @@ public class LobbyManager : MonoBehaviour {
         NewTank.SetActive(false);
     }
 
+    public void handler_SC_PING(GAME.SC_PING read)
+    {
+        Debug.Log("핑 받음");
+        var Send = new GAME.CS_PING();
+        ProtobufManager.Instance().Send(opcode.CS_PING, Send);
+    }
+
     // 사용할 패킷 등록
     public void RegisterPacketHandler()
     {
@@ -92,9 +99,8 @@ public class LobbyManager : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<LOBBY.SC_ENTER_FIELD>(opcode.SC_ENTER_FIELD, handler_SC_ENTER_FIELD);
         ProtobufManager.Instance().SetHandler<LOBBY.SC_LEAVE_FIELD>(opcode.SC_LEAVE_FIELD, handler_SC_LEAVE_FIELD);
         ProtobufManager.Instance().SetHandler<LOBBY.SC_PURCHASE_CHARACTER>(opcode.SC_PURCHASE_CHARACTER, handler_SC_PURCHASE_CHARACTER);
+        ProtobufManager.Instance().SetHandler<GAME.SC_PING>(opcode.SC_PING, handler_SC_PING);
     }
-
-
 
     // Use this for initialization
     void Start ()

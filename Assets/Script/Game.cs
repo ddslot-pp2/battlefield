@@ -318,6 +318,12 @@ public class Game : MonoBehaviour {
         textComponent = point.GetComponent<Text>();
         textComponent.text = read.Score.ToString();
     }
+    public void handler_SC_PING(GAME.SC_PING read)
+    {
+        Debug.Log("핑 받음");
+        var Send = new GAME.CS_PING();
+        ProtobufManager.Instance().Send(opcode.CS_PING, Send);
+    }
 
     public void RegisterPacketHandler()
     {
@@ -338,6 +344,7 @@ public class Game : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_ACQUIRE_PERSIST_ITEM>(opcode.SC_NOTI_ACQUIRE_PERSIST_ITEM, handler_SC_NOTI_ACQUIRE_PERSIST_ITEM);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_RANK_INFO>(opcode.SC_NOTI_RANK_INFO, handler_SC_NOTI_RANK_INFO);
         ProtobufManager.Instance().SetHandler<GAME.SC_NOTI_RANK>(opcode.SC_NOTI_RANK, handler_SC_NOTI_RANK);
+        ProtobufManager.Instance().SetHandler<GAME.SC_PING>(opcode.SC_PING, handler_SC_PING);
     }
 
 	void OnTouchBegan(Vector3 pos)
