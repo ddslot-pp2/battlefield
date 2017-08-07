@@ -70,7 +70,9 @@ public class LobbyManager : MonoBehaviour {
 
         if (!result)
         {
+            Debug.Log("탱크 구매 실패\n");
             var ec = read.Ec;
+            Debug.Log(ec);
             return;
         }
 
@@ -78,6 +80,7 @@ public class LobbyManager : MonoBehaviour {
         CoinText.text = read.CoinCount.ToString();
 
         Debug.Log("탱크 구매 성공\n");
+        NewTank.SetActive(false);
     }
 
     // 사용할 패킷 등록
@@ -135,7 +138,6 @@ public class LobbyManager : MonoBehaviour {
         Debug.Log("코인 구매하기");
     }
 
-
     private void Login()
     {
         var Send = new LOBBY.CS_LOG_IN();
@@ -144,5 +146,13 @@ public class LobbyManager : MonoBehaviour {
         Send.Id = uuid_;
         Send.Password = "1234ABCD";
         ProtobufManager.Instance().Send(opcode.CS_LOG_IN, Send);
+    }
+
+    public void onPurchaseTankButton(int type)
+    {
+        Debug.Log("탱크 구매하기 버튼 클릭: " + type.ToString());
+        var Send = new LOBBY.CS_PURCHASE_CHARACTER();
+        Send.CharacterType = type;
+        ProtobufManager.Instance().Send(opcode.CS_PURCHASE_CHARACTER, Send);
     }
 }
