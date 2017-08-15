@@ -23,27 +23,32 @@ namespace LOBBY {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgtMT0JCWS5wcm90bxIFTE9CQlkiKQoJQ1NfTE9HX0lOEgoKAmlkGAEgASgJ",
-            "EhAKCHBhc3N3b3JkGAIgASgJImkKCVNDX0xPR19JThIOCgZyZXN1bHQYASAB",
-            "KAgSEQoJdGltZXN0YW1wGAIgASgDEhAKCG5pY2tuYW1lGAMgASgJEhMKC21l",
-            "ZGFsX2NvdW50GAQgASgFEhIKCmNvaW5fY291bnQYBSABKAUiSgoKRklFTERf",
-            "SU5GTxIQCghmaWVsZF9pZBgBIAEoBRISCgp1c2VyX2NvdW50GAIgASgFEhYK",
-            "Dm1heF91c2VyX2NvdW50GAMgASgFIg8KDUNTX0ZJRUxEX0xJU1QiRwoNU0Nf",
-            "RklFTERfTElTVBIOCgZyZXN1bHQYASABKAgSJgoLZmllbGRfaW5mb3MYAiAD",
-            "KAsyES5MT0JCWS5GSUVMRF9JTkZPIiIKDkNTX0VOVEVSX0ZJRUxEEhAKCGZp",
-            "ZWxkX2lkGAEgASgFIj4KDlNDX0VOVEVSX0ZJRUxEEg4KBnJlc3VsdBgBIAEo",
-            "CBIQCghmaWVsZF9pZBgCIAEoBRIKCgJlYxgDIAEoCSIiCg5DU19MRUFWRV9G",
-            "SUVMRBIQCghmaWVsZF9pZBgBIAEoBSIsCg5TQ19MRUFWRV9GSUVMRBIOCgZy",
-            "ZXN1bHQYASABKAgSCgoCZWMYAiABKAkiLwoVQ1NfUFVSQ0hBU0VfQ0hBUkFD",
-            "VEVSEhYKDmNoYXJhY3Rlcl90eXBlGAEgASgFIlwKFVNDX1BVUkNIQVNFX0NI",
-            "QVJBQ1RFUhITCgttZWRhbF9jb3VudBgBIAEoBRISCgpjb2luX2NvdW50GAIg",
-            "ASgFEg4KBnJlc3VsdBgDIAEoCBIKCgJlYxgEIAEoCSoyCgxHYW1lRGF0YVR5",
-            "cGUSCgoGdGVzdF8xEAASCgoGdGVzdF8yEAESCgoGdGVzdF8zEAJiBnByb3Rv",
-            "Mw=="));
+            "EhAKCHBhc3N3b3JkGAIgASgJIoEBCglTQ19MT0dfSU4SDgoGcmVzdWx0GAEg",
+            "ASgIEhEKCXRpbWVzdGFtcBgCIAEoAxIQCghuaWNrbmFtZRgDIAEoCRITCgtt",
+            "ZWRhbF9jb3VudBgEIAEoBRISCgpjb2luX2NvdW50GAUgASgFEhYKDmNoYXJh",
+            "Y3Rlcl90eXBlGAYgASgFIkoKCkZJRUxEX0lORk8SEAoIZmllbGRfaWQYASAB",
+            "KAUSEgoKdXNlcl9jb3VudBgCIAEoBRIWCg5tYXhfdXNlcl9jb3VudBgDIAEo",
+            "BSIPCg1DU19GSUVMRF9MSVNUIkcKDVNDX0ZJRUxEX0xJU1QSDgoGcmVzdWx0",
+            "GAEgASgIEiYKC2ZpZWxkX2luZm9zGAIgAygLMhEuTE9CQlkuRklFTERfSU5G",
+            "TyIiCg5DU19FTlRFUl9GSUVMRBIQCghmaWVsZF9pZBgBIAEoBSI+Cg5TQ19F",
+            "TlRFUl9GSUVMRBIOCgZyZXN1bHQYASABKAgSEAoIZmllbGRfaWQYAiABKAUS",
+            "CgoCZWMYAyABKAkiIgoOQ1NfTEVBVkVfRklFTEQSEAoIZmllbGRfaWQYASAB",
+            "KAUiLAoOU0NfTEVBVkVfRklFTEQSDgoGcmVzdWx0GAEgASgIEgoKAmVjGAIg",
+            "ASgJIi8KFUNTX1BVUkNIQVNFX0NIQVJBQ1RFUhIWCg5jaGFyYWN0ZXJfdHlw",
+            "ZRgBIAEoBSJcChVTQ19QVVJDSEFTRV9DSEFSQUNURVISEwoLbWVkYWxfY291",
+            "bnQYASABKAUSEgoKY29pbl9jb3VudBgCIAEoBRIOCgZyZXN1bHQYAyABKAgS",
+            "CgoCZWMYBCABKAkiKwoRQ1NfQ0hBUkFDVEVSX0lORk8SFgoOY2hhcmFjdGVy",
+            "X3R5cGUYASABKAUiwAEKEVNDX0NIQVJBQ1RFUl9JTkZPEg4KBnJlc3VsdBgB",
+            "IAEoCBIKCgJlYxgCIAEoCRIWCg5jaGFyYWN0ZXJfdHlwZRgDIAEoBRIOCgZt",
+            "YXhfaHAYBCABKAUSDQoFc3BlZWQYBSABKAUSFAoMYnVsbGV0X3NwZWVkGAYg",
+            "ASgFEhQKDGJ1bGxldF9wb3dlchgHIAEoBRIXCg9idWxsZXRfZGlzdGFuY2UY",
+            "CCABKAUSEwoLcmVsb2FkX3RpbWUYCSABKAUqMgoMR2FtZURhdGFUeXBlEgoK",
+            "BnRlc3RfMRAAEgoKBnRlc3RfMhABEgoKBnRlc3RfMxACYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LOBBY.GameDataType), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_LOG_IN), global::LOBBY.CS_LOG_IN.Parser, new[]{ "Id", "Password" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_LOG_IN), global::LOBBY.SC_LOG_IN.Parser, new[]{ "Result", "Timestamp", "Nickname", "MedalCount", "CoinCount" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_LOG_IN), global::LOBBY.SC_LOG_IN.Parser, new[]{ "Result", "Timestamp", "Nickname", "MedalCount", "CoinCount", "CharacterType" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.FIELD_INFO), global::LOBBY.FIELD_INFO.Parser, new[]{ "FieldId", "UserCount", "MaxUserCount" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_FIELD_LIST), global::LOBBY.CS_FIELD_LIST.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_FIELD_LIST), global::LOBBY.SC_FIELD_LIST.Parser, new[]{ "Result", "FieldInfos" }, null, null, null),
@@ -52,7 +57,9 @@ namespace LOBBY {
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_LEAVE_FIELD), global::LOBBY.CS_LEAVE_FIELD.Parser, new[]{ "FieldId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_LEAVE_FIELD), global::LOBBY.SC_LEAVE_FIELD.Parser, new[]{ "Result", "Ec" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_PURCHASE_CHARACTER), global::LOBBY.CS_PURCHASE_CHARACTER.Parser, new[]{ "CharacterType" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_PURCHASE_CHARACTER), global::LOBBY.SC_PURCHASE_CHARACTER.Parser, new[]{ "MedalCount", "CoinCount", "Result", "Ec" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_PURCHASE_CHARACTER), global::LOBBY.SC_PURCHASE_CHARACTER.Parser, new[]{ "MedalCount", "CoinCount", "Result", "Ec" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_CHARACTER_INFO), global::LOBBY.CS_CHARACTER_INFO.Parser, new[]{ "CharacterType" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_CHARACTER_INFO), global::LOBBY.SC_CHARACTER_INFO.Parser, new[]{ "Result", "Ec", "CharacterType", "MaxHp", "Speed", "BulletSpeed", "BulletPower", "BulletDistance", "ReloadTime" }, null, null, null)
           }));
     }
     #endregion
@@ -242,6 +249,7 @@ namespace LOBBY {
       nickname_ = other.nickname_;
       medalCount_ = other.medalCount_;
       coinCount_ = other.coinCount_;
+      characterType_ = other.characterType_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -304,6 +312,17 @@ namespace LOBBY {
       }
     }
 
+    /// <summary>Field number for the "character_type" field.</summary>
+    public const int CharacterTypeFieldNumber = 6;
+    private int characterType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CharacterType {
+      get { return characterType_; }
+      set {
+        characterType_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SC_LOG_IN);
@@ -322,6 +341,7 @@ namespace LOBBY {
       if (Nickname != other.Nickname) return false;
       if (MedalCount != other.MedalCount) return false;
       if (CoinCount != other.CoinCount) return false;
+      if (CharacterType != other.CharacterType) return false;
       return true;
     }
 
@@ -333,6 +353,7 @@ namespace LOBBY {
       if (Nickname.Length != 0) hash ^= Nickname.GetHashCode();
       if (MedalCount != 0) hash ^= MedalCount.GetHashCode();
       if (CoinCount != 0) hash ^= CoinCount.GetHashCode();
+      if (CharacterType != 0) hash ^= CharacterType.GetHashCode();
       return hash;
     }
 
@@ -363,6 +384,10 @@ namespace LOBBY {
         output.WriteRawTag(40);
         output.WriteInt32(CoinCount);
       }
+      if (CharacterType != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(CharacterType);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -382,6 +407,9 @@ namespace LOBBY {
       }
       if (CoinCount != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(CoinCount);
+      }
+      if (CharacterType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CharacterType);
       }
       return size;
     }
@@ -405,6 +433,9 @@ namespace LOBBY {
       }
       if (other.CoinCount != 0) {
         CoinCount = other.CoinCount;
+      }
+      if (other.CharacterType != 0) {
+        CharacterType = other.CharacterType;
       }
     }
 
@@ -434,6 +465,10 @@ namespace LOBBY {
           }
           case 40: {
             CoinCount = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            CharacterType = input.ReadInt32();
             break;
           }
         }
@@ -1703,6 +1738,464 @@ namespace LOBBY {
           }
           case 34: {
             Ec = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CS_CHARACTER_INFO : pb::IMessage<CS_CHARACTER_INFO> {
+    private static readonly pb::MessageParser<CS_CHARACTER_INFO> _parser = new pb::MessageParser<CS_CHARACTER_INFO>(() => new CS_CHARACTER_INFO());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_CHARACTER_INFO> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::LOBBY.LOBBYReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CHARACTER_INFO() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CHARACTER_INFO(CS_CHARACTER_INFO other) : this() {
+      characterType_ = other.characterType_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CHARACTER_INFO Clone() {
+      return new CS_CHARACTER_INFO(this);
+    }
+
+    /// <summary>Field number for the "character_type" field.</summary>
+    public const int CharacterTypeFieldNumber = 1;
+    private int characterType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CharacterType {
+      get { return characterType_; }
+      set {
+        characterType_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_CHARACTER_INFO);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_CHARACTER_INFO other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (CharacterType != other.CharacterType) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (CharacterType != 0) hash ^= CharacterType.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (CharacterType != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(CharacterType);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (CharacterType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CharacterType);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_CHARACTER_INFO other) {
+      if (other == null) {
+        return;
+      }
+      if (other.CharacterType != 0) {
+        CharacterType = other.CharacterType;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            CharacterType = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_CHARACTER_INFO : pb::IMessage<SC_CHARACTER_INFO> {
+    private static readonly pb::MessageParser<SC_CHARACTER_INFO> _parser = new pb::MessageParser<SC_CHARACTER_INFO>(() => new SC_CHARACTER_INFO());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_CHARACTER_INFO> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::LOBBY.LOBBYReflection.Descriptor.MessageTypes[12]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_CHARACTER_INFO() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_CHARACTER_INFO(SC_CHARACTER_INFO other) : this() {
+      result_ = other.result_;
+      ec_ = other.ec_;
+      characterType_ = other.characterType_;
+      maxHp_ = other.maxHp_;
+      speed_ = other.speed_;
+      bulletSpeed_ = other.bulletSpeed_;
+      bulletPower_ = other.bulletPower_;
+      bulletDistance_ = other.bulletDistance_;
+      reloadTime_ = other.reloadTime_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_CHARACTER_INFO Clone() {
+      return new SC_CHARACTER_INFO(this);
+    }
+
+    /// <summary>Field number for the "result" field.</summary>
+    public const int ResultFieldNumber = 1;
+    private bool result_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Result {
+      get { return result_; }
+      set {
+        result_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ec" field.</summary>
+    public const int EcFieldNumber = 2;
+    private string ec_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Ec {
+      get { return ec_; }
+      set {
+        ec_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "character_type" field.</summary>
+    public const int CharacterTypeFieldNumber = 3;
+    private int characterType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CharacterType {
+      get { return characterType_; }
+      set {
+        characterType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_hp" field.</summary>
+    public const int MaxHpFieldNumber = 4;
+    private int maxHp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxHp {
+      get { return maxHp_; }
+      set {
+        maxHp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "speed" field.</summary>
+    public const int SpeedFieldNumber = 5;
+    private int speed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Speed {
+      get { return speed_; }
+      set {
+        speed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_speed" field.</summary>
+    public const int BulletSpeedFieldNumber = 6;
+    private int bulletSpeed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletSpeed {
+      get { return bulletSpeed_; }
+      set {
+        bulletSpeed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_power" field.</summary>
+    public const int BulletPowerFieldNumber = 7;
+    private int bulletPower_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletPower {
+      get { return bulletPower_; }
+      set {
+        bulletPower_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_distance" field.</summary>
+    public const int BulletDistanceFieldNumber = 8;
+    private int bulletDistance_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletDistance {
+      get { return bulletDistance_; }
+      set {
+        bulletDistance_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "reload_time" field.</summary>
+    public const int ReloadTimeFieldNumber = 9;
+    private int reloadTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ReloadTime {
+      get { return reloadTime_; }
+      set {
+        reloadTime_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_CHARACTER_INFO);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_CHARACTER_INFO other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Result != other.Result) return false;
+      if (Ec != other.Ec) return false;
+      if (CharacterType != other.CharacterType) return false;
+      if (MaxHp != other.MaxHp) return false;
+      if (Speed != other.Speed) return false;
+      if (BulletSpeed != other.BulletSpeed) return false;
+      if (BulletPower != other.BulletPower) return false;
+      if (BulletDistance != other.BulletDistance) return false;
+      if (ReloadTime != other.ReloadTime) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Result != false) hash ^= Result.GetHashCode();
+      if (Ec.Length != 0) hash ^= Ec.GetHashCode();
+      if (CharacterType != 0) hash ^= CharacterType.GetHashCode();
+      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
+      if (Speed != 0) hash ^= Speed.GetHashCode();
+      if (BulletSpeed != 0) hash ^= BulletSpeed.GetHashCode();
+      if (BulletPower != 0) hash ^= BulletPower.GetHashCode();
+      if (BulletDistance != 0) hash ^= BulletDistance.GetHashCode();
+      if (ReloadTime != 0) hash ^= ReloadTime.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Result != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Result);
+      }
+      if (Ec.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Ec);
+      }
+      if (CharacterType != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(CharacterType);
+      }
+      if (MaxHp != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(MaxHp);
+      }
+      if (Speed != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Speed);
+      }
+      if (BulletSpeed != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(BulletSpeed);
+      }
+      if (BulletPower != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(BulletPower);
+      }
+      if (BulletDistance != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(BulletDistance);
+      }
+      if (ReloadTime != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(ReloadTime);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Result != false) {
+        size += 1 + 1;
+      }
+      if (Ec.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ec);
+      }
+      if (CharacterType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CharacterType);
+      }
+      if (MaxHp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
+      }
+      if (Speed != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Speed);
+      }
+      if (BulletSpeed != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletSpeed);
+      }
+      if (BulletPower != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletPower);
+      }
+      if (BulletDistance != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletDistance);
+      }
+      if (ReloadTime != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ReloadTime);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_CHARACTER_INFO other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Result != false) {
+        Result = other.Result;
+      }
+      if (other.Ec.Length != 0) {
+        Ec = other.Ec;
+      }
+      if (other.CharacterType != 0) {
+        CharacterType = other.CharacterType;
+      }
+      if (other.MaxHp != 0) {
+        MaxHp = other.MaxHp;
+      }
+      if (other.Speed != 0) {
+        Speed = other.Speed;
+      }
+      if (other.BulletSpeed != 0) {
+        BulletSpeed = other.BulletSpeed;
+      }
+      if (other.BulletPower != 0) {
+        BulletPower = other.BulletPower;
+      }
+      if (other.BulletDistance != 0) {
+        BulletDistance = other.BulletDistance;
+      }
+      if (other.ReloadTime != 0) {
+        ReloadTime = other.ReloadTime;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Result = input.ReadBool();
+            break;
+          }
+          case 18: {
+            Ec = input.ReadString();
+            break;
+          }
+          case 24: {
+            CharacterType = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            MaxHp = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            Speed = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            BulletSpeed = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            BulletPower = input.ReadInt32();
+            break;
+          }
+          case 64: {
+            BulletDistance = input.ReadInt32();
+            break;
+          }
+          case 72: {
+            ReloadTime = input.ReadInt32();
             break;
           }
         }
