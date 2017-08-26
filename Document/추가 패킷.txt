@@ -1,0 +1,81 @@
+새로만들 패킷
+
+
+
+
+
+
+내정보 받아오기 --> 게임 내 재화정보 리턴
+(현재 로그인패킷에 되어있는데
+게임 끝나고 로비로 다시올때 호출위해서 분리)
+
+CS_MY_INFO 요청
+
+SC_MY_INFO  
+
+INT MEDALCOUNT;
+INT COINCOUNT;
+
+
+
+공통 필요 탱크정보
+struct TankInfo
+
+tankType;
+movespeed_level;
+attackspeed_level;
+hp_level;
+distance_level;
+
+각각의 레벨에 따라 능력치는 byte에서 가져오게한다
+
+
+
+CS_MY_TANK_LIST 요청
+
+SC_MY_TANK_LIST 리턴  
+
+LIST<TankInfo>   내가가지고 있는 탱크들의 타입에따른 업그레이드
+정보까지 보내준다
+
+
+
+업그레이드 요청 내가가진 탱크 업그레이드 할 종류를 보냄
+
+CS_TANK_UPGRADE
+
+int tankType 
+int upgradeType ( 0: movespeed, 1, attackspeed,  hp, distance )
+
+
+SC_TANK_UPGRADE
+
+TankInfo 해당 탱크의 업그레이드 정보 리턴
+
+
+
+현재 필드 입장시 업그레이드 정보적용해서 줄것
+
+SC_SYNC_FIELD
+
+현재 objectid, tankType, nickname, pos 을 주는데
+
+tankType 을 TankInfo구조체정보로 ( 업그레이드 정보) 포함해서 준다
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
