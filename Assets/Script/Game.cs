@@ -51,7 +51,7 @@ public class Game : MonoBehaviour {
 
             //IndexInfos_[other_obj_id] = Index;
             EnterUser(other_obj_id, other_tanktype, other_nickname, false, other_pos);
-            BattleInfo.TANK_INFO other_tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), other_info.MaxHp, other_info.Hp, other_info.Speed, 0.0f);
+            BattleInfo.TANK_INFO other_tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), other_info.MaxHp, other_info.Hp, other_info.Speed, read.BulletSpeed, read.BulletPower, read.BulletDistance, 0.0f);
             BattleLib.Instance.SetTankInfo(other_obj_id, other_tank_info);
         }
 
@@ -64,7 +64,7 @@ public class Game : MonoBehaviour {
         EnterUser(read.ObjId, read.TankType, read.Nickname, true, spawn_pos);
 
         // state가 없어서 디짐
-        BattleInfo.TANK_INFO tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), read.MaxHp, read.Hp, read.Speed, read.ReloadTime);
+        BattleInfo.TANK_INFO tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), read.MaxHp, read.Hp, read.Speed, read.BulletSpeed, read.BulletPower, read.BulletDistance, read.ReloadTime);
         BattleLib.Instance.SetTankInfo(read.ObjId, tank_info);
 
         MyObjId = read.ObjId;
@@ -78,7 +78,7 @@ public class Game : MonoBehaviour {
         //IndexInfos_[read.ObjId] = Index;
         EnterUser(read.ObjId, read.TankType, read.Nickname, false, new Vector3(read.PosX, read.PosY, read.PosZ));
 
-        BattleInfo.TANK_INFO other_tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), read.MaxHp, read.Hp, read.Speed, 0.0f);
+        BattleInfo.TANK_INFO other_tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), read.MaxHp, read.Hp, read.Speed, read.BulletSpeed, read.BulletPower, read.BulletDistance, 0.0f);
         BattleLib.Instance.SetTankInfo(read.ObjId, other_tank_info);
     }
 
@@ -161,7 +161,7 @@ public class Game : MonoBehaviour {
 
     public void handler_SC_NOTI_RESPAWN_CHARACTER(GAME.SC_NOTI_RESPAWN_CHARACTER read)
     {
-        BattleInfo.TANK_INFO tank_info = new BattleInfo.TANK_INFO(new Vector3(read.PosX, read.PosY, read.PosZ), read.MaxHp, read.Hp, read.Speed, read.ReloadTime);
+        BattleInfo.TANK_INFO tank_info = new BattleInfo.TANK_INFO(new Vector3(read.PosX, read.PosY, read.PosZ), read.MaxHp, read.Hp, read.Speed, read.BulletSpeed, read.BulletPower, read.BulletDistance, read.ReloadTime);
         
         // 내가 respawn 됨
         if (MyObjId == read.ObjId)
@@ -191,7 +191,7 @@ public class Game : MonoBehaviour {
         {
             Debug.Log("업그레이드 버프 카운트 남아있음: " + BuffCount_);
         }
-        BattleInfo.TANK_INFO tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), read.MaxHp, read.Hp, read.Speed, read.ReloadTime);
+        BattleInfo.TANK_INFO tank_info = new BattleInfo.TANK_INFO(new Vector3(0.0f, 0.0f, 0.0f), read.MaxHp, read.Hp, read.Speed, read.BulletSpeed, read.BulletPower, read.BulletDistance, read.ReloadTime);
         BattleLib.Instance.SetTankInfo(read.ObjId, tank_info);
     }
 

@@ -36,14 +36,22 @@ namespace BattleInfo
         public int MaxHp;
         public int Hp;
         public float MoveSpeed;
+
+        public float BulletSpeed;
+        public float BulletPower;
+        public float BulletDistance;
+
         public float ReloadTime;
 
-        public TANK_INFO(Vector3 pos, int max_hp, int hp, float move_speed, float reload_time)
+        public TANK_INFO(Vector3 pos, int max_hp, int hp, float move_speed, int bullet_speed, int bullet_power, int bullet_distance, float reload_time)
         {
             Pos = pos;
             MaxHp = max_hp;
             Hp = hp; ;
             MoveSpeed = move_speed;
+            BulletSpeed = bullet_speed;
+            BulletPower = bullet_power;
+            BulletDistance = bullet_distance;
             ReloadTime = reload_time;
         }
     }

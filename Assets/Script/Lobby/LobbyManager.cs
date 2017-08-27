@@ -129,6 +129,25 @@ public class LobbyManager : MonoBehaviour {
         Debug.Log("coin_count: "  + coin_count);
     }
 
+    public void handler_SC_MY_CHARACTER_INFO(LOBBY.SC_MY_CHARACTER_INFO read)
+    {
+        var result = read.Result;
+        if (!result)
+        {
+            Debug.Log("SC_MY_INFO result is not true");
+            return;
+        }
+
+        foreach (var character_info in read.CharacterInfos)
+        {
+            var tank_type = character_info.Type;
+            var max_hp = character_info.MaxHp;
+            var speed = character_info.Speed;
+
+            Debug.Log("tank_type: " + tank_type);
+        }
+    }
+
     public void handler_SC_PING(GAME.SC_PING read)
     {
         Debug.Log("핑 받음");
@@ -147,6 +166,7 @@ public class LobbyManager : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<LOBBY.SC_PURCHASE_CHARACTER>(opcode.SC_PURCHASE_CHARACTER, handler_SC_PURCHASE_CHARACTER);
         ProtobufManager.Instance().SetHandler<LOBBY.SC_CHARACTER_INFO>(opcode.SC_CHARACTER_INFO, handler_SC_CHARACTER_INFO);
         ProtobufManager.Instance().SetHandler<LOBBY.SC_MY_INFO>(opcode.SC_MY_INFO, handler_SC_MY_INFO);
+        ProtobufManager.Instance().SetHandler<LOBBY.SC_MY_CHARACTER_INFO>(opcode.SC_MY_CHARACTER_INFO, handler_SC_MY_CHARACTER_INFO);
         ProtobufManager.Instance().SetHandler<GAME.SC_PING>(opcode.SC_PING, handler_SC_PING);
     }
 
@@ -157,8 +177,8 @@ public class LobbyManager : MonoBehaviour {
         Debug.Log("uuid: " + uuid_);
         NewTank.SetActive(false);
         RegisterPacketHandler();
-        //ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
-        ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
+        ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
+        //ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
     }
 	
 	// Update is called once per frame
@@ -176,7 +196,13 @@ public class LobbyManager : MonoBehaviour {
 
     public void onStartButton()
     {
-        // 필드에 진입 요청
+        // [테스트 패킷]
+        /*
+        var TestSend = new LOBBY.CS_MY_CHARACTER_INFO();
+        ProtobufManager.Instance().Send(opcode.CS_MY_CHARACTER_INFO, TestSend);
+        return;
+        */
+
         var Send = new LOBBY.CS_ENTER_FIELD();
         Send.FieldId = 0;
         ProtobufManager.Instance().Send(opcode.CS_ENTER_FIELD, Send);

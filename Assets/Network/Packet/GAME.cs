@@ -23,76 +23,84 @@ namespace GAME {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgpHQU1FLnByb3RvEgRHQU1FIhwKB0NTX1BJTkcSEQoJdGltZXN0YW1wGAEg",
-            "ASgDIhwKB1NDX1BJTkcSEQoJdGltZXN0YW1wGAEgASgDIpkBCgpPVEhFUl9J",
-            "TkZPEg4KBm9ial9pZBgBIAEoAxIRCgl0YW5rX3R5cGUYAiABKAUSEAoIbmlj",
-            "a25hbWUYAyABKAkSDQoFcG9zX3gYBCABKAISDQoFcG9zX3kYBSABKAISDQoF",
-            "cG9zX3oYBiABKAISDgoGbWF4X2hwGAcgASgFEgoKAmhwGAggASgFEg0KBXNw",
-            "ZWVkGAkgASgCIiEKDUNTX1NZTkNfRklFTEQSEAoIZmllbGRfaWQYASABKAUi",
-            "2AEKDVNDX1NZTkNfRklFTEQSDgoGb2JqX2lkGAEgASgDEhEKCXRhbmtfdHlw",
-            "ZRgCIAEoBRIQCghuaWNrbmFtZRgDIAEoCRINCgVwb3NfeBgEIAEoAhINCgVw",
-            "b3NfeRgFIAEoAhINCgVwb3NfehgGIAEoAhIOCgZtYXhfaHAYByABKAUSCgoC",
-            "aHAYCCABKAUSDQoFc3BlZWQYCSABKAISEwoLcmVsb2FkX3RpbWUYCiABKAIS",
-            "JQoLb3RoZXJfaW5mb3MYCyADKAsyEC5HQU1FLk9USEVSX0lORk8iqAEKGVND",
-            "X05PVElfT1RIRVJfRU5URVJfRklFTEQSDgoGb2JqX2lkGAEgASgDEhEKCXRh",
-            "bmtfdHlwZRgCIAEoBRIQCghuaWNrbmFtZRgDIAEoCRINCgVwb3NfeBgEIAEo",
-            "AhINCgVwb3NfeRgFIAEoAhINCgVwb3NfehgGIAEoAhIOCgZtYXhfaHAYByAB",
-            "KAUSCgoCaHAYCCABKAUSDQoFc3BlZWQYCSABKAIiKwoZU0NfTk9USV9PVEhF",
-            "Ul9MRUFWRV9GSUVMRBIOCgZvYmpfaWQYASABKAMiOwoMQ1NfTk9USV9NT1ZF",
-            "Eg0KBXBvc194GAEgASgCEg0KBXBvc195GAIgASgCEg0KBXBvc196GAMgASgC",
-            "IlEKElNDX05PVElfT1RIRVJfTU9WRRIOCgZvYmpfaWQYASABKAMSDQoFcG9z",
-            "X3gYAiABKAISDQoFcG9zX3kYAyABKAISDQoFcG9zX3oYBCABKAIingEKC0JV",
-            "TExFVF9JTkZPEhEKCWJ1bGxldF9pZBgBIAEoAxINCgVkaXJfeBgCIAEoAhIN",
-            "CgVkaXJfeRgDIAEoAhINCgVkaXJfehgEIAEoAhIOCgZzaXplX3gYBSABKAIS",
-            "DgoGc2l6ZV95GAYgASgCEg4KBnNpemVfehgHIAEoAhINCgVzcGVlZBgIIAEo",
-            "AhIQCghkaXN0YW5jZRgJIAEoAiKhAQoHQ1NfRklSRRITCgtidWxsZXRfdHlw",
-            "ZRgBIAEoBRINCgVwb3NfeBgCIAEoAhINCgVwb3NfeRgDIAEoAhINCgVwb3Nf",
-            "ehgEIAEoAhINCgVkaXJfeBgFIAEoAhINCgVkaXJfeRgGIAEoAhINCgVkaXJf",
-            "ehgHIAEoAhInCgxidWxsZXRfaW5mb3MYCCADKAsyES5HQU1FLkJVTExFVF9J",
-            "TkZPIrYBCgxTQ19OT1RJX0ZJUkUSDgoGb2JqX2lkGAEgASgDEhMKC2J1bGxl",
-            "dF90eXBlGAIgASgFEg0KBXBvc194GAMgASgCEg0KBXBvc195GAQgASgCEg0K",
-            "BXBvc196GAUgASgCEg0KBWRpcl94GAYgASgCEg0KBWRpcl95GAcgASgCEg0K",
-            "BWRpcl96GAggASgCEicKDGJ1bGxldF9pbmZvcxgJIAMoCzIRLkdBTUUuQlVM",
-            "TEVUX0lORk8iPAoLREFNQUdFX0lORk8SEQoJdGFyZ2V0X2lkGAEgASgDEgoK",
-            "AmhwGAIgASgFEg4KBmRhbWFnZRgDIAEoAyJkChZTQ19OT1RJX0RFU1RST1lf",
-            "QlVMTEVUEg4KBm9ial9pZBgBIAEoAxIRCglidWxsZXRfaWQYAiABKAMSJwoM",
-            "ZGFtYWdlX2luZm9zGAMgAygLMhEuR0FNRS5EQU1BR0VfSU5GTyIrChlTQ19O",
-            "T1RJX0RFU1RST1lfQ0hBUkFDVEVSEg4KBm9ial9pZBgBIAEoAyIWChRDU19S",
-            "RVNQQVdOX0NIQVJBQ1RFUiKYAQoZU0NfTk9USV9SRVNQQVdOX0NIQVJBQ1RF",
-            "UhIOCgZvYmpfaWQYASABKAMSDQoFcG9zX3gYAiABKAISDQoFcG9zX3kYAyAB",
-            "KAISDQoFcG9zX3oYBCABKAISDgoGbWF4X2hwGAUgASgFEgoKAmhwGAYgASgF",
-            "Eg0KBXNwZWVkGAcgASgCEhMKC3JlbG9hZF90aW1lGAggASgCIh8KDlNDX1NF",
-            "TEVDVF9CVUZGEg0KBWNvdW50GAEgASgFIiQKD0NTX0VOSEFOQ0VfQlVGRhIR",
-            "CglidWZmX3R5cGUYASABKAUicQofU0NfTk9USV9VUERBVEVfQ0hBUkFDVEVS",
-            "X1NUQVRVUxIOCgZvYmpfaWQYASABKAMSDgoGbWF4X2hwGAIgASgFEgoKAmhw",
-            "GAMgASgFEg0KBXNwZWVkGAQgASgCEhMKC3JlbG9hZF90aW1lGAUgASgCIlwK",
-            "CUlURU1fSU5GTxIPCgdpdGVtX2lkGAEgASgDEhEKCWl0ZW1fdHlwZRgCIAEo",
-            "BRINCgVwb3NfeBgDIAEoAhINCgVwb3NfeRgEIAEoAhINCgVwb3NfehgFIAEo",
-            "AiI6ChNTQ19OT1RJX0FDVElWRV9JVEVNEiMKCml0ZW1faW5mb3MYASADKAsy",
-            "Dy5HQU1FLklURU1fSU5GTyJ4ChRTQ19OT1RJX0FDUVVJUkVfSVRFTRIOCgZv",
-            "YmpfaWQYASABKAMSDwoHaXRlbV9pZBgCIAEoAxIRCglpdGVtX3R5cGUYAyAB",
-            "KAUSCgoCaHAYBCABKAUSEwoLc2hpZWxkX3RpbWUYBSABKAUSCwoDZXhwGAYg",
-            "ASgFIqcBCg9NRURBTF9JVEVNX0lORk8SDwoHaXRlbV9pZBgBIAEoAxIRCglp",
-            "dGVtX3R5cGUYAiABKAUSEgoKZnJvbV9wb3NfeBgDIAEoAhISCgpmcm9tX3Bv",
-            "c195GAQgASgCEhIKCmZyb21fcG9zX3oYBSABKAISEAoIdG9fcG9zX3gYBiAB",
-            "KAISEAoIdG9fcG9zX3kYByABKAISEAoIdG9fcG9zX3oYCCABKAIiTAoZU0Nf",
-            "Tk9USV9DUkVBVEVfTUVEQUxfSVRFTRIvChBtZWRhbF9pdGVtX2luZm9zGAEg",
-            "AygLMhUuR0FNRS5NRURBTF9JVEVNX0lORk8iYQocU0NfTk9USV9BQ1FVSVJF",
-            "X1BFUlNJU1RfSVRFTRIOCgZvYmpfaWQYASABKAMSDwoHaXRlbV9pZBgCIAEo",
-            "AxIRCglpdGVtX3R5cGUYAyABKAUSDQoFY291bnQYBCABKAUiPwoJUkFOS19J",
-            "TkZPEhEKCW9iamVjdF9pZBgBIAEoAxIQCghuaWNrbmFtZRgCIAEoCRINCgVz",
-            "Y29yZRgDIAEoBSI4ChFTQ19OT1RJX1JBTktfSU5GTxIjCgpyYW5rX2luZm9z",
-            "GAEgAygLMg8uR0FNRS5SQU5LX0lORk8iPQoMU0NfTk9USV9SQU5LEgwKBHJh",
-            "bmsYASABKAUSEAoIbmlja25hbWUYAiABKAkSDQoFc2NvcmUYAyABKAViBnBy",
-            "b3RvMw=="));
+            "ASgDIhwKB1NDX1BJTkcSEQoJdGltZXN0YW1wGAEgASgDIvMBCgpPVEhFUl9J",
+            "TkZPEg4KBm9ial9pZBgBIAEoAxIQCghuaWNrbmFtZRgCIAEoCRINCgVwb3Nf",
+            "eBgDIAEoAhINCgVwb3NfeRgEIAEoAhINCgVwb3NfehgFIAEoAhIRCgl0YW5r",
+            "X3R5cGUYBiABKAUSCgoCaHAYByABKAUSDgoGbWF4X2hwGAggASgFEg0KBXNw",
+            "ZWVkGAkgASgFEhQKDGJ1bGxldF9zcGVlZBgKIAEoBRIUCgxidWxsZXRfcG93",
+            "ZXIYCyABKAUSFwoPYnVsbGV0X2Rpc3RhbmNlGAwgASgFEhMKC3JlbG9hZF90",
+            "aW1lGA0gASgFIiEKDUNTX1NZTkNfRklFTEQSEAoIZmllbGRfaWQYASABKAUi",
+            "nQIKDVNDX1NZTkNfRklFTEQSDgoGb2JqX2lkGAEgASgDEhAKCG5pY2tuYW1l",
+            "GAIgASgJEg0KBXBvc194GAMgASgCEg0KBXBvc195GAQgASgCEg0KBXBvc196",
+            "GAUgASgCEhEKCXRhbmtfdHlwZRgGIAEoBRIKCgJocBgHIAEoBRIOCgZtYXhf",
+            "aHAYCCABKAUSDQoFc3BlZWQYCSABKAUSFAoMYnVsbGV0X3NwZWVkGAogASgF",
+            "EhQKDGJ1bGxldF9wb3dlchgLIAEoBRIXCg9idWxsZXRfZGlzdGFuY2UYDCAB",
+            "KAUSEwoLcmVsb2FkX3RpbWUYDSABKAUSJQoLb3RoZXJfaW5mb3MYDiADKAsy",
+            "EC5HQU1FLk9USEVSX0lORk8iggIKGVNDX05PVElfT1RIRVJfRU5URVJfRklF",
+            "TEQSDgoGb2JqX2lkGAEgASgDEhAKCG5pY2tuYW1lGAIgASgJEg0KBXBvc194",
+            "GAMgASgCEg0KBXBvc195GAQgASgCEg0KBXBvc196GAUgASgCEhEKCXRhbmtf",
+            "dHlwZRgGIAEoBRIKCgJocBgHIAEoBRIOCgZtYXhfaHAYCCABKAUSDQoFc3Bl",
+            "ZWQYCSABKAISFAoMYnVsbGV0X3NwZWVkGAogASgFEhQKDGJ1bGxldF9wb3dl",
+            "chgLIAEoBRIXCg9idWxsZXRfZGlzdGFuY2UYDCABKAUSEwoLcmVsb2FkX3Rp",
+            "bWUYDSABKAUiKwoZU0NfTk9USV9PVEhFUl9MRUFWRV9GSUVMRBIOCgZvYmpf",
+            "aWQYASABKAMiOwoMQ1NfTk9USV9NT1ZFEg0KBXBvc194GAEgASgCEg0KBXBv",
+            "c195GAIgASgCEg0KBXBvc196GAMgASgCIlEKElNDX05PVElfT1RIRVJfTU9W",
+            "RRIOCgZvYmpfaWQYASABKAMSDQoFcG9zX3gYAiABKAISDQoFcG9zX3kYAyAB",
+            "KAISDQoFcG9zX3oYBCABKAIingEKC0JVTExFVF9JTkZPEhEKCWJ1bGxldF9p",
+            "ZBgBIAEoAxINCgVkaXJfeBgCIAEoAhINCgVkaXJfeRgDIAEoAhINCgVkaXJf",
+            "ehgEIAEoAhIOCgZzaXplX3gYBSABKAISDgoGc2l6ZV95GAYgASgCEg4KBnNp",
+            "emVfehgHIAEoAhINCgVzcGVlZBgIIAEoAhIQCghkaXN0YW5jZRgJIAEoAiKh",
+            "AQoHQ1NfRklSRRITCgtidWxsZXRfdHlwZRgBIAEoBRINCgVwb3NfeBgCIAEo",
+            "AhINCgVwb3NfeRgDIAEoAhINCgVwb3NfehgEIAEoAhINCgVkaXJfeBgFIAEo",
+            "AhINCgVkaXJfeRgGIAEoAhINCgVkaXJfehgHIAEoAhInCgxidWxsZXRfaW5m",
+            "b3MYCCADKAsyES5HQU1FLkJVTExFVF9JTkZPIrYBCgxTQ19OT1RJX0ZJUkUS",
+            "DgoGb2JqX2lkGAEgASgDEhMKC2J1bGxldF90eXBlGAIgASgFEg0KBXBvc194",
+            "GAMgASgCEg0KBXBvc195GAQgASgCEg0KBXBvc196GAUgASgCEg0KBWRpcl94",
+            "GAYgASgCEg0KBWRpcl95GAcgASgCEg0KBWRpcl96GAggASgCEicKDGJ1bGxl",
+            "dF9pbmZvcxgJIAMoCzIRLkdBTUUuQlVMTEVUX0lORk8iPAoLREFNQUdFX0lO",
+            "Rk8SEQoJdGFyZ2V0X2lkGAEgASgDEgoKAmhwGAIgASgFEg4KBmRhbWFnZRgD",
+            "IAEoAyJkChZTQ19OT1RJX0RFU1RST1lfQlVMTEVUEg4KBm9ial9pZBgBIAEo",
+            "AxIRCglidWxsZXRfaWQYAiABKAMSJwoMZGFtYWdlX2luZm9zGAMgAygLMhEu",
+            "R0FNRS5EQU1BR0VfSU5GTyIrChlTQ19OT1RJX0RFU1RST1lfQ0hBUkFDVEVS",
+            "Eg4KBm9ial9pZBgBIAEoAyIWChRDU19SRVNQQVdOX0NIQVJBQ1RFUiLdAQoZ",
+            "U0NfTk9USV9SRVNQQVdOX0NIQVJBQ1RFUhIOCgZvYmpfaWQYASABKAMSDQoF",
+            "cG9zX3gYAiABKAISDQoFcG9zX3kYAyABKAISDQoFcG9zX3oYBCABKAISCgoC",
+            "aHAYBSABKAUSDgoGbWF4X2hwGAYgASgFEg0KBXNwZWVkGAcgASgCEhQKDGJ1",
+            "bGxldF9zcGVlZBgIIAEoBRIUCgxidWxsZXRfcG93ZXIYCSABKAUSFwoPYnVs",
+            "bGV0X2Rpc3RhbmNlGAogASgFEhMKC3JlbG9hZF90aW1lGAsgASgFIh8KDlND",
+            "X1NFTEVDVF9CVUZGEg0KBWNvdW50GAEgASgFIiQKD0NTX0VOSEFOQ0VfQlVG",
+            "RhIRCglidWZmX3R5cGUYASABKAUitgEKH1NDX05PVElfVVBEQVRFX0NIQVJB",
+            "Q1RFUl9TVEFUVVMSDgoGb2JqX2lkGAEgASgDEg4KBm1heF9ocBgCIAEoBRIK",
+            "CgJocBgDIAEoBRINCgVzcGVlZBgEIAEoAhIUCgxidWxsZXRfc3BlZWQYBSAB",
+            "KAUSFAoMYnVsbGV0X3Bvd2VyGAYgASgFEhcKD2J1bGxldF9kaXN0YW5jZRgH",
+            "IAEoBRITCgtyZWxvYWRfdGltZRgIIAEoAiJcCglJVEVNX0lORk8SDwoHaXRl",
+            "bV9pZBgBIAEoAxIRCglpdGVtX3R5cGUYAiABKAUSDQoFcG9zX3gYAyABKAIS",
+            "DQoFcG9zX3kYBCABKAISDQoFcG9zX3oYBSABKAIiOgoTU0NfTk9USV9BQ1RJ",
+            "VkVfSVRFTRIjCgppdGVtX2luZm9zGAEgAygLMg8uR0FNRS5JVEVNX0lORk8i",
+            "eAoUU0NfTk9USV9BQ1FVSVJFX0lURU0SDgoGb2JqX2lkGAEgASgDEg8KB2l0",
+            "ZW1faWQYAiABKAMSEQoJaXRlbV90eXBlGAMgASgFEgoKAmhwGAQgASgFEhMK",
+            "C3NoaWVsZF90aW1lGAUgASgFEgsKA2V4cBgGIAEoBSKnAQoPTUVEQUxfSVRF",
+            "TV9JTkZPEg8KB2l0ZW1faWQYASABKAMSEQoJaXRlbV90eXBlGAIgASgFEhIK",
+            "CmZyb21fcG9zX3gYAyABKAISEgoKZnJvbV9wb3NfeRgEIAEoAhISCgpmcm9t",
+            "X3Bvc196GAUgASgCEhAKCHRvX3Bvc194GAYgASgCEhAKCHRvX3Bvc195GAcg",
+            "ASgCEhAKCHRvX3Bvc196GAggASgCIkwKGVNDX05PVElfQ1JFQVRFX01FREFM",
+            "X0lURU0SLwoQbWVkYWxfaXRlbV9pbmZvcxgBIAMoCzIVLkdBTUUuTUVEQUxf",
+            "SVRFTV9JTkZPImEKHFNDX05PVElfQUNRVUlSRV9QRVJTSVNUX0lURU0SDgoG",
+            "b2JqX2lkGAEgASgDEg8KB2l0ZW1faWQYAiABKAMSEQoJaXRlbV90eXBlGAMg",
+            "ASgFEg0KBWNvdW50GAQgASgFIj8KCVJBTktfSU5GTxIRCglvYmplY3RfaWQY",
+            "ASABKAMSEAoIbmlja25hbWUYAiABKAkSDQoFc2NvcmUYAyABKAUiOAoRU0Nf",
+            "Tk9USV9SQU5LX0lORk8SIwoKcmFua19pbmZvcxgBIAMoCzIPLkdBTUUuUkFO",
+            "S19JTkZPIj0KDFNDX05PVElfUkFOSxIMCgRyYW5rGAEgASgFEhAKCG5pY2tu",
+            "YW1lGAIgASgJEg0KBXNjb3JlGAMgASgFYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_PING), global::GAME.CS_PING.Parser, new[]{ "Timestamp" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_PING), global::GAME.SC_PING.Parser, new[]{ "Timestamp" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.OTHER_INFO), global::GAME.OTHER_INFO.Parser, new[]{ "ObjId", "TankType", "Nickname", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.OTHER_INFO), global::GAME.OTHER_INFO.Parser, new[]{ "ObjId", "Nickname", "PosX", "PosY", "PosZ", "TankType", "Hp", "MaxHp", "Speed", "BulletSpeed", "BulletPower", "BulletDistance", "ReloadTime" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_SYNC_FIELD), global::GAME.CS_SYNC_FIELD.Parser, new[]{ "FieldId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_SYNC_FIELD), global::GAME.SC_SYNC_FIELD.Parser, new[]{ "ObjId", "TankType", "Nickname", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime", "OtherInfos" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_ENTER_FIELD), global::GAME.SC_NOTI_OTHER_ENTER_FIELD.Parser, new[]{ "ObjId", "TankType", "Nickname", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_SYNC_FIELD), global::GAME.SC_SYNC_FIELD.Parser, new[]{ "ObjId", "Nickname", "PosX", "PosY", "PosZ", "TankType", "Hp", "MaxHp", "Speed", "BulletSpeed", "BulletPower", "BulletDistance", "ReloadTime", "OtherInfos" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_ENTER_FIELD), global::GAME.SC_NOTI_OTHER_ENTER_FIELD.Parser, new[]{ "ObjId", "Nickname", "PosX", "PosY", "PosZ", "TankType", "Hp", "MaxHp", "Speed", "BulletSpeed", "BulletPower", "BulletDistance", "ReloadTime" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_LEAVE_FIELD), global::GAME.SC_NOTI_OTHER_LEAVE_FIELD.Parser, new[]{ "ObjId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_NOTI_MOVE), global::GAME.CS_NOTI_MOVE.Parser, new[]{ "PosX", "PosY", "PosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_OTHER_MOVE), global::GAME.SC_NOTI_OTHER_MOVE.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ" }, null, null, null),
@@ -103,10 +111,10 @@ namespace GAME {
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_DESTROY_BULLET), global::GAME.SC_NOTI_DESTROY_BULLET.Parser, new[]{ "ObjId", "BulletId", "DamageInfos" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_DESTROY_CHARACTER), global::GAME.SC_NOTI_DESTROY_CHARACTER.Parser, new[]{ "ObjId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_RESPAWN_CHARACTER), global::GAME.CS_RESPAWN_CHARACTER.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_RESPAWN_CHARACTER), global::GAME.SC_NOTI_RESPAWN_CHARACTER.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_RESPAWN_CHARACTER), global::GAME.SC_NOTI_RESPAWN_CHARACTER.Parser, new[]{ "ObjId", "PosX", "PosY", "PosZ", "Hp", "MaxHp", "Speed", "BulletSpeed", "BulletPower", "BulletDistance", "ReloadTime" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_SELECT_BUFF), global::GAME.SC_SELECT_BUFF.Parser, new[]{ "Count" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.CS_ENHANCE_BUFF), global::GAME.CS_ENHANCE_BUFF.Parser, new[]{ "BuffType" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS), global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS.Parser, new[]{ "ObjId", "MaxHp", "Hp", "Speed", "ReloadTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS), global::GAME.SC_NOTI_UPDATE_CHARACTER_STATUS.Parser, new[]{ "ObjId", "MaxHp", "Hp", "Speed", "BulletSpeed", "BulletPower", "BulletDistance", "ReloadTime" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.ITEM_INFO), global::GAME.ITEM_INFO.Parser, new[]{ "ItemId", "ItemType", "PosX", "PosY", "PosZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACTIVE_ITEM), global::GAME.SC_NOTI_ACTIVE_ITEM.Parser, new[]{ "ItemInfos" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GAME.SC_NOTI_ACQUIRE_ITEM), global::GAME.SC_NOTI_ACQUIRE_ITEM.Parser, new[]{ "ObjId", "ItemId", "ItemType", "Hp", "ShieldTime", "Exp" }, null, null, null),
@@ -381,14 +389,18 @@ namespace GAME {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public OTHER_INFO(OTHER_INFO other) : this() {
       objId_ = other.objId_;
-      tankType_ = other.tankType_;
       nickname_ = other.nickname_;
       posX_ = other.posX_;
       posY_ = other.posY_;
       posZ_ = other.posZ_;
-      maxHp_ = other.maxHp_;
+      tankType_ = other.tankType_;
       hp_ = other.hp_;
+      maxHp_ = other.maxHp_;
       speed_ = other.speed_;
+      bulletSpeed_ = other.bulletSpeed_;
+      bulletPower_ = other.bulletPower_;
+      bulletDistance_ = other.bulletDistance_;
+      reloadTime_ = other.reloadTime_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -407,19 +419,8 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "tank_type" field.</summary>
-    public const int TankTypeFieldNumber = 2;
-    private int tankType_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int TankType {
-      get { return tankType_; }
-      set {
-        tankType_ = value;
-      }
-    }
-
     /// <summary>Field number for the "nickname" field.</summary>
-    public const int NicknameFieldNumber = 3;
+    public const int NicknameFieldNumber = 2;
     private string nickname_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Nickname {
@@ -430,7 +431,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_x" field.</summary>
-    public const int PosXFieldNumber = 4;
+    public const int PosXFieldNumber = 3;
     private float posX_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosX {
@@ -441,7 +442,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_y" field.</summary>
-    public const int PosYFieldNumber = 5;
+    public const int PosYFieldNumber = 4;
     private float posY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosY {
@@ -452,7 +453,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_z" field.</summary>
-    public const int PosZFieldNumber = 6;
+    public const int PosZFieldNumber = 5;
     private float posZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosZ {
@@ -462,19 +463,19 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "max_hp" field.</summary>
-    public const int MaxHpFieldNumber = 7;
-    private int maxHp_;
+    /// <summary>Field number for the "tank_type" field.</summary>
+    public const int TankTypeFieldNumber = 6;
+    private int tankType_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int MaxHp {
-      get { return maxHp_; }
+    public int TankType {
+      get { return tankType_; }
       set {
-        maxHp_ = value;
+        tankType_ = value;
       }
     }
 
     /// <summary>Field number for the "hp" field.</summary>
-    public const int HpFieldNumber = 8;
+    public const int HpFieldNumber = 7;
     private int hp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Hp {
@@ -484,14 +485,69 @@ namespace GAME {
       }
     }
 
+    /// <summary>Field number for the "max_hp" field.</summary>
+    public const int MaxHpFieldNumber = 8;
+    private int maxHp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxHp {
+      get { return maxHp_; }
+      set {
+        maxHp_ = value;
+      }
+    }
+
     /// <summary>Field number for the "speed" field.</summary>
     public const int SpeedFieldNumber = 9;
-    private float speed_;
+    private int speed_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public float Speed {
+    public int Speed {
       get { return speed_; }
       set {
         speed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_speed" field.</summary>
+    public const int BulletSpeedFieldNumber = 10;
+    private int bulletSpeed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletSpeed {
+      get { return bulletSpeed_; }
+      set {
+        bulletSpeed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_power" field.</summary>
+    public const int BulletPowerFieldNumber = 11;
+    private int bulletPower_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletPower {
+      get { return bulletPower_; }
+      set {
+        bulletPower_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_distance" field.</summary>
+    public const int BulletDistanceFieldNumber = 12;
+    private int bulletDistance_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletDistance {
+      get { return bulletDistance_; }
+      set {
+        bulletDistance_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "reload_time" field.</summary>
+    public const int ReloadTimeFieldNumber = 13;
+    private int reloadTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ReloadTime {
+      get { return reloadTime_; }
+      set {
+        reloadTime_ = value;
       }
     }
 
@@ -509,14 +565,18 @@ namespace GAME {
         return true;
       }
       if (ObjId != other.ObjId) return false;
-      if (TankType != other.TankType) return false;
       if (Nickname != other.Nickname) return false;
       if (PosX != other.PosX) return false;
       if (PosY != other.PosY) return false;
       if (PosZ != other.PosZ) return false;
-      if (MaxHp != other.MaxHp) return false;
+      if (TankType != other.TankType) return false;
       if (Hp != other.Hp) return false;
+      if (MaxHp != other.MaxHp) return false;
       if (Speed != other.Speed) return false;
+      if (BulletSpeed != other.BulletSpeed) return false;
+      if (BulletPower != other.BulletPower) return false;
+      if (BulletDistance != other.BulletDistance) return false;
+      if (ReloadTime != other.ReloadTime) return false;
       return true;
     }
 
@@ -524,14 +584,18 @@ namespace GAME {
     public override int GetHashCode() {
       int hash = 1;
       if (ObjId != 0L) hash ^= ObjId.GetHashCode();
-      if (TankType != 0) hash ^= TankType.GetHashCode();
       if (Nickname.Length != 0) hash ^= Nickname.GetHashCode();
       if (PosX != 0F) hash ^= PosX.GetHashCode();
       if (PosY != 0F) hash ^= PosY.GetHashCode();
       if (PosZ != 0F) hash ^= PosZ.GetHashCode();
-      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
+      if (TankType != 0) hash ^= TankType.GetHashCode();
       if (Hp != 0) hash ^= Hp.GetHashCode();
-      if (Speed != 0F) hash ^= Speed.GetHashCode();
+      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
+      if (Speed != 0) hash ^= Speed.GetHashCode();
+      if (BulletSpeed != 0) hash ^= BulletSpeed.GetHashCode();
+      if (BulletPower != 0) hash ^= BulletPower.GetHashCode();
+      if (BulletDistance != 0) hash ^= BulletDistance.GetHashCode();
+      if (ReloadTime != 0) hash ^= ReloadTime.GetHashCode();
       return hash;
     }
 
@@ -546,37 +610,53 @@ namespace GAME {
         output.WriteRawTag(8);
         output.WriteInt64(ObjId);
       }
-      if (TankType != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(TankType);
-      }
       if (Nickname.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteString(Nickname);
       }
       if (PosX != 0F) {
-        output.WriteRawTag(37);
+        output.WriteRawTag(29);
         output.WriteFloat(PosX);
       }
       if (PosY != 0F) {
-        output.WriteRawTag(45);
+        output.WriteRawTag(37);
         output.WriteFloat(PosY);
       }
       if (PosZ != 0F) {
-        output.WriteRawTag(53);
+        output.WriteRawTag(45);
         output.WriteFloat(PosZ);
       }
-      if (MaxHp != 0) {
-        output.WriteRawTag(56);
-        output.WriteInt32(MaxHp);
+      if (TankType != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(TankType);
       }
       if (Hp != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(56);
         output.WriteInt32(Hp);
       }
-      if (Speed != 0F) {
-        output.WriteRawTag(77);
-        output.WriteFloat(Speed);
+      if (MaxHp != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(MaxHp);
+      }
+      if (Speed != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(Speed);
+      }
+      if (BulletSpeed != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(BulletSpeed);
+      }
+      if (BulletPower != 0) {
+        output.WriteRawTag(88);
+        output.WriteInt32(BulletPower);
+      }
+      if (BulletDistance != 0) {
+        output.WriteRawTag(96);
+        output.WriteInt32(BulletDistance);
+      }
+      if (ReloadTime != 0) {
+        output.WriteRawTag(104);
+        output.WriteInt32(ReloadTime);
       }
     }
 
@@ -585,9 +665,6 @@ namespace GAME {
       int size = 0;
       if (ObjId != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObjId);
-      }
-      if (TankType != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(TankType);
       }
       if (Nickname.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Nickname);
@@ -601,14 +678,29 @@ namespace GAME {
       if (PosZ != 0F) {
         size += 1 + 4;
       }
-      if (MaxHp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
+      if (TankType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(TankType);
       }
       if (Hp != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
       }
-      if (Speed != 0F) {
-        size += 1 + 4;
+      if (MaxHp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
+      }
+      if (Speed != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Speed);
+      }
+      if (BulletSpeed != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletSpeed);
+      }
+      if (BulletPower != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletPower);
+      }
+      if (BulletDistance != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletDistance);
+      }
+      if (ReloadTime != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ReloadTime);
       }
       return size;
     }
@@ -620,9 +712,6 @@ namespace GAME {
       }
       if (other.ObjId != 0L) {
         ObjId = other.ObjId;
-      }
-      if (other.TankType != 0) {
-        TankType = other.TankType;
       }
       if (other.Nickname.Length != 0) {
         Nickname = other.Nickname;
@@ -636,14 +725,29 @@ namespace GAME {
       if (other.PosZ != 0F) {
         PosZ = other.PosZ;
       }
-      if (other.MaxHp != 0) {
-        MaxHp = other.MaxHp;
+      if (other.TankType != 0) {
+        TankType = other.TankType;
       }
       if (other.Hp != 0) {
         Hp = other.Hp;
       }
-      if (other.Speed != 0F) {
+      if (other.MaxHp != 0) {
+        MaxHp = other.MaxHp;
+      }
+      if (other.Speed != 0) {
         Speed = other.Speed;
+      }
+      if (other.BulletSpeed != 0) {
+        BulletSpeed = other.BulletSpeed;
+      }
+      if (other.BulletPower != 0) {
+        BulletPower = other.BulletPower;
+      }
+      if (other.BulletDistance != 0) {
+        BulletDistance = other.BulletDistance;
+      }
+      if (other.ReloadTime != 0) {
+        ReloadTime = other.ReloadTime;
       }
     }
 
@@ -659,36 +763,52 @@ namespace GAME {
             ObjId = input.ReadInt64();
             break;
           }
-          case 16: {
-            TankType = input.ReadInt32();
-            break;
-          }
-          case 26: {
+          case 18: {
             Nickname = input.ReadString();
             break;
           }
-          case 37: {
+          case 29: {
             PosX = input.ReadFloat();
             break;
           }
-          case 45: {
+          case 37: {
             PosY = input.ReadFloat();
             break;
           }
-          case 53: {
+          case 45: {
             PosZ = input.ReadFloat();
             break;
           }
-          case 56: {
-            MaxHp = input.ReadInt32();
+          case 48: {
+            TankType = input.ReadInt32();
             break;
           }
-          case 64: {
+          case 56: {
             Hp = input.ReadInt32();
             break;
           }
-          case 77: {
-            Speed = input.ReadFloat();
+          case 64: {
+            MaxHp = input.ReadInt32();
+            break;
+          }
+          case 72: {
+            Speed = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            BulletSpeed = input.ReadInt32();
+            break;
+          }
+          case 88: {
+            BulletPower = input.ReadInt32();
+            break;
+          }
+          case 96: {
+            BulletDistance = input.ReadInt32();
+            break;
+          }
+          case 104: {
+            ReloadTime = input.ReadInt32();
             break;
           }
         }
@@ -839,14 +959,17 @@ namespace GAME {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SC_SYNC_FIELD(SC_SYNC_FIELD other) : this() {
       objId_ = other.objId_;
-      tankType_ = other.tankType_;
       nickname_ = other.nickname_;
       posX_ = other.posX_;
       posY_ = other.posY_;
       posZ_ = other.posZ_;
-      maxHp_ = other.maxHp_;
+      tankType_ = other.tankType_;
       hp_ = other.hp_;
+      maxHp_ = other.maxHp_;
       speed_ = other.speed_;
+      bulletSpeed_ = other.bulletSpeed_;
+      bulletPower_ = other.bulletPower_;
+      bulletDistance_ = other.bulletDistance_;
       reloadTime_ = other.reloadTime_;
       otherInfos_ = other.otherInfos_.Clone();
     }
@@ -867,19 +990,8 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "tank_type" field.</summary>
-    public const int TankTypeFieldNumber = 2;
-    private int tankType_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int TankType {
-      get { return tankType_; }
-      set {
-        tankType_ = value;
-      }
-    }
-
     /// <summary>Field number for the "nickname" field.</summary>
-    public const int NicknameFieldNumber = 3;
+    public const int NicknameFieldNumber = 2;
     private string nickname_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Nickname {
@@ -890,7 +1002,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_x" field.</summary>
-    public const int PosXFieldNumber = 4;
+    public const int PosXFieldNumber = 3;
     private float posX_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosX {
@@ -901,7 +1013,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_y" field.</summary>
-    public const int PosYFieldNumber = 5;
+    public const int PosYFieldNumber = 4;
     private float posY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosY {
@@ -912,7 +1024,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_z" field.</summary>
-    public const int PosZFieldNumber = 6;
+    public const int PosZFieldNumber = 5;
     private float posZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosZ {
@@ -922,19 +1034,19 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "max_hp" field.</summary>
-    public const int MaxHpFieldNumber = 7;
-    private int maxHp_;
+    /// <summary>Field number for the "tank_type" field.</summary>
+    public const int TankTypeFieldNumber = 6;
+    private int tankType_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int MaxHp {
-      get { return maxHp_; }
+    public int TankType {
+      get { return tankType_; }
       set {
-        maxHp_ = value;
+        tankType_ = value;
       }
     }
 
     /// <summary>Field number for the "hp" field.</summary>
-    public const int HpFieldNumber = 8;
+    public const int HpFieldNumber = 7;
     private int hp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Hp {
@@ -944,22 +1056,66 @@ namespace GAME {
       }
     }
 
+    /// <summary>Field number for the "max_hp" field.</summary>
+    public const int MaxHpFieldNumber = 8;
+    private int maxHp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxHp {
+      get { return maxHp_; }
+      set {
+        maxHp_ = value;
+      }
+    }
+
     /// <summary>Field number for the "speed" field.</summary>
     public const int SpeedFieldNumber = 9;
-    private float speed_;
+    private int speed_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public float Speed {
+    public int Speed {
       get { return speed_; }
       set {
         speed_ = value;
       }
     }
 
-    /// <summary>Field number for the "reload_time" field.</summary>
-    public const int ReloadTimeFieldNumber = 10;
-    private float reloadTime_;
+    /// <summary>Field number for the "bullet_speed" field.</summary>
+    public const int BulletSpeedFieldNumber = 10;
+    private int bulletSpeed_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public float ReloadTime {
+    public int BulletSpeed {
+      get { return bulletSpeed_; }
+      set {
+        bulletSpeed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_power" field.</summary>
+    public const int BulletPowerFieldNumber = 11;
+    private int bulletPower_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletPower {
+      get { return bulletPower_; }
+      set {
+        bulletPower_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_distance" field.</summary>
+    public const int BulletDistanceFieldNumber = 12;
+    private int bulletDistance_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletDistance {
+      get { return bulletDistance_; }
+      set {
+        bulletDistance_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "reload_time" field.</summary>
+    public const int ReloadTimeFieldNumber = 13;
+    private int reloadTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ReloadTime {
       get { return reloadTime_; }
       set {
         reloadTime_ = value;
@@ -967,9 +1123,9 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "other_infos" field.</summary>
-    public const int OtherInfosFieldNumber = 11;
+    public const int OtherInfosFieldNumber = 14;
     private static readonly pb::FieldCodec<global::GAME.OTHER_INFO> _repeated_otherInfos_codec
-        = pb::FieldCodec.ForMessage(90, global::GAME.OTHER_INFO.Parser);
+        = pb::FieldCodec.ForMessage(114, global::GAME.OTHER_INFO.Parser);
     private readonly pbc::RepeatedField<global::GAME.OTHER_INFO> otherInfos_ = new pbc::RepeatedField<global::GAME.OTHER_INFO>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::GAME.OTHER_INFO> OtherInfos {
@@ -990,14 +1146,17 @@ namespace GAME {
         return true;
       }
       if (ObjId != other.ObjId) return false;
-      if (TankType != other.TankType) return false;
       if (Nickname != other.Nickname) return false;
       if (PosX != other.PosX) return false;
       if (PosY != other.PosY) return false;
       if (PosZ != other.PosZ) return false;
-      if (MaxHp != other.MaxHp) return false;
+      if (TankType != other.TankType) return false;
       if (Hp != other.Hp) return false;
+      if (MaxHp != other.MaxHp) return false;
       if (Speed != other.Speed) return false;
+      if (BulletSpeed != other.BulletSpeed) return false;
+      if (BulletPower != other.BulletPower) return false;
+      if (BulletDistance != other.BulletDistance) return false;
       if (ReloadTime != other.ReloadTime) return false;
       if(!otherInfos_.Equals(other.otherInfos_)) return false;
       return true;
@@ -1007,15 +1166,18 @@ namespace GAME {
     public override int GetHashCode() {
       int hash = 1;
       if (ObjId != 0L) hash ^= ObjId.GetHashCode();
-      if (TankType != 0) hash ^= TankType.GetHashCode();
       if (Nickname.Length != 0) hash ^= Nickname.GetHashCode();
       if (PosX != 0F) hash ^= PosX.GetHashCode();
       if (PosY != 0F) hash ^= PosY.GetHashCode();
       if (PosZ != 0F) hash ^= PosZ.GetHashCode();
-      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
+      if (TankType != 0) hash ^= TankType.GetHashCode();
       if (Hp != 0) hash ^= Hp.GetHashCode();
-      if (Speed != 0F) hash ^= Speed.GetHashCode();
-      if (ReloadTime != 0F) hash ^= ReloadTime.GetHashCode();
+      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
+      if (Speed != 0) hash ^= Speed.GetHashCode();
+      if (BulletSpeed != 0) hash ^= BulletSpeed.GetHashCode();
+      if (BulletPower != 0) hash ^= BulletPower.GetHashCode();
+      if (BulletDistance != 0) hash ^= BulletDistance.GetHashCode();
+      if (ReloadTime != 0) hash ^= ReloadTime.GetHashCode();
       hash ^= otherInfos_.GetHashCode();
       return hash;
     }
@@ -1031,41 +1193,53 @@ namespace GAME {
         output.WriteRawTag(8);
         output.WriteInt64(ObjId);
       }
-      if (TankType != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(TankType);
-      }
       if (Nickname.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteString(Nickname);
       }
       if (PosX != 0F) {
-        output.WriteRawTag(37);
+        output.WriteRawTag(29);
         output.WriteFloat(PosX);
       }
       if (PosY != 0F) {
-        output.WriteRawTag(45);
+        output.WriteRawTag(37);
         output.WriteFloat(PosY);
       }
       if (PosZ != 0F) {
-        output.WriteRawTag(53);
+        output.WriteRawTag(45);
         output.WriteFloat(PosZ);
       }
-      if (MaxHp != 0) {
-        output.WriteRawTag(56);
-        output.WriteInt32(MaxHp);
+      if (TankType != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(TankType);
       }
       if (Hp != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(56);
         output.WriteInt32(Hp);
       }
-      if (Speed != 0F) {
-        output.WriteRawTag(77);
-        output.WriteFloat(Speed);
+      if (MaxHp != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(MaxHp);
       }
-      if (ReloadTime != 0F) {
-        output.WriteRawTag(85);
-        output.WriteFloat(ReloadTime);
+      if (Speed != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(Speed);
+      }
+      if (BulletSpeed != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(BulletSpeed);
+      }
+      if (BulletPower != 0) {
+        output.WriteRawTag(88);
+        output.WriteInt32(BulletPower);
+      }
+      if (BulletDistance != 0) {
+        output.WriteRawTag(96);
+        output.WriteInt32(BulletDistance);
+      }
+      if (ReloadTime != 0) {
+        output.WriteRawTag(104);
+        output.WriteInt32(ReloadTime);
       }
       otherInfos_.WriteTo(output, _repeated_otherInfos_codec);
     }
@@ -1075,9 +1249,6 @@ namespace GAME {
       int size = 0;
       if (ObjId != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObjId);
-      }
-      if (TankType != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(TankType);
       }
       if (Nickname.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Nickname);
@@ -1091,17 +1262,29 @@ namespace GAME {
       if (PosZ != 0F) {
         size += 1 + 4;
       }
-      if (MaxHp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
+      if (TankType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(TankType);
       }
       if (Hp != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
       }
-      if (Speed != 0F) {
-        size += 1 + 4;
+      if (MaxHp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
       }
-      if (ReloadTime != 0F) {
-        size += 1 + 4;
+      if (Speed != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Speed);
+      }
+      if (BulletSpeed != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletSpeed);
+      }
+      if (BulletPower != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletPower);
+      }
+      if (BulletDistance != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletDistance);
+      }
+      if (ReloadTime != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ReloadTime);
       }
       size += otherInfos_.CalculateSize(_repeated_otherInfos_codec);
       return size;
@@ -1115,9 +1298,6 @@ namespace GAME {
       if (other.ObjId != 0L) {
         ObjId = other.ObjId;
       }
-      if (other.TankType != 0) {
-        TankType = other.TankType;
-      }
       if (other.Nickname.Length != 0) {
         Nickname = other.Nickname;
       }
@@ -1130,16 +1310,28 @@ namespace GAME {
       if (other.PosZ != 0F) {
         PosZ = other.PosZ;
       }
-      if (other.MaxHp != 0) {
-        MaxHp = other.MaxHp;
+      if (other.TankType != 0) {
+        TankType = other.TankType;
       }
       if (other.Hp != 0) {
         Hp = other.Hp;
       }
-      if (other.Speed != 0F) {
+      if (other.MaxHp != 0) {
+        MaxHp = other.MaxHp;
+      }
+      if (other.Speed != 0) {
         Speed = other.Speed;
       }
-      if (other.ReloadTime != 0F) {
+      if (other.BulletSpeed != 0) {
+        BulletSpeed = other.BulletSpeed;
+      }
+      if (other.BulletPower != 0) {
+        BulletPower = other.BulletPower;
+      }
+      if (other.BulletDistance != 0) {
+        BulletDistance = other.BulletDistance;
+      }
+      if (other.ReloadTime != 0) {
         ReloadTime = other.ReloadTime;
       }
       otherInfos_.Add(other.otherInfos_);
@@ -1157,43 +1349,55 @@ namespace GAME {
             ObjId = input.ReadInt64();
             break;
           }
-          case 16: {
-            TankType = input.ReadInt32();
-            break;
-          }
-          case 26: {
+          case 18: {
             Nickname = input.ReadString();
             break;
           }
-          case 37: {
+          case 29: {
             PosX = input.ReadFloat();
             break;
           }
-          case 45: {
+          case 37: {
             PosY = input.ReadFloat();
             break;
           }
-          case 53: {
+          case 45: {
             PosZ = input.ReadFloat();
             break;
           }
-          case 56: {
-            MaxHp = input.ReadInt32();
+          case 48: {
+            TankType = input.ReadInt32();
             break;
           }
-          case 64: {
+          case 56: {
             Hp = input.ReadInt32();
             break;
           }
-          case 77: {
-            Speed = input.ReadFloat();
+          case 64: {
+            MaxHp = input.ReadInt32();
             break;
           }
-          case 85: {
-            ReloadTime = input.ReadFloat();
+          case 72: {
+            Speed = input.ReadInt32();
             break;
           }
-          case 90: {
+          case 80: {
+            BulletSpeed = input.ReadInt32();
+            break;
+          }
+          case 88: {
+            BulletPower = input.ReadInt32();
+            break;
+          }
+          case 96: {
+            BulletDistance = input.ReadInt32();
+            break;
+          }
+          case 104: {
+            ReloadTime = input.ReadInt32();
+            break;
+          }
+          case 114: {
             otherInfos_.AddEntriesFrom(input, _repeated_otherInfos_codec);
             break;
           }
@@ -1228,14 +1432,18 @@ namespace GAME {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SC_NOTI_OTHER_ENTER_FIELD(SC_NOTI_OTHER_ENTER_FIELD other) : this() {
       objId_ = other.objId_;
-      tankType_ = other.tankType_;
       nickname_ = other.nickname_;
       posX_ = other.posX_;
       posY_ = other.posY_;
       posZ_ = other.posZ_;
-      maxHp_ = other.maxHp_;
+      tankType_ = other.tankType_;
       hp_ = other.hp_;
+      maxHp_ = other.maxHp_;
       speed_ = other.speed_;
+      bulletSpeed_ = other.bulletSpeed_;
+      bulletPower_ = other.bulletPower_;
+      bulletDistance_ = other.bulletDistance_;
+      reloadTime_ = other.reloadTime_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1254,19 +1462,8 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "tank_type" field.</summary>
-    public const int TankTypeFieldNumber = 2;
-    private int tankType_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int TankType {
-      get { return tankType_; }
-      set {
-        tankType_ = value;
-      }
-    }
-
     /// <summary>Field number for the "nickname" field.</summary>
-    public const int NicknameFieldNumber = 3;
+    public const int NicknameFieldNumber = 2;
     private string nickname_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Nickname {
@@ -1277,7 +1474,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_x" field.</summary>
-    public const int PosXFieldNumber = 4;
+    public const int PosXFieldNumber = 3;
     private float posX_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosX {
@@ -1288,7 +1485,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_y" field.</summary>
-    public const int PosYFieldNumber = 5;
+    public const int PosYFieldNumber = 4;
     private float posY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosY {
@@ -1299,7 +1496,7 @@ namespace GAME {
     }
 
     /// <summary>Field number for the "pos_z" field.</summary>
-    public const int PosZFieldNumber = 6;
+    public const int PosZFieldNumber = 5;
     private float posZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float PosZ {
@@ -1309,25 +1506,36 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "max_hp" field.</summary>
-    public const int MaxHpFieldNumber = 7;
-    private int maxHp_;
+    /// <summary>Field number for the "tank_type" field.</summary>
+    public const int TankTypeFieldNumber = 6;
+    private int tankType_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int MaxHp {
-      get { return maxHp_; }
+    public int TankType {
+      get { return tankType_; }
       set {
-        maxHp_ = value;
+        tankType_ = value;
       }
     }
 
     /// <summary>Field number for the "hp" field.</summary>
-    public const int HpFieldNumber = 8;
+    public const int HpFieldNumber = 7;
     private int hp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Hp {
       get { return hp_; }
       set {
         hp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_hp" field.</summary>
+    public const int MaxHpFieldNumber = 8;
+    private int maxHp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxHp {
+      get { return maxHp_; }
+      set {
+        maxHp_ = value;
       }
     }
 
@@ -1339,6 +1547,50 @@ namespace GAME {
       get { return speed_; }
       set {
         speed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_speed" field.</summary>
+    public const int BulletSpeedFieldNumber = 10;
+    private int bulletSpeed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletSpeed {
+      get { return bulletSpeed_; }
+      set {
+        bulletSpeed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_power" field.</summary>
+    public const int BulletPowerFieldNumber = 11;
+    private int bulletPower_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletPower {
+      get { return bulletPower_; }
+      set {
+        bulletPower_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_distance" field.</summary>
+    public const int BulletDistanceFieldNumber = 12;
+    private int bulletDistance_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletDistance {
+      get { return bulletDistance_; }
+      set {
+        bulletDistance_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "reload_time" field.</summary>
+    public const int ReloadTimeFieldNumber = 13;
+    private int reloadTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ReloadTime {
+      get { return reloadTime_; }
+      set {
+        reloadTime_ = value;
       }
     }
 
@@ -1356,14 +1608,18 @@ namespace GAME {
         return true;
       }
       if (ObjId != other.ObjId) return false;
-      if (TankType != other.TankType) return false;
       if (Nickname != other.Nickname) return false;
       if (PosX != other.PosX) return false;
       if (PosY != other.PosY) return false;
       if (PosZ != other.PosZ) return false;
-      if (MaxHp != other.MaxHp) return false;
+      if (TankType != other.TankType) return false;
       if (Hp != other.Hp) return false;
+      if (MaxHp != other.MaxHp) return false;
       if (Speed != other.Speed) return false;
+      if (BulletSpeed != other.BulletSpeed) return false;
+      if (BulletPower != other.BulletPower) return false;
+      if (BulletDistance != other.BulletDistance) return false;
+      if (ReloadTime != other.ReloadTime) return false;
       return true;
     }
 
@@ -1371,14 +1627,18 @@ namespace GAME {
     public override int GetHashCode() {
       int hash = 1;
       if (ObjId != 0L) hash ^= ObjId.GetHashCode();
-      if (TankType != 0) hash ^= TankType.GetHashCode();
       if (Nickname.Length != 0) hash ^= Nickname.GetHashCode();
       if (PosX != 0F) hash ^= PosX.GetHashCode();
       if (PosY != 0F) hash ^= PosY.GetHashCode();
       if (PosZ != 0F) hash ^= PosZ.GetHashCode();
-      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
+      if (TankType != 0) hash ^= TankType.GetHashCode();
       if (Hp != 0) hash ^= Hp.GetHashCode();
+      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
       if (Speed != 0F) hash ^= Speed.GetHashCode();
+      if (BulletSpeed != 0) hash ^= BulletSpeed.GetHashCode();
+      if (BulletPower != 0) hash ^= BulletPower.GetHashCode();
+      if (BulletDistance != 0) hash ^= BulletDistance.GetHashCode();
+      if (ReloadTime != 0) hash ^= ReloadTime.GetHashCode();
       return hash;
     }
 
@@ -1393,37 +1653,53 @@ namespace GAME {
         output.WriteRawTag(8);
         output.WriteInt64(ObjId);
       }
-      if (TankType != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(TankType);
-      }
       if (Nickname.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteString(Nickname);
       }
       if (PosX != 0F) {
-        output.WriteRawTag(37);
+        output.WriteRawTag(29);
         output.WriteFloat(PosX);
       }
       if (PosY != 0F) {
-        output.WriteRawTag(45);
+        output.WriteRawTag(37);
         output.WriteFloat(PosY);
       }
       if (PosZ != 0F) {
-        output.WriteRawTag(53);
+        output.WriteRawTag(45);
         output.WriteFloat(PosZ);
       }
-      if (MaxHp != 0) {
-        output.WriteRawTag(56);
-        output.WriteInt32(MaxHp);
+      if (TankType != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(TankType);
       }
       if (Hp != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(56);
         output.WriteInt32(Hp);
+      }
+      if (MaxHp != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(MaxHp);
       }
       if (Speed != 0F) {
         output.WriteRawTag(77);
         output.WriteFloat(Speed);
+      }
+      if (BulletSpeed != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(BulletSpeed);
+      }
+      if (BulletPower != 0) {
+        output.WriteRawTag(88);
+        output.WriteInt32(BulletPower);
+      }
+      if (BulletDistance != 0) {
+        output.WriteRawTag(96);
+        output.WriteInt32(BulletDistance);
+      }
+      if (ReloadTime != 0) {
+        output.WriteRawTag(104);
+        output.WriteInt32(ReloadTime);
       }
     }
 
@@ -1432,9 +1708,6 @@ namespace GAME {
       int size = 0;
       if (ObjId != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObjId);
-      }
-      if (TankType != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(TankType);
       }
       if (Nickname.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Nickname);
@@ -1448,14 +1721,29 @@ namespace GAME {
       if (PosZ != 0F) {
         size += 1 + 4;
       }
-      if (MaxHp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
+      if (TankType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(TankType);
       }
       if (Hp != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
       }
+      if (MaxHp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
+      }
       if (Speed != 0F) {
         size += 1 + 4;
+      }
+      if (BulletSpeed != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletSpeed);
+      }
+      if (BulletPower != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletPower);
+      }
+      if (BulletDistance != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletDistance);
+      }
+      if (ReloadTime != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ReloadTime);
       }
       return size;
     }
@@ -1467,9 +1755,6 @@ namespace GAME {
       }
       if (other.ObjId != 0L) {
         ObjId = other.ObjId;
-      }
-      if (other.TankType != 0) {
-        TankType = other.TankType;
       }
       if (other.Nickname.Length != 0) {
         Nickname = other.Nickname;
@@ -1483,14 +1768,29 @@ namespace GAME {
       if (other.PosZ != 0F) {
         PosZ = other.PosZ;
       }
-      if (other.MaxHp != 0) {
-        MaxHp = other.MaxHp;
+      if (other.TankType != 0) {
+        TankType = other.TankType;
       }
       if (other.Hp != 0) {
         Hp = other.Hp;
       }
+      if (other.MaxHp != 0) {
+        MaxHp = other.MaxHp;
+      }
       if (other.Speed != 0F) {
         Speed = other.Speed;
+      }
+      if (other.BulletSpeed != 0) {
+        BulletSpeed = other.BulletSpeed;
+      }
+      if (other.BulletPower != 0) {
+        BulletPower = other.BulletPower;
+      }
+      if (other.BulletDistance != 0) {
+        BulletDistance = other.BulletDistance;
+      }
+      if (other.ReloadTime != 0) {
+        ReloadTime = other.ReloadTime;
       }
     }
 
@@ -1506,36 +1806,52 @@ namespace GAME {
             ObjId = input.ReadInt64();
             break;
           }
-          case 16: {
-            TankType = input.ReadInt32();
-            break;
-          }
-          case 26: {
+          case 18: {
             Nickname = input.ReadString();
             break;
           }
-          case 37: {
+          case 29: {
             PosX = input.ReadFloat();
             break;
           }
-          case 45: {
+          case 37: {
             PosY = input.ReadFloat();
             break;
           }
-          case 53: {
+          case 45: {
             PosZ = input.ReadFloat();
             break;
           }
+          case 48: {
+            TankType = input.ReadInt32();
+            break;
+          }
           case 56: {
-            MaxHp = input.ReadInt32();
+            Hp = input.ReadInt32();
             break;
           }
           case 64: {
-            Hp = input.ReadInt32();
+            MaxHp = input.ReadInt32();
             break;
           }
           case 77: {
             Speed = input.ReadFloat();
+            break;
+          }
+          case 80: {
+            BulletSpeed = input.ReadInt32();
+            break;
+          }
+          case 88: {
+            BulletPower = input.ReadInt32();
+            break;
+          }
+          case 96: {
+            BulletDistance = input.ReadInt32();
+            break;
+          }
+          case 104: {
+            ReloadTime = input.ReadInt32();
             break;
           }
         }
@@ -3586,9 +3902,12 @@ namespace GAME {
       posX_ = other.posX_;
       posY_ = other.posY_;
       posZ_ = other.posZ_;
-      maxHp_ = other.maxHp_;
       hp_ = other.hp_;
+      maxHp_ = other.maxHp_;
       speed_ = other.speed_;
+      bulletSpeed_ = other.bulletSpeed_;
+      bulletPower_ = other.bulletPower_;
+      bulletDistance_ = other.bulletDistance_;
       reloadTime_ = other.reloadTime_;
     }
 
@@ -3641,25 +3960,25 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "max_hp" field.</summary>
-    public const int MaxHpFieldNumber = 5;
-    private int maxHp_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int MaxHp {
-      get { return maxHp_; }
-      set {
-        maxHp_ = value;
-      }
-    }
-
     /// <summary>Field number for the "hp" field.</summary>
-    public const int HpFieldNumber = 6;
+    public const int HpFieldNumber = 5;
     private int hp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Hp {
       get { return hp_; }
       set {
         hp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_hp" field.</summary>
+    public const int MaxHpFieldNumber = 6;
+    private int maxHp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxHp {
+      get { return maxHp_; }
+      set {
+        maxHp_ = value;
       }
     }
 
@@ -3674,11 +3993,44 @@ namespace GAME {
       }
     }
 
-    /// <summary>Field number for the "reload_time" field.</summary>
-    public const int ReloadTimeFieldNumber = 8;
-    private float reloadTime_;
+    /// <summary>Field number for the "bullet_speed" field.</summary>
+    public const int BulletSpeedFieldNumber = 8;
+    private int bulletSpeed_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public float ReloadTime {
+    public int BulletSpeed {
+      get { return bulletSpeed_; }
+      set {
+        bulletSpeed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_power" field.</summary>
+    public const int BulletPowerFieldNumber = 9;
+    private int bulletPower_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletPower {
+      get { return bulletPower_; }
+      set {
+        bulletPower_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_distance" field.</summary>
+    public const int BulletDistanceFieldNumber = 10;
+    private int bulletDistance_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletDistance {
+      get { return bulletDistance_; }
+      set {
+        bulletDistance_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "reload_time" field.</summary>
+    public const int ReloadTimeFieldNumber = 11;
+    private int reloadTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ReloadTime {
       get { return reloadTime_; }
       set {
         reloadTime_ = value;
@@ -3702,9 +4054,12 @@ namespace GAME {
       if (PosX != other.PosX) return false;
       if (PosY != other.PosY) return false;
       if (PosZ != other.PosZ) return false;
-      if (MaxHp != other.MaxHp) return false;
       if (Hp != other.Hp) return false;
+      if (MaxHp != other.MaxHp) return false;
       if (Speed != other.Speed) return false;
+      if (BulletSpeed != other.BulletSpeed) return false;
+      if (BulletPower != other.BulletPower) return false;
+      if (BulletDistance != other.BulletDistance) return false;
       if (ReloadTime != other.ReloadTime) return false;
       return true;
     }
@@ -3716,10 +4071,13 @@ namespace GAME {
       if (PosX != 0F) hash ^= PosX.GetHashCode();
       if (PosY != 0F) hash ^= PosY.GetHashCode();
       if (PosZ != 0F) hash ^= PosZ.GetHashCode();
-      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
       if (Hp != 0) hash ^= Hp.GetHashCode();
+      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
       if (Speed != 0F) hash ^= Speed.GetHashCode();
-      if (ReloadTime != 0F) hash ^= ReloadTime.GetHashCode();
+      if (BulletSpeed != 0) hash ^= BulletSpeed.GetHashCode();
+      if (BulletPower != 0) hash ^= BulletPower.GetHashCode();
+      if (BulletDistance != 0) hash ^= BulletDistance.GetHashCode();
+      if (ReloadTime != 0) hash ^= ReloadTime.GetHashCode();
       return hash;
     }
 
@@ -3746,21 +4104,33 @@ namespace GAME {
         output.WriteRawTag(37);
         output.WriteFloat(PosZ);
       }
-      if (MaxHp != 0) {
-        output.WriteRawTag(40);
-        output.WriteInt32(MaxHp);
-      }
       if (Hp != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(40);
         output.WriteInt32(Hp);
+      }
+      if (MaxHp != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(MaxHp);
       }
       if (Speed != 0F) {
         output.WriteRawTag(61);
         output.WriteFloat(Speed);
       }
-      if (ReloadTime != 0F) {
-        output.WriteRawTag(69);
-        output.WriteFloat(ReloadTime);
+      if (BulletSpeed != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(BulletSpeed);
+      }
+      if (BulletPower != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(BulletPower);
+      }
+      if (BulletDistance != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(BulletDistance);
+      }
+      if (ReloadTime != 0) {
+        output.WriteRawTag(88);
+        output.WriteInt32(ReloadTime);
       }
     }
 
@@ -3779,17 +4149,26 @@ namespace GAME {
       if (PosZ != 0F) {
         size += 1 + 4;
       }
-      if (MaxHp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
-      }
       if (Hp != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hp);
+      }
+      if (MaxHp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxHp);
       }
       if (Speed != 0F) {
         size += 1 + 4;
       }
-      if (ReloadTime != 0F) {
-        size += 1 + 4;
+      if (BulletSpeed != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletSpeed);
+      }
+      if (BulletPower != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletPower);
+      }
+      if (BulletDistance != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletDistance);
+      }
+      if (ReloadTime != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ReloadTime);
       }
       return size;
     }
@@ -3811,16 +4190,25 @@ namespace GAME {
       if (other.PosZ != 0F) {
         PosZ = other.PosZ;
       }
-      if (other.MaxHp != 0) {
-        MaxHp = other.MaxHp;
-      }
       if (other.Hp != 0) {
         Hp = other.Hp;
+      }
+      if (other.MaxHp != 0) {
+        MaxHp = other.MaxHp;
       }
       if (other.Speed != 0F) {
         Speed = other.Speed;
       }
-      if (other.ReloadTime != 0F) {
+      if (other.BulletSpeed != 0) {
+        BulletSpeed = other.BulletSpeed;
+      }
+      if (other.BulletPower != 0) {
+        BulletPower = other.BulletPower;
+      }
+      if (other.BulletDistance != 0) {
+        BulletDistance = other.BulletDistance;
+      }
+      if (other.ReloadTime != 0) {
         ReloadTime = other.ReloadTime;
       }
     }
@@ -3850,19 +4238,31 @@ namespace GAME {
             break;
           }
           case 40: {
-            MaxHp = input.ReadInt32();
+            Hp = input.ReadInt32();
             break;
           }
           case 48: {
-            Hp = input.ReadInt32();
+            MaxHp = input.ReadInt32();
             break;
           }
           case 61: {
             Speed = input.ReadFloat();
             break;
           }
-          case 69: {
-            ReloadTime = input.ReadFloat();
+          case 64: {
+            BulletSpeed = input.ReadInt32();
+            break;
+          }
+          case 72: {
+            BulletPower = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            BulletDistance = input.ReadInt32();
+            break;
+          }
+          case 88: {
+            ReloadTime = input.ReadInt32();
             break;
           }
         }
@@ -4133,6 +4533,9 @@ namespace GAME {
       maxHp_ = other.maxHp_;
       hp_ = other.hp_;
       speed_ = other.speed_;
+      bulletSpeed_ = other.bulletSpeed_;
+      bulletPower_ = other.bulletPower_;
+      bulletDistance_ = other.bulletDistance_;
       reloadTime_ = other.reloadTime_;
     }
 
@@ -4185,8 +4588,41 @@ namespace GAME {
       }
     }
 
+    /// <summary>Field number for the "bullet_speed" field.</summary>
+    public const int BulletSpeedFieldNumber = 5;
+    private int bulletSpeed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletSpeed {
+      get { return bulletSpeed_; }
+      set {
+        bulletSpeed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_power" field.</summary>
+    public const int BulletPowerFieldNumber = 6;
+    private int bulletPower_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletPower {
+      get { return bulletPower_; }
+      set {
+        bulletPower_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bullet_distance" field.</summary>
+    public const int BulletDistanceFieldNumber = 7;
+    private int bulletDistance_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BulletDistance {
+      get { return bulletDistance_; }
+      set {
+        bulletDistance_ = value;
+      }
+    }
+
     /// <summary>Field number for the "reload_time" field.</summary>
-    public const int ReloadTimeFieldNumber = 5;
+    public const int ReloadTimeFieldNumber = 8;
     private float reloadTime_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float ReloadTime {
@@ -4213,6 +4649,9 @@ namespace GAME {
       if (MaxHp != other.MaxHp) return false;
       if (Hp != other.Hp) return false;
       if (Speed != other.Speed) return false;
+      if (BulletSpeed != other.BulletSpeed) return false;
+      if (BulletPower != other.BulletPower) return false;
+      if (BulletDistance != other.BulletDistance) return false;
       if (ReloadTime != other.ReloadTime) return false;
       return true;
     }
@@ -4224,6 +4663,9 @@ namespace GAME {
       if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
       if (Hp != 0) hash ^= Hp.GetHashCode();
       if (Speed != 0F) hash ^= Speed.GetHashCode();
+      if (BulletSpeed != 0) hash ^= BulletSpeed.GetHashCode();
+      if (BulletPower != 0) hash ^= BulletPower.GetHashCode();
+      if (BulletDistance != 0) hash ^= BulletDistance.GetHashCode();
       if (ReloadTime != 0F) hash ^= ReloadTime.GetHashCode();
       return hash;
     }
@@ -4251,8 +4693,20 @@ namespace GAME {
         output.WriteRawTag(37);
         output.WriteFloat(Speed);
       }
+      if (BulletSpeed != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(BulletSpeed);
+      }
+      if (BulletPower != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(BulletPower);
+      }
+      if (BulletDistance != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(BulletDistance);
+      }
       if (ReloadTime != 0F) {
-        output.WriteRawTag(45);
+        output.WriteRawTag(69);
         output.WriteFloat(ReloadTime);
       }
     }
@@ -4271,6 +4725,15 @@ namespace GAME {
       }
       if (Speed != 0F) {
         size += 1 + 4;
+      }
+      if (BulletSpeed != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletSpeed);
+      }
+      if (BulletPower != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletPower);
+      }
+      if (BulletDistance != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BulletDistance);
       }
       if (ReloadTime != 0F) {
         size += 1 + 4;
@@ -4294,6 +4757,15 @@ namespace GAME {
       }
       if (other.Speed != 0F) {
         Speed = other.Speed;
+      }
+      if (other.BulletSpeed != 0) {
+        BulletSpeed = other.BulletSpeed;
+      }
+      if (other.BulletPower != 0) {
+        BulletPower = other.BulletPower;
+      }
+      if (other.BulletDistance != 0) {
+        BulletDistance = other.BulletDistance;
       }
       if (other.ReloadTime != 0F) {
         ReloadTime = other.ReloadTime;
@@ -4324,7 +4796,19 @@ namespace GAME {
             Speed = input.ReadFloat();
             break;
           }
-          case 45: {
+          case 40: {
+            BulletSpeed = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            BulletPower = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            BulletDistance = input.ReadInt32();
+            break;
+          }
+          case 69: {
             ReloadTime = input.ReadFloat();
             break;
           }

@@ -85,6 +85,11 @@ public class ProtobufHandler //: MonoBehaviour
             return LOBBY.SC_MY_INFO.Parser.ParseFrom(Buf);
         };
 
+        Deserializer_[OpcodeToInt16(opcode.SC_MY_CHARACTER_INFO)] = (byte[] Buf) =>
+        {
+            return LOBBY.SC_MY_CHARACTER_INFO.Parser.ParseFrom(Buf);
+        };
+
         Deserializer_[OpcodeToInt16(opcode.SC_PING)] = (byte[] Buf) =>
         {
             return GAME.SC_PING.Parser.ParseFrom(Buf);

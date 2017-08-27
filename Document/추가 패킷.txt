@@ -77,41 +77,51 @@ LOBBY.SC_MY_INFO
   - int coin_count
 
 
-TANK_INFO 구조체 추가
-int tank_type
-int move_speed_level
-int hp_level
-int attack_speed_level
-int distance_level
+탱크인포에서 => 케릭터 인포로 해놨습니다.
+서버는 케릭터 = 탱크
+위에서 정의한 변수명에서 => 변수명 변경
+기능은 같음
+
+뒤에 레벨은 없지만 모든 단위는 레벨이다 즉 현재는 1 - 5
+
+TANK_INFO              => CHARACTER_INFO 구조체 추가
+int tank_type          => int type
+int move_speed_level   => int speed
+int hp_level           => int max_hp
+int attack_speed_level => int bullet_speed
+int distance_level     => int bullet_distance
+int reload_time
 
 
-2. 나의 모든 탱크 정보 관련 패킷
+2. 나의 모든 탱크 정보 관련 패킷 [완료]
 
-LOBBY.CS_MY_TANK_INFO
+LOBBY.CS_MY_CHARACTER_INFO
 
-LOBBY.SC_MY_TANK_INFO
-  - TANK_INFOS => 나의 모든 탱크 정보
+LOBBY.SC_MY_CHARACTER_INFO
+  - CHARACTER_INFO 컨테이너 => 나의 모든 탱크 정보
 
 
 3. 탱크 업그레이드 관련 패킷
 
-LOBBY.CS_TANK_UPGRADE
-  - int tanl_type
-  - int upgrade_type
+LOBBY.CS_TANK_UPGRADE => LOBBY.CS_CHARACTER_UPGRADE
+  - int tank_type     => int character_type
+  - int upgrade_type  => int upgrade_type [0: speed, 1: max_hp, 2: bullet_speed, 3: bullet_distance )
 
-LOBBY.SC_TANK_UPGRADE
-  - TANK_INFO
+LOBBY.SC_TANK_UPGRADE => LOBBY.CS_CHARACTER_UPGRADE
+  - CHARACTER_INFO
 
 
-4. 현재 필드 입장시 패킷 변경
+4. 현재 필드 입장시 패킷 변경 [완료]
 
 SC_SYNC_FIELD
-  for enemy in enemies
-  + TANK_INFO
 
-
-
-
+OTHER_INFO에 밑에꺼 추가
+  <max_hp type="int32"/>
+  <speed type="int32"/>
+  <bullet_speed type="int32"/>
+  <bullet_power type="int32"/>
+  <bullet_distance type="int32"/>
+  <reload_time type="int32"/>
 
 
 
