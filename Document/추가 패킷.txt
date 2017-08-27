@@ -64,6 +64,52 @@ tankType 을 TankInfo구조체정보로 ( 업그레이드 정보) 포함해서 준다
 
 
 
+------------------------------------------------------------------------------------------------------
+
+1. 메달과 코인 관련 정보 패킷 [완료]
+
+LOBBY.CS_MY_INFO
+
+LOBBY.SC_MY_INFO
+  - bool result
+  - string ec 
+  - int medal_count
+  - int coin_count
+
+
+TANK_INFO 구조체 추가
+int tank_type
+int move_speed_level
+int hp_level
+int attack_speed_level
+int distance_level
+
+
+2. 나의 모든 탱크 정보 관련 패킷
+
+LOBBY.CS_MY_TANK_INFO
+
+LOBBY.SC_MY_TANK_INFO
+  - TANK_INFOS => 나의 모든 탱크 정보
+
+
+3. 탱크 업그레이드 관련 패킷
+
+LOBBY.CS_TANK_UPGRADE
+  - int tanl_type
+  - int upgrade_type
+
+LOBBY.SC_TANK_UPGRADE
+  - TANK_INFO
+
+
+4. 현재 필드 입장시 패킷 변경
+
+SC_SYNC_FIELD
+  for enemy in enemies
+  + TANK_INFO
+
+
 
 
 
