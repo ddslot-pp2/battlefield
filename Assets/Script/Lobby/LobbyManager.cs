@@ -17,6 +17,8 @@ public class LobbyManager : MonoBehaviour {
     private string uuid_;
     public int CharacterType_ = 0;
 
+    public static bool log_in_ = false;
+
     // 접속 완료 후 콜백
     public void onConnect()
     {
@@ -46,6 +48,8 @@ public class LobbyManager : MonoBehaviour {
         // 필드 리스트 요청
         var Send = new LOBBY.CS_FIELD_LIST();
         ProtobufManager.Instance().Send(opcode.CS_FIELD_LIST, Send);
+
+        log_in_ = true;
     }
 
     public void handle_SC_FIELD_LIST(LOBBY.SC_FIELD_LIST read)
@@ -109,6 +113,22 @@ public class LobbyManager : MonoBehaviour {
 
     }
 
+    public void handler_SC_MY_INFO(LOBBY.SC_MY_INFO read)
+    {
+        var result = read.Result;
+        if (!result)
+        {
+            Debug.Log("SC_MY_INFO result is not true");
+            return;
+        }
+
+        var medal_count = read.MedalCount;
+        var coin_count = read.CoinCount;
+
+        Debug.Log("medal_count: " + medal_count);
+        Debug.Log("coin_count: "  + coin_count);
+    }
+
     public void handler_SC_PING(GAME.SC_PING read)
     {
         Debug.Log("핑 받음");
@@ -126,6 +146,7 @@ public class LobbyManager : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<LOBBY.SC_LEAVE_FIELD>(opcode.SC_LEAVE_FIELD, handler_SC_LEAVE_FIELD);
         ProtobufManager.Instance().SetHandler<LOBBY.SC_PURCHASE_CHARACTER>(opcode.SC_PURCHASE_CHARACTER, handler_SC_PURCHASE_CHARACTER);
         ProtobufManager.Instance().SetHandler<LOBBY.SC_CHARACTER_INFO>(opcode.SC_CHARACTER_INFO, handler_SC_CHARACTER_INFO);
+        ProtobufManager.Instance().SetHandler<LOBBY.SC_MY_INFO>(opcode.SC_MY_INFO, handler_SC_MY_INFO);
         ProtobufManager.Instance().SetHandler<GAME.SC_PING>(opcode.SC_PING, handler_SC_PING);
     }
 
@@ -174,11 +195,16 @@ public class LobbyManager : MonoBehaviour {
     private void Login()
     {
         var Send = new LOBBY.CS_LOG_IN();
-        
-        //Send.Id = "냐옹이";
-        Send.Id = uuid_;
-        Send.Password = "1234ABCD";
-        ProtobufManager.Instance().Send(opcode.CS_LOG_IN, Send);
+
+        if (!log_in_)
+        {
+            Send.Id = uuid_;
+            Send.Password = "1234ABCD";
+            ProtobufManager.Instance().Send(opcode.CS_LOG_IN, Send);
+            return;
+        }
+
+        ProtobufManager.Instance().Send(opcode.CS_MY_INFO, Send);
     }
 
     public void onPurchaseTankButton(int type)

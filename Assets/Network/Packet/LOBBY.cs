@@ -42,8 +42,11 @@ namespace LOBBY {
             "IAEoCBIKCgJlYxgCIAEoCRIWCg5jaGFyYWN0ZXJfdHlwZRgDIAEoBRIOCgZt",
             "YXhfaHAYBCABKAUSDQoFc3BlZWQYBSABKAUSFAoMYnVsbGV0X3NwZWVkGAYg",
             "ASgFEhQKDGJ1bGxldF9wb3dlchgHIAEoBRIXCg9idWxsZXRfZGlzdGFuY2UY",
-            "CCABKAUSEwoLcmVsb2FkX3RpbWUYCSABKAUqMgoMR2FtZURhdGFUeXBlEgoK",
-            "BnRlc3RfMRAAEgoKBnRlc3RfMhABEgoKBnRlc3RfMxACYgZwcm90bzM="));
+            "CCABKAUSEwoLcmVsb2FkX3RpbWUYCSABKAUiDAoKQ1NfTVlfSU5GTyJRCgpT",
+            "Q19NWV9JTkZPEhMKC21lZGFsX2NvdW50GAEgASgFEhIKCmNvaW5fY291bnQY",
+            "AiABKAUSDgoGcmVzdWx0GAMgASgIEgoKAmVjGAQgASgJKjIKDEdhbWVEYXRh",
+            "VHlwZRIKCgZ0ZXN0XzEQABIKCgZ0ZXN0XzIQARIKCgZ0ZXN0XzMQAmIGcHJv",
+            "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LOBBY.GameDataType), }, new pbr::GeneratedClrTypeInfo[] {
@@ -59,7 +62,9 @@ namespace LOBBY {
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_PURCHASE_CHARACTER), global::LOBBY.CS_PURCHASE_CHARACTER.Parser, new[]{ "CharacterType" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_PURCHASE_CHARACTER), global::LOBBY.SC_PURCHASE_CHARACTER.Parser, new[]{ "MedalCount", "CoinCount", "Result", "Ec" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_CHARACTER_INFO), global::LOBBY.CS_CHARACTER_INFO.Parser, new[]{ "CharacterType" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_CHARACTER_INFO), global::LOBBY.SC_CHARACTER_INFO.Parser, new[]{ "Result", "Ec", "CharacterType", "MaxHp", "Speed", "BulletSpeed", "BulletPower", "BulletDistance", "ReloadTime" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_CHARACTER_INFO), global::LOBBY.SC_CHARACTER_INFO.Parser, new[]{ "Result", "Ec", "CharacterType", "MaxHp", "Speed", "BulletSpeed", "BulletPower", "BulletDistance", "ReloadTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.CS_MY_INFO), global::LOBBY.CS_MY_INFO.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LOBBY.SC_MY_INFO), global::LOBBY.SC_MY_INFO.Parser, new[]{ "MedalCount", "CoinCount", "Result", "Ec" }, null, null, null)
           }));
     }
     #endregion
@@ -2196,6 +2201,296 @@ namespace LOBBY {
           }
           case 72: {
             ReloadTime = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CS_MY_INFO : pb::IMessage<CS_MY_INFO> {
+    private static readonly pb::MessageParser<CS_MY_INFO> _parser = new pb::MessageParser<CS_MY_INFO>(() => new CS_MY_INFO());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_MY_INFO> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::LOBBY.LOBBYReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_MY_INFO() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_MY_INFO(CS_MY_INFO other) : this() {
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_MY_INFO Clone() {
+      return new CS_MY_INFO(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_MY_INFO);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_MY_INFO other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_MY_INFO other) {
+      if (other == null) {
+        return;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_MY_INFO : pb::IMessage<SC_MY_INFO> {
+    private static readonly pb::MessageParser<SC_MY_INFO> _parser = new pb::MessageParser<SC_MY_INFO>(() => new SC_MY_INFO());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_MY_INFO> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::LOBBY.LOBBYReflection.Descriptor.MessageTypes[14]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_MY_INFO() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_MY_INFO(SC_MY_INFO other) : this() {
+      medalCount_ = other.medalCount_;
+      coinCount_ = other.coinCount_;
+      result_ = other.result_;
+      ec_ = other.ec_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_MY_INFO Clone() {
+      return new SC_MY_INFO(this);
+    }
+
+    /// <summary>Field number for the "medal_count" field.</summary>
+    public const int MedalCountFieldNumber = 1;
+    private int medalCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MedalCount {
+      get { return medalCount_; }
+      set {
+        medalCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "coin_count" field.</summary>
+    public const int CoinCountFieldNumber = 2;
+    private int coinCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CoinCount {
+      get { return coinCount_; }
+      set {
+        coinCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "result" field.</summary>
+    public const int ResultFieldNumber = 3;
+    private bool result_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Result {
+      get { return result_; }
+      set {
+        result_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ec" field.</summary>
+    public const int EcFieldNumber = 4;
+    private string ec_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Ec {
+      get { return ec_; }
+      set {
+        ec_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_MY_INFO);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_MY_INFO other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (MedalCount != other.MedalCount) return false;
+      if (CoinCount != other.CoinCount) return false;
+      if (Result != other.Result) return false;
+      if (Ec != other.Ec) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (MedalCount != 0) hash ^= MedalCount.GetHashCode();
+      if (CoinCount != 0) hash ^= CoinCount.GetHashCode();
+      if (Result != false) hash ^= Result.GetHashCode();
+      if (Ec.Length != 0) hash ^= Ec.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (MedalCount != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(MedalCount);
+      }
+      if (CoinCount != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(CoinCount);
+      }
+      if (Result != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(Result);
+      }
+      if (Ec.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Ec);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (MedalCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MedalCount);
+      }
+      if (CoinCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CoinCount);
+      }
+      if (Result != false) {
+        size += 1 + 1;
+      }
+      if (Ec.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ec);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_MY_INFO other) {
+      if (other == null) {
+        return;
+      }
+      if (other.MedalCount != 0) {
+        MedalCount = other.MedalCount;
+      }
+      if (other.CoinCount != 0) {
+        CoinCount = other.CoinCount;
+      }
+      if (other.Result != false) {
+        Result = other.Result;
+      }
+      if (other.Ec.Length != 0) {
+        Ec = other.Ec;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            MedalCount = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            CoinCount = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Result = input.ReadBool();
+            break;
+          }
+          case 34: {
+            Ec = input.ReadString();
             break;
           }
         }
