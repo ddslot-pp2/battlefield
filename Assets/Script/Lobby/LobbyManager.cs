@@ -16,6 +16,8 @@ public class LobbyManager : MonoBehaviour {
 
     private string uuid_;
     public int CharacterType_ = 0;
+	public GameObject garageRoom;
+	public GameObject lobbyRoom;
 
     public static bool log_in_ = false;
 
@@ -240,4 +242,10 @@ public class LobbyManager : MonoBehaviour {
         Send.CharacterType = type;
         ProtobufManager.Instance().Send(opcode.CS_PURCHASE_CHARACTER, Send);
     }
+
+	public void onGarageButton()
+	{
+		lobbyRoom.SetActive (false);
+		garageRoom.SetActive (true);
+	}
 }
