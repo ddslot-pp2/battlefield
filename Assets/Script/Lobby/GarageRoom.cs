@@ -14,7 +14,7 @@ public class GarageRoom : MonoBehaviour {
 	//float[] renderTankPosX = new float[16];
 	public GameObject boxSet;
 	bool move = false;
-	float distance = 10.0f;
+	float distance = 9.0f;
 
 	int currentIndex = 0;
 	int maxIndex = 16;
@@ -27,7 +27,7 @@ public class GarageRoom : MonoBehaviour {
 
 		StartPos = TankRoot.transform.position;
 
-
+		/*
 		for (int i = 0; i < maxIndex; i++) 
 		{
 			GameObject initobject = (GameObject)Instantiate(boxSet);
@@ -44,6 +44,7 @@ public class GarageRoom : MonoBehaviour {
 			//renderTankPosX[i] = tankobject.transform.position.x;
 
 		}
+		*/
 		
 	}
 	
@@ -80,7 +81,7 @@ public class GarageRoom : MonoBehaviour {
 	{
 		if (BeginPos.x > pos.x + 3.0f) 
 		{
-			//Debug.Log ("<----");
+			Debug.Log ("<----");
 
 			if (currentIndex > 0) 
 			{
@@ -93,7 +94,7 @@ public class GarageRoom : MonoBehaviour {
 		} 
 		else if (BeginPos.x < pos.x + 3.0f) 
 		{
-			//Debug.Log ("---->");
+			Debug.Log ("---->");
 			if (currentIndex < maxIndex) 
 			{
 				currentIndex++;
@@ -106,8 +107,8 @@ public class GarageRoom : MonoBehaviour {
 
 	void LateUpdate()
 	{
-		if (move)
-			return;
+		//if (move)
+		//	return;
 		
 		_TouchDispatcher.Update();
 	}
