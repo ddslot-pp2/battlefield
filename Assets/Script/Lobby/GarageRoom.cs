@@ -14,6 +14,7 @@ public class GarageRoom : MonoBehaviour {
 	//float[] renderTankPosX = new float[16];
 	public GameObject boxSet;
 	bool move = false;
+	float distance = 10.0f;
 
 	int currentIndex = 0;
 	int maxIndex = 16;
@@ -27,18 +28,18 @@ public class GarageRoom : MonoBehaviour {
 		StartPos = TankRoot.transform.position;
 
 
-		for (int i = 0; i < 15; i++) 
+		for (int i = 0; i < maxIndex; i++) 
 		{
 			GameObject initobject = (GameObject)Instantiate(boxSet);
 			initobject.transform.parent = TankRoot.transform;
-			initobject.transform.position = new Vector3 (0.0f - 15 * i, 0.0f, 0.0f);
-			initobject.transform.localRotation = Quaternion.Euler( new Vector3( 0.0f, 45.0f, 0.0f));
+			initobject.transform.localPosition = new Vector3 (0.0f + distance * i, 0.0f, 0.0f);
+			initobject.transform.localRotation = Quaternion.Euler( new Vector3( 0.0f, 55.0f, 0.0f));
 
 
 			GameObject tankobject = (GameObject)Instantiate(renderTank[i]);
 			tankobject.transform.parent = initobject.transform;
-			tankobject.transform.localRotation = Quaternion.Euler( new Vector3( 0.0f, -90.0f, 0.0f));
-			tankobject.transform.localPosition = new Vector3 (0.0f, 4.0f, 0.0f);
+			tankobject.transform.localRotation = Quaternion.Euler( new Vector3( 0.0f, -45.0f, 0.0f));
+			tankobject.transform.localPosition = new Vector3 (0.0f, 2.0f, 0.0f);
 			//tankobject.transform.position = new Vector3 (0.0f - 15 * i, 4.0f, 0.0f);
 			//renderTankPosX[i] = tankobject.transform.position.x;
 
@@ -84,19 +85,19 @@ public class GarageRoom : MonoBehaviour {
 			if (currentIndex > 0) 
 			{
 				currentIndex--;
-				ArrivePos =   new Vector3 (StartPos.x +  (currentIndex * 15), StartPos.y, StartPos.z);
+				ArrivePos =   new Vector3 (StartPos.x +  (currentIndex * distance), StartPos.y, StartPos.z);
 
 				move = true;
 			}
 				
 		} 
-		else 
+		else if (BeginPos.x < pos.x + 3.0f) 
 		{
 			//Debug.Log ("---->");
 			if (currentIndex < maxIndex) 
 			{
 				currentIndex++;
-				ArrivePos =  new Vector3 (StartPos.x +  (currentIndex * 15), StartPos.y, StartPos.z);
+				ArrivePos =  new Vector3 (StartPos.x +  (currentIndex * distance), StartPos.y, StartPos.z);
 
 				move = true;
 			}
