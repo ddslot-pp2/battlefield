@@ -97,7 +97,7 @@ public class LobbyManager : MonoBehaviour {
         MedalText.text = read.MedalCount.ToString();
         CoinText.text = read.CoinCount.ToString();
         Debug.Log("탱크 구매 성공\n");
-        NewTank.SetActive(false);
+        //NewTank.SetActive(false);
     }
 
     public void handler_SC_CHARACTER_INFO(LOBBY.SC_CHARACTER_INFO read)
@@ -177,7 +177,7 @@ public class LobbyManager : MonoBehaviour {
     {
         uuid_ = SystemInfo.deviceUniqueIdentifier;
         Debug.Log("uuid: " + uuid_);
-        NewTank.SetActive(false);
+        //NewTank.SetActive(false);
         RegisterPacketHandler();
         ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
         //ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
