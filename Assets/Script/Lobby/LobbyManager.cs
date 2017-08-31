@@ -287,4 +287,10 @@ public class LobbyManager : MonoBehaviour {
 		lobbyRoom.SetActive (false);
 		garageRoom.SetActive (true);
 	}
+
+	public void onGarageCloseButton()
+	{
+		lobbyRoom.SetActive (true);
+		garageRoom.SetActive (false);
+	}
 }
