@@ -18,6 +18,8 @@ public class LobbyManager : MonoBehaviour {
     public int CharacterType_ = 0;
 	public GameObject garageRoom;
 	public GameObject lobbyRoom;
+	//public RenderTank[] renderTankList;
+	public GarageRoom garageRoomManager;
 
     public static bool log_in_ = false;
 
@@ -52,6 +54,9 @@ public class LobbyManager : MonoBehaviour {
         ProtobufManager.Instance().Send(opcode.CS_FIELD_LIST, Send);
 
         log_in_ = true;
+
+		//GetMyInfo();
+		//GetMyCharacterList ();
     }
 
     public void handle_SC_FIELD_LIST(LOBBY.SC_FIELD_LIST read)
@@ -179,8 +184,16 @@ public class LobbyManager : MonoBehaviour {
         Debug.Log("uuid: " + uuid_);
         //NewTank.SetActive(false);
         RegisterPacketHandler();
-        ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
-        //ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
+        //ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
+        ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
+
+		garageRoomManager.renderTank[0].byTank = true;
+		garageRoomManager.renderTank[2].byTank = true;
+		garageRoomManager.renderTank[3].byTank = true;
+
+		garageRoomManager.SetDisableBox (0);
+		garageRoomManager.SetDisableBox (2);
+		garageRoomManager.SetDisableBox (3);
     }
 	
 	// Update is called once per frame
@@ -242,6 +255,32 @@ public class LobbyManager : MonoBehaviour {
         Send.CharacterType = type;
         ProtobufManager.Instance().Send(opcode.CS_PURCHASE_CHARACTER, Send);
     }
+
+	public void GetMyInfo()
+	{
+		var Send = new LOBBY.CS_MY_INFO();
+		ProtobufManager.Instance().Send(opcode.CS_MY_INFO, Send);
+	}
+
+	public void GetMyCharacterList()
+	{
+		var Send = new LOBBY.CS_MY_CHARACTER_INFO();
+		ProtobufManager.Instance().Send(opcode.CS_MY_CHARACTER_INFO, Send);
+
+
+		// 임시
+		garageRoomManager.renderTank[0].byTank = true;
+		garageRoomManager.renderTank[2].byTank = true;
+		garageRoomManager.renderTank[3].byTank = true;
+
+
+	}
+
+	public void UpgradeTank()
+	{
+		//var Send = new LOBBY.();
+		//ProtobufManager.Instance().Send(opcode.CS_TANK_UPGRADE, Send);
+	}
 
 	public void onGarageButton()
 	{

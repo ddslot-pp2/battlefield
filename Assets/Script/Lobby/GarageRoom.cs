@@ -10,9 +10,9 @@ public class GarageRoom : MonoBehaviour {
 	Vector3 BeginPos,LastPos_, ArrivePos, StartPos;
 
 	public GameObject TankRoot;
-	public GameObject[] renderTank;
-	//float[] renderTankPosX = new float[16];
-	public GameObject boxSet;
+	public RenderTank[] renderTank;
+	public GameObject[] rockBoxList;
+
 	bool move = false;
 	float distance = 9.0f;
 
@@ -68,6 +68,11 @@ public class GarageRoom : MonoBehaviour {
 			}
 		}
 		
+	}
+
+	public void SetDisableBox(int tankNumber)
+	{
+		rockBoxList [tankNumber].gameObject.SetActive (false);
 	}
 
 
