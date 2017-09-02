@@ -55,8 +55,11 @@ public class LobbyManager : MonoBehaviour {
 
         log_in_ = true;
 
-		//GetMyInfo();
-		//GetMyCharacterList ();
+		if (log_in_) 
+		{
+			GetMyInfo ();
+			GetMyCharacterList ();
+		}
     }
 
     public void handle_SC_FIELD_LIST(LOBBY.SC_FIELD_LIST read)
@@ -122,6 +125,8 @@ public class LobbyManager : MonoBehaviour {
 
     public void handler_SC_MY_INFO(LOBBY.SC_MY_INFO read)
     {
+		Debug.Log("handler_SC_MY_INFO");
+
         var result = read.Result;
         if (!result)
         {
@@ -138,6 +143,8 @@ public class LobbyManager : MonoBehaviour {
 
     public void handler_SC_MY_CHARACTER_INFO(LOBBY.SC_MY_CHARACTER_INFO read)
     {
+		Debug.Log("handler_SC_MY_CHARACTER_INFO");
+
         var result = read.Result;
         if (!result)
         {
@@ -151,6 +158,9 @@ public class LobbyManager : MonoBehaviour {
             var max_hp = character_info.MaxHp;
             var speed = character_info.Speed;
 
+
+			garageRoomManager.renderTank[tank_type].byTank = true;
+			garageRoomManager.SetDisableBox (tank_type);
             Debug.Log("tank_type: " + tank_type);
         }
     }
@@ -187,13 +197,13 @@ public class LobbyManager : MonoBehaviour {
         //ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
         ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
 
-		garageRoomManager.renderTank[0].byTank = true;
-		garageRoomManager.renderTank[2].byTank = true;
-		garageRoomManager.renderTank[3].byTank = true;
+		//garageRoomManager.renderTank[0].byTank = true;
+		//garageRoomManager.renderTank[2].byTank = true;
+		//garageRoomManager.renderTank[3].byTank = true;
 
-		garageRoomManager.SetDisableBox (0);
-		garageRoomManager.SetDisableBox (2);
-		garageRoomManager.SetDisableBox (3);
+		//garageRoomManager.SetDisableBox (0);
+		//garageRoomManager.SetDisableBox (2);
+		//garageRoomManager.SetDisableBox (3);
     }
 	
 	// Update is called once per frame
@@ -245,7 +255,7 @@ public class LobbyManager : MonoBehaviour {
             return;
         }
 
-        ProtobufManager.Instance().Send(opcode.CS_MY_INFO, Send);
+        //ProtobufManager.Instance().Send(opcode.CS_MY_INFO, Send);
     }
 
     public void onPurchaseTankButton(int type)
@@ -266,14 +276,6 @@ public class LobbyManager : MonoBehaviour {
 	{
 		var Send = new LOBBY.CS_MY_CHARACTER_INFO();
 		ProtobufManager.Instance().Send(opcode.CS_MY_CHARACTER_INFO, Send);
-
-
-		// 임시
-		garageRoomManager.renderTank[0].byTank = true;
-		garageRoomManager.renderTank[2].byTank = true;
-		garageRoomManager.renderTank[3].byTank = true;
-
-
 	}
 
 	public void UpgradeTank()
