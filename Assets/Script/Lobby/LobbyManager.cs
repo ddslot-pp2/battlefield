@@ -260,9 +260,14 @@ public class LobbyManager : MonoBehaviour {
 
     public void onPurchaseTankButton(int type)
     {
-        Debug.Log("탱크 구매하기 버튼 클릭: " + type.ToString());
+		int selectType = garageRoomManager.GetSelectIndex();
+
+		if (selectType < 0)
+			return;
+		
+		Debug.Log("탱크 구매하기 버튼 클릭: " + selectType.ToString());
         var Send = new LOBBY.CS_PURCHASE_CHARACTER();
-        Send.CharacterType = type;
+		Send.CharacterType = selectType;
         ProtobufManager.Instance().Send(opcode.CS_PURCHASE_CHARACTER, Send);
     }
 

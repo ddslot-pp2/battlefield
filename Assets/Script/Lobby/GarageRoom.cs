@@ -22,6 +22,16 @@ public class GarageRoom : MonoBehaviour {
 	int currentIndex = 0;
 	int maxIndex = 16;
 
+
+	public int GetSelectIndex()
+	{
+		if (renderTank [currentIndex].byTank == true) 
+		{
+			return -1;
+		}
+
+		return currentIndex;
+	}
 	// Use this for initialization
 	void Start () {
 
