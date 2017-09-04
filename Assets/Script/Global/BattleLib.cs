@@ -295,32 +295,37 @@ public class BattleLib : MonoBehaviour {
 
 	public void DestroyItem(Int64 itemId, Int64 tankId, Item.Type itemType, int tankHp, int shield_time)
 	{
-		//Debug.Log ("DestroyItem itemId:" + itemId);
-		DeleteEntity(itemId);
+		if (itemId > 0 && EntityDic.ContainsKey (itemId) == true) 
+		{
+			//Debug.Log ("DestroyItem itemId:" + itemId);
+			DeleteEntity(itemId);
 
-        if (tankId == 0) return;
+			if (tankId == 0) return;
 
 
-        Tank tankObject = EntityDic[tankId] as Tank;
-		if (tankObject == null)
-			return;
+			Tank tankObject = EntityDic[tankId] as Tank;
+			if (tankObject == null)
+				return;
 
-        if (itemType == Item.Type.Hp_Item)
-        {
-            tankObject.SetHp(tankHp);
-        }
-        else if (itemType == Item.Type.Medal_Item)
-        {
+			if (itemType == Item.Type.Hp_Item)
+			{
+				tankObject.SetHp(tankHp);
+			}
+			else if (itemType == Item.Type.Medal_Item)
+			{
 
-        }
-        else if (itemType == Item.Type.Coin_Item)
-        {
+			}
+			else if (itemType == Item.Type.Coin_Item)
+			{
 
-        }
-        else if (itemType == Item.Type.Shield_Item)
-        {
-            tankObject.StartShield((int)(shield_time / 1000.0f));
-        }
+			}
+			else if (itemType == Item.Type.Shield_Item)
+			{
+				tankObject.StartShield((int)(shield_time / 1000.0f));
+			}
+			
+		}
+
     }
 
 	public void CreateBullet(Int64 obId , Bullet.Type bullet_type, Int64 bullet_id, Vector3 pos, Vector3 look_dir, Vector3 bullet_dir, Vector3 size, float speed, float distance)

@@ -105,6 +105,8 @@ public class LobbyManager : MonoBehaviour {
         MedalText.text = read.MedalCount.ToString();
         CoinText.text = read.CoinCount.ToString();
         Debug.Log("탱크 구매 성공\n");
+		garageRoomManager.RefreshBoxUi ();
+		GetMyCharacterList ();
         //NewTank.SetActive(false);
     }
 

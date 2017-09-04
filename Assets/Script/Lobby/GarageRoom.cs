@@ -98,6 +98,13 @@ public class GarageRoom : MonoBehaviour {
 		
 	}
 
+	public void RefreshBoxUi()
+	{
+		StatUi.SetActive(true);
+		UpgradeUi.SetActive(true);
+		BuyUi.SetActive(false);;
+	}
+
 	public void SetDisableBox(int tankNumber)
 	{
 		rockBoxList [tankNumber].gameObject.SetActive (false);
@@ -110,6 +117,13 @@ public class GarageRoom : MonoBehaviour {
 	}
 
 
+	public void ClearBoxUi()
+	{
+		StatUi.SetActive(false);
+		UpgradeUi.SetActive(false);
+		BuyUi.SetActive(false);
+	}
+
 	void OnTouchEnded(Vector3 pos)
 	{
 		if (BeginPos.x > pos.x + 3.0f) 
@@ -121,9 +135,7 @@ public class GarageRoom : MonoBehaviour {
 				currentIndex--;
 				ArrivePos =   new Vector3 (StartPos.x +  (currentIndex * distance), StartPos.y, StartPos.z);
 
-				StatUi.SetActive(false);
-				UpgradeUi.SetActive(false);
-				BuyUi.SetActive(false);;
+				ClearBoxUi();
 
 				move = true;
 			}
@@ -137,9 +149,8 @@ public class GarageRoom : MonoBehaviour {
 				currentIndex++;
 				ArrivePos =  new Vector3 (StartPos.x +  (currentIndex * distance), StartPos.y, StartPos.z);
 
-				StatUi.SetActive(false);
-				UpgradeUi.SetActive(false);
-				BuyUi.SetActive(false);;
+				ClearBoxUi();
+
 				move = true;
 			}
 		}
