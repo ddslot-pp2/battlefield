@@ -20,6 +20,8 @@ public class LobbyManager : MonoBehaviour {
 	public GameObject lobbyRoom;
 	//public RenderTank[] renderTankList;
 	public GarageRoom garageRoomManager;
+	public GameObject tankRoot;
+	public GameObject renderTank;
 
     public static bool log_in_ = false;
 
@@ -49,6 +51,7 @@ public class LobbyManager : MonoBehaviour {
 
         CharacterType_ = read.CharacterType;
 
+		CreateRenderMainTank (CharacterType_);
         // 필드 리스트 요청
         var Send = new LOBBY.CS_FIELD_LIST();
         ProtobufManager.Instance().Send(opcode.CS_FIELD_LIST, Send);
@@ -301,5 +304,31 @@ public class LobbyManager : MonoBehaviour {
 	{
 		lobbyRoom.SetActive (true);
 		garageRoom.SetActive (false);
+	}
+
+	public void onSelectTankButton()
+	{
+		CharacterType_ = garageRoomManager.GetSelectIndex();
+
+		CreateRenderMainTank (CharacterType_);
+		//tankobject.transform.localRotation = Quaternion.Euler( new Vector3( 0.0f, -45.0f, 0.0f));
+		//tankobject.transform.localPosition = new Vector3 (0.0f, 2.0f, 0.0f);
+		//tankobject.transform.position = new Vector3 (0.0f - 15 * i, 4.0f, 0.0f);
+		//renderTankPosX[i] = tankobject.transform.position.x;
+	}
+
+	void CreateRenderMainTank(int tankType)
+	{
+		if( renderTank != null )
+		{
+			DestroyObject( renderTank );
+		}
+
+		Debug.Log ("tankType: " + tankType);
+		renderTank = (GameObject)Instantiate(garageRoomManager.renderTank[tankType].gameObject);
+		renderTank.transform.parent = tankRoot.transform;
+		renderTank.transform.localPosition = new Vector3 (0.0f, 0.0f, 0.0f);
+		renderTank.transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
+
 	}
 }

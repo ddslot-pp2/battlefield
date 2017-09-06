@@ -25,11 +25,6 @@ public class GarageRoom : MonoBehaviour {
 
 	public int GetSelectIndex()
 	{
-		if (renderTank [currentIndex].byTank == true) 
-		{
-			return -1;
-		}
-
 		return currentIndex;
 	}
 	// Use this for initialization
