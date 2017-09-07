@@ -17,6 +17,7 @@ public class LobbyManager : MonoBehaviour {
     private string uuid_;
     public int CharacterType_ = 0;
 	public GameObject garageRoom;
+	public GameObject garageTankRoot;
 	public GameObject lobbyRoom;
 	//public RenderTank[] renderTankList;
 	public GarageRoom garageRoomManager;
@@ -298,12 +299,14 @@ public class LobbyManager : MonoBehaviour {
 	{
 		lobbyRoom.SetActive (false);
 		garageRoom.SetActive (true);
+		garageTankRoot.SetActive (true);
 	}
 
 	public void onGarageCloseButton()
 	{
 		lobbyRoom.SetActive (true);
 		garageRoom.SetActive (false);
+		garageTankRoot.SetActive (false);
 	}
 
 	public void onSelectTankButton()
