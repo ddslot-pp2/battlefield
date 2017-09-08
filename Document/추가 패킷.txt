@@ -125,6 +125,19 @@ OTHER_INFO에 밑에꺼 추가
 
 
 
+5. 내 탱크 고르기
+
+CS_TANK_SELECT  
+
+ -- int tankType
+
+SC_TANK_SELECT 
+
+ -- int tankType
+
+ 저장해뒀다가 로그인할때 또주면됩니다~
+
+
 
 
 
