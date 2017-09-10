@@ -111,29 +111,17 @@ LOBBY.SC_TANK_UPGRADE => LOBBY.CS_CHARACTER_UPGRADE
   - CHARACTER_INFO
 
 
-4. 현재 필드 입장시 패킷 변경 [완료]
-
-SC_SYNC_FIELD
-
-OTHER_INFO에 밑에꺼 추가
-  <max_hp type="int32"/>
-  <speed type="int32"/>
-  <bullet_speed type="int32"/>
-  <bullet_power type="int32"/>
-  <bullet_distance type="int32"/>
-  <reload_time type="int32"/>
-
-
-
 5. 내 탱크 고르기
 
-CS_TANK_SELECT  
+CS_CHARACTER_SELECT  
 
  -- int tankType
 
-SC_TANK_SELECT 
+SC_CHARACTER_SELECT 
 
  -- int tankType
+ -- result
+ -- error_code
 
  저장해뒀다가 로그인할때 또주면됩니다~
 
