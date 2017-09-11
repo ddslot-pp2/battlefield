@@ -171,6 +171,16 @@ public class LobbyManager : MonoBehaviour {
         }
     }
 
+    public void handler_SC_CHARACTER_UPGRADE(LOBBY.SC_CHARACTER_UPGRADE read)
+    {
+        Debug.Log("handler_SC_CHARACTER_UPGRADE");
+    }
+
+    public void handler_SC_CHARACTER_SELECT(LOBBY.SC_CHARACTER_SELECT read)
+    {
+        Debug.Log("handler_SC_CHARACTER_SELECT");
+    }
+
     public void handler_SC_PING(GAME.SC_PING read)
     {
         Debug.Log("핑 받음");
@@ -190,6 +200,8 @@ public class LobbyManager : MonoBehaviour {
         ProtobufManager.Instance().SetHandler<LOBBY.SC_CHARACTER_INFO>(opcode.SC_CHARACTER_INFO, handler_SC_CHARACTER_INFO);
         ProtobufManager.Instance().SetHandler<LOBBY.SC_MY_INFO>(opcode.SC_MY_INFO, handler_SC_MY_INFO);
         ProtobufManager.Instance().SetHandler<LOBBY.SC_MY_CHARACTER_INFO>(opcode.SC_MY_CHARACTER_INFO, handler_SC_MY_CHARACTER_INFO);
+        ProtobufManager.Instance().SetHandler<LOBBY.SC_CHARACTER_UPGRADE>(opcode.SC_CHARACTER_UPGRADE, handler_SC_CHARACTER_UPGRADE);
+        ProtobufManager.Instance().SetHandler<LOBBY.SC_CHARACTER_SELECT>(opcode.SC_CHARACTER_SELECT, handler_SC_CHARACTER_SELECT);
         ProtobufManager.Instance().SetHandler<GAME.SC_PING>(opcode.SC_PING, handler_SC_PING);
     }
 
@@ -314,11 +326,15 @@ public class LobbyManager : MonoBehaviour {
 		CharacterType_ = garageRoomManager.GetSelectIndex();
 
 		CreateRenderMainTank (CharacterType_);
-		//tankobject.transform.localRotation = Quaternion.Euler( new Vector3( 0.0f, -45.0f, 0.0f));
-		//tankobject.transform.localPosition = new Vector3 (0.0f, 2.0f, 0.0f);
-		//tankobject.transform.position = new Vector3 (0.0f - 15 * i, 4.0f, 0.0f);
-		//renderTankPosX[i] = tankobject.transform.position.x;
-	}
+
+        var Send = new LOBBY.CS_CHARACTER_SELECT();
+        Send.Type = CharacterType_;
+        ProtobufManager.Instance().Send(opcode.CS_CHARACTER_SELECT, Send);
+        //tankobject.transform.localRotation = Quaternion.Euler( new Vector3( 0.0f, -45.0f, 0.0f));
+        //tankobject.transform.localPosition = new Vector3 (0.0f, 2.0f, 0.0f);
+        //tankobject.transform.position = new Vector3 (0.0f - 15 * i, 4.0f, 0.0f);
+        //renderTankPosX[i] = tankobject.transform.position.x;
+    }
 
 	void CreateRenderMainTank(int tankType)
 	{
