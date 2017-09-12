@@ -178,6 +178,7 @@ public class LobbyManager : MonoBehaviour {
 
     public void handler_SC_CHARACTER_SELECT(LOBBY.SC_CHARACTER_SELECT read)
     {
+		
         Debug.Log("handler_SC_CHARACTER_SELECT");
     }
 
@@ -335,6 +336,19 @@ public class LobbyManager : MonoBehaviour {
         //tankobject.transform.position = new Vector3 (0.0f - 15 * i, 4.0f, 0.0f);
         //renderTankPosX[i] = tankobject.transform.position.x;
     }
+
+	public void onUpgradeButton(int upgraderType)
+	{
+		CharacterType_ = garageRoomManager.GetSelectIndex();
+
+
+		var Send = new LOBBY.CS_CHARACTER_UPGRADE();
+		Send.Type = CharacterType_;
+		Send.UpgradeType = upgraderType;
+
+		ProtobufManager.Instance().Send(opcode.CS_CHARACTER_SELECT, Send);
+	
+	}
 
 	void CreateRenderMainTank(int tankType)
 	{
