@@ -256,13 +256,13 @@ public class Game : MonoBehaviour {
         Item.Type itemType = (Item.Type)read.ItemType;
         if (itemType == Item.Type.Medal_Item)
         {
-            Debug.Log("메달 아이템 획득\n");
-            Debug.Log("현재 매달 갯수: " + count);
+            //Debug.Log("메달 아이템 획득\n");
+            //Debug.Log("현재 매달 갯수: " + count);
         }
         else if (itemType == Item.Type.Coin_Item)
         {
-            Debug.Log("코인 아이템 획득\n");
-            Debug.Log("현재 코인 갯수: " + count);
+            //Debug.Log("코인 아이템 획득\n");
+            //Debug.Log("현재 코인 갯수: " + count);
         }
 
         BattleLib.Instance.DestroyItem(read.ItemId, obj_id, itemType, 0, 0);
