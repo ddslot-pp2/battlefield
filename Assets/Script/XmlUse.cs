@@ -49,7 +49,7 @@ public class XmlUse : MonoBehaviour {
 		XmlData.Load(ms);
 		
 		XmlElement RootNode = XmlData.DocumentElement; 
-		//RootNode.GET
+	
 		hp_table = XmlData.GetElementsByTagName ("max_hp");
 		speed_table = XmlData.GetElementsByTagName ("speed");
 		bullet_speed_table = XmlData.GetElementsByTagName ("bullet_speed");
@@ -57,16 +57,37 @@ public class XmlUse : MonoBehaviour {
 		bullet_distance_table = XmlData.GetElementsByTagName ("bullet_distance");
 		bullet_reload_table = XmlData.GetElementsByTagName ("reload_time");
 
-		GetHpValue (5, 4);
-	
+
 	}
 	
 	public int GetHpValue( int tankType, int level)
 	{
-		Debug.Log ("tankType:" + tankType);
-		Debug.Log ("level:" + level);
-		Debug.Log ("hpvalues:" + hp_table [tankType * 10 + level - 1].InnerText);
 		return int.Parse(hp_table [tankType * 10 + level].InnerText);
+	}
+
+	public int GetSpeedValue( int tankType, int level)
+	{
+		return int.Parse(speed_table [tankType * 10 + level -1].InnerText);
+	}
+
+	public int GetBulletSpeedValue( int tankType, int level)
+	{
+		return int.Parse(bullet_speed_table [tankType * 10 + level -1].InnerText);
+	}
+
+	public int GetBulletPowerValue( int tankType, int level)
+	{
+		return int.Parse(bullet_power_table [tankType * 10 + level -1].InnerText);
+	}
+
+	public int GetBulletDistanceValue( int tankType, int level)
+	{
+		return int.Parse(bullet_distance_table [tankType * 10 + level -1].InnerText);
+	}
+
+	public int GetBulletReloadValue( int tankType, int level)
+	{
+		return int.Parse(bullet_reload_table [tankType * 10 + level -1].InnerText);
 	}
 	
 }
