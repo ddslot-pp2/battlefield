@@ -302,26 +302,21 @@ public class BattleLib : MonoBehaviour {
 
 			if (tankId == 0) return;
 
+			if (tankId > 0 && EntityDic.ContainsKey (tankId) == true) {
+				
+				Tank tankObject = EntityDic [tankId] as Tank;
+				if (tankObject == null)
+					return;
 
-			Tank tankObject = EntityDic[tankId] as Tank;
-			if (tankObject == null)
-				return;
+				if (itemType == Item.Type.Hp_Item) {
+					tankObject.SetHp (tankHp);
+				} else if (itemType == Item.Type.Medal_Item) {
 
-			if (itemType == Item.Type.Hp_Item)
-			{
-				tankObject.SetHp(tankHp);
-			}
-			else if (itemType == Item.Type.Medal_Item)
-			{
+				} else if (itemType == Item.Type.Coin_Item) {
 
-			}
-			else if (itemType == Item.Type.Coin_Item)
-			{
-
-			}
-			else if (itemType == Item.Type.Shield_Item)
-			{
-				tankObject.StartShield((int)(shield_time / 1000.0f));
+				} else if (itemType == Item.Type.Shield_Item) {
+					tankObject.StartShield ((int)(shield_time / 1000.0f));
+				}
 			}
 			
 		}

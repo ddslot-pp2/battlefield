@@ -8,10 +8,9 @@ namespace Tanks.UI
 	//Page in menu to return to
 	public enum MenuPage
 	{
-		Home,
-		SinglePlayer,
 		Lobby,
-		CustomizationPage
+		Garage
+
 	}
 
 	//Class that handles main menu UI and transitions
@@ -26,18 +25,10 @@ namespace Tanks.UI
 		#region Fields
 
 		[SerializeField]
-		protected CanvasGroup m_DefaultPanel;
-		[SerializeField]
-		protected CanvasGroup m_CreateGamePanel;
-		[SerializeField]
 		protected CanvasGroup m_LobbyPanel;
 		[SerializeField]
-		protected CanvasGroup m_SinglePlayerPanel;
-		[SerializeField]
-		protected CanvasGroup m_ServerListPanel;
-		[SerializeField]
-		protected CanvasGroup m_CustomizePanel;
-
+		protected CanvasGroup m_GaragePanel;
+	
 		[SerializeField]
 		protected GameObject m_QuitButton;
 
@@ -55,19 +46,15 @@ namespace Tanks.UI
 			//Used to return to correct page on return to menu
 			switch (s_ReturnPage)
 			{
-				case MenuPage.Home:
-				default:
-					ShowDefaultPanel();
-					break;
 				case MenuPage.Lobby:
+				default:
 					ShowLobbyPanel();
 					break;
-				case MenuPage.CustomizationPage:
-					ShowCustomizePanel();
+
+				case MenuPage.Garage:
+					ShowGaragePanel();
 					break;
-				case MenuPage.SinglePlayer:
-					ShowSingleplayerPanel();
-					break;
+			
 			}
 		}
 		
@@ -88,7 +75,7 @@ namespace Tanks.UI
 
 		public void ShowDefaultPanel()
 		{
-			ShowPanel(m_DefaultPanel);
+			ShowPanel(m_LobbyPanel);
 		}
 
 		public void ShowLobbyPanel()
@@ -97,16 +84,11 @@ namespace Tanks.UI
 		}
 
 
-		public void ShowServerListPanel()
+		public void ShowGaragePanel()
 		{
-			ShowPanel(m_ServerListPanel);
+			ShowPanel(m_GaragePanel);
 		}
-			
-		public void ShowCustomizePanel()
-		{
-			ShowPanel(m_CustomizePanel);
-		}
-
+	
 
 		/*
 		public void ShowInfoPopup(string label, UnityAction callback)
@@ -136,42 +118,13 @@ namespace Tanks.UI
 		*/
 
 
-		private void ShowSingleplayerPanel()
-		{
-			ShowPanel(m_SinglePlayerPanel);
-		}
-
-		private void GoToSingleplayerPanel()
-		{
-			ShowSingleplayerPanel();
-		}
+	
 
 	
 		#endregion
 
 
 		#region Button events
-
-		public void OnCustomiseClicked()
-		{
-			ShowCustomizePanel ();
-		}
-
-		public void OnCreateGameClicked()
-		{
-			//GoToCreateGamePanel ();
-		}
-
-		public void OnSinglePlayerClicked()
-		{
-			// Set network into SP mode
-			GoToSingleplayerPanel();
-		}
-
-		public void OnFindGameClicked()
-		{
-			//GoToFindGamePanel ();
-		}
 
 		public void OnQuitGameClicked()
 		{

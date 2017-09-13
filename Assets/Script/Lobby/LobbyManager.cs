@@ -7,6 +7,7 @@ using UnityEngine;
 using System;
 using System.Xml;  
 using UnityEngine.UI;
+using Tanks.UI;
 
 public class LobbyManager : MonoBehaviour {
 
@@ -17,10 +18,9 @@ public class LobbyManager : MonoBehaviour {
 
     private string uuid_;
     public int CharacterType_ = 0;
-	public GameObject garageRoom;
+
 	public GameObject garageTankRoot;
-	public GameObject lobbyRoom;
-	//public RenderTank[] renderTankList;
+
 	public GarageRoom garageRoomManager;
 	public GameObject tankRoot;
 	public GameObject renderTank;
@@ -166,7 +166,13 @@ public class LobbyManager : MonoBehaviour {
             var speed = character_info.Speed;
 
 
-			garageRoomManager.renderTank[tank_type].byTank = true;
+			garageRoomManager.renderTank [tank_type].byTank = true;
+			garageRoomManager.renderTank [tank_type].powerUpgrade = character_info.BulletPower;
+			garageRoomManager.renderTank [tank_type].rangeUpgrade = character_info.BulletDistance;
+			garageRoomManager.renderTank [tank_type].fuelUpgrade = character_info.MaxHp;
+			garageRoomManager.renderTank [tank_type].reloadUpgrade = character_info.ReloadTime;
+			garageRoomManager.renderTank [tank_type].speedUpgrade = character_info.Speed;
+
 			garageRoomManager.SetDisableBox (tank_type);
             Debug.Log("tank_type: " + tank_type);
         }
@@ -212,18 +218,11 @@ public class LobbyManager : MonoBehaviour {
     {
         uuid_ = SystemInfo.deviceUniqueIdentifier;
         Debug.Log("uuid: " + uuid_);
-        //NewTank.SetActive(false);
+     
         RegisterPacketHandler();
         //ProtobufManager.Instance().Connect("127.0.0.1", 3000, onConnect, onDisconnect);
         ProtobufManager.Instance().Connect("112.217.116.82", 3000, onConnect, onDisconnect);
 
-		//garageRoomManager.renderTank[0].byTank = true;
-		//garageRoomManager.renderTank[2].byTank = true;
-		//garageRoomManager.renderTank[3].byTank = true;
-
-		//garageRoomManager.SetDisableBox (0);
-		//garageRoomManager.SetDisableBox (2);
-		//garageRoomManager.SetDisableBox (3);
     }
 	
 	// Update is called once per frame
@@ -302,24 +301,16 @@ public class LobbyManager : MonoBehaviour {
 		var Send = new LOBBY.CS_MY_CHARACTER_INFO();
 		ProtobufManager.Instance().Send(opcode.CS_MY_CHARACTER_INFO, Send);
 	}
-
-	public void UpgradeTank()
-	{
-		//var Send = new LOBBY.();
-		//ProtobufManager.Instance().Send(opcode.CS_TANK_UPGRADE, Send);
-	}
-
+		
 	public void onGarageButton()
 	{
-		lobbyRoom.SetActive (false);
-		garageRoom.SetActive (true);
+		MainMenuUI.s_Instance.ShowGaragePanel ();
 		garageTankRoot.SetActive (true);
 	}
 
 	public void onGarageCloseButton()
 	{
-		lobbyRoom.SetActive (true);
-		garageRoom.SetActive (false);
+		MainMenuUI.s_Instance.ShowLobbyPanel ();
 		garageTankRoot.SetActive (false);
 	}
 
@@ -332,10 +323,7 @@ public class LobbyManager : MonoBehaviour {
         var Send = new LOBBY.CS_CHARACTER_SELECT();
         Send.Type = CharacterType_;
         ProtobufManager.Instance().Send(opcode.CS_CHARACTER_SELECT, Send);
-        //tankobject.transform.localRotation = Quaternion.Euler( new Vector3( 0.0f, -45.0f, 0.0f));
-        //tankobject.transform.localPosition = new Vector3 (0.0f, 2.0f, 0.0f);
-        //tankobject.transform.position = new Vector3 (0.0f - 15 * i, 4.0f, 0.0f);
-        //renderTankPosX[i] = tankobject.transform.position.x;
+     
     }
 
 	public void onUpgradeButton(int upgraderType)

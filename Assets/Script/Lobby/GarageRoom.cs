@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameCore;
+using UnityEngine.UI;
 
 public class GarageRoom : MonoBehaviour {
 
@@ -15,6 +16,7 @@ public class GarageRoom : MonoBehaviour {
 	public GameObject StatUi;
 	public GameObject UpgradeUi;
 	public GameObject BuyUi;
+	public Image[] StatValue;
 
 	bool move = false;
 	float distance = 9.0f;
@@ -73,10 +75,17 @@ public class GarageRoom : MonoBehaviour {
 			{
 				if (currentIndex >= 0 && currentIndex < maxIndex) 
 				{
-					if (renderTank [currentIndex].byTank) 
+					if (renderTank[currentIndex].byTank) 
 					{
 						StatUi.SetActive(true);
 						UpgradeUi.SetActive(true);
+						StatValue [0].fillAmount = (float)renderTank [currentIndex].fuelUpgrade / (float)10.0f;
+						StatValue [1].fillAmount =  (float)renderTank [currentIndex].powerUpgrade /  (float)10.0f;
+						StatValue [2].fillAmount =  (float)renderTank [currentIndex].reloadUpgrade / (float) 10.0f;
+						StatValue [3].fillAmount =  (float)renderTank [currentIndex].rangeUpgrade /  (float)10.0f;
+						StatValue [4].fillAmount =  (float)renderTank [currentIndex].speedUpgrade /  (float)10.0f;
+
+
 						BuyUi.SetActive(false);;
 					}
 					else 
@@ -86,6 +95,7 @@ public class GarageRoom : MonoBehaviour {
 						BuyUi.SetActive(true);;
 					}
 				}
+
 				move = false;
 				// 정보 셋팅.
 			}
