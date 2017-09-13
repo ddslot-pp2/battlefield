@@ -5,6 +5,7 @@ using System.IO;
 using System.Net.Sockets;
 using UnityEngine;
 using System;
+using System.Xml;  
 using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviour {
@@ -364,4 +365,6 @@ public class LobbyManager : MonoBehaviour {
 		renderTank.transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
 
 	}
+
+
 }
