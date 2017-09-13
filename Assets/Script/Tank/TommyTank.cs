@@ -46,6 +46,7 @@ public class TommyTank : Tank {
 
 	public override void Fire()
 	{
+		/*
 		if (Time.time >= nextfire)
 		{
 			nextfire = Time.time + state.fireRate;
@@ -55,8 +56,10 @@ public class TommyTank : Tank {
 			//잠시 기다리는 루틴을 위해 코루틴 함수로 호출
 			StartCoroutine(this.ShowMuzzleFlash());
 		}
+		*/
 	}
 
+	/*
 	void CreateBullet()
 	{
 		//Bullet 프리팹을 동적으로 생성
@@ -72,6 +75,7 @@ public class TommyTank : Tank {
 		bulletLocalSize3.transform.localScale = new Vector3(bulletLocalSize3.transform.localScale.x * state.bulletSize, bulletLocalSize3.transform.localScale.y * state.bulletSize, bulletLocalSize3.transform.localScale.z * state.bulletSize);
 		bulletLocalSize3.GetComponent<DirectBullet>().GetDamageType(state.damage, 1, transform.gameObject, state.range, state.bulletSpeed);
 	}
+	*/
 
 	IEnumerator ShowMuzzleFlash()
 	{

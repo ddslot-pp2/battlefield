@@ -39,13 +39,14 @@ public class LaserTank : Tank {
 		{
 			nextfire = Time.time + state.fireRate;
 			//GameObject.Find("GameManager").GetComponent<GameManager>().CoolTimeCounter(state.fireRate);
-			CreateBullet();
+			//CreateBullet();
 
 			//잠시 기다리는 루틴을 위해 코루틴 함수로 호출
 			StartCoroutine(this.ShowMuzzleFlash());
 		}
 	}
 
+	/*
 	void CreateBullet()
 	{
 		//Bullet 프리팹을 동적으로 생성
@@ -53,6 +54,7 @@ public class LaserTank : Tank {
 		bulletLocalSize.GetComponent<LaserBullet>().GetDamageType(state.damage, transform.gameObject, firePos_p1.gameObject );
 		bulletLocalSize.transform.parent = transform;
 	}
+	*/
 
 	IEnumerator ShowMuzzleFlash()
 	{

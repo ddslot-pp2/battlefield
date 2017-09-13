@@ -42,12 +42,13 @@ public class KillerTank : Tank {
 		{
 			nextfire = Time.time + state.fireRate;
 			//GameObject.Find("GameManager").GetComponent<GameManager>().CoolTimeCounter(state.fireRate);
-			StartCoroutine("CreateBullet");
-			StartCoroutine("CreateBullet2");
+			//StartCoroutine("CreateBullet");
+			//StartCoroutine("CreateBullet2");
 
 		}
 	}
 
+	/*
 	IEnumerator CreateBullet2()
 	{
 		for(int i = 0; i < 12; i++)
@@ -75,6 +76,7 @@ public class KillerTank : Tank {
 			yield return new WaitForSeconds(0.2f);
 		}
 	}
+	*/
 
 	IEnumerator ShowMuzzleFlash(MeshRenderer muzzleFlash_1)
 	{

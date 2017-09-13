@@ -36,17 +36,13 @@ public class CathyTank : Tank {
 
 	public override void Fire()
 	{
-		if (Time.time >= nextfire)
-		{
-			nextfire = Time.time + state.fireRate;
-			//GameObject.Find("GameManager").GetComponent<GameManager>().CoolTimeCounter(state.fireRate);
-			CreateBullet();
 
-			//잠시 기다리는 루틴을 위해 코루틴 함수로 호출
-			StartCoroutine(this.ShowMuzzleFlash());
-		}
+		base.Fire();
+		StartCoroutine(this.ShowMuzzleFlash());
+
 	}
 
+	/*
 	void CreateBullet()
 	{
 		//Bullet 프리팹을 동적으로 생성
@@ -54,6 +50,7 @@ public class CathyTank : Tank {
 		bulletLocalSize.transform.localScale = new Vector3(bulletLocalSize.transform.localScale.x * state.bulletSize, bulletLocalSize.transform.localScale.y * state.bulletSize, bulletLocalSize.transform.localScale.z * state.bulletSize);
 		bulletLocalSize.GetComponent<DirectBullet>().GetDamageType(state.damage, 1, transform.gameObject, state.range, state.bulletSpeed);
 	}
+	*/
 
 	IEnumerator ShowMuzzleFlash()
 	{

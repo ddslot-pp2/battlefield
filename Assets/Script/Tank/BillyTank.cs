@@ -36,6 +36,7 @@ public class BillyTank : Tank {
 		}
 	}
 
+	/*
 	void CreateBullet()
 	{
 		//Bullet 프리팹을 동적으로 생성
@@ -52,6 +53,7 @@ public class BillyTank : Tank {
 		}
 
 	}
+	*/
 
 	IEnumerator ShowMuzzleFlash()
 	{

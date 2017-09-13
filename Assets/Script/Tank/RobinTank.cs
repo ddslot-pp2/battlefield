@@ -36,6 +36,7 @@ public class RobinTank : Tank {
 
 	public override void Fire()
 	{
+		/*
 		if (Time.time >= nextfire)
 		{
 			nextfire = Time.time + state.fireRate;
@@ -45,9 +46,10 @@ public class RobinTank : Tank {
 			//잠시 기다리는 루틴을 위해 코루틴 함수로 호출
 			StartCoroutine(this.ShowMuzzleFlash());
 		}
+		*/
 	}
 
-
+	/*
 	void CreateBullet()
 	{
 		//Bullet 프리팹을 동적으로 생성
@@ -55,6 +57,7 @@ public class RobinTank : Tank {
 		bulletLocalSize.transform.localScale = new Vector3(bulletLocalSize.transform.localScale.x * state.bulletSize, bulletLocalSize.transform.localScale.y * state.bulletSize, bulletLocalSize.transform.localScale.z * state.bulletSize);
 		bulletLocalSize.GetComponent<RailGunBullet>().GetDamageType(state.damage, transform.gameObject, state.range, state.bulletSpeed);
 	}
+	*/
 
 	IEnumerator ShowMuzzleFlash()
 	{

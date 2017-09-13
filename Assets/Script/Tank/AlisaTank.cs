@@ -47,13 +47,15 @@ public class AlisaTank : Tank {
 		}
 	}
 
+	/*
 	void CreateBullet()
 	{
 		//Bullet 프리팹을 동적으로 생성
 		GameObject bulletLocalSize = Instantiate(state.bullet, firePos_p1.position, firePos_p1.rotation);
 		bulletLocalSize.transform.localScale = new Vector3(bulletLocalSize.transform.localScale.x * state.bulletSize, bulletLocalSize.transform.localScale.y * state.bulletSize, bulletLocalSize.transform.localScale.z * state.bulletSize);
-		bulletLocalSize.GetComponent<BallBullet>().GetDamageType(state.damage, 3, transform.gameObject, state.range, state.bulletSpeed);
+		bulletLocalSize.GetComponent<du>().GetDamageType(state.damage, 3, transform.gameObject, state.range, state.bulletSpeed);
 	}
+	*/
 
 	IEnumerator ShowMuzzleFlash()
 	{

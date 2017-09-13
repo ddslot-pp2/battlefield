@@ -39,6 +39,7 @@ public class MichaelTank : Tank {
 
 	public override void Fire()
 	{
+		/*
 		if (Time.time >= nextfire)
 		{
 			nextfire = Time.time + state.fireRate;
@@ -48,8 +49,10 @@ public class MichaelTank : Tank {
 			//잠시 기다리는 루틴을 위해 코루틴 함수로 호출
 			StartCoroutine(this.ShowMuzzleFlash());
 		}
+		*/
 	}
 
+	/*
 	void CreateBullet()
 	{
 		//Bullet 프리팹을 동적으로 생성
@@ -65,6 +68,7 @@ public class MichaelTank : Tank {
 		bulletLocalSize3.transform.localScale = new Vector3(bulletLocalSize3.transform.localScale.x * state.bulletSize, bulletLocalSize3.transform.localScale.y * state.bulletSize, bulletLocalSize3.transform.localScale.z * state.bulletSize);
 		bulletLocalSize3.GetComponent<BallBullet>().GetDamageType(state.damage, 3, transform.gameObject, state.range, state.bulletSpeed);
 	}
+	*/
 
 	IEnumerator ShowMuzzleFlash()
 	{

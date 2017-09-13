@@ -39,14 +39,17 @@ public class VulcanTank : Tank {
 
 	public override void Fire()
 	{
+		/*
 		if (Time.time >= nextfire)
 		{
 			nextfire = Time.time + state.fireRate;
 			//GameObject.Find("GameManager").GetComponent<GameManager>().CoolTimeCounter(state.fireRate);
 			StartCoroutine("CreateBullet");
 		}
+		*/
 	}
 
+	/*
 	IEnumerator CreateBullet()
 	{
 		for(int i = 0; i < 20; i++)
@@ -72,6 +75,7 @@ public class VulcanTank : Tank {
 			}
 		}
 	}
+	*/
 
 	IEnumerator ShowMuzzleFlash(MeshRenderer muzzleFlash)
 	{

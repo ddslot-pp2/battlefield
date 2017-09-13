@@ -46,6 +46,7 @@ public class PakerTank : Tank {
         StartCoroutine(this.ShowMuzzleFlash());
     }
 
+	/*
 	void CreateBullet()
 	{
         //Bullet 프리팹을 동적으로 생성
@@ -53,6 +54,7 @@ public class PakerTank : Tank {
         bulletLocalSize.transform.localScale = new Vector3(bulletLocalSize.transform.localScale.x * state.bulletSize, bulletLocalSize.transform.localScale.y * state.bulletSize, bulletLocalSize.transform.localScale.z * state.bulletSize);
         bulletLocalSize.GetComponent<DirectBullet>().GetDamageType(state.damage, 1, transform.gameObject, state.range, state.bulletSpeed);
 	}
+	*/
 
 	IEnumerator ShowMuzzleFlash()
 	{

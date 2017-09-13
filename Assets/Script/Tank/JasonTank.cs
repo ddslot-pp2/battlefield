@@ -57,6 +57,7 @@ public class JasonTank : Tank {
 		}
 	}
 
+	/*
 	IEnumerator CreateBullet()
 	{
 		//Bullet 프리팹을 동적으로 생성
@@ -167,6 +168,7 @@ public class JasonTank : Tank {
 
 
 	}
+	*/
 
 	IEnumerator ShowMuzzleFlash(MeshRenderer muzzleFlash)
 	{
