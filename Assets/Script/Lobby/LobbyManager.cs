@@ -335,7 +335,7 @@ public class LobbyManager : MonoBehaviour {
 		Send.Type = CharacterType_;
 		Send.UpgradeType = upgraderType;
 
-		ProtobufManager.Instance().Send(opcode.CS_CHARACTER_SELECT, Send);
+		ProtobufManager.Instance().Send(opcode.CS_CHARACTER_UPGRADE, Send);
 	
 	}
 
