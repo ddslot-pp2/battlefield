@@ -9,7 +9,8 @@ namespace Tanks.UI
 	public enum MenuPage
 	{
 		Lobby,
-		Garage
+		Garage,
+		Option
 
 	}
 
@@ -28,6 +29,9 @@ namespace Tanks.UI
 		protected CanvasGroup m_LobbyPanel;
 		[SerializeField]
 		protected CanvasGroup m_GaragePanel;
+
+		[SerializeField]
+		protected CanvasGroup m_OptionPanel;
 	
 		[SerializeField]
 		protected GameObject m_QuitButton;
@@ -54,7 +58,10 @@ namespace Tanks.UI
 				case MenuPage.Garage:
 					ShowGaragePanel();
 					break;
-			
+
+				case MenuPage.Option:
+					ShowOptionPanel();
+					break;
 			}
 		}
 		
@@ -88,6 +95,12 @@ namespace Tanks.UI
 		{
 			ShowPanel(m_GaragePanel);
 		}
+
+		public void ShowOptionPanel()
+		{
+			ShowPanel(m_OptionPanel);
+		}
+
 	
 
 		/*

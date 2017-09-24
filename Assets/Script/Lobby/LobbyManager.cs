@@ -314,6 +314,16 @@ public class LobbyManager : MonoBehaviour {
 		garageTankRoot.SetActive (false);
 	}
 
+	public void onOptionButton()
+	{
+		MainMenuUI.s_Instance.ShowOptionPanel ();
+	}
+
+	public void onOptionCloseButton()
+	{
+		MainMenuUI.s_Instance.ShowLobbyPanel();
+	}
+
 	public void onSelectTankButton()
 	{
 		CharacterType_ = garageRoomManager.GetSelectIndex();
