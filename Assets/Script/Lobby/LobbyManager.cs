@@ -319,17 +319,18 @@ public class LobbyManager : MonoBehaviour {
 		MainMenuUI.s_Instance.ShowOptionPanel ();
 	}
 
-	public void onOptionCloseButton()
-	{
-		MainMenuUI.s_Instance.ShowLobbyPanel();
-	}
 
 	public void onItemShopButton()
 	{
 		MainMenuUI.s_Instance.ShowItemShopPanel ();
 	}
 
-	public void onItemShopCloseButton()
+	public void onInappShopButton()
+	{
+		MainMenuUI.s_Instance.ShowInappShopPanel ();
+	}
+
+	public void onShowLobbyButton()
 	{
 		MainMenuUI.s_Instance.ShowLobbyPanel();
 	}
@@ -338,6 +339,11 @@ public class LobbyManager : MonoBehaviour {
 	public void onBuyItemShop(int type)
 	{
 		
+	}
+		
+	public void onBuyInappShop(int type)
+	{
+
 	}
 
 

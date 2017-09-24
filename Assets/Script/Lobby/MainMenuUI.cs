@@ -10,7 +10,9 @@ namespace Tanks.UI
 	{
 		Lobby,
 		Garage,
-		Option
+		Option,
+		ItemShop,
+		InappShop
 
 	}
 
@@ -35,6 +37,9 @@ namespace Tanks.UI
 
 		[SerializeField]
 		protected CanvasGroup m_ItemShopPanel;
+
+		[SerializeField]
+		protected CanvasGroup m_InAppShopPanel;
 	
 		[SerializeField]
 		protected GameObject m_QuitButton;
@@ -64,6 +69,14 @@ namespace Tanks.UI
 
 				case MenuPage.Option:
 					ShowOptionPanel();
+					break;
+
+				case MenuPage.ItemShop:
+					ShowItemShopPanel();
+					break;
+
+				case MenuPage.InappShop:
+					ShowInappShopPanel();
 					break;
 			}
 		}
@@ -107,6 +120,11 @@ namespace Tanks.UI
 		public void ShowItemShopPanel()
 		{
 			ShowPanel(m_ItemShopPanel);
+		}
+
+		public void ShowInappShopPanel()
+		{
+			ShowPanel(m_InAppShopPanel);
 		}
 
 	
