@@ -324,6 +324,23 @@ public class LobbyManager : MonoBehaviour {
 		MainMenuUI.s_Instance.ShowLobbyPanel();
 	}
 
+	public void onItemShopButton()
+	{
+		MainMenuUI.s_Instance.ShowItemShopPanel ();
+	}
+
+	public void onItemShopCloseButton()
+	{
+		MainMenuUI.s_Instance.ShowLobbyPanel();
+	}
+
+
+	public void onBuyItemShop(int type)
+	{
+		
+	}
+
+
 	public void onSelectTankButton()
 	{
 		CharacterType_ = garageRoomManager.GetSelectIndex();

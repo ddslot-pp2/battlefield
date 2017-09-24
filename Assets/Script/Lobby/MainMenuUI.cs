@@ -32,6 +32,9 @@ namespace Tanks.UI
 
 		[SerializeField]
 		protected CanvasGroup m_OptionPanel;
+
+		[SerializeField]
+		protected CanvasGroup m_ItemShopPanel;
 	
 		[SerializeField]
 		protected GameObject m_QuitButton;
@@ -99,6 +102,11 @@ namespace Tanks.UI
 		public void ShowOptionPanel()
 		{
 			ShowPanel(m_OptionPanel);
+		}
+
+		public void ShowItemShopPanel()
+		{
+			ShowPanel(m_ItemShopPanel);
 		}
 
 	
